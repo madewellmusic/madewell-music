@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MADEWELL MUSIC — 음악 레슨 · 작곡 · 프로듀싱</title>
+<meta name="description" content="KOMCA 등록 100곡+ 프로듀서 MADEWELL에게 직접 배운다. 작곡·편곡·믹싱·프로듀싱 1:1 레슨. 강남 역삼동 스튜디오."/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+a{text-decoration:none;color:inherit}
+:root{
+  --indigo:#4A2C8A;
+  --indigo2:#6040A8;
+  --indigo-dim:rgba(74,44,138,.08);
+  --indigo-glow:rgba(74,44,138,.4);
+  --indigo-glow2:rgba(74,44,138,.18);
+  --dark-indigo:#1A0A3A;
+  --dark:#0A0A0C;
+  --dark2:#0E0E12;
+  --bg:#FFFFFF;
+  --bg2:#F5F5F7;
+  --bg3:#EEEEF3;
+  --ink:#1C1C1E;
+  --body:#3C3C43;
+  --muted:#8E8E93;
+  --dim:#C7C7CC;
+  --border:rgba(0,0,0,.07);
+  --border-i:rgba(74,44,138,.25);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif;overflow-x:hidden;line-height:1.6}
+.serif{font-family:'Cormorant Garamond',serif}
+.container{max-width:1160px;margin:0 auto;padding:0 56px}
+@media(max-width:768px){.container{padding:0 20px}}
+.tag{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.28em;color:var(--indigo);text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.tag::after{content:'';width:28px;height:1px;background:var(--indigo);opacity:.5}
+.tag.light{color:rgba(200,180,255,.7)}
+.tag.light::after{background:rgba(200,180,255,.4)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.on{opacity:1;transform:none}
+.reveal2{opacity:0;transform:translateY(22px);transition:opacity .8s ease .15s,transform .8s ease .15s}
+.reveal2.on{opacity:1;transform:none}
+
+/* ── NOISE TEXTURE ── */
+.noise-layer{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px 200px}
+
+/* ── WAVEFORM SVG MOTIF ── */
+.wave-divider{width:100%;overflow:hidden;line-height:0;display:block}
+.wave-divider svg{display:block;width:100%}
+
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:all .3s}
+#nav.light-nav{padding:26px 56px;background:transparent}
+#nav.dark-nav{padding:16px 56px;background:rgba(255,255,255,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(74,44,138,.08)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-img{height:52px;width:auto;filter:brightness(0) invert(1);transition:filter .3s}
+.nav-logo-img.dark{filter:brightness(0)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:.12em;color:rgba(255,255,255,.7);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.nav-links.dark a{color:var(--muted)}
+.nav-links a:hover,.nav-links.dark a:hover{color:var(--indigo)}
+.nav-btn{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--indigo);padding:10px 24px;text-decoration:none;transition:background .2s,transform .15s}
+.nav-btn:hover{background:var(--indigo2);transform:translateY(-1px)}
+@media(max-width:900px){
+  .nav-links,.nav-btn{display:none}
+  #nav.light-nav,#nav.dark-nav{padding:14px 20px}
+  .nav-inner{display:grid;grid-template-columns:44px 1fr 44px;align-items:center}
+  .nav-logo{grid-column:2;justify-self:center}
+  .nav-hamburger{grid-column:3;justify-self:end}
+}
+
+/* ── HAMBURGER ── */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:202;flex-shrink:0}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:1px;transition:transform .3s,opacity .3s,background .3s}
+#nav.dark-nav .nav-hamburger span{background:var(--ink)}
+.nav-hamburger.open span{background:#fff!important}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:900px){.nav-hamburger{display:flex}}
+
+/* ── MOBILE MENU ── */
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,18,.97);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:40px 24px}
+.mobile-menu.open{display:flex}
+body.menu-open{overflow:hidden}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:36px;color:rgba(255,255,255,.7);text-decoration:none;letter-spacing:.02em;padding:10px 0;transition:color .2s;text-align:center;width:100%}
+.mobile-menu a:hover{color:rgba(160,130,255,.9)}
+.mobile-menu-divider{width:40px;height:1px;background:rgba(255,255,255,.1);margin:8px 0}
+.mobile-menu-cta{font-family:'Montserrat',sans-serif!important;font-size:12px!important;font-weight:700!important;letter-spacing:.16em!important;text-transform:uppercase;background:var(--indigo)!important;color:#fff!important;padding:16px 48px!important;margin-top:8px}
+
+/* ── HERO ── */
+#hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(135deg,var(--dark-indigo) 0%,#0D0520 40%,var(--dark) 100%)}
+.hero-grain{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
+.hero-glow{position:absolute;top:-20%;left:-10%;width:70%;height:120%;background:radial-gradient(ellipse at 30% 40%,rgba(74,44,138,.55) 0%,transparent 65%);pointer-events:none;z-index:0}
+.hero-glow2{position:absolute;bottom:-20%;right:-5%;width:50%;height:80%;background:radial-gradient(ellipse at 70% 80%,rgba(74,44,138,.3) 0%,transparent 65%);pointer-events:none;z-index:0}
+/* Waveform background decoration */
+.hero-wave-bg{position:absolute;bottom:0;left:0;right:0;z-index:0;opacity:.08}
+.hero-inner{position:relative;z-index:2;width:100%;padding-bottom:100px}
+.hero-pre{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.3em;color:rgba(160,130,255,.8);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hero-pre::before{content:'';width:28px;height:1px;background:rgba(160,130,255,.6)}
+h1.lesson-h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,5vw,74px);line-height:.95;letter-spacing:-.01em;color:#fff}
+h1.lesson-h1 em{font-style:italic;color:rgba(180,150,255,.9)}
+.hero-divider{width:44px;height:1px;background:var(--indigo2);margin:30px 0;box-shadow:0 0 12px var(--indigo-glow)}
+.hero-sub{font-size:clamp(15px,1.6vw,19px);color:rgba(255,255,255,.6);font-weight:300;line-height:1.9;max-width:520px;margin-bottom:44px}
+.hero-sub b{color:rgba(200,180,255,.9);font-weight:500}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn-indigo{display:inline-flex;align-items:center;gap:8px;background:var(--indigo);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;text-decoration:none;transition:background .2s,transform .15s,box-shadow .2s}
+.btn-indigo:hover{background:var(--indigo2);transform:translateY(-2px);box-shadow:0 8px 32px var(--indigo-glow)}
+.btn-outline-w{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.25);color:#fff;font-family:'Montserrat',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:15px 30px;text-decoration:none;transition:all .2s}
+.btn-outline-w:hover{border-color:rgba(160,130,255,.6);transform:translateY(-2px)}
+.hero-scroll{position:absolute;bottom:36px;right:56px;display:flex;flex-direction:column;align-items:center;gap:10px;animation:sb 2.4s ease-in-out infinite}
+.hero-scroll span{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.28em;color:rgba(255,255,255,.25);text-transform:uppercase;writing-mode:vertical-rl}
+.hero-line{width:1px;height:40px;background:linear-gradient(rgba(120,90,200,.7),transparent)}
+@keyframes sb{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ── STATS STRIP ── */
+#strip{background:var(--dark-indigo);padding:0;border-top:1px solid rgba(74,44,138,.3);border-bottom:1px solid rgba(74,44,138,.3)}
+.strip-inner{display:flex}
+.strip-item{flex:1;padding:24px 32px;border-right:1px solid rgba(74,44,138,.25);display:flex;flex-direction:column;align-items:center;text-align:center}
+.strip-item:last-child{border-right:none}
+.si-val{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:32px;color:rgba(180,150,255,.9);line-height:1}
+.si-lbl{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.18em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-top:5px}
+@media(max-width:600px){.strip-inner{flex-wrap:wrap}.strip-item{min-width:50%}}
+
+/* ── WHY LEARN ── */
+#why{background:var(--bg);padding:120px 0}
+.why-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--border);margin-top:52px}
+.why-card{background:var(--bg2);padding:40px 32px;transition:background .25s}
+.why-card:hover{background:var(--bg3)}
+.why-card.dark-card{background:linear-gradient(135deg,var(--dark-indigo),#0A0A18);color:#fff}
+.why-card.dark-card:hover{background:linear-gradient(135deg,#200B4A,#0A0A18)}
+.why-n{font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:300;color:rgba(0,0,0,.05);line-height:1;margin-bottom:14px}
+.why-card.dark-card .why-n{color:rgba(255,255,255,.05)}
+.why-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;color:var(--ink);margin-bottom:10px}
+.why-card.dark-card .why-title{color:rgba(180,150,255,.9)}
+.why-desc{font-size:13.5px;color:var(--body);line-height:1.85}
+.why-card.dark-card .why-desc{color:rgba(255,255,255,.5)}
+.why-glow{box-shadow:inset 0 0 40px rgba(74,44,138,.18),0 0 0 1px rgba(74,44,138,.2)}
+@media(max-width:860px){.why-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.why-grid{grid-template-columns:1fr}}
+
+/* ── INSTRUCTOR ── */
+#instructor{background:linear-gradient(180deg,var(--dark-indigo) 0%,#0D0520 60%,var(--dark) 100%);padding:120px 0;position:relative;overflow:hidden}
+.inst-glow-bg{position:absolute;top:20%;right:-10%;width:60%;height:80%;background:radial-gradient(ellipse at 80% 40%,rgba(74,44,138,.4) 0%,transparent 60%);pointer-events:none}
+.inst-inner{display:grid;grid-template-columns:auto 1fr;gap:72px;align-items:start;position:relative;z-index:1}
+.inst-photo-wrap{position:relative}
+.inst-photo-single{width:340px;height:480px;overflow:hidden;position:relative}
+.inst-photo-single img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(15%) contrast(1.1);transition:transform .8s ease}
+.inst-photo-single::after{content:'';position:absolute;inset:0;border:1px solid rgba(74,44,138,.25);pointer-events:none}
+@media(max-width:860px){.inst-photo-single{width:100%;height:400px}}
+.inst-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:240px 240px;gap:3px;width:340px}
+.ip{overflow:hidden;position:relative}
+.ip img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .8s ease;filter:grayscale(15%) contrast(1.1)}
+.ip:hover img{transform:scale(1.03)}
+.ip.ip-big{grid-row:span 2}
+.ip::after{content:'';position:absolute;inset:0;border:1px solid rgba(74,44,138,.25);pointer-events:none}
+@media(max-width:860px){.inst-photos{width:100%;grid-template-rows:220px 160px}}
+@media(max-width:500px){.inst-photos{grid-template-rows:180px 130px}}
+.inst-glow-card{position:absolute;bottom:-20px;left:-20px;right:20px;padding:20px 24px;background:rgba(74,44,138,.15);border:1px solid rgba(74,44,138,.35);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.inst-glow-card-title{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;color:rgba(180,150,255,.7);text-transform:uppercase;margin-bottom:6px}
+.inst-glow-card-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:rgba(180,150,255,.9);line-height:1}
+.inst-copy{padding-top:12px}
+.inst-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,3.5vw,52px);line-height:1;color:#fff;margin-bottom:6px}
+.inst-name em{font-style:italic;color:rgba(180,150,255,.9)}
+.inst-pname{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.22em;color:rgba(74,44,138,.7);text-transform:uppercase;margin-bottom:22px;padding:6px 14px;background:rgba(74,44,138,.18);border:1px solid rgba(74,44,138,.3);display:inline-block}
+.inst-desc{font-size:14px;color:rgba(255,255,255,.55);line-height:1.9;margin-bottom:32px;max-width:560px}
+.inst-desc em{color:rgba(180,150,255,.8);font-style:normal}
+.credits-wrap{display:flex;flex-direction:column;gap:3px}
+.credit-row{display:flex;align-items:baseline;gap:12px;padding:12px 16px;background:rgba(255,255,255,.03);border-left:2px solid transparent;transition:border-color .2s,background .2s}
+.credit-row:hover{border-left-color:rgba(74,44,138,.6);background:rgba(74,44,138,.08)}
+.cred-artist{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:rgba(180,150,255,.85);letter-spacing:.06em;min-width:160px;flex-shrink:0}
+.cred-work{font-size:12.5px;color:rgba(255,255,255,.45);line-height:1.4;font-family:'Noto Sans KR',sans-serif}
+.inst-skills{display:flex;flex-wrap:wrap;gap:6px;margin-top:24px}
+.i-skill{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:.08em;color:rgba(180,150,255,.7);background:rgba(74,44,138,.15);border:1px solid rgba(74,44,138,.3);padding:5px 14px;transition:background .2s}
+.i-skill:hover{background:rgba(74,44,138,.28)}
+@media(max-width:860px){.inst-inner{grid-template-columns:1fr;gap:40px}.inst-photo{width:100%;height:320px}}
+@media(max-width:600px){#instructor{padding:80px 0}.inst-photo{height:260px}}
+
+/* ── BIO TABS ── */
+.bio-tabs{display:flex;gap:0;border-bottom:1px solid rgba(74,44,138,.3);margin:28px 0 20px}
+.bio-btn{background:none;border:none;border-bottom:2px solid transparent;padding:10px 0;margin-right:24px;margin-bottom:-1px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.3);text-transform:uppercase;cursor:pointer;transition:all .2s}
+.bio-btn.on{color:rgba(180,150,255,.9);border-bottom-color:rgba(180,150,255,.8)}
+.bio-panel{display:none}
+.bio-panel.on{display:block}
+.bio-tl{display:flex;flex-direction:column;gap:0}
+.bio-tl-row{display:flex;gap:14px;position:relative;padding-bottom:14px}
+.bio-tl-row::before{content:'';position:absolute;left:40px;top:18px;bottom:0;width:1px;background:rgba(74,44,138,.4)}
+.bio-tl-row:last-child::before{display:none}
+.bio-tl-yr{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;color:rgba(180,150,255,.8);min-width:36px;padding-top:3px;letter-spacing:.06em;flex-shrink:0}
+.bio-tl-dot{width:5px;height:5px;border-radius:50%;background:rgba(180,150,255,.8);flex-shrink:0;margin-top:6px;box-shadow:0 0 6px rgba(74,44,138,.6)}
+.bio-tl-c{flex:1}
+.bio-tl-t{font-size:13px;color:rgba(255,255,255,.75);line-height:1.5}
+.bio-tl-d{font-size:12px;color:rgba(255,255,255,.4);margin-top:3px}
+.bio-alb-list{display:flex;flex-direction:column;gap:0}
+.bio-alb-row{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid rgba(74,44,138,.25);align-items:start}
+.bio-alb-row:last-child{border-bottom:none}
+.bio-alb-yr{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;color:rgba(180,150,255,.7);padding-top:2px;flex-shrink:0}
+.bio-alb-info{font-size:12.5px;color:rgba(255,255,255,.65);line-height:1.5}
+.bio-alb-info span{display:block;font-size:11px;color:rgba(255,255,255,.35);margin-top:2px}
+.bio-rec-list{display:flex;flex-direction:column;gap:6px}
+.bio-rec-item{padding:11px 16px;background:rgba(74,44,138,.1);border-left:2px solid rgba(74,44,138,.5);font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.65}
+
+/* ── CURRICULUM ── */
+#curriculum{background:var(--bg);padding:120px 0}
+.curr-tabs{display:flex;gap:2px;margin-top:52px;background:var(--border)}
+.curr-tab{flex:1;padding:18px 16px;background:var(--bg2);border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:all .25s;text-align:center}
+.curr-tab.on{background:var(--indigo);color:#fff}
+.curr-tab:hover:not(.on){background:var(--bg3);color:var(--indigo)}
+.curr-panels{margin-top:2px}
+.curr-panel{display:none}
+.curr-panel.on{display:grid;grid-template-columns:1fr 2fr;gap:2px;background:var(--border)}
+.curr-panel-info{background:var(--indigo-dim);padding:44px 36px;border:1px solid var(--border-i)}
+.curr-panel-level{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;color:var(--indigo);text-transform:uppercase;margin-bottom:10px}
+.curr-panel-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--ink);line-height:1.1;margin-bottom:16px}
+.curr-panel-title em{font-style:italic;color:var(--indigo)}
+.curr-panel-desc{font-size:13.5px;color:var(--body);line-height:1.85;margin-bottom:24px}
+.curr-badge{display:inline-block;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border:1px solid var(--border-i);color:var(--indigo);background:rgba(74,44,138,.06)}
+.curr-panel-subjects{background:var(--bg);padding:36px}
+.subject-list{display:flex;flex-direction:column;gap:0}
+.subject-item{display:flex;align-items:flex-start;gap:18px;padding:18px 0;border-bottom:1px solid var(--border)}
+.subject-item:last-child{border-bottom:none}
+.s-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--indigo);opacity:.35;line-height:1;min-width:32px;flex-shrink:0}
+.s-content{flex:1}
+.s-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;color:var(--ink);letter-spacing:.07em;margin-bottom:5px}
+.s-desc{font-size:12.5px;color:var(--muted);line-height:1.7}
+@media(max-width:760px){.curr-panel.on{grid-template-columns:1fr}.curr-tabs{flex-direction:column}.curr-tab{text-align:left;padding:16px 20px}}
+@media(max-width:600px){#curriculum{padding:72px 0}.curr-panel-info{padding:28px 20px}.curr-panel-subjects{padding:24px 20px}}
+
+/* ── REVIEWS ── */
+#reviews{position:relative;padding:120px 0;overflow:hidden;background:linear-gradient(180deg,#0F0320 0%,var(--dark-indigo) 50%,#0F0320 100%)}
+.reviews-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80%;height:100%;background:radial-gradient(ellipse,rgba(74,44,138,.25) 0%,transparent 65%);pointer-events:none}
+.reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:52px;position:relative;z-index:1}
+.review-card{background:rgba(255,255,255,.04);border:1px solid rgba(74,44,138,.2);padding:36px 32px;transition:border-color .3s,box-shadow .3s}
+.review-card:hover{border-color:rgba(74,44,138,.5);box-shadow:0 0 32px rgba(74,44,138,.18)}
+.review-stars{display:flex;gap:3px;margin-bottom:14px}
+.star{color:rgba(180,150,255,.7);font-size:14px}
+.review-text{font-size:14px;color:rgba(255,255,255,.6);line-height:1.9;margin-bottom:24px;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300}
+.review-text::before{content:'"';color:rgba(74,44,138,.6);font-size:32px;font-family:'Cormorant Garamond',serif;line-height:0;vertical-align:-10px;margin-right:2px}
+.reviewer{display:flex;align-items:center;gap:12px}
+.reviewer-icon{width:36px;height:36px;border-radius:50%;background:rgba(74,44,138,.3);border:1px solid rgba(74,44,138,.4);display:flex;align-items:center;justify-content:center;font-size:16px}
+.reviewer-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:rgba(180,150,255,.8);letter-spacing:.06em}
+.reviewer-tag{font-size:11px;color:rgba(255,255,255,.3);margin-top:2px}
+@media(max-width:700px){.reviews-grid{grid-template-columns:1fr}}
+@media(max-width:600px){#reviews{padding:72px 0}.review-card{padding:24px 20px}}
+
+/* ── LESSON APPLY FORM ── */
+#apply{background:var(--bg2);border-top:1px solid var(--border);padding:120px 0}
+.apply-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.apply-copy{padding-top:8px}
+.apply-copy h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,3.5vw,50px);line-height:1.05;margin-bottom:24px}
+.apply-copy h2 em{font-style:italic;color:var(--indigo)}
+.apply-copy p{font-size:14px;color:var(--body);line-height:1.9;margin-bottom:32px}
+.apply-info-list{display:flex;flex-direction:column;gap:16px}
+.ai-item{display:flex;align-items:flex-start;gap:14px;font-size:13px;color:var(--body);line-height:1.75}
+.ai-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.apply-form-wrap{background:var(--bg);padding:44px 40px;border:1px solid var(--border);border-top:3px solid var(--indigo)}
+.af-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:8px}
+.af-input,.af-select,.af-textarea{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-size:14px;padding:13px 16px;transition:border-color .2s,background .2s;outline:none;-webkit-appearance:none;appearance:none;border-radius:0}
+.af-input:focus,.af-select:focus,.af-textarea:focus{border-color:var(--indigo);background:#fff}
+.af-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234A2C8A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-color:var(--bg2);padding-right:44px;cursor:pointer}
+.af-select:focus{background-color:#fff}
+.af-textarea{min-height:90px;resize:vertical;line-height:1.65}
+.af-row{margin-bottom:18px}
+.af-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.af-submit{width:100%;background:var(--indigo);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:17px;border:none;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s;margin-top:4px}
+.af-submit:hover{background:var(--indigo2);transform:translateY(-1px);box-shadow:0 6px 24px var(--indigo-glow)}
+.af-notice{margin-top:14px;padding:16px 20px;border-left:2px solid var(--indigo);background:var(--indigo-dim);font-size:12.5px;color:var(--body);line-height:1.75}
+.af-notice strong{color:var(--indigo)}
+.af-notice a{color:var(--indigo);text-decoration:none;font-weight:700}
+.af-notice a:hover{text-decoration:underline}
+.af-success{display:none;text-align:center;padding:36px 12px}
+.af-success-icon{font-size:44px;margin-bottom:14px}
+.af-success-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--ink);margin-bottom:10px}
+.af-success-sub{font-size:13px;color:var(--body);line-height:1.8;margin-bottom:22px}
+.af-copy-area{width:100%;min-height:120px;padding:14px 16px;font-size:12.5px;line-height:1.7;border:1px solid var(--border);background:var(--bg2);color:var(--ink);resize:none;border-radius:0;outline:none;font-family:'Noto Sans KR',sans-serif;margin-bottom:8px;text-align:left}
+@media(max-width:860px){.apply-inner{grid-template-columns:1fr;gap:40px}}
+@media(max-width:600px){.apply-form-wrap{padding:28px 20px}#apply{padding:72px 0}.af-grid-2{grid-template-columns:1fr}}
+
+/* ── CTA ── */
+#cta{position:relative;padding:140px 0;text-align:center;overflow:hidden;background:linear-gradient(135deg,var(--dark-indigo) 0%,#0D0520 50%,var(--dark) 100%)}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60%;height:120%;background:radial-gradient(ellipse,rgba(74,44,138,.5) 0%,transparent 65%);pointer-events:none}
+.cta-inner{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 24px}
+.cta-h{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(42px,6vw,74px);line-height:1.05;color:#fff;margin-bottom:18px}
+.cta-h em{font-style:italic;color:rgba(180,150,255,.9)}
+.cta-sub{font-size:16px;color:rgba(255,255,255,.45);font-weight:300;line-height:1.9;margin-bottom:44px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-kakao{display:inline-flex;align-items:center;gap:10px;background:#FAE100;color:#1a1200;font-family:'Noto Sans KR',sans-serif;font-weight:800;font-size:14px;padding:16px 38px;text-decoration:none;transition:opacity .2s,transform .15s}
+.btn-kakao:hover{opacity:.92;transform:translateY(-2px)}
+.btn-ig{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.22);color:#fff;font-family:'Montserrat',sans-serif;font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:16px 30px;text-decoration:none;transition:all .2s}
+.btn-ig:hover{border-color:rgba(160,130,255,.5);transform:translateY(-2px)}
+
+/* ── FOOTER ── */
+footer{background:#060610;border-top:1px solid rgba(74,44,138,.2);padding:52px 0}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.foot-logo img{height:44px;width:auto;filter:brightness(0) invert(1);display:block;margin-bottom:4px}
+.foot-meta{font-size:12px;color:rgba(255,255,255,.25);line-height:1.9;margin-top:6px}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.foot-links a{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,.25);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.foot-links a:hover{color:rgba(180,150,255,.7)}
+.foot-other{font-size:11px;color:rgba(255,255,255,.2);margin-top:8px}
+.foot-other a{color:rgba(120,90,200,.5);text-decoration:none;transition:color .2s}
+.foot-other a:hover{color:rgba(180,150,255,.7)}
+
+/* ── MOBILE ── */
+@media(max-width:600px){
+  .hero-inner{padding-bottom:72px;text-align:center}
+  .hero-pre{justify-content:center}
+  .hero-divider{margin-left:auto;margin-right:auto}
+  .hero-sub{margin-left:auto;margin-right:auto;text-align:center}
+  .hero-cta{flex-direction:column;align-items:center;gap:10px}
+  .btn-indigo,.btn-outline-w{justify-content:center;text-align:center;width:100%;max-width:300px}
+  .hero-scroll{display:none}
+  #instructor{padding:72px 0}
+  #why{padding:72px 0}
+  .cta-btns{flex-direction:column;align-items:center;gap:12px}
+  .btn-kakao,.btn-ig{width:100%;max-width:320px;justify-content:center;text-align:center}
+  .foot-inner{flex-direction:column;align-items:center;text-align:center;gap:20px}
+  footer{padding:40px 0}
+  .foot-links{gap:16px;justify-content:center}
+  .foot-logo{display:flex;justify-content:center}
+  .foot-logo img{margin:0 auto}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" class="light-nav">
+  <div class="nav-inner container">
+    <a href="#" class="nav-logo">
+      <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL Music" class="nav-logo-img" id="lnav-logo-img"/>
+    </a>
+    <ul class="nav-links" id="lnav-links">
+      <li><a href="#why">왜 배워야</a></li>
+      <li><a href="#instructor">강사</a></li>
+      <li><a href="#curriculum">커리큘럼</a></li>
+      <li><a href="#reviews">후기</a></li>
+      <li><a href="#apply">수강 신청</a></li>
+    </ul>
+    <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="nav-btn">레슨 문의</a>
+    <button class="nav-hamburger" id="lnav-hamburger" aria-label="메뉴 열기" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="lmobile-menu">
+  <a href="#why" onclick="closeMenu()">왜 배워야</a>
+  <a href="#instructor" onclick="closeMenu()">강사</a>
+  <a href="#curriculum" onclick="closeMenu()">커리큘럼</a>
+  <a href="#reviews" onclick="closeMenu()">후기</a>
+  <a href="#apply" onclick="closeMenu()">수강 신청</a>
+  <div class="mobile-menu-divider"></div>
+  <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="mobile-menu-cta" onclick="closeMenu()">카카오톡 레슨 문의</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grain"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <!-- Waveform decoration -->
+  <div class="hero-wave-bg">
+    <svg viewBox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,90 C60,20 120,160 180,90 C240,20 300,160 360,90 C420,20 480,160 540,90 C600,20 660,160 720,90 C780,20 840,160 900,90 C960,20 1020,160 1080,90 C1140,20 1200,160 1260,90 C1320,20 1380,160 1440,90" stroke="rgba(74,44,138,0.6)" stroke-width="1.5" fill="none"/>
+      <path d="M0,90 C80,40 160,140 240,90 C320,40 400,140 480,90 C560,40 640,140 720,90 C800,40 880,140 960,90 C1040,40 1120,140 1200,90 C1280,40 1360,140 1440,90" stroke="rgba(74,44,138,0.3)" stroke-width="1" fill="none"/>
+    </svg>
+  </div>
+  <div class="hero-inner container">
+    <div class="hero-pre">Lesson · Composition · Production</div>
+    <h1 class="lesson-h1">
+      K-POP 아이돌·아티스트를<br/>
+      <em>직접 프로듀싱한</em><br/>
+      현직 프로듀서에게 배운다.
+    </h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">
+      이론이 아닌 실전. 교과서가 아닌 현장.<br/>
+      KOMCA 등록 100곡+ · 오리콘 차트 탑 순위권<br/>강남 역삼동 스튜디오 · 1:1 레슨.
+    </p>
+    <div class="hero-cta">
+      <a href="#apply" class="btn-indigo">수강 신청하기</a>
+      <a href="#curriculum" class="btn-outline-w">커리큘럼 보기</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-line"></div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section id="strip">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <div class="si-val">100+</div>
+      <div class="si-lbl">KOMCA 등록곡</div>
+    </div>
+    <div class="strip-item">
+      <div class="si-val">19+</div>
+      <div class="si-lbl">년 현장 경력</div>
+    </div>
+    <div class="strip-item">
+      <div class="si-val">1:1</div>
+      <div class="si-lbl">맞춤 수업</div>
+    </div>
+    <div class="strip-item">
+      <div class="si-val">강남</div>
+      <div class="si-lbl">역삼동 스튜디오</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY LEARN -->
+<section id="why">
+  <div class="container">
+    <div class="reveal">
+      <div class="tag" style="margin-bottom:16px">Why MADEWELL</div>
+      <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,54px)">왜 여기서<br/>배워야 할까요</h2>
+      <p style="font-size:15px;color:var(--body);margin-top:16px;line-height:1.8;max-width:520px">교재대로 가르치는 학원 레슨이 아닙니다. 실제로 아이돌 음악을 만든 사람에게, 그 방식 그대로 배웁니다.</p>
+    </div>
+    <div class="why-grid reveal2">
+      <div class="why-card">
+        <div class="why-n">01</div>
+        <div class="why-title">현직 프로듀서가 직접</div>
+        <div class="why-desc">VIVIZ, (여자)아이들 전소연, 마마무 화사, SBS B:MY BOYZ 등 100곡+ KOMCA 등록곡을 만든 프로듀서가 직접 1:1로 가르칩니다. 도제식 실전 교육.</div>
+      </div>
+      <div class="why-card dark-card why-glow">
+        <div class="why-n">02</div>
+        <div class="why-title">실제 스튜디오에서 배운다</div>
+        <div class="why-desc">NEVE 1073, SSL FUSION, Barefoot MM27, Pro Tools HDX. 학원 장비가 아닌 실제 아이돌 음악을 만드는 장비로 배웁니다.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-n">03</div>
+        <div class="why-title">완전 맞춤형 커리큘럼</div>
+        <div class="why-desc">작곡 입문부터 믹싱·마스터링까지, 수강생의 레벨과 목표에 맞게 100% 맞춤 설계합니다. 같은 커리큘럼으로 두 명을 가르치는 일은 없습니다.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-n">04</div>
+        <div class="why-title">이론 + 실습 동시 진행</div>
+        <div class="why-desc">이론만 배우고 끝나지 않습니다. 매 수업 실제 곡 작업으로 이어지며, 수업 중 만든 곡은 본인 것으로 발매 가능합니다.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-n">05</div>
+        <div class="why-title">일본 활동 노하우까지</div>
+        <div class="why-desc">오리콘 TOP10, 시부야 타워레코드 1위 등 일본 시장 활동 경험. J-POP 스타일 작법, 일본 발매 과정까지 배울 수 있는 국내 유일의 커리큘럼.</div>
+      </div>
+      <div class="why-card dark-card why-glow">
+        <div class="why-n">06</div>
+        <div class="why-title">JLPT 1급 · 이중 언어</div>
+        <div class="why-desc">한국어는 물론 일본어 레슨도 가능합니다. 일본에서 음악을 배우고 싶은 분, 한국 스타일 작법을 배우고 싶은 일본 분들도 환영합니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section id="instructor">
+  <div class="inst-glow-bg"></div>
+  <div class="container">
+    <div class="inst-inner">
+      <div class="inst-photo-wrap reveal">
+        <div class="inst-photo-single">
+          <img src="images/profile2.jpg" alt="MADEWELL 정균"/>
+        </div>
+        <div class="inst-glow-card">
+          <div class="inst-glow-card-title">KOMCA Registered</div>
+          <div class="inst-glow-card-num">100+</div>
+        </div>
+      </div>
+      <div class="inst-copy reveal2">
+        <div class="tag light" style="margin-bottom:16px">Instructor</div>
+        <h2 class="inst-name">정균<br/><em>MADEWELL</em></h2>
+        <div class="inst-pname">Music Producer · Artist · Engineer</div>
+        <p class="inst-desc">
+          2007년 아이돌 그룹으로 데뷔해 <em>19년간</em> 현장에서 작곡·편곡·믹싱·마스터링을 직접 해온 프로듀서입니다.
+          KOMCA 등록곡 100곡 이상, 일본 오리콘 TOP10, 시부야 타워레코드 주간 1위 달성.
+          지금도 현역으로 K-POP 곡을 만들며 강남 역삼동 스튜디오를 운영 중입니다.
+          <em>교재가 아닌 현장의 언어로 가르칩니다.</em>
+        </p>
+        <div class="credits-wrap">
+          <div class="credit-row">
+            <span class="cred-artist">PRODUCE 101 JAPAN</span>
+            <span class="cred-work">SEASON 4 — Produced by MADEWELL</span>
+          </div>
+          <div class="credit-row">
+            <span class="cred-artist">VIVIZ (비비지)</span>
+            <span class="cred-work">「A Montage of ( ),」— TOXIC 정규 1집</span>
+          </div>
+          <div class="credit-row">
+            <span class="cred-artist">(여자)아이들 전소연</span>
+            <span class="cred-work">「아무너케」M2 Live</span>
+          </div>
+          <div class="credit-row">
+            <span class="cred-artist">마마무 화사</span>
+            <span class="cred-work">「Two Side」(× Sense Mom)</span>
+          </div>
+          <div class="credit-row">
+            <span class="cred-artist">인피니트 장동우</span>
+            <span class="cred-work">「Super Birthday」「인생(LIFE)」</span>
+          </div>
+          <div class="credit-row">
+            <span class="cred-artist">MBC 방과후설렘 시즌2 소년판타지</span>
+            <span class="cred-work">「Fantasy」「Shut Off」「BATTLE FIELD」</span>
+          </div>
+          <div class="credit-row">
+            <span class="cred-artist">SBS 글로벌 아이돌 오디션 B:MY BOYZ</span>
+            <span class="cred-work">「Be my boyz」 타이틀곡</span>
+          </div>
+        </div>
+        <!-- Biography Tabs -->
+        <div class="bio-tabs">
+          <button class="bio-btn on" onclick="saBio(this,'bio-career')">경력</button>
+          <button class="bio-btn" onclick="saBio(this,'bio-albums')">음반</button>
+          <button class="bio-btn" onclick="saBio(this,'bio-records')">수상 · 기록</button>
+        </div>
+        <div class="bio-panel on" id="bio-career">
+          <div class="bio-tl">
+            <div class="bio-tl-row"><div class="bio-tl-yr">2007</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">3인조 아이돌 그룹 타키온 메인보컬 데뷔</div></div></div>
+            <div class="bio-tl-row"><div class="bio-tl-yr">2011</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">5인조 아이돌 그룹 엔트레인 리더 및 보컬 데뷔</div></div></div>
+            <div class="bio-tl-row"><div class="bio-tl-yr">2014</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">6인조 아이돌 그룹 빅플로 BIGFLO</div><div class="bio-tl-d">리더 · 메인보컬 · 프로듀서 데뷔</div></div></div>
+            <div class="bio-tl-row"><div class="bio-tl-yr">2018</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">(주)스튜디오J2K 설립</div></div></div>
+            <div class="bio-tl-row"><div class="bio-tl-yr">2020</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">(주)MADEWELL MUSIC 법인설립 및 대표 프로듀서</div><div class="bio-tl-d">스튜디오 오픈 · 서울 강남구 역삼동</div></div></div>
+            <div class="bio-tl-row"><div class="bio-tl-yr">2022</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">(주)AVEC MUSIC 겸임 프로듀서</div></div></div>
+            <div class="bio-tl-row"><div class="bio-tl-yr">2023</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">We:A (元 BIGFLO) 결성 · 리더 · 메인보컬</div><div class="bio-tl-d">1st Single &amp; Japan Single 「24/7」 발매</div></div></div>
+            <div class="bio-tl-row"><div class="bio-tl-yr">2025</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">일본 솔로 2집 「Still UNFINISHED」 발매</div><div class="bio-tl-d">단독 콘서트 개최</div></div></div>
+          </div>
+        </div>
+        <div class="bio-panel" id="bio-albums">
+          <div class="bio-alb-list">
+            <div class="bio-alb-row"><div class="bio-alb-yr">2007</div><div class="bio-alb-info">Tachyon 1st Single 「Feel Your Breeze」<span>타키온</span></div></div>
+            <div class="bio-alb-row"><div class="bio-alb-yr">2011</div><div class="bio-alb-info">N-train 1st Single 「One Last Cry」<span>엔트레인</span></div></div>
+            <div class="bio-alb-row"><div class="bio-alb-yr">2012</div><div class="bio-alb-info">N-train 2nd Single 「I'll Forget You」 / 3rd Mini Album 「내게 돌아와」<span>엔트레인</span></div></div>
+            <div class="bio-alb-row"><div class="bio-alb-yr">2014</div><div class="bio-alb-info">BIGFLO 1st Mini 「First Flow」 / 2nd Mini 「Second Flow」<span>BIGFLO</span></div></div>
+            <div class="bio-alb-row"><div class="bio-alb-yr">2015</div><div class="bio-alb-info">BIGFLO 1st Japan 「Delilah」 / 3rd Mini 「Incant」 / 2nd Japan 「1,2,3,4」<span>BIGFLO · 오리콘 TOP10 · 시부야 타워레코드 주간 1위</span></div></div>
+            <div class="bio-alb-row"><div class="bio-alb-yr">2016</div><div class="bio-alb-info">JUNGKYUN Japan Solo Album 「UNFINISHED」<span>솔로 — 오리콘 앨범 9위</span></div></div>
+            <div class="bio-alb-row"><div class="bio-alb-yr">2023</div><div class="bio-alb-info">We:A 1st Single &amp; Japan Single 「24/7」<span>We:A (元 BIGFLO)</span></div></div>
+            <div class="bio-alb-row"><div class="bio-alb-yr">2025</div><div class="bio-alb-info">JUNGKYUN Japan 2nd Solo Album 「Still UNFINISHED」<span>솔로 — 단독 콘서트</span></div></div>
+          </div>
+        </div>
+        <div class="bio-panel" id="bio-records">
+          <div class="bio-rec-list">
+            <div class="bio-rec-item">BIGFLO 1st Japan「Delilah」— 오리콘차트 TOP10 · 시부야 타워레코드 주간 앨범판매량 1위</div>
+            <div class="bio-rec-item">BIGFLO 2nd Japan「1,2,3,4」— 오리콘차트 TOP10 · 시부야 타워레코드 주간 앨범판매량 1위</div>
+            <div class="bio-rec-item">JUNGKYUN Japan Solo「Unfinished」— 오리콘차트 앨범부문 9위</div>
+            <div class="bio-rec-item">일본 단독 콘서트 및 팬미팅 20회 이상 개최 · 전국 프로모션</div>
+            <div class="bio-rec-item">BIGFLO「딜라일라(Delilah)」— 독일 K-POP 차트 9위</div>
+            <div class="bio-rec-item">BIGFLO 1st Malaysia Showcase &amp; Fan-Meeting</div>
+            <div class="bio-rec-item">SBS 인기가요 · KBS 뮤직뱅크 · MBC 쇼음악중심 · Mnet M Countdown · Arirang TV Simply Kpop 등 다수 출연</div>
+            <div class="bio-rec-item">2022 — We:A (BIGFLO) 재결성 「Re:born」 일본 단독콘서트 개최</div>
+            <div class="bio-rec-item">2023 — We:A 1st Single 「24/7」 발매 · 일본 단독콘서트 개최</div>
+            <div class="bio-rec-item">2025–2026 — JUNGKYUN「Still Unfinished」 일본 발매 · 단독 콘서트 개최</div>
+          </div>
+        </div>
+        <div class="inst-skills">
+          <span class="i-skill">작곡</span>
+          <span class="i-skill">편곡</span>
+          <span class="i-skill">믹싱</span>
+          <span class="i-skill">마스터링</span>
+          <span class="i-skill">피아노</span>
+          <span class="i-skill">기타</span>
+          <span class="i-skill">베이스</span>
+          <span class="i-skill">드럼</span>
+          <span class="i-skill">JLPT 1급</span>
+          <span class="i-skill">Pro Tools HDX</span>
+          <span class="i-skill">Logic Pro</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section id="curriculum">
+  <div class="container">
+    <div class="reveal">
+      <div class="tag" style="margin-bottom:16px">Curriculum</div>
+      <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,54px)">3단계<br/>레슨 커리큘럼</h2>
+      <p style="font-size:14px;color:var(--body);margin-top:16px;line-height:1.85;max-width:480px">기초부터 실전까지. 수강생의 수준에 맞춰 단계를 건너뛰거나 조합할 수 있습니다.</p>
+    </div>
+    <div class="curr-tabs reveal2">
+      <button class="curr-tab on" onclick="switchTab(this,'tab-basic')">LEVEL 1 — 기초</button>
+      <button class="curr-tab" onclick="switchTab(this,'tab-mid')">LEVEL 2 — 중급</button>
+      <button class="curr-tab" onclick="switchTab(this,'tab-pro')">LEVEL 3 — 실전</button>
+    </div>
+    <div class="curr-panels reveal">
+      <!-- BASIC -->
+      <div class="curr-panel on" id="tab-basic">
+        <div class="curr-panel-info">
+          <div class="curr-panel-level">Level 1</div>
+          <h3 class="curr-panel-title">기초<br/><em>Foundation</em></h3>
+          <p class="curr-panel-desc">음악 이론이 없어도 OK. DAW 사용법부터 기본 화성학, 멜로디 작법까지. 처음 시작하는 분들을 위한 탄탄한 기초 과정.</p>
+          <span class="curr-badge">입문자 · 취미생 · 유튜버</span>
+        </div>
+        <div class="curr-panel-subjects">
+          <div class="subject-list">
+            <div class="subject-item">
+              <div class="s-num">01</div>
+              <div class="s-content"><div class="s-title">DAW 환경 셋업 & 기초 조작</div><div class="s-desc">Logic Pro / Ableton / Pro Tools 인터페이스, 오디오 인터페이스 셋업, 기본 레코딩 환경 구축</div></div>
+            </div>
+            <div class="subject-item">
+              <div class="s-num">02</div>
+              <div class="s-content"><div class="s-title">음악 이론 — 음계·코드·리듬</div><div class="s-desc">작곡에 필요한 최소한의 이론. 장단조, 다이어토닉 코드, 리듬 패턴. 이론은 최소화, 실습은 최대화.</div></div>
+            </div>
+            <div class="subject-item">
+              <div class="s-num">03</div>
+              <div class="s-content"><div class="s-title">멜로디 작법 & 훅 만들기</div><div class="s-desc">K-POP 히트곡에서 배우는 멜로디 패턴. 기억에 남는 훅을 만드는 실전 공식.</div></div>
+            </div>
+            <div class="subject-item">
+              <div class="s-num">04</div>
+              <div class="s-content"><div class="s-title">가상악기 & 루프를 이용한 비트 메이킹</div><div class="s-desc">VST/AU 활용, MIDI 입력, 드럼 패턴, 베이스라인. 간단한 비트를 만들어 봅니다.</div></div>
+            </div>
+            <div class="subject-item">
+              <div class="s-num">05</div>
+              <div class="s-content"><div class="s-title">첫 번째 곡 완성하기</div><div class="s-desc">배운 것들을 조합해 1분짜리 완성 데모를 만들어봅니다. 실제 스튜디오 모니터로 들어보는 특별한 경험.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- MID -->
+      <div class="curr-panel" id="tab-mid">
+        <div class="curr-panel-info">
+          <div class="curr-panel-level">Level 2</div>
+          <h3 class="curr-panel-title">중급<br/><em>Intermediate</em></h3>
+          <p class="curr-panel-desc">기본 작곡이 가능한 분을 위한 심화 과정. 편곡, 음향, 믹싱 기초까지 커버합니다. 데모를 실제 완성곡 수준으로 끌어올립니다.</p>
+          <span class="curr-badge">아마추어 · 사이드 프로젝트 · 인디 아티스트</span>
+        </div>
+        <div class="curr-panel-subjects">
+          <div class="subject-list">
+            <div class="subject-item">
+              <div class="s-num">01</div>
+              <div class="s-content"><div class="s-title">K-POP 구조 분석 & 편곡 심화</div><div class="s-desc">인트로→벌스→프리코러스→코러스→브릿지 구조 분석. 실제 히트곡을 분해해서 배웁니다.</div></div>
+            </div>
+            <div class="subject-item">
+              <div class="s-num">02</div>
+              <div class="s-content"><div class="s-title">신스·사운드 디자인</div><div class="s-desc">Serum, Omnisphere 등 주요 신스 파라미터. K-POP 사운드 레퍼런스 분석 및 재현.</div></div>
+            </div>
+            <div class="subject-item">
+              <div class="s-num">03</div>
+              <div class="s-content"><div class="s-title">믹싱 기초 — EQ · Compressor · Reverb</div><div class="s-desc">각 이펙터의 개념과 사용법. 믹스에 공간감을 주는 법, 주파수 정리, 다이나믹 컨트롤.</div></div>
+            </div>
+            <div class="subject-item">
+              <div class="s-num">04</div>
+              <div class="s-content"><div class="s-title">보컬 프로듀싱 & 튜닝</div><div class="s-desc">Melodyne / AutoTune 활용법, 보컬 레코딩 셋업, 더블링·하모니 제작.</div></div>
+            </div>
+            <div class="subject-item">
+              <div class="s-num">05</div>
+              <div class="s-content"><div class="s-title">완성곡 1곡 발매 준비</div><div class="s-desc">작업한 곡을 스트리밍 발매 기준으로 마무리합니다. 실제 아웃보드 하드웨어로 마스터링 체험 포함.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- PRO -->
+      <div class="curr-panel" id="tab-pro">
+        <div class="curr-panel-info">
+          <div class="curr-panel-level">Level 3</div>
+          <h3 class="curr-panel-title">실전<br/><em>Professional</em></h3>
+          <p class="curr-panel-desc">프로 데뷔를 목표로 하는 분들을 위한 실전 과정. 실제 아이돌 음악을 만드는 워크플로우 그대로 진행합니다. 이 레슨이 끝나면 실제 의뢰를 받을 수 있는 레벨이 됩니다.</p>
+          <span class="curr-badge">전문가 지망 · 프리랜서 · 음악 취업 준비생</span>
+        </div>
+        <div class="curr-panel-subjects">
+          <div class="subject-list">
+            <div class="subject-item">
+              <div class="s-num">01</div>
+              <div class="s-content"><div class="s-title">프로 워크플로우 — 레이블 납품 기준</div><div class="s-desc">실제 기획사 납품 시 요구하는 파일 포맷, 트랙 정리 방법, 커뮤니케이션 방식. 현장 언어로 배웁니다.</div></div>
+            </div>
+            <div class="subject-item">
+              <div class="s-num">02</div>
+              <div class="s-content"><div class="s-title">하드웨어 아웃보드 믹싱 실습</div><div class="s-desc">NEVE 1073, SSL FUSION, BETTERMAKER 실제 조작. 디지털과 아날로그의 차이를 귀로 배웁니다.</div></div>
+            </div>
+            <div class="subject-item">
+              <div class="s-num">03</div>
+              <div class="s-content"><div class="s-title">장르별 스타일 레퍼런스 작법</div><div class="s-desc">K-POP / J-POP / R&B / 발라드 / 미디엄 팝 등 장르별 코드·리듬·사운드 특징 분석 및 실습.</div></div>
+            </div>
+            <div class="subject-item">
+              <div class="s-num">04</div>
+              <div class="s-content"><div class="s-title">KOMCA 등록 & 저작권 실무</div><div class="s-desc">저작권 등록 방법, 공동 작업 시 계약서, 아이돌 곡 크레딧 받는 방법. 실무에서 꼭 알아야 할 것들.</div></div>
+            </div>
+            <div class="subject-item">
+              <div class="s-num">05</div>
+              <div class="s-content"><div class="s-title">포트폴리오 완성 & 데뷔 전략</div><div class="s-desc">스트리밍 발매, SNS 브랜딩, 기획사 데모 제출 방법까지. 음악으로 먹고사는 법을 알려드립니다.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVEFORM DIVIDER -->
+<div class="wave-divider" style="background:var(--bg);line-height:0;margin-bottom:-2px">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:60px">
+    <rect width="1440" height="60" fill="white"/>
+    <g stroke="rgba(74,44,138,0.2)" stroke-width="1" fill="none">
+      <polyline points="0,30 40,10 80,50 120,15 160,45 200,20 240,40 280,12 320,48 360,18 400,42 440,22 480,38 520,14 560,46 600,20 640,40 680,10 720,50 760,15 800,45 840,20 880,38 920,12 960,48 1000,18 1040,42 1080,22 1120,40 1160,14 1200,46 1240,20 1280,42 1320,12 1360,48 1400,22 1440,38"/>
+    </g>
+  </svg>
+</div>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-glow"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="reveal" style="text-align:center">
+      <div class="tag light" style="justify-content:center;margin-bottom:16px">Reviews</div>
+      <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,54px);color:#fff">수강생 후기</h2>
+    </div>
+    <div class="reviews-grid reveal2">
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">레슨 받기 전에는 "내가 음악을 만들 수 있을까" 반신반의했는데, 3개월 만에 스트리밍 발매까지 했습니다. 현장에서 바로 쓸 수 있는 것들만 가르쳐주시는 게 제일 좋았어요. 쓸데없는 이론이 없어요.</p>
+        <div class="reviewer">
+          <div class="reviewer-icon">🎵</div>
+          <div>
+            <div class="reviewer-name">박세현 · 24세</div>
+            <div class="reviewer-tag">작곡 기초 → 중급 6개월 수강 / 인디 싱글 발매</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">일본에서 K-POP 작곡을 배우고 싶어서 찾아왔습니다. 일본어로도 소통이 되고, 실제 K-POP 만드는 방식을 그대로 배울 수 있어서 정말 값진 경험이었습니다. 帰国後も온라인으로 계속 배우고 있어요.</p>
+        <div class="reviewer">
+          <div class="reviewer-icon">🎹</div>
+          <div>
+            <div class="reviewer-name">Yuki Tanaka · 23세</div>
+            <div class="reviewer-tag">일본에서 방문 수강 / K-POP 작법 집중 코스</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">유튜브 채널용 브금을 직접 만들고 싶어서 시작했어요. 지금은 제 채널 모든 BGM을 직접 제작하고 있고, 외부 의뢰도 2건 받았습니다. NEVE로 직접 작업하는 게 신기하고 재밌었어요.</p>
+        <div class="reviewer">
+          <div class="reviewer-icon">🎬</div>
+          <div>
+            <div class="reviewer-name">정재욱 · 34세</div>
+            <div class="reviewer-tag">유튜버 / 기초 3개월 수강 → 외부 의뢰 수락 중</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">음향학과 출신인데 현장 실무를 전혀 몰랐어요. 하드웨어 아웃보드를 직접 만져보고, KOMCA 등록하는 법, 기획사에 데모 넣는 방법까지. 학교에서 2년 배운 것보다 여기서 6개월이 더 도움됐습니다.</p>
+        <div class="reviewer">
+          <div class="reviewer-icon">🎓</div>
+          <div>
+            <div class="reviewer-name">정윤하 · 24세</div>
+            <div class="reviewer-tag">음대 졸업 / 실전 레벨 6개월 수강 / 프리랜서 데뷔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY FORM -->
+<section id="apply">
+  <div class="container">
+    <div class="apply-inner">
+      <div class="apply-copy reveal">
+        <div class="tag" style="margin-bottom:16px">Apply</div>
+        <h2 class="serif">수강 신청,<br/><em>어렵지 않아요.</em></h2>
+        <p>아래 양식을 작성해 카카오 채널로 보내주시면 24시간 내 연락드립니다. 레벨 진단이 필요하신 분은 메모란에 적어주세요.</p>
+        <div class="apply-info-list">
+          <div class="ai-item">
+            <span class="ai-icon">📍</span>
+            <div><strong style="color:var(--ink)">수업 장소</strong><br/>서울 강남구 역삼동 682-15 4층 · 선정릉역 3번 출구 도보 40초</div>
+          </div>
+          <div class="ai-item">
+            <span class="ai-icon">⏱</span>
+            <div><strong style="color:var(--ink)">수업 시간</strong><br/>1회 2시간 기준 · 주 1~2회 조율 가능 · 스케줄 유연</div>
+          </div>
+          <div class="ai-item">
+            <span class="ai-icon">💻</span>
+            <div><strong style="color:var(--ink)">온라인 레슨</strong><br/>방문이 어려우신 경우 온라인(줌) 레슨도 가능합니다</div>
+          </div>
+          <div class="ai-item">
+            <span class="ai-icon">💬</span>
+            <div><strong style="color:var(--ink)">레슨 비용</strong><br/>수준·내용에 따라 협의 · 체험 수업(1회) 먼저 가능</div>
+          </div>
+        </div>
+      </div>
+      <div class="apply-form-wrap reveal2">
+        <div id="applyFormWrap">
+          <form id="applyForm" onsubmit="submitApplyForm(event)">
+            <div class="af-grid-2">
+              <div class="af-row">
+                <label class="af-label">이름 *</label>
+                <input class="af-input" type="text" id="af-name" placeholder="홍길동" required/>
+              </div>
+              <div class="af-row">
+                <label class="af-label">연락처 *</label>
+                <input class="af-input" type="tel" id="af-tel" placeholder="010-0000-0000" required/>
+              </div>
+            </div>
+            <div class="af-row">
+              <label class="af-label">수강 목표 *</label>
+              <select class="af-select" id="af-goal" required>
+                <option value="" disabled selected>목표를 선택하세요</option>
+                <option value="취미 / 개인 창작">취미 / 개인 창작</option>
+                <option value="유튜브 · SNS 콘텐츠용 음악 제작">유튜브 · SNS 콘텐츠용 음악 제작</option>
+                <option value="인디 아티스트 · 자체 발매">인디 아티스트 · 자체 발매</option>
+                <option value="프리랜서 프로듀서 데뷔">프리랜서 프로듀서 데뷔</option>
+                <option value="기획사 데뷔 준비">기획사 데뷔 준비</option>
+                <option value="믹싱 · 마스터링 기술 향상">믹싱 · 마스터링 기술 향상</option>
+                <option value="일본 활동 / J-POP 작법">일본 활동 / J-POP 작법</option>
+                <option value="기타 (메모 참고)">기타 (메모 참고)</option>
+              </select>
+            </div>
+            <div class="af-row">
+              <label class="af-label">현재 레벨</label>
+              <select class="af-select" id="af-level">
+                <option value="완전 처음 (DAW 없음)">완전 처음 (DAW 없음)</option>
+                <option value="입문 (DAW 기초 조작 가능)">입문 (DAW 기초 조작 가능)</option>
+                <option value="중급 (곡 완성 경험 있음)">중급 (곡 완성 경험 있음)</option>
+                <option value="고급 (발매 경험 있음)">고급 (발매 경험 있음)</option>
+              </select>
+            </div>
+            <div class="af-row">
+              <label class="af-label">희망 수업 형태</label>
+              <select class="af-select" id="af-type">
+                <option value="방문 수업 (역삼동 스튜디오)">방문 수업 (역삼동 스튜디오)</option>
+                <option value="온라인 수업 (줌)">온라인 수업 (줌)</option>
+                <option value="방문 + 온라인 혼합">방문 + 온라인 혼합</option>
+              </select>
+            </div>
+            <div class="af-row">
+              <label class="af-label">자기소개 / 문의 사항</label>
+              <textarea class="af-textarea" id="af-memo" placeholder="예) 음악을 시작한 지 6개월 됐고, 작곡보다는 믹싱을 집중적으로 배우고 싶습니다. 주말 오전 수업 가능한지 문의드립니다."></textarea>
+            </div>
+            <button type="submit" class="af-submit">수강 신청서 확인하기 →</button>
+            <div class="af-notice">
+              ⚠️ 이 양식은 직접 전송되지 않습니다. 작성 내용을 확인하신 후 <strong>카카오 채널로 복사해서 보내주세요.</strong><br/>
+              <a href="http://pf.kakao.com/_axcYxlb" target="_blank">→ 카카오 채널 바로가기</a>
+            </div>
+          </form>
+        </div>
+        <div class="af-success" id="applySuccess">
+          <div class="af-success-icon">🎵</div>
+          <div class="af-success-title">신청서가 준비됐습니다</div>
+          <div class="af-success-sub">아래 내용을 복사해서 카카오 채널로 보내주시면<br/>24시간 내 연락드립니다.</div>
+          <textarea class="af-copy-area" id="applyCopyText" readonly></textarea>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.6">↑ 클릭해서 전체 선택 후 복사 (Ctrl+A → Ctrl+C)</p>
+          <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="btn-indigo">카카오 채널로 보내기 →</a>
+          <button onclick="resetApplyForm()" style="display:block;margin:14px auto 0;background:none;border:none;color:var(--muted);font-size:12px;cursor:pointer;text-decoration:underline">다시 작성하기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="noise-layer"></div>
+  <div class="cta-inner reveal">
+    <div class="tag light" style="justify-content:center;margin-bottom:24px">Start Today</div>
+    <h2 class="cta-h serif">지금 시작하면<br/><em>1년 후가 달라집니다.</em></h2>
+    <p class="cta-sub">현직 K-POP 프로듀서에게 배우는 기회.<br/>먼저 카카오 채널로 체험 수업 문의 주세요.</p>
+    <div class="cta-btns">
+      <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="btn-kakao">카카오톡으로 레슨 문의</a>
+      <a href="https://www.instagram.com/madewellmusic_official" target="_blank" class="btn-ig">@madewellmusic_official</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner container">
+    <div>
+      <div class="foot-logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL Music"/></div>
+      <div class="foot-meta">서울시 강남구 역삼동 682-15 4층 · 선정릉역 도보 40초<br/>madewellofficial@gmail.com · © 2026 (주)메이드웰뮤직</div>
+      <div class="foot-other">믹싱·마스터링 서비스 → <a href="mixing-mastering-landing.html">MADEWELL MUSIC Studio</a></div>
+    </div>
+    <div class="foot-links">
+      <a href="http://pf.kakao.com/_axcYxlb" target="_blank">카카오채널</a>
+      <a href="https://www.instagram.com/madewellmusic_official" target="_blank">Instagram</a>
+      <a href="https://madewellmusicstudio.netlify.app" target="_blank">공식사이트</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const lnav=document.getElementById('nav');
+const lnavLogoImg=document.getElementById('lnav-logo-img');
+const lnavLinks=document.getElementById('lnav-links');
+window.addEventListener('scroll',()=>{
+  if(scrollY>80){
+    lnav.classList.replace('light-nav','dark-nav');
+    if(lnavLogoImg)lnavLogoImg.classList.add('dark');
+    if(lnavLinks)lnavLinks.classList.add('dark');
+  }else{
+    lnav.classList.replace('dark-nav','light-nav');
+    if(lnavLogoImg)lnavLogoImg.classList.remove('dark');
+    if(lnavLinks)lnavLinks.classList.remove('dark');
+  }
+});
+
+// Mobile menu
+const lham=document.getElementById('lnav-hamburger');
+const lmenu=document.getElementById('lmobile-menu');
+function toggleMenu(){
+  lham.classList.toggle('open');
+  lmenu.classList.toggle('open');
+  document.body.classList.toggle('menu-open');
+}
+function closeMenu(){
+  lham.classList.remove('open');
+  lmenu.classList.remove('open');
+  document.body.classList.remove('menu-open');
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+
+// Curriculum tabs
+function switchTab(btn,id){
+  document.querySelectorAll('.curr-tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.curr-panel').forEach(p=>p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById(id).classList.add('on');
+}
+
+// Bio tabs
+function saBio(btn,id){
+  document.querySelectorAll('.bio-btn').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.bio-panel').forEach(p=>p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById(id).classList.add('on');
+}
+
+// Apply form
+function submitApplyForm(e){
+  e.preventDefault();
+  const name=document.getElementById('af-name').value.trim();
+  const tel=document.getElementById('af-tel').value.trim();
+  const goal=document.getElementById('af-goal').value;
+  const level=document.getElementById('af-level').value;
+  const type=document.getElementById('af-type').value;
+  const memo=document.getElementById('af-memo').value.trim()||'없음';
+  const text=`[MADEWELL MUSIC 레슨 수강 신청]\n이름: ${name}\n연락처: ${tel}\n수강 목표: ${goal}\n현재 레벨: ${level}\n수업 형태: ${type}\n문의 사항: ${memo}`;
+  document.getElementById('applyCopyText').value=text;
+  document.getElementById('applyFormWrap').style.display='none';
+  const suc=document.getElementById('applySuccess');
+  suc.style.display='block';
+  suc.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function resetApplyForm(){
+  document.getElementById('applyFormWrap').style.display='block';
+  document.getElementById('applySuccess').style.display='none';
+  document.getElementById('applyForm').reset();
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const ta=document.getElementById('applyCopyText');
+  if(ta)ta.addEventListener('click',function(){this.select()});
+});
+
+// Scroll reveal
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.07});
+document.querySelectorAll('.reveal,.reveal2').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

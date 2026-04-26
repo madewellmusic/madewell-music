@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MADEWELL MUSIC — Mixing · Mastering · Recording</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+a{text-decoration:none;color:inherit}
+:root{
+  --gold:#C9A93C;--gold2:#DDB84A;--gold-dim:rgba(184,149,46,.12);
+  --dark:#070709;--dark2:#0C0C0F;
+  --bg:#0E0E12;--bg2:#141418;--bg3:#1C1C21;
+  --ink:#F0F0F4;--body:rgba(240,240,244,.62);--muted:rgba(240,240,244,.35);--dim:rgba(240,240,244,.18);
+  --border:rgba(255,255,255,.07);--border2:rgba(201,169,60,.35);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif;overflow-x:hidden;line-height:1.6}
+.serif{font-family:'Cormorant Garamond',serif}
+.container{max-width:1160px;margin:0 auto;padding:0 56px}
+@media(max-width:768px){.container{padding:0 20px}}
+.tag{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.tag::after{content:'';width:28px;height:1px;background:var(--gold);opacity:.5}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease}
+.reveal.on{opacity:1;transform:none}
+.reveal2{opacity:0;transform:translateY(22px);transition:opacity .9s ease .18s,transform .9s ease .18s}
+.reveal2.on{opacity:1;transform:none}
+
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:all .3s}
+#nav.light-nav{padding:26px 56px;background:transparent}
+#nav.dark-nav{padding:16px 56px;background:rgba(10,10,14,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-img{height:52px;width:auto;filter:brightness(0) invert(1);transition:filter .3s}
+.nav-logo-img.dark{filter:brightness(0) invert(1)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:.12em;color:rgba(255,255,255,.7);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.nav-links.dark a{color:rgba(240,240,244,.5)}
+.nav-links a:hover,.nav-links.dark a:hover{color:var(--gold)}
+.nav-btn{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dark);background:var(--gold);padding:10px 24px;text-decoration:none;transition:background .2s,transform .15s}
+.nav-btn:hover{background:var(--gold2);transform:translateY(-1px)}
+@media(max-width:900px){
+  .nav-links,.nav-btn{display:none!important}
+  #nav.light-nav,#nav.dark-nav{padding:14px 20px}
+  .nav-inner{display:grid;grid-template-columns:44px 1fr 44px;align-items:center}
+  .nav-logo{grid-column:2;justify-self:center}
+  .nav-hamburger{grid-column:3;justify-self:end}
+}
+
+/* ── HERO ── */
+#hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('images/MAIN ROOM.jpg') center/cover no-repeat}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,12,.98) 0%,rgba(10,10,12,.52) 45%,rgba(10,10,12,.12) 100%)}
+.hero-inner{position:relative;z-index:1;width:100%;padding-bottom:100px}
+.hero-pre{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hero-pre::before{content:'';width:28px;height:1px;background:var(--gold)}
+h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,5vw,76px);line-height:.95;letter-spacing:-.01em;color:#fff}
+h1 em{font-style:italic;color:var(--gold2)}
+.hero-divider{width:44px;height:1px;background:var(--gold);margin:30px 0}
+.hero-sub{font-size:clamp(16px,1.7vw,20px);color:rgba(255,255,255,.7);font-weight:300;line-height:1.85;max-width:520px;margin-bottom:44px}
+.hero-sub b{color:#fff;font-weight:500}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;text-decoration:none;transition:background .2s,transform .15s}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-outline-w{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.28);color:#fff;font-family:'Montserrat',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:15px 30px;text-decoration:none;transition:all .2s}
+.btn-outline-w:hover{border-color:rgba(255,255,255,.7);transform:translateY(-2px)}
+.hero-scroll{position:absolute;bottom:36px;right:56px;display:flex;flex-direction:column;align-items:center;gap:10px;animation:sb 2.4s ease-in-out infinite}
+.hero-scroll span{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.28em;color:rgba(255,255,255,.3);text-transform:uppercase;writing-mode:vertical-rl}
+.hero-line{width:1px;height:40px;background:linear-gradient(var(--gold),transparent)}
+@keyframes sb{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ── STRIP ── */
+#strip{background:var(--dark);padding:0}
+.strip-inner{display:flex;border-bottom:1px solid rgba(255,255,255,.05)}
+.strip-item{flex:1;padding:22px 32px;border-right:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.strip-item:last-child{border-right:none}
+.si-val{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;color:var(--gold2);line-height:1}
+.si-lbl{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.18em;color:rgba(255,255,255,.38);text-transform:uppercase;margin-top:5px}
+@media(max-width:600px){.strip-inner{flex-wrap:wrap}.strip-item{min-width:50%}}
+
+/* ── WHY ── */
+#why{background:var(--bg);padding:120px 0 0}
+.why-heading{margin-bottom:64px}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.why-photo{aspect-ratio:4/5;overflow:hidden;position:relative}
+.why-photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.why-photo:hover img{transform:scale(1.03)}
+.why-copy{background:var(--bg2);padding:64px 56px;display:flex;flex-direction:column;justify-content:center}
+.why-body{font-size:15px;color:var(--body);line-height:1.9;font-weight:300}
+.why-quote{margin-top:36px;padding:26px 30px;border-left:2px solid var(--gold);background:var(--gold-dim)}
+.why-quote p{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--ink);line-height:1.6}
+.why-quote cite{display:block;margin-top:10px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;color:var(--gold);font-style:normal;text-transform:uppercase}
+@media(max-width:800px){.why-grid{grid-template-columns:1fr}.why-copy{padding:44px 24px}}
+
+/* ── GEAR ── */
+#gear{background:var(--bg2);padding:100px 0 120px;border-top:1px solid var(--border)}
+.gear-photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;height:260px;margin:44px 0 56px}
+.gear-ph{overflow:hidden;position:relative}
+.gear-ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease,filter .4s ease;filter:contrast(1.14) brightness(0.86) saturate(0.82)}
+.gear-ph:hover img{transform:scale(1.03);filter:contrast(1.08) brightness(0.96) saturate(1.0)}
+.gear-ph-cap{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:10px 16px;background:linear-gradient(transparent,rgba(10,10,12,.5));font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.2em;color:rgba(255,255,255,.65);text-transform:uppercase}
+/* All-in-one gear grid */
+.gear-all{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border)}
+.ga-group{background:var(--bg);padding:24px 26px}
+.ga-group.wide{grid-column:span 2}
+.ga-group.full{grid-column:1/-1}
+.ga-cat{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.ga-items{display:flex;flex-direction:column;gap:11px}
+.ga-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12.5px;color:var(--ink);line-height:1.3}
+.ga-note{font-size:10.5px;color:var(--muted);margin-top:2px}
+.sw-list{display:flex;flex-wrap:wrap;gap:7px;padding-top:2px}
+.sw-chip{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.06em;color:var(--body);background:var(--bg2);border:1px solid var(--border);padding:6px 14px;transition:border-color .2s}
+.sw-chip:hover{border-color:var(--border2)}
+@media(max-width:860px){.gear-all{grid-template-columns:1fr 1fr}.ga-group.wide{grid-column:auto}.gear-photo-strip{grid-template-columns:1fr 1fr;height:200px}}
+@media(max-width:600px){.gear-all{grid-template-columns:1fr}.ga-group.wide,.ga-group.full{grid-column:auto}}
+
+/* ── GALLERY SLIDER ── */
+#gallery{padding:0;background:var(--bg)}
+.gallery-head{padding:100px 0 52px;border-top:1px solid var(--border)}
+.gallery-slider{position:relative;width:100%;height:62vh;min-height:420px;overflow:hidden;background:var(--dark);cursor:pointer}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;overflow:hidden}
+.slide.active{opacity:1}
+.slide-bg{position:absolute;inset:-40px;background-size:cover;background-position:center;filter:blur(28px) brightness(0.32) saturate(0.5);transform:scale(1.08);z-index:0}
+.slide img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+.slide.portrait img{object-fit:contain}
+.slide-cap{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:20px 28px 18px;background:linear-gradient(transparent,rgba(0,0,0,.65));font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.24em;color:rgba(255,255,255,.75);text-transform:uppercase}
+.slide-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.16);color:#fff;width:46px;height:46px;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:4;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.slide-btn:hover{background:rgba(184,149,46,.55);border-color:var(--gold)}
+.slide-prev{left:20px}
+.slide-next{right:20px}
+.slide-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:4}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .25s;cursor:pointer}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.slide-counter{position:absolute;top:18px;right:22px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.18em;color:rgba(255,255,255,.38);z-index:4}
+@media(max-width:600px){
+  .gallery-slider{height:58vw;min-height:240px}
+  .slide-btn{width:36px;height:36px;font-size:13px}
+  .slide-prev{left:8px}
+  .slide-next{right:8px}
+  .gallery-head{padding:72px 0 36px}
+}
+
+/* ── LOCATION ── */
+#location{background:var(--dark);padding:80px 0}
+.loc-inner{display:flex;align-items:center;gap:72px;flex-wrap:wrap}
+.loc-num-wrap{text-align:center;flex-shrink:0}
+.loc-num{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:110px;color:var(--gold2);line-height:1}
+.loc-unit{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.25em;color:var(--gold);text-transform:uppercase}
+.loc-vline{width:1px;height:80px;background:rgba(255,255,255,.1);flex-shrink:0}
+.loc-text h3{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:38px;line-height:1.2;color:#fff;margin-bottom:12px}
+.loc-text h3 em{font-style:italic;color:var(--gold2)}
+.loc-text p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.85}
+.loc-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.loc-tag{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:8px 18px;border:1px solid rgba(184,149,46,.4);color:var(--gold2)}
+@media(max-width:640px){.loc-vline{display:none}.loc-num-wrap{width:100%}}
+
+/* ── CREDITS ── */
+#credits{background:var(--bg2);border-top:1px solid var(--border);padding:120px 0}
+.cred-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+.cred-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border)}
+@media(max-width:600px){.cred-grid{grid-template-columns:1fr 1fr}}
+.cred-cell{background:var(--bg);padding:22px 24px;transition:background .2s}
+.cred-cell:hover{background:var(--bg2)}
+.cred-art{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--gold);letter-spacing:.05em;margin-bottom:7px;text-transform:uppercase;line-height:1.3}
+.cred-ttl{font-size:12.5px;color:var(--ink);line-height:1.45;margin-bottom:5px;font-family:'Noto Sans KR',sans-serif;font-weight:400}
+.cred-role{font-size:9.5px;color:var(--muted);letter-spacing:.08em;font-family:'Montserrat',sans-serif;text-transform:uppercase}
+.cred-komca{background:var(--dark);padding:44px 56px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-top:1px}
+.ck-left{display:flex;align-items:baseline;gap:6px}
+.ck-num{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:80px;color:var(--gold2);line-height:1}
+.ck-plus{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:50px;color:var(--gold);line-height:1}
+.ck-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;color:rgba(255,255,255,.35);text-transform:uppercase;margin-top:8px}
+.ck-text{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:rgba(255,255,255,.65);line-height:1.55;max-width:500px}
+.ck-text em{color:var(--gold2);font-style:italic}
+
+/* ── SERVICES ── */
+#services{background:var(--bg);border-top:1px solid var(--border);padding:120px 0}
+.svc-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.svc-card{background:var(--bg2);padding:40px 30px;position:relative;transition:background .25s}
+.svc-card:hover{background:var(--bg3)}
+.svc-card.star{background:var(--dark);color:#fff}
+.star-tag{position:absolute;top:0;right:0;background:var(--gold);color:#fff;font-family:'Montserrat',sans-serif;font-size:8px;font-weight:800;letter-spacing:.14em;padding:5px 14px;text-transform:uppercase}
+.svc-n{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--border);line-height:1;margin-bottom:14px}
+.svc-card.star .svc-n{color:rgba(255,255,255,.07)}
+.svc-nm{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;letter-spacing:.07em;color:var(--ink);margin-bottom:12px}
+.svc-card.star .svc-nm{color:#fff}
+.svc-dc{font-size:13px;color:var(--muted);line-height:1.75;min-height:68px;margin-bottom:28px}
+.svc-card.star .svc-dc{color:rgba(255,255,255,.5)}
+.svc-pr{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;color:var(--gold);line-height:1}
+.svc-pr sub{font-size:13px;font-weight:300;color:var(--muted);vertical-align:baseline;margin-left:3px}
+.svc-card.star .svc-pr{color:var(--gold2)}
+.svc-li{margin-top:18px;list-style:none;display:flex;flex-direction:column;gap:7px}
+.svc-li li{font-size:12px;color:var(--body);display:flex;align-items:flex-start;gap:8px}
+.svc-card.star .svc-li li{color:rgba(255,255,255,.55)}
+.svc-li li::before{content:'—';color:var(--gold);flex-shrink:0}
+.pkg-row{margin-top:2px;background:var(--bg2);border:1px solid var(--border2);padding:30px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.pkg-lbl{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:7px}
+.pkg-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:var(--ink)}
+.pkg-note{font-size:13px;color:var(--muted);margin-top:4px}
+.pkg-price{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;color:var(--gold);white-space:nowrap}
+.pkg-price sub{font-size:14px;font-weight:300;color:var(--muted);vertical-align:baseline}
+@media(max-width:960px){.svc-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.svc-grid{grid-template-columns:1fr}}
+.addon-row{margin-top:2px;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+.addon-item{background:var(--bg2);padding:24px 30px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.addon-lbl{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--ink);text-transform:uppercase}
+.addon-note{font-size:12px;color:var(--muted);margin-top:3px}
+.addon-pr{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--gold);white-space:nowrap;line-height:1}
+.addon-pr sub{font-size:11px;font-weight:300;color:var(--muted);vertical-align:baseline}
+@media(max-width:600px){.addon-row{grid-template-columns:1fr}.addon-item{flex-direction:column;align-items:flex-start;gap:8px}}
+/* ── RENTAL ── */
+#rental{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding:120px 0}
+.rental-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+.rental-head h2{color:#fff}
+.rental-head p{font-size:14px;color:rgba(255,255,255,.4);line-height:1.85;max-width:360px}
+.rental-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06)}
+.rental-card{background:rgba(255,255,255,.03);padding:48px 40px;transition:background .25s}
+.rental-card:hover{background:rgba(255,255,255,.06)}
+.rental-card.highlight{background:rgba(184,149,46,.08);border:1px solid rgba(184,149,46,.2)}
+.rental-icon{font-size:28px;margin-bottom:20px}
+.rental-nm{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;letter-spacing:.07em;color:#fff;margin-bottom:10px}
+.rental-dc{font-size:13px;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:28px}
+.rental-pr{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;color:var(--gold2);line-height:1}
+.rental-pr sub{font-size:13px;font-weight:300;color:rgba(255,255,255,.35);vertical-align:baseline;margin-left:3px}
+.rental-li{margin-top:18px;list-style:none;display:flex;flex-direction:column;gap:7px}
+.rental-li li{font-size:12px;color:rgba(255,255,255,.45);display:flex;align-items:flex-start;gap:8px}
+.rental-li li::before{content:'—';color:var(--gold);flex-shrink:0}
+.rental-cta{margin-top:48px;text-align:center}
+.btn-rental{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(184,149,46,.4);color:var(--gold);font-family:'Montserrat',sans-serif;font-weight:600;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:16px 40px;text-decoration:none;transition:all .25s}
+.btn-rental:hover{background:rgba(184,149,46,.1);border-color:var(--gold)}
+@media(max-width:600px){.rental-grid{grid-template-columns:1fr}.rental-head{flex-direction:column;gap:16px}}
+
+/* ── COMPARE ── */
+#compare{background:var(--bg2);border-top:1px solid var(--border);padding:120px 0}
+.tbl-wrap{margin-top:52px;overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+thead th{padding:14px 24px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;border-bottom:1px solid var(--border);text-align:center}
+thead th:first-child{text-align:left}
+thead th.hl{color:var(--gold);border-top:2px solid var(--gold);background:rgba(184,149,46,.08)}
+tbody td{padding:15px 24px;font-size:13px;color:var(--body);border-bottom:1px solid var(--border);text-align:center}
+tbody td:first-child{text-align:left;color:var(--ink);font-weight:500}
+tbody td.hl{background:rgba(184,149,46,.06)}
+tr:last-child td.hl{border-bottom:2px solid var(--gold)}
+.yes{color:var(--gold);font-size:15px}
+.no{color:var(--dim)}
+.em{color:var(--gold);font-weight:700}
+
+/* ── ABOUT ── */
+#about{background:var(--bg2);border-top:1px solid var(--border);padding:120px 0 0}
+.about-head{margin-bottom:64px}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.about-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:400px 280px;gap:3px}
+.ap{overflow:hidden;background:var(--bg3);position:relative}
+.ap img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .7s ease;filter:grayscale(10%)}
+.ap.big img{object-position:center 38%}
+.ap:not(.big) img{object-fit:cover;object-position:center 25%}
+.ap.bottom-right img{object-fit:cover;object-position:top center}
+.ap:hover img{transform:scale(1.03)}
+.ap.big{grid-row:span 2}
+.about-copy{background:var(--bg);padding:52px 52px;display:flex;flex-direction:column;justify-content:flex-start}
+.about-ident{padding-bottom:24px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.about-kr-name{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.16em;color:var(--muted);margin-bottom:8px;text-transform:uppercase}
+.about-name-big{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,3.2vw,44px);line-height:1.05;color:var(--ink)}
+.about-name-big em{font-style:italic;color:var(--gold)}
+.about-pname{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-top:10px;margin-bottom:16px}
+.about-skills{display:flex;flex-wrap:wrap;gap:5px}
+.skill-tag{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:.08em;color:var(--body);background:var(--bg2);border:1px solid var(--border);padding:5px 12px}
+.a-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);margin-bottom:28px}
+.a-stat{background:var(--bg2);padding:14px 10px;text-align:center}
+.a-n{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:32px;color:var(--gold);line-height:1}
+.a-l{font-size:9px;color:var(--muted);margin-top:3px;letter-spacing:.03em}
+.about-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:28px}
+.ab-btn{background:none;border:none;border-bottom:2px solid transparent;padding:10px 0;margin-right:28px;margin-bottom:-1px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;cursor:pointer;transition:all .2s}
+.ab-btn.on{color:var(--gold);border-bottom-color:var(--gold)}
+.ab-panel{display:none}
+.ab-panel.on{display:block}
+.tl{display:flex;flex-direction:column}
+.tl-row{display:flex;gap:14px;position:relative;padding-bottom:14px}
+.tl-row::before{content:'';position:absolute;left:40px;top:18px;bottom:0;width:1px;background:var(--border)}
+.tl-row:last-child::before{display:none}
+.tl-yr{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;color:var(--gold);min-width:36px;padding-top:3px;letter-spacing:.06em;flex-shrink:0}
+.tl-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:6px;box-shadow:0 0 6px rgba(184,149,46,.4)}
+.tl-c{flex:1}
+.tl-t{font-size:12.5px;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:2px}
+.tl-d{font-size:11px;color:var(--muted);line-height:1.5}
+.alb-list{display:flex;flex-direction:column}
+.alb-row{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);align-items:start}
+.alb-row:last-child{border-bottom:none}
+.alb-yr{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;color:var(--gold);letter-spacing:.05em;padding-top:2px}
+.alb-info{font-size:12.5px;color:var(--ink);line-height:1.5;font-family:'Noto Sans KR',sans-serif;font-weight:400}
+.alb-info span{display:block;font-family:'Montserrat',sans-serif;font-size:10px;color:var(--muted);margin-top:2px}
+.rec-list{display:flex;flex-direction:column;gap:8px}
+.rec-item{padding:12px 16px;background:var(--bg2);border-left:2px solid var(--gold);font-size:12.5px;color:var(--body);line-height:1.65}
+@media(max-width:860px){.about-layout{grid-template-columns:1fr}.about-copy{padding:40px 24px}.about-photos{grid-template-rows:280px 200px}.a-stats{grid-template-columns:1fr 1fr}}
+
+/* ── CTA ── */
+#cta{position:relative;padding:140px 0;text-align:center;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:url('images/MAIN ROON 2.jpg') center/cover no-repeat}
+.cta-bg::after{content:'';position:absolute;inset:0;background:rgba(10,10,12,.84)}
+.cta-inner{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 24px}
+.cta-h{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(42px,6vw,76px);line-height:1.05;color:#fff;margin-bottom:18px}
+.cta-sub{font-size:16px;color:rgba(255,255,255,.55);font-weight:300;line-height:1.9;margin-bottom:44px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-kakao{display:inline-flex;align-items:center;gap:10px;background:#FAE100;color:#1a1200;font-family:'Noto Sans KR',sans-serif;font-weight:800;font-size:14px;padding:16px 38px;text-decoration:none;transition:opacity .2s,transform .15s}
+.btn-kakao:hover{opacity:.92;transform:translateY(-2px)}
+.btn-ig{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.25);color:#fff;font-family:'Montserrat',sans-serif;font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:16px 30px;text-decoration:none;transition:all .2s}
+.btn-ig:hover{border-color:rgba(255,255,255,.6);transform:translateY(-2px)}
+
+/* ── FOOTER ── */
+footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,.05);padding:52px 0}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.foot-logo img{height:44px;width:auto;filter:brightness(0) invert(1);display:block;margin-bottom:4px}
+.foot-meta{font-size:12px;color:rgba(255,255,255,.28);line-height:1.9;margin-top:6px}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.foot-links a{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,.28);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.foot-links a:hover{color:var(--gold)}
+
+/* ── MOBILE HAMBURGER & MENU ── */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:202;flex-shrink:0}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:1px;transition:transform .3s,opacity .3s,background .3s}
+#nav.dark-nav .nav-hamburger span{background:var(--ink)}
+.nav-hamburger.open span{background:#fff!important}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:900px){.nav-hamburger{display:flex}}
+
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,12,.97);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:40px 24px}
+.mobile-menu.open{display:flex}
+body.menu-open{overflow:hidden}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:38px;color:rgba(255,255,255,.7);text-decoration:none;letter-spacing:.02em;padding:12px 0;transition:color .2s;text-align:center;width:100%}
+.mobile-menu a:hover{color:var(--gold2)}
+.mobile-menu-divider{width:40px;height:1px;background:rgba(255,255,255,.1);margin:8px 0}
+.mobile-menu-cta{font-family:'Montserrat',sans-serif!important;font-size:12px!important;font-weight:700!important;letter-spacing:.16em!important;text-transform:uppercase;background:var(--gold)!important;color:#fff!important;padding:16px 48px!important;margin-top:8px;font-size:12px}
+
+/* ── HERO MOBILE ── */
+@media(max-width:600px){
+  .hero-inner{padding-bottom:72px}
+  .hero-cta{flex-direction:column;align-items:flex-start;gap:10px}
+  .btn-gold,.btn-outline-w{justify-content:center;text-align:center;width:100%;max-width:300px}
+  .hero-scroll{display:none}
+  .hero-sub br{content:'';display:inline}
+  .hero-sub{font-size:15px;max-width:100%}
+}
+
+/* ── SECTION PADDING MOBILE ── */
+@media(max-width:768px){
+  #why{padding:72px 0 0}
+  #gear{padding:72px 0 80px}
+  .gallery-head{padding:72px 0 40px}
+  #credits{padding:72px 0}
+  #services{padding:72px 0}
+  #compare{padding:72px 0}
+  #about{padding:72px 0 0}
+  #cta{padding:80px 0}
+  .why-heading{margin-bottom:40px}
+  .cred-head{margin-bottom:40px;flex-direction:column;gap:16px}
+  .svc-head{margin-bottom:40px;flex-direction:column;gap:16px}
+  .about-head{margin-bottom:40px}
+  .loc-inner{gap:32px}
+}
+
+/* ── GEAR STRIP MOBILE ── */
+@media(max-width:480px){
+  .gear-photo-strip{grid-template-columns:1fr;height:auto}
+  .gear-ph{height:300px}
+}
+
+/* ── LOCATION MOBILE ── */
+@media(max-width:480px){
+  .loc-num{font-size:72px}
+  #location{padding:60px 0}
+}
+
+/* ── CREDITS KOMCA MOBILE ── */
+@media(max-width:600px){
+  .cred-komca{padding:32px 24px;flex-direction:column;gap:20px}
+  .ck-num{font-size:56px}
+  .ck-plus{font-size:36px}
+  .ck-text{font-size:18px;max-width:100%}
+}
+
+/* ── SERVICES PKG ROW MOBILE ── */
+@media(max-width:600px){
+  .pkg-row{flex-direction:column;align-items:flex-start;gap:8px;padding:24px}
+  .pkg-price{font-size:44px}
+}
+
+/* ── CTA SECTION MOBILE ── */
+@media(max-width:600px){
+  .cta-btns{flex-direction:column;align-items:center;gap:12px}
+  .btn-kakao,.btn-ig{width:100%;max-width:320px;justify-content:center;text-align:center}
+  .btn-ig{font-size:10px;letter-spacing:.06em;padding:16px 20px}
+}
+
+/* ── ABOUT PHOTOS MOBILE ── */
+@media(max-width:480px){
+  .about-photos{grid-template-rows:220px 160px}
+}
+
+/* ── FOOTER MOBILE ── */
+@media(max-width:480px){
+  .foot-inner{flex-direction:column;align-items:center;text-align:center;gap:20px}
+  footer{padding:40px 0}
+  .foot-links{gap:16px;justify-content:center}
+}
+
+/* ── BOOKING PROCESS ── */
+#booking{background:var(--dark);padding:120px 0}
+.booking-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:52px;position:relative}
+.booking-steps::before{content:'';position:absolute;top:38px;left:10%;right:10%;height:1px;background:linear-gradient(to right,transparent,rgba(184,149,46,.4),transparent);z-index:0;pointer-events:none}
+.bk-step{text-align:center;padding:32px 16px;background:rgba(255,255,255,.03);position:relative;z-index:1;transition:background .2s}
+.bk-step:hover{background:rgba(255,255,255,.06)}
+.bk-num{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--gold2);opacity:.3;line-height:1;margin-bottom:10px}
+.bk-icon{font-size:22px;margin-bottom:10px}
+.bk-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;letter-spacing:.12em;color:#fff;text-transform:uppercase;margin-bottom:8px}
+.bk-desc{font-size:12px;color:rgba(255,255,255,.4);line-height:1.75}
+.bk-payment{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2px}
+.bk-pay-item{background:rgba(255,255,255,.04);border:1px solid rgba(184,149,46,.18);padding:24px 28px;display:flex;align-items:center;gap:16px;transition:border-color .2s}
+.bk-pay-item:hover{border-color:rgba(184,149,46,.45)}
+.bk-pay-icon{font-size:26px;flex-shrink:0}
+.bk-pay-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:#fff;margin-bottom:4px}
+.bk-pay-note{font-size:12px;color:rgba(255,255,255,.38);line-height:1.6}
+.bk-note{margin-top:2px;padding:24px 32px;border-left:2px solid var(--gold);background:rgba(184,149,46,.06)}
+.bk-note-text{font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.85}
+.bk-note-text strong{color:var(--gold2)}
+@media(max-width:860px){
+  .booking-steps{grid-template-columns:repeat(3,1fr)}
+  .booking-steps::before{display:none}
+  #booking{padding:80px 0}
+}
+@media(max-width:600px){
+  .booking-steps{
+    grid-template-columns:1fr;
+    gap:0;
+    border-left:2px solid rgba(184,149,46,.35);
+    margin-left:8px;
+    padding-left:0;
+  }
+  .booking-steps::before{display:none}
+  .bk-step{
+    text-align:left;
+    padding:22px 16px 22px 24px;
+    background:transparent;
+  }
+  .bk-step:not(:last-child){border-bottom:1px solid rgba(255,255,255,.05)}
+  .bk-step:hover{background:rgba(255,255,255,.03)}
+  .bk-num{font-size:34px;margin-bottom:4px;opacity:.45;text-align:left}
+  .bk-icon{font-size:20px;margin-bottom:6px;text-align:left}
+  .bk-title{text-align:left;margin-bottom:6px;font-size:11px}
+  .bk-desc{text-align:left;font-size:13px}
+  .bk-payment{grid-template-columns:1fr}
+  .bk-note{padding:20px}
+}
+@media(max-width:400px){
+  .booking-steps{grid-template-columns:1fr}
+}
+@media(max-width:400px){
+  .booking-steps{grid-template-columns:1fr}
+}
+
+/* ── FAQ ── */
+#faq{background:var(--bg);border-top:1px solid var(--border);padding:120px 0}
+.faq-list{margin-top:52px;max-width:860px;margin-left:auto;margin-right:auto}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:500;color:var(--ink);line-height:1.55;transition:color .2s}
+.faq-q:hover{color:var(--gold)}
+.faq-q-text{flex:1}
+.faq-q-icon{width:24px;height:24px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s ease;color:var(--gold);font-size:18px;font-weight:300;font-family:'Montserrat',sans-serif;line-height:1}
+.faq-item.open .faq-q-icon{background:var(--gold);border-color:var(--gold);color:#fff;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .42s ease}
+.faq-item.open .faq-a{max-height:500px}
+.faq-a-inner{padding:0 0 24px;font-size:14px;color:var(--body);line-height:1.9;max-width:740px}
+.faq-a-inner strong{color:var(--ink);font-weight:600}
+@media(max-width:600px){#faq{padding:72px 0}.faq-q{font-size:14px;padding:18px 0}.faq-list{margin-top:36px}}
+
+/* ── RESERVE FORM ── */
+#reserve{background:var(--bg2);border-top:1px solid var(--border);padding:120px 0}
+.reserve-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.reserve-copy{padding-top:8px}
+.reserve-copy h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,3.5vw,50px);line-height:1.05;margin-bottom:24px}
+.reserve-copy h2 em{font-style:italic;color:var(--gold)}
+.reserve-copy p{font-size:14px;color:var(--body);line-height:1.9;margin-bottom:32px}
+.reserve-info-list{display:flex;flex-direction:column;gap:18px}
+.ri-item{display:flex;align-items:flex-start;gap:14px;font-size:13px;color:var(--body);line-height:1.75}
+.ri-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.reserve-form-wrap{background:var(--bg);padding:44px 40px;border:1px solid var(--border)}
+.form-row{margin-bottom:20px}
+.form-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:8px}
+.form-input,.form-select,.form-textarea{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-size:14px;padding:13px 16px;transition:border-color .2s,background .2s;outline:none;-webkit-appearance:none;appearance:none;border-radius:0}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold);background:#fff}
+.form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B8952E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-color:var(--bg2);padding-right:44px;cursor:pointer}
+.form-select:focus{background-color:#fff}
+.form-textarea{min-height:100px;resize:vertical;line-height:1.65}
+.form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-submit{width:100%;background:var(--gold);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:17px;border:none;cursor:pointer;transition:background .2s,transform .15s;margin-top:4px}
+.form-submit:hover{background:var(--gold2);transform:translateY(-1px)}
+.form-notice{margin-top:14px;padding:16px 20px;border-left:2px solid var(--gold);background:var(--gold-dim);font-size:12.5px;color:var(--body);line-height:1.75}
+.form-notice strong{color:var(--gold)}
+.form-notice a{color:var(--gold);text-decoration:none;font-weight:700}
+.form-notice a:hover{text-decoration:underline}
+.form-success{display:none;text-align:center;padding:32px 12px}
+.form-success-icon{font-size:44px;margin-bottom:14px}
+.form-success-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--ink);margin-bottom:10px}
+.form-success-sub{font-size:13px;color:var(--body);line-height:1.8;margin-bottom:22px}
+.form-copy-area{width:100%;min-height:120px;padding:14px 16px;font-size:12.5px;line-height:1.7;border:1px solid var(--border);background:var(--dark2);color:var(--ink);resize:none;border-radius:0;outline:none;font-family:'Noto Sans KR',sans-serif;margin-bottom:8px;text-align:left}
+@media(max-width:860px){.reserve-inner{grid-template-columns:1fr;gap:40px}}
+@media(max-width:600px){.reserve-form-wrap{padding:28px 20px}#reserve{padding:72px 0}.form-grid-2{grid-template-columns:1fr}}
+
+/* ── GOLD GLOW BLOBS ── */
+.gold-glow-a{position:absolute;top:-10%;right:-8%;width:55%;height:100%;background:radial-gradient(ellipse at 80% 30%,rgba(184,149,46,.13) 0%,transparent 62%);pointer-events:none;z-index:0}
+.gold-glow-b{position:absolute;bottom:-15%;left:-5%;width:50%;height:90%;background:radial-gradient(ellipse at 20% 80%,rgba(184,149,46,.1) 0%,transparent 58%);pointer-events:none;z-index:0}
+.gold-glow-c{position:absolute;top:10%;left:50%;transform:translateX(-50%);width:70%;height:80%;background:radial-gradient(ellipse at 50% 40%,rgba(184,149,46,.09) 0%,transparent 55%);pointer-events:none;z-index:0}
+#why,#gear,#services,#about,#credits,#compare,#faq,#reserve{position:relative;overflow:hidden}
+#why .container,#gear .container,#services .container,#about .container,#credits .container,#compare .container,#faq .container,#reserve .container{position:relative;z-index:1}
+#why .about-layout,#about .about-layout{position:relative;z-index:1}
+
+/* ── NOISE / GRAIN ── */
+.noise-layer{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
+#strip,#rental,#location{position:relative;overflow:hidden}
+#strip .strip-inner,#rental .container,#location .container{position:relative;z-index:2}
+
+/* ── GOLD GLOW ── */
+.svc-card.star{box-shadow:0 0 60px rgba(184,149,46,.12),inset 0 0 40px rgba(184,149,46,.04)}
+.svc-card.star:hover{box-shadow:0 0 90px rgba(184,149,46,.2),inset 0 0 40px rgba(184,149,46,.06)}
+.cred-komca{box-shadow:0 8px 48px rgba(184,149,46,.1)}
+.pkg-row{box-shadow:0 4px 32px rgba(184,149,46,.08)}
+.btn-gold{box-shadow:0 4px 24px rgba(184,149,46,.3)}
+.btn-gold:hover{box-shadow:0 6px 36px rgba(184,149,46,.5)}
+
+/* ── CTA GOLD RADIAL GLOW ── */
+#cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(184,149,46,.28) 0%,transparent 60%);z-index:1;pointer-events:none}
+.cta-inner{position:relative;z-index:2}
+
+/* ── WAVEFORM DIVIDER ── */
+.wave-sep{display:block;width:100%;overflow:hidden;line-height:0;margin:0;padding:0}
+.wave-sep svg{display:block;width:100%;height:60px}
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-toggle{display:flex;align-items:center;gap:2px;margin-right:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:3px}
+.lang-btn{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.4);background:none;border:none;padding:5px 10px;cursor:pointer;text-transform:uppercase;transition:all .2s;line-height:1}
+.lang-btn.on{background:var(--gold);color:#000}
+.lang-btn:hover:not(.on){color:rgba(255,255,255,.8)}
+@media(max-width:900px){.lang-toggle{display:none}}
+.lang-toggle-mobile{display:flex;align-items:center;gap:4px;margin-top:12px}
+.lang-toggle-mobile .lang-btn{font-size:11px;padding:8px 16px;border:1px solid rgba(255,255,255,.15)}
+.lang-toggle-mobile .lang-btn.on{background:var(--gold);color:#000;border-color:var(--gold)}
+
+/* ── LANG VISIBILITY ── */
+.ko-only{display:inline-flex}
+.ko-only.bk-pay-item{display:flex}
+.ko-only.form-notice{display:block}
+.intl-only{display:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" class="light-nav">
+  <div class="nav-inner container">
+    <a href="#" class="nav-logo">
+      <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL Music Studio" class="nav-logo-img" id="nav-logo-img"/>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#gear" data-i18n="nav-gear">장비</a></li>
+      <li><a href="#credits" data-i18n="nav-credits">크레딧</a></li>
+      <li><a href="#services" data-i18n="nav-services">서비스</a></li>
+      <li><a href="#rental" data-i18n="nav-rental">대관</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#reserve" data-i18n="nav-reserve">예약</a></li>
+      <li><a href="#about" data-i18n="nav-about">소개</a></li>
+    </ul>
+    <div class="lang-toggle" id="lang-toggle">
+      <button class="lang-btn on" onclick="setLang('ko')">KO</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ja')">JP</button>
+    </div>
+    <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="nav-btn ko-only" id="nav-btn-ko" data-i18n="nav-contact">문의하기</a>
+    <a href="mailto:madewellofficial@gmail.com" class="nav-btn intl-only" id="nav-btn-intl" data-i18n="nav-contact-intl">Contact</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="메뉴 열기" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#gear" onclick="closeMobileMenu()" data-i18n="nav-gear">장비</a>
+  <a href="#credits" onclick="closeMobileMenu()" data-i18n="nav-credits">크레딧</a>
+  <a href="#services" onclick="closeMobileMenu()" data-i18n="nav-services">서비스</a>
+  <a href="#rental" onclick="closeMobileMenu()" data-i18n="nav-rental">대관</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="#reserve" onclick="closeMobileMenu()" data-i18n="nav-reserve">예약</a>
+  <a href="#about" onclick="closeMobileMenu()" data-i18n="nav-about">소개</a>
+  <div class="mobile-menu-divider"></div>
+  <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="mobile-menu-cta ko-only" id="mm-cta-ko" onclick="closeMobileMenu()" data-i18n="mm-cta">카카오톡 문의</a>
+  <a href="mailto:madewellofficial@gmail.com" class="mobile-menu-cta intl-only" id="mm-cta-intl" onclick="closeMobileMenu()" data-i18n="mm-cta-intl">Contact via Email</a>
+  <div class="mobile-menu-divider"></div>
+  <div class="lang-toggle-mobile">
+    <button class="lang-btn on" onclick="setLang('ko')">KO</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('ja')">JP</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="noise-layer"></div>
+  <div class="hero-inner container">
+    <div class="reveal">
+      <div class="hero-pre" data-i18n="hero-pre">Seoul · Gangnam · Professional Studio</div>
+      <h1 data-i18n="hero-h1">수많은 K-POP<br/>스타들의 음악이<br/>탄생한 곳,<br/><em>지금 당신의</em><br/>음악을 완성합니다.</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-sub" data-i18n="hero-sub">NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/><b>스타 K-POP 아티스트들의 하드웨어, 당신이 감당할 수 있는 가격으로.</b></p>
+      <div class="hero-cta">
+        <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="btn-gold ko-only" data-i18n="hero-cta-ko">카카오톡으로 문의</a>
+        <a href="mailto:madewellofficial@gmail.com" class="btn-gold intl-only" data-i18n="hero-cta-intl">Contact via Email</a>
+        <a href="#services" class="btn-outline-w" data-i18n="hero-cta-2">서비스 &amp; 가격 보기</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="hero-line"></div><span>Scroll</span></div>
+</section>
+
+<!-- STRIP — 서비스 요금 라인업 -->
+<div id="strip">
+  <div class="noise-layer"></div>
+  <div class="strip-inner container" style="padding:0">
+    <div class="strip-item"><div class="si-val" data-i18n="strip-v1">25만원~</div><div class="si-lbl" data-i18n="strip-l1">싱글 믹스+마스터링</div></div>
+    <div class="strip-item"><div class="si-val" data-i18n="strip-v2">45만원~</div><div class="si-lbl" data-i18n="strip-l2">멀티트랙 믹스+마스터링</div></div>
+    <div class="strip-item"><div class="si-val" data-i18n="strip-v3">10만원~</div><div class="si-lbl" data-i18n="strip-l3">마스터링 단독</div></div>
+    <div class="strip-item"><div class="si-val">40</div><div class="si-lbl" data-i18n="strip-l4">선정릉역 도보</div></div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section id="why">
+  <div class="gold-glow-a"></div>
+  <div class="container">
+    <div class="why-heading reveal">
+      <div class="tag" style="margin-bottom:16px">Why MADEWELL MUSIC</div>
+      <h2 class="serif" style="font-weight:300;font-size:clamp(36px,4.5vw,58px);line-height:1.05" data-i18n="why-h">이런 장비가<br/>이 가격에?</h2>
+    </div>
+  </div>
+  <div class="why-grid">
+    <div class="why-photo reveal"><img src="images/MIC.jpg" alt="Neumann U87"/></div>
+    <div class="why-copy reveal2">
+      <p class="why-body" data-i18n="why-body1">KOMCA 등록 100곡 이상. PRODUCE 101 JAPAN 4, VIVIZ, (여자)아이들, 인피니트, 마마무 화사 — 동일한 하드웨어 체인으로 당신의 음악을 처리합니다.</p>
+      <p class="why-body" style="margin-top:18px" data-i18n="why-body2">국내 최상급 마스터링 스튜디오와 동일한 아웃보드, 아이돌 프로듀서 직접 핸들링, 그리고 합리적인 가격.</p>
+      <div class="why-quote">
+        <p data-i18n="why-q1">"아이돌 앨범에 실제로 사용된 그 장비 그대로.<br/>방구석에서 만든 음악도, 스트리밍 차트에<br/>올라갈 수 있는 퀄리티로 끌어올립니다."</p>
+        <cite>MADEWELL MUSIC</cite>
+      </div>
+      <div class="why-quote" style="margin-top:12px">
+        <p data-i18n="why-q2">"마스터링 단 10만원. 픽스 전 자유 수정.<br/>일반 마스터링 스튜디오 대비 최저가."</p>
+        <cite>MADEWELL MUSIC</cite>
+      </div>
+      <div class="why-quote" style="margin-top:12px">
+        <p data-i18n="why-q3">"업계 동급 믹스 최소 70~100만원.<br/>여기선 45만원. 같은 장비, 같은 사람이 직접.<br/>원래는 엄두도 못 냈을 그 퀄리티."</p>
+        <cite>MADEWELL MUSIC</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GEAR — 탭 제거, 전체 장비 한눈에 -->
+<section id="gear">
+  <div class="gold-glow-b"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="tag" style="margin-bottom:16px">Main Studio 'M Studio'</div>
+      <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,52px);line-height:1.05">Gear<br/>List</h2>
+    </div>
+    <!-- 3-photo strip with GEAR photos -->
+    <div class="gear-photo-strip reveal2">
+      <div class="gear-ph">
+        <img src="images/GEAR 1_web.jpg" alt="Outboard Chain"/>
+        <div class="gear-ph-cap">Outboard Chain</div>
+      </div>
+      <div class="gear-ph">
+        <img src="images/GEAR 2.png" alt="Studio Gear"/>
+        <div class="gear-ph-cap">Studio Gear</div>
+      </div>
+      <div class="gear-ph">
+        <img src="images/GEAR 4.png" alt="Monitor Speakers"/>
+        <div class="gear-ph-cap">Outboard & Monitors</div>
+      </div>
+      <div class="gear-ph">
+        <img src="images/GEAR 5.png" alt="Headphones"/>
+        <div class="gear-ph-cap">Reference Headphones</div>
+      </div>
+    </div>
+    <!-- All gear, always visible -->
+    <div class="gear-all reveal2">
+      <!-- Row 1 -->
+      <div class="ga-group">
+        <div class="ga-cat">AD/DA Converter</div>
+        <div class="ga-items">
+          <div><div class="ga-name">LAVRY GOLD SAVITR</div><div class="ga-note">Mastering Grade · Reference Quality</div></div>
+          <div><div class="ga-name">AVID Pro Tools HD OMNI</div><div class="ga-note">Full HD System · High Resolution</div></div>
+        </div>
+      </div>
+      <div class="ga-group">
+        <div class="ga-cat">Mic Preamp</div>
+        <div class="ga-items">
+          <div><div class="ga-name">AMS NEVE 1073 SPX</div><div class="ga-note">Legendary British · Mic Pre / EQ</div></div>
+          <div><div class="ga-name">AVID HD OMNI Preamp</div><div class="ga-note">Pro Tools HD Integrated</div></div>
+        </div>
+      </div>
+      <div class="ga-group">
+        <div class="ga-cat">Compressor / Limiter</div>
+        <div class="ga-items">
+          <div><div class="ga-name">TUBE TECH CL1B</div><div class="ga-note">Classic Opto · Smooth Character</div></div>
+          <div><div class="ga-name">BETTERMAKER Mastering Limiter</div><div class="ga-note">Pro Mastering Grade</div></div>
+          <div><div class="ga-name">SSL FUSION Channelstrip</div><div class="ga-note">Analogue Colouring · Warmth</div></div>
+        </div>
+      </div>
+      <!-- Row 2 -->
+      <div class="ga-group">
+        <div class="ga-cat">EQ &amp; Mastering</div>
+        <div class="ga-items">
+          <div><div class="ga-name">AUDIOSCAPE EQP-2A Pultec</div><div class="ga-note">Passive Stereo · Smooth &amp; Musical</div></div>
+          <div><div class="ga-name">SSL FUSION (EQ Section)</div><div class="ga-note">High Frequency · Broad EQ</div></div>
+        </div>
+      </div>
+      <div class="ga-group">
+        <div class="ga-cat">Microphone</div>
+        <div class="ga-items">
+          <div><div class="ga-name">Neumann U87 Ai</div><div class="ga-note">Large Diaphragm · Industry Standard</div></div>
+          <div><div class="ga-name">Studio Set (Shock Mount)</div><div class="ga-note">With Pop Filter · Full Recording Chain</div></div>
+        </div>
+      </div>
+      <div class="ga-group">
+        <div class="ga-cat">Monitor Speakers</div>
+        <div class="ga-items">
+          <div><div class="ga-name">BAREFOOT MicroMain 27</div><div class="ga-note">AES/EBU &amp; Analogue · Mastering Grade</div></div>
+          <div><div class="ga-name">YAMAHA HS-7</div><div class="ga-note">Near-field Reference · 2nd Monitor</div></div>
+          <div><div class="ga-name">AURATONE 5C</div><div class="ga-note">Mono Check · Translation Reference</div></div>
+        </div>
+      </div>
+      <!-- Row 3 -->
+      <div class="ga-group">
+        <div class="ga-cat">Monitor Control &amp; Metering</div>
+        <div class="ga-items">
+          <div><div class="ga-name">SPL MTC 2381</div><div class="ga-note">Professional Monitor Management</div></div>
+          <div><div class="ga-name">CREDIT SOUND CS-82</div><div class="ga-note">Multi-Channel Headphone Amp</div></div>
+          <div><div class="ga-name">SONY MDR-7506</div><div class="ga-note">Industry Standard Reference</div></div>
+          <div><div class="ga-name">TC Electronic Clarity M</div><div class="ga-note">Broadcast Grade · LUFS Monitoring</div></div>
+        </div>
+      </div>
+      <!-- Software full width -->
+      <div class="ga-group wide">
+        <div class="ga-cat">DAW &amp; Core Software</div>
+        <div class="ga-items">
+          <div><div class="ga-name">Avid Pro Tools HDX</div><div class="ga-note">Industry Standard DAW · Full HD System</div></div>
+        </div>
+      </div>
+      <div class="ga-group full">
+        <div class="ga-cat">Plugins &amp; Software</div>
+        <div class="sw-list">
+          <span class="sw-chip">Universal Audio (UAD)</span><span class="sw-chip">WAVES</span><span class="sw-chip">Plugin Alliance</span><span class="sw-chip">Antares AutoTune</span><span class="sw-chip">Celemony Melodyne</span><span class="sw-chip">Brainworx</span><span class="sw-chip">SoundToys</span><span class="sw-chip">Valhalla DSP</span><span class="sw-chip">Xfer Records</span><span class="sw-chip">FabFilter</span><span class="sw-chip">iZotope</span><span class="sw-chip">Native Instruments</span><span class="sw-chip">Eventide</span><span class="sw-chip">TC Electronic</span><span class="sw-chip">TBProAudio</span><span class="sw-chip">Voxengo</span><span class="sw-chip">Mastering The Mix</span><span class="sw-chip">Nicky Romero</span><span class="sw-chip">Reveal Sound</span><span class="sw-chip">Youlean Loudness Meter</span><span class="sw-chip">Dada Life</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-head container">
+    <div class="tag reveal" style="margin-bottom:16px">Studio</div>
+    <h2 class="serif reveal2" style="font-weight:300;font-size:clamp(34px,4vw,54px)" data-i18n="gallery-h">공간이 퀄리티를<br/><em style="font-style:italic;color:var(--gold)">증명합니다.</em></h2>
+  </div>
+  <div class="gallery-slider" id="gallerySlider">
+    <div class="slide active"><div class="slide-bg" style="background-image:url('images/MAIN ROOM.jpg')"></div><img src="images/MAIN ROOM.jpg" alt="M Control Room"/><div class="slide-cap">M Control Room</div></div>
+    <div class="slide portrait"><div class="slide-bg" style="background-image:url('images/BOOTH 1.png')"></div><img src="images/BOOTH 1.png" alt="Recording Booth"/><div class="slide-cap">Recording Booth</div></div>
+    <div class="slide portrait"><div class="slide-bg" style="background-image:url('images/BOOTH 2.png')"></div><img src="images/BOOTH 2.png" alt="Recording Booth"/><div class="slide-cap">Recording Booth</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/MAIN ROOM 3.png')"></div><img src="images/MAIN ROOM 3.png" alt="W Control Room"/><div class="slide-cap">W Control Room</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/LOBBY MAIN.png')"></div><img src="images/LOBBY MAIN.png" alt="Lounge"/><div class="slide-cap">Lounge</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/Editing Room.png')"></div><img src="images/Editing Room.png" alt="Editing Room"/><div class="slide-cap">Editing Room</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/Composing Room.png')"></div><img src="images/Composing Room.png" alt="Composing Room"/><div class="slide-cap">Composing Room</div></div>
+    <div class="slide portrait"><div class="slide-bg" style="background-image:url('images/CORRIDOR.png')"></div><img src="images/CORRIDOR.png" alt="Corridor"/><div class="slide-cap">Corridor</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/MAP.jpg')"></div><img src="images/MAP.jpg" alt="오시는 길"/><div class="slide-cap">오시는 길</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/LOUNGE 2.jpg')"></div><img src="images/LOUNGE 2.jpg" alt="Lounge"/><div class="slide-cap">Lounge</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/LOUNGE 3.png')"></div><img src="images/LOUNGE 3.png" alt="Lounge"/><div class="slide-cap">Lounge</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/SERVICE.png')"></div><img src="images/SERVICE.png" alt="Service"/><div class="slide-cap">Service</div></div>
+    <button class="slide-btn slide-prev" aria-label="이전">&#8592;</button>
+    <button class="slide-btn slide-next" aria-label="다음">&#8594;</button>
+    <div class="slide-dots" id="slideDots"></div>
+    <div class="slide-counter" id="slideCounter">1 / 12</div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<div id="location">
+  <div class="container">
+    <div class="loc-inner reveal">
+      <div class="loc-num-wrap">
+        <div class="loc-num">40</div>
+        <div class="loc-unit">초</div>
+      </div>
+      <div class="loc-vline"></div>
+      <div class="loc-text">
+        <h3 class="serif" data-i18n="loc-h">선정릉역 도보 <em>40초.</em><br/>서울 강남 교통 요충지.</h3>
+        <p data-i18n="loc-p">9호선 급행 · 분당선 선정릉역 1번 출구 도보 40초.<br/>서울 어디서든 논스톱으로 오실 수 있습니다.<br/>서울시 강남구 역삼동 682-15 4층</p>
+        <div class="loc-tags">
+          <span class="loc-tag">9호선 급행</span>
+          <span class="loc-tag">분당선</span>
+          <span class="loc-tag">강남 역삼동</span>
+          <span class="loc-tag">주차 가능</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CREDITS -->
+<section id="credits">
+  <div class="container">
+    <div class="cred-head reveal">
+      <div>
+        <div class="tag" style="margin-bottom:16px">Production Credits</div>
+        <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,54px);line-height:1.05" data-i18n="cred-h">이 음악들을<br/>만들었습니다</h2>
+      </div>
+      <p style="font-size:14px;color:var(--body);line-height:1.85;max-width:360px" data-i18n="cred-sub">국내 주요 아이돌, 드라마 OST, 일본 진출 앨범까지.<br/>같은 장비와 손으로 당신의 음악을 만듭니다.</p>
+    </div>
+    <div class="cred-grid reveal2">
+      <div class="cred-cell"><div class="cred-art">PRODUCE 101 JAPAN</div><div class="cred-ttl">SEASON 4</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">VIVIZ (비비지)</div><div class="cred-ttl">「A Montage of ( ),」— TOXIC 정규 1집</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art" data-i18n="cred-gidle">(여자)아이들 전소연</div><div class="cred-ttl">「아무너케」 M2 Live</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">인피니트 장동우</div><div class="cred-ttl">「Super Birthday」「인생(LIFE)」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art" data-i18n="cred-hwasa">마마무 화사 × Sense Mom</div><div class="cred-ttl">「Two Side」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art" data-i18n="cred-fantasy">MBC 방과후설렘 시즌2 소년판타지</div><div class="cred-ttl">「Fantasy」「Shut Off」「BATTLE FIELD」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">SBS B:MY BOYZ</div><div class="cred-ttl">「Be my boyz」 타이틀곡</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">MBC M 팬픽(FAN PICK)</div><div class="cred-ttl">「휘파람」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">KBS 드라마 수상한 그녀</div><div class="cred-ttl">OST 「The Way I Love」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">JTBC 싱어게인2</div><div class="cred-ttl">NC.A (앤씨아) — 「빗물」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">SNH48</div><div class="cred-ttl">「Call Me Louder」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art" data-i18n="cred-onepact">원팩트</div><div class="cred-ttl">1st Album 「G.O.A.T / 100 / WILD」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">NC.A (앤씨아)</div><div class="cred-ttl">「널 위한 멜로디」「My Little」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">디바 (DIVA)</div><div class="cred-ttl">「왜불러」「그래」「Joy」「Up&amp;Down」「딱이야」— 타임캡슐 수퍼콘서트</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art" data-i18n="cred-jaehoon">이재훈 (쿨)</div><div class="cred-ttl">콘서트 편곡</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">HORI7ON</div><div class="cred-ttl">1st Mini Album 「SIXTEEN,」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art" data-i18n="cred-lapilus">라필루스</div><div class="cred-ttl">Japan Single 「Who's Next」</div><div class="cred-role" data-i18n="cred-lapilus-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">WeNU</div><div class="cred-ttl">1st · 2nd · 3rd Mini Album</div><div class="cred-role">Produced by MADEWELL</div></div>
+    </div>
+    <div class="cred-komca reveal">
+      <div>
+        <div class="ck-left">
+          <div class="ck-num">100</div>
+          <div class="ck-plus">+</div>
+        </div>
+        <div class="ck-label">KOMCA Registered Works</div>
+        <div style="font-family:'Noto Sans KR',sans-serif;font-size:11px;color:rgba(255,255,255,.35);margin-top:6px;letter-spacing:.03em">한국음악저작권협회 등록</div>
+      </div>
+      <div class="ck-text" data-i18n="ck-text">그리고 아직 여기 적히지 않은<br/><em>수백 개의 이야기들.</em><br/>당신의 음악도 그 중 하나가 됩니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="gold-glow-c"></div>
+  <div class="container">
+    <div class="svc-head reveal">
+      <div>
+        <div class="tag" style="margin-bottom:16px">Services &amp; Pricing</div>
+        <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,54px)" data-i18n="svc-h">서비스 &amp; 가격</h2>
+      </div>
+      <p style="font-size:14px;color:var(--body);line-height:1.85;max-width:360px" data-i18n="svc-sub">파일 전송으로 온라인 의뢰 가능. 역삼동 방문 레코딩도 운영 중.</p>
+    </div>
+    <div class="svc-grid reveal2">
+      <div class="svc-card">
+        <div class="svc-n">SINGLE</div>
+        <div class="svc-nm" data-i18n="svc-nm-1">릴스 · 싱글 · 커버</div>
+        <div class="svc-dc" data-i18n="svc-dc-1">완성된 스테레오 파일을 프로 수준으로 다듬습니다. SNS·스트리밍 싱글에 최적.</div>
+        <div class="svc-pr" data-i18n="svc-pr-1">25만원<sub>/ 1곡</sub></div>
+        <ul class="svc-li" data-i18n="svc-li-1">
+          <li>투트랙 믹싱 + 마스터링 포함</li>
+          <li>NEVE · SSL · BETTERMAKER</li>
+          <li>픽스 전 자유 수정</li>
+          <li>WAV + MP3 납품</li>
+          <li>온라인 파일 의뢰 가능</li>
+        </ul>
+      </div>
+      <div class="svc-card star">
+        <div class="star-tag" data-i18n="svc-star-tag">가장 많이 선택</div>
+        <div class="svc-n">RELEASE</div>
+        <div class="svc-nm" data-i18n="svc-nm-2">EP · 앨범 · 정식 발매</div>
+        <div class="svc-dc" data-i18n="svc-dc-2">분리된 멀티트랙을 처음부터 믹스합니다. 아이돌 세션과 동일한 워크플로우.</div>
+        <div class="svc-pr" data-i18n="svc-pr-2">45만원<sub>/ 1곡</sub></div>
+        <ul class="svc-li" data-i18n="svc-li-2">
+          <li>멀티트랙 풀 믹싱 + 마스터링</li>
+          <li>NEVE 1073 · SSL · TUBE TECH</li>
+          <li>픽스 전 자유 수정</li>
+          <li>WAV + MP3 납품</li>
+          <li>온라인 파일 의뢰 가능</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <div class="svc-n">MASTER</div>
+        <div class="svc-nm" data-i18n="svc-nm-3">마스터링 단독</div>
+        <div class="svc-dc" data-i18n="svc-dc-3">믹스가 완료된 파일에 하드웨어 마스터링. 스트리밍 LUFS 최적화 포함.</div>
+        <div class="svc-pr" data-i18n="svc-pr-3">10만원<sub>/ 1곡</sub></div>
+        <ul class="svc-li" data-i18n="svc-li-3">
+          <li>NEVE · SSL · BETTERMAKER 아웃보드</li>
+          <li>스트리밍 LUFS 최적화</li>
+          <li>픽스 전 자유 수정</li>
+          <li>WAV + MP3 납품</li>
+          <li>온라인 파일 의뢰 가능</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <div class="svc-n">REC</div>
+        <div class="svc-nm" data-i18n="svc-nm-4">레코딩</div>
+        <div class="svc-dc" data-i18n="svc-dc-4">Neumann U87 Ai + NEVE 1073 기반 고품질 보컬 레코딩. 선정릉역 도보 40초.</div>
+        <div class="svc-pr" data-i18n="svc-pr-4">20만원<sub>/ 3.5h</sub></div>
+        <ul class="svc-li" data-i18n="svc-li-4">
+          <li>Neumann U87 Ai Studio Set</li>
+          <li>NEVE 1073 Mic Pre</li>
+          <li>엔지니어 동반 시 +6만원</li>
+          <li>보컬 튜닝 추가 +5만원</li>
+          <li>선정릉역 도보 40초</li>
+        </ul>
+      </div>
+    </div>
+    <div class="addon-row reveal">
+      <div class="addon-item">
+        <div>
+          <div class="addon-lbl" data-i18n="addon-lbl-1">PROJECT — 대형 편성 · 앨범 전체</div>
+          <div class="addon-note" data-i18n="addon-note-1">100트랙 이상 · 방송 · 광고 · 정규앨범 · 트랙 수 확인 후 맞춤 견적</div>
+        </div>
+        <div class="addon-pr" data-i18n="addon-pr-1">협의<sub>/ 문의</sub></div>
+      </div>
+      <div class="addon-item">
+        <div>
+          <div class="addon-lbl" data-i18n="addon-lbl-2">보컬 튜닝</div>
+          <div class="addon-note" data-i18n="addon-note-2">Melodyne · AutoTune · 피치 보정 · 단독 의뢰 가능</div>
+        </div>
+        <div class="addon-pr" data-i18n="addon-pr-2">5만원<sub>/ 1곡</sub></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RENTAL -->
+<section id="rental">
+  <div class="noise-layer"></div>
+  <div class="container">
+    <div class="rental-head reveal">
+      <div>
+        <div class="tag" style="margin-bottom:16px;color:var(--gold)">Studio Rental</div>
+        <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,54px);color:#fff" data-i18n="rental-h">스튜디오 대관 &amp;<br/><em style="font-style:italic;color:var(--gold)">공간 대여.</em></h2>
+      </div>
+      <p data-i18n="rental-p">선정릉역 도보 40초. 강남 최고 입지의 프리미엄 스튜디오를 시간 단위로 대여하실 수 있습니다.</p>
+    </div>
+    <div class="rental-grid reveal2">
+      <div class="rental-card highlight">
+        <div class="rental-icon">🎛</div>
+        <div class="rental-nm">M CONTROL ROOM</div>
+        <div class="rental-dc" data-i18n="rental-dc-1">NEVE 1073 · BAREFOOT MicroMain 27 · Pro Tools HDX. 레코딩, 믹싱, 작업실로 사용 가능. 스페이스 클라우드 예약 운영 중.</div>
+        <div class="rental-pr">55,000원<sub>/ 1시간</sub></div>
+        <ul class="rental-li" data-i18n="rental-li-1">
+          <li>Neumann U87 Ai 사용 가능</li>
+          <li>NEVE 1073 + 하드웨어 아웃보드 포함</li>
+          <li>레코딩 부스 연동 사용 가능</li>
+          <li>스페이스 클라우드로 간편 예약</li>
+        </ul>
+      </div>
+      <div class="rental-card">
+        <div class="rental-icon">🎬</div>
+        <div class="rental-nm" data-i18n="rental-nm-2">전체 대관 · 촬영 대여</div>
+        <div class="rental-dc" data-i18n="rental-dc-2">뮤직비디오, 유튜브 촬영, 팟캐스트, 행사 등 전체 공간 대관. 인원 · 시간 · 목적에 따라 맞춤 견적 제공.</div>
+        <div class="rental-pr" data-i18n="rental-pr-2">문의<sub>/ 맞춤 견적</sub></div>
+        <ul class="rental-li" data-i18n="rental-li-2">
+          <li>MV · 커버 영상 · 유튜브 촬영</li>
+          <li>팟캐스트 · 인터뷰 녹음</li>
+          <li>스튜디오 전체 공간 사용</li>
+          <li>카카오채널로 문의 후 협의</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rental-cta reveal">
+      <a href="https://www.spacecloud.kr/space/72160" target="_blank" class="btn-rental" data-i18n="rental-cta">스페이스 클라우드 예약 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section id="compare">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="tag" style="justify-content:center;margin-bottom:16px">Comparison</div>
+      <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,54px)" data-i18n="cmp-why-h">왜 MADEWELL MUSIC인가</h2>
+    </div>
+    <div class="tbl-wrap reveal2">
+      <table>
+        <thead><tr>
+          <th></th><th data-i18n="cmp-h1">일반 마스터링 스튜디오</th><th data-i18n="cmp-h2">프리미엄 스튜디오 평균</th><th class="hl">MADEWELL MUSIC</th>
+        </tr></thead>
+        <tbody>
+          <tr><td data-i18n="cmp-r1">마스터링 기본가</td><td data-i18n="cmp-r1v1">10~15만원</td><td data-i18n="cmp-r1v2">15만원~</td><td class="hl em" data-i18n="cmp-r1v3">10만원</td></tr>
+          <tr><td data-i18n="cmp-r2">수정 무료 횟수</td><td data-i18n="cmp-r2v1">1~2회</td><td data-i18n="cmp-r2v2">유료</td><td class="hl em" data-i18n="cmp-r2v3">5회 무료</td></tr>
+          <tr><td data-i18n="cmp-r3">하드웨어 아웃보드</td><td class="no">△</td><td class="yes">✓</td><td class="hl yes">✓</td></tr>
+          <tr><td data-i18n="cmp-r4">NEVE 1073 채널 스트립</td><td class="no">✗</td><td class="no">—</td><td class="hl yes">✓</td></tr>
+          <tr><td data-i18n="cmp-r5">아이돌 프로듀서 직접 작업</td><td class="no">✗</td><td class="no">✗</td><td class="hl yes">✓</td></tr>
+          <tr><td data-i18n="cmp-r6">레코딩 원스톱</td><td class="no">✗</td><td class="no">✗</td><td class="hl yes">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING PROCESS -->
+<section id="booking">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="tag" style="justify-content:center;margin-bottom:16px">Booking Process</div>
+      <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,54px);color:#fff" data-i18n="booking-h">예약 &amp; 결제,<br/><em style="color:var(--gold2);font-style:italic">어렵지 않습니다.</em></h2>
+      <p style="font-size:15px;color:rgba(255,255,255,.4);margin-top:18px;line-height:1.8" data-i18n="booking-sub">카카오톡 문의 한 번이면 시작됩니다.</p>
+    </div>
+    <div class="booking-steps reveal2">
+      <div class="bk-step">
+        <div class="bk-num">01</div>
+        <div class="bk-icon">💬</div>
+        <div class="bk-title" data-i18n="bk-t1">문의</div>
+        <div class="bk-desc" data-i18n="bk-d1">카카오채널 또는 인스타 DM으로 서비스·날짜 문의</div>
+      </div>
+      <div class="bk-step">
+        <div class="bk-num">02</div>
+        <div class="bk-icon">📋</div>
+        <div class="bk-title" data-i18n="bk-t2">확정</div>
+        <div class="bk-desc" data-i18n="bk-d2">서비스 종류·날짜·곡 수 최종 확인 후 예약 확정</div>
+      </div>
+      <div class="bk-step">
+        <div class="bk-num">03</div>
+        <div class="bk-icon">💳</div>
+        <div class="bk-title" data-i18n="bk-t3">예약금 입금</div>
+        <div class="bk-desc" data-i18n="bk-d3">총금액의 50% 예약금 입금으로 일정 확보</div>
+      </div>
+      <div class="bk-step">
+        <div class="bk-num">04</div>
+        <div class="bk-icon">🎚</div>
+        <div class="bk-title" data-i18n="bk-t4">작업 진행</div>
+        <div class="bk-desc" data-i18n="bk-d4">파일 전송 or 방문 레코딩 — 엔지니어가 직접 핸들링</div>
+      </div>
+      <div class="bk-step">
+        <div class="bk-num">05</div>
+        <div class="bk-icon">📦</div>
+        <div class="bk-title" data-i18n="bk-t5">납품</div>
+        <div class="bk-desc" data-i18n="bk-d5">잔금 결제 후 WAV + MP3 최종 파일 전달</div>
+      </div>
+    </div>
+    <div class="bk-payment reveal">
+      <div class="bk-pay-item ko-only">
+        <div class="bk-pay-icon">💛</div>
+        <div>
+          <div class="bk-pay-title">카카오페이</div>
+          <div class="bk-pay-note">예약 확정 후 카카오페이<br/>송금 링크 개별 발송</div>
+        </div>
+      </div>
+      <div class="bk-pay-item ko-only">
+        <div class="bk-pay-icon">🏦</div>
+        <div>
+          <div class="bk-pay-title">계좌이체</div>
+          <div class="bk-pay-note">예약 확정 후 계좌번호<br/>채팅으로 개별 안내</div>
+        </div>
+      </div>
+      <div class="bk-pay-item intl-only" style="display:none">
+        <div class="bk-pay-icon">💵</div>
+        <div>
+          <div class="bk-pay-title" data-i18n="pay-t1">PayPal</div>
+          <div class="bk-pay-note" data-i18n="pay-n1">PayPal invoice sent<br/>after booking confirmed</div>
+        </div>
+      </div>
+      <div class="bk-pay-item intl-only" style="display:none">
+        <div class="bk-pay-icon">🏦</div>
+        <div>
+          <div class="bk-pay-title" data-i18n="pay-t2">Wire Transfer</div>
+          <div class="bk-pay-note" data-i18n="pay-n2">Bank details provided<br/>after booking confirmed</div>
+        </div>
+      </div>
+      <div class="bk-pay-item">
+        <div class="bk-pay-icon">📁</div>
+        <div>
+          <div class="bk-pay-title" data-i18n="pay-t3">온라인 의뢰 가능</div>
+          <div class="bk-pay-note" data-i18n="pay-n3">방문 없이 파일만 전송<br/>마스터링·믹싱 모두 OK</div>
+        </div>
+      </div>
+    </div>
+    <div class="bk-note reveal">
+      <div class="bk-note-text" data-i18n="bk-note-txt">
+        <strong>예약금(50%) 선입금</strong>으로 일정을 확정합니다. 잔금은 작업 완료 후 파일 전달 전 결제하시면 됩니다.<br/>
+        계좌번호 및 카카오페이 링크는 예약 확정 후 채팅으로 개별 안내드립니다. 계좌 정보는 공개하지 않습니다.
+      </div>
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:52px">
+      <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="btn-gold ko-only" data-i18n="booking-cta-ko">카카오톡으로 예약 문의</a>
+      <a href="mailto:madewellofficial@gmail.com" class="btn-gold intl-only" data-i18n="booking-cta-intl">Send Inquiry via Email</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="gold-glow-a"></div>
+  <div class="container about-head">
+    <div class="tag reveal" style="margin-bottom:16px">About</div>
+    <h2 class="serif reveal2" style="font-weight:300;font-size:clamp(34px,4vw,54px)">Producer · Artist<br/><em style="font-style:italic;color:var(--gold)">MADEWELL</em></h2>
+  </div>
+  <div class="about-layout">
+    <div class="about-photos reveal">
+      <div class="ap big"><img src="images/profile1.jpg" alt="MADEWELL"/></div>
+      <div class="ap"><img src="images/profile2.jpg" alt="MADEWELL"/></div>
+      <div class="ap bottom-right"><img src="images/profile6.jpg" alt="MADEWELL"/></div>
+    </div>
+    <div class="about-copy reveal2">
+      <div class="about-ident">
+        <div class="about-kr-name">정균 · JUNGKYUN</div>
+        <div class="about-name-big">Music Producer<br/><em>Artist · Engineer</em></div>
+        <div class="about-pname">Producer Name · MADEWELL</div>
+        <div class="about-skills">
+          <span class="skill-tag" data-i18n="sk-1">작곡</span><span class="skill-tag" data-i18n="sk-2">편곡</span><span class="skill-tag" data-i18n="sk-3">작사</span>
+          <span class="skill-tag" data-i18n="sk-5">피아노</span><span class="skill-tag" data-i18n="sk-6">기타</span><span class="skill-tag" data-i18n="sk-7">베이스</span>
+          <span class="skill-tag" data-i18n="sk-8">드럼</span><span class="skill-tag" data-i18n="sk-4">JLPT 1급</span>
+        </div>
+      </div>
+      <div class="a-stats">
+        <div class="a-stat"><div class="a-n">100+</div><div class="a-l" data-i18n="stat-l1">KOMCA 등록곡</div></div>
+        <div class="a-stat"><div class="a-n" data-i18n="stat-n2">1위</div><div class="a-l" data-i18n="stat-l2">시부야 타워레코드</div></div>
+        <div class="a-stat"><div class="a-n">20+</div><div class="a-l" data-i18n="stat-l3">일본 콘서트</div></div>
+        <div class="a-stat"><div class="a-n">19+</div><div class="a-l" data-i18n="stat-l4">년 경력</div></div>
+      </div>
+      <div class="about-tabs">
+        <button class="ab-btn on" onclick="sa(this,'at-career')" data-i18n="tab-career">경력</button>
+        <button class="ab-btn" onclick="sa(this,'at-albums')" data-i18n="tab-albums">음반</button>
+        <button class="ab-btn" onclick="sa(this,'at-records')" data-i18n="tab-records">수상 · 기록</button>
+      </div>
+      <!-- Career -->
+      <div class="ab-panel on" id="at-career">
+        <div class="tl" data-i18n="career-tl">
+          <div class="tl-row"><div class="tl-yr">2007</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">3인조 아이돌 그룹 타키온 메인보컬 데뷔</div></div></div>
+          <div class="tl-row"><div class="tl-yr">2011</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">5인조 아이돌 그룹 엔트레인 리더 및 보컬 데뷔</div></div></div>
+          <div class="tl-row"><div class="tl-yr">2014</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">6인조 아이돌 그룹 빅플로 BIGFLO</div><div class="tl-d">리더 · 메인보컬 · 프로듀서 데뷔</div></div></div>
+          <div class="tl-row"><div class="tl-yr">2018</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">(주)스튜디오J2K 설립</div></div></div>
+          <div class="tl-row"><div class="tl-yr">2020</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">(주)MADEWELL MUSIC 법인설립 및 대표 프로듀서</div><div class="tl-d">스튜디오 오픈 · 서울 강남구 역삼동</div></div></div>
+          <div class="tl-row"><div class="tl-yr">2022</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">(주)AVEC MUSIC 겸임 프로듀서</div></div></div>
+          <div class="tl-row"><div class="tl-yr">2023</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">We:A (元 BIGFLO) 결성 · 리더 · 메인보컬</div><div class="tl-d">1st Single &amp; Japan Single 「24/7」 발매</div></div></div>
+          <div class="tl-row"><div class="tl-yr">2025</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">일본 솔로 2집 「Still UNFINISHED」 발매</div><div class="tl-d">단독 콘서트 개최</div></div></div>
+        </div>
+      </div>
+      <!-- Albums -->
+      <div class="ab-panel" id="at-albums">
+        <div class="alb-list" data-i18n="albums-list">
+          <div class="alb-row"><div class="alb-yr">2007</div><div class="alb-info">Tachyon 1st Single 「Feel Your Breeze」<span>타키온</span></div></div>
+          <div class="alb-row"><div class="alb-yr">2011</div><div class="alb-info">N-train 1st Single 「One Last Cry」<span>엔트레인</span></div></div>
+          <div class="alb-row"><div class="alb-yr">2012</div><div class="alb-info">N-train 2nd Single 「I'll Forget You」 / 3rd Mini Album 「내게 돌아와」<span>엔트레인</span></div></div>
+          <div class="alb-row"><div class="alb-yr">2014</div><div class="alb-info">BIGFLO 1st Mini 「First Flow」 / 2nd Mini 「Second Flow」<span>BIGFLO</span></div></div>
+          <div class="alb-row"><div class="alb-yr">2015</div><div class="alb-info">BIGFLO 1st Japan 「Delilah」 / 3rd Mini 「Incant」 / 2nd Japan 「1,2,3,4」<span>BIGFLO · 오리콘 TOP10 · 시부야 타워레코드 주간 1위</span></div></div>
+          <div class="alb-row"><div class="alb-yr">2015</div><div class="alb-info">나라사랑 캠페인 Single 「우리, 이젠」<span>BIGFLO · 서울지방보훈청 홍보대사</span></div></div>
+          <div class="alb-row"><div class="alb-yr">2016</div><div class="alb-info">JUNGKYUN Japan Solo Album 「UNFINISHED」<span>솔로 — 오리콘 앨범 9위</span></div></div>
+          <div class="alb-row"><div class="alb-yr">2023</div><div class="alb-info">We:A 1st Single &amp; Japan Single 「24/7」<span>We:A (元 BIGFLO)</span></div></div>
+          <div class="alb-row"><div class="alb-yr">2025</div><div class="alb-info">JUNGKYUN Japan 2nd Solo Album 「Still UNFINISHED」<span>솔로 — 단독 콘서트</span></div></div>
+        </div>
+      </div>
+      <!-- Records -->
+      <div class="ab-panel" id="at-records">
+        <div class="rec-list" data-i18n="records-list">
+          <div class="rec-item">BIGFLO 1st Japan「Delilah」— 오리콘차트 TOP10 · 시부야 타워레코드 주간 앨범판매량 1위</div>
+          <div class="rec-item">BIGFLO 2nd Japan「1,2,3,4」— 오리콘차트 TOP10 · 시부야 타워레코드 주간 앨범판매량 1위</div>
+          <div class="rec-item">JUNGKYUN Japan Solo「Unfinished」— 오리콘차트 앨범부문 9위</div>
+          <div class="rec-item">일본 단독 콘서트 및 팬미팅 20회 이상 개최 · 전국 프로모션</div>
+          <div class="rec-item">BIGFLO「딜라일라(Delilah)」— 독일 K-POP 차트 9위</div>
+          <div class="rec-item">BIGFLO 1st Malaysia Showcase &amp; Fan-Meeting</div>
+          <div class="rec-item">SBS 인기가요 · KBS 뮤직뱅크 · MBC 쇼음악중심 · Mnet M Countdown · Arirang TV Simply Kpop 등 다수 출연</div>
+          <div class="rec-item">2022 — We:A (BIGFLO) 재결성 「Re:born」 일본 단독콘서트 개최</div>
+          <div class="rec-item">2023 — We:A 1st Single 「24/7」 발매 · 일본 단독콘서트 개최</div>
+          <div class="rec-item">2025–2026 — JUNGKYUN「Still Unfinished」 일본 발매 · 단독 콘서트 개최</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="tag" style="justify-content:center;margin-bottom:16px">FAQ</div>
+      <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,54px)" data-i18n="faq-h">자주 묻는 질문</h2>
+      <p style="font-size:15px;color:var(--body);margin-top:16px;line-height:1.8" data-i18n="faq-sub">더 궁금한 점은 언제든 카카오 채널로 문의 주세요.</p>
+    </div>
+    <div class="faq-list reveal2">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-i18n="faq-q1">가격이 어떻게 되나요?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq-a1">마스터링 단독 <strong>10만원/곡</strong>, 투트랙 믹싱+마스터링 패키지 <strong>25만원/곡</strong>, 멀티트랙 풀 믹싱+마스터링 <strong>45만원/곡</strong>, 보컬 레코딩 <strong>20만원/3.5시간</strong>입니다. 앨범 전체·대형 편성·방송·광고 작업은 트랙 수 확인 후 맞춤 견적을 드립니다. 보컬 튜닝 단독 의뢰는 5만원/곡입니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-i18n="faq-q2">수정은 몇 번까지 가능한가요?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq-a2">파일 <strong>픽스(최종 확정) 전까지 횟수 제한 없이</strong> 수정 가능합니다. 방향이 맞을 때까지 함께 작업합니다. 다만 픽스 이후 추가 수정은 유료로 진행됩니다. 마스터링은 픽스 전 5회까지 무료 수정을 기본으로 안내드리고 있습니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-i18n="faq-q3">어떤 포맷으로 납품되나요?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq-a3">기본 납품 포맷은 <strong>WAV(고음질 원본)</strong>와 <strong>MP3(320kbps)</strong>를 함께 제공합니다. 멜론, 스포티파이, 애플 뮤직 등 스트리밍 플랫폼에 바로 업로드 가능한 LUFS 레벨로 최적화하여 납품합니다. 별도 포맷이 필요하신 경우 사전에 말씀해 주시면 맞춰드립니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-i18n="faq-q4">어떤 장비를 사용하나요?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq-a4">아날로그 하드웨어 아웃보드 풀 체인으로 작업합니다. 주요 장비는 <strong>NEVE 1073</strong> 채널 스트립, <strong>SSL FUSION</strong>, <strong>BETTERMAKER Mastering Limiter</strong>, <strong>LAVRY GOLD SAVITR</strong>, 레퍼런스 모니터 <strong>Barefoot MicroMain 27</strong>, 레코딩 마이크 <strong>Neumann U87 Ai</strong>, DAW <strong>Pro Tools HDX</strong>입니다. 국내 탑 스튜디오 수준의 장비로 직접 핸들링합니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-i18n="faq-q5">주차 가능한가요?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq-a5">건물 내 전용 주차는 어렵습니다. 인근 선릉파크 공영주차장이나 역삼동 공영주차장을 이용하시거나, <strong>대중교통(수인분당선·분당선 선정릉역 3번 출구 도보 40초)</strong>을 추천드립니다. 지하철 이용 시 정말 가깝습니다!</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-i18n="faq-q6">음악이 처음인 초보자도 맡길 수 있나요?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq-a6">물론입니다! 본인이 직접 녹음하거나 제작한 파일이 있다면 수준에 상관없이 작업 가능합니다. 어떤 파일을 보내야 할지 모르시거나 파일 정리가 안 되어 있어도 괜찮습니다. <strong>카카오 채널로 먼저 문의</strong> 주시면 어떤 상태의 파일이든 친절하게 안내드립니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-i18n="faq-q7">작업 기간이 얼마나 걸리나요?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq-a7">일반적으로 <strong>마스터링 단독은 1~3 영업일</strong>, <strong>믹싱+마스터링은 3~7 영업일</strong>이 소요됩니다. 앨범 전체 작업이나 대형 편성의 경우 별도 일정을 협의합니다. 급하게 처리가 필요하신 경우(급행 의뢰)에도 상황에 따라 조율 가능하니 문의 주세요.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-i18n="faq-q8">레코딩도 믹싱·마스터링과 함께 의뢰할 수 있나요?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq-a8">네, <strong>레코딩→믹싱→마스터링 원스톱 처리</strong>가 가능합니다. 선정릉역 도보 40초 스튜디오에서 Neumann U87 Ai + NEVE 1073 기반의 고품질 보컬 레코딩을 진행하고, 이후 믹싱·마스터링까지 한 번에 작업합니다. 레코딩만 단독으로 의뢰하셔도 됩니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-i18n="faq-q9">방문 없이 온라인으로만 의뢰해도 되나요?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq-a9">네, 전국 어디서든 파일만 보내주시면 됩니다. 마스터링, 투트랙 믹싱, 멀티트랙 믹싱 모두 <strong>100% 온라인 파일 의뢰 가능</strong>합니다. WeTransfer, 구글 드라이브, 드롭박스 등 편하신 방법으로 파일을 전달해 주시면 됩니다. 해외에서도 의뢰 가능합니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text" data-i18n="faq-q10">일본어로도 소통이 가능한가요?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq-a10">네! 엔지니어 MADEWELL(정균)은 <strong>JLPT 1급</strong> 보유자로 일본어 소통이 원활합니다. 일본 아티스트나 일본 내 음원 발매를 준비 중이신 분들의 의뢰도 환영합니다. 일본어로 문의 주셔도 됩니다 (日本語でのお問い合わせも歓迎します)。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVE -->
+<section id="reserve">
+  <div class="container">
+    <div class="reserve-inner">
+      <div class="reserve-copy reveal">
+        <div class="tag" style="margin-bottom:16px">Reservation</div>
+        <h2 class="serif" data-i18n="reserve-h">예약 내용을<br/>먼저 작성하고<br/><em>카카오로 보내요.</em></h2>
+        <p data-i18n="reserve-desc">아래 양식을 작성한 뒤 내용을 복사해서 카카오 채널로 보내주시면 빠르게 확인 후 안내드립니다. 실제 전송 버튼은 없어요 — 카카오 채널이 훨씬 빠릅니다.</p>
+        <div class="reserve-info-list">
+          <div class="ri-item">
+            <span class="ri-icon">💬</span>
+            <div><strong style="color:var(--ink)" data-i18n="ri-t1">카카오 채널로 문의</strong><br/><span data-i18n="ri-d1">작성 내용을 카카오 채널에 붙여넣기 하시면 1~2 영업일 내 답변드립니다.</span></div>
+          </div>
+          <div class="ri-item">
+            <span class="ri-icon">📂</span>
+            <div><strong style="color:var(--ink)" data-i18n="ri-t2">온라인 파일 의뢰 OK</strong><br/><span data-i18n="ri-d2">방문 없이 파일만 보내주셔도 마스터링·믹싱 모두 가능합니다.</span></div>
+          </div>
+          <div class="ri-item">
+            <span class="ri-icon">📍</span>
+            <div><strong style="color:var(--ink)" data-i18n="ri-t3">방문 레코딩</strong><br/><span data-i18n="ri-d3">서울 강남구 역삼동 682-15 4층 · 선정릉역 3번 출구 도보 40초</span></div>
+          </div>
+          <div class="ri-item">
+            <span class="ri-icon">💳</span>
+            <div><strong style="color:var(--ink)" data-i18n="ri-t4">결제 방법</strong><br/><span data-i18n="ri-d4">카카오페이 · 계좌이체 · 예약금(50%) 선입금 후 일정 확보</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="reserve-form-wrap reveal2">
+        <div id="reserveFormWrap">
+          <form id="reserveForm" onsubmit="submitReserveForm(event)">
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label class="form-label" data-i18n="form-name-lbl">이름 *</label>
+                <input class="form-input" type="text" id="rf-name" data-i18n-ph="form-name-ph" placeholder="홍길동" required/>
+              </div>
+              <div class="form-row">
+                <label class="form-label" data-i18n="form-tel-lbl">연락처 *</label>
+                <input class="form-input" type="tel" id="rf-tel" data-i18n-ph="form-tel-ph" placeholder="010-0000-0000" required/>
+              </div>
+            </div>
+            <div class="form-row">
+              <label class="form-label" data-i18n="form-svc-lbl">서비스 선택 *</label>
+              <select class="form-select" id="rf-service" required data-i18n="form-svc-opts">
+                <option value="" disabled selected>서비스를 선택하세요</option>
+                <option value="마스터링 단독 (10만원/곡)">마스터링 단독 (10만원/곡)</option>
+                <option value="투트랙 믹싱+마스터링 (25만원/곡)">투트랙 믹싱+마스터링 (25만원/곡)</option>
+                <option value="멀티트랙 풀 믹싱+마스터링 (45만원/곡)">멀티트랙 풀 믹싱+마스터링 (45만원/곡)</option>
+                <option value="레코딩 (20만원/3.5h)">레코딩 (20만원/3.5h)</option>
+                <option value="스튜디오 대관 (55,000원/h~)">스튜디오 대관 (55,000원/h~)</option>
+                <option value="보컬 튜닝 (5만원/곡)">보컬 튜닝 (5만원/곡)</option>
+                <option value="기타 / 맞춤 견적 (문의)">기타 / 맞춤 견적 (문의)</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label class="form-label" data-i18n="form-date-lbl">희망 날짜</label>
+              <input class="form-input" type="date" id="rf-date"/>
+            </div>
+            <div class="form-row">
+              <label class="form-label" data-i18n="form-memo-lbl">장르 / 메모</label>
+              <textarea class="form-textarea" id="rf-memo" data-i18n-ph="form-memo-ph" placeholder="예) 발라드 싱글 / 스템 파일 12트랙 / 스트리밍 정식 발매용 / 3일 내 급행 희망"></textarea>
+            </div>
+            <button type="submit" class="form-submit" data-i18n="form-submit">예약 내용 확인하기 →</button>
+            <div class="form-notice ko-only" data-i18n="form-notice-ko">
+              ⚠️ 이 양식은 직접 전송되지 않습니다. 버튼을 누르면 작성 내용이 정리되니 <strong>복사해서 카카오 채널로 보내주세요.</strong><br/>
+              <a href="http://pf.kakao.com/_axcYxlb" target="_blank">→ 카카오 채널 바로가기</a>
+            </div>
+            <div class="form-notice intl-only" style="display:none" data-i18n="form-notice-intl">
+              ⚠️ This form does not send directly. Copy the summary and send it to <strong>madewellofficial@gmail.com</strong>.<br/>
+              <a href="mailto:madewellofficial@gmail.com">→ Email us directly</a>
+            </div>
+          </form>
+        </div>
+        <div class="form-success" id="reserveSuccess">
+          <div class="form-success-icon">✅</div>
+          <div class="form-success-title" data-i18n="success-title">예약 내용이 준비됐습니다</div>
+          <div class="form-success-sub" data-i18n="success-sub">아래 내용을 복사해서 카카오 채널로 보내주시면<br/>빠르게 확인 후 연락드리겠습니다.</div>
+          <textarea class="form-copy-area" id="reserveCopyText" readonly></textarea>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.6" data-i18n="success-copy-tip">↑ 클릭해서 전체 선택 후 복사 (Ctrl+A → Ctrl+C)</p>
+          <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="btn-gold ko-only" data-i18n="success-btn-ko">카카오 채널로 보내기 →</a>
+          <a href="mailto:madewellofficial@gmail.com" class="btn-gold intl-only" data-i18n="success-btn-intl">Send via Email →</a>
+          <button onclick="resetReserveForm()" style="display:block;margin:14px auto 0;background:none;border:none;color:var(--muted);font-size:12px;cursor:pointer;text-decoration:underline" data-i18n="form-reset">다시 작성하기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="noise-layer"></div>
+  <div class="cta-inner reveal">
+    <h2 class="cta-h serif" data-i18n="cta-h">지금 바로<br/>시작하세요.</h2>
+    <p class="cta-sub" data-i18n="cta-sub">파일만 보내주시면 됩니다.<br/>빠른 답변, 빠른 작업, 프로 퀄리티.</p>
+    <div class="cta-btns">
+      <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="btn-kakao ko-only" data-i18n="cta-btn-ko">카카오톡으로 문의하기</a>
+      <a href="mailto:madewellofficial@gmail.com" class="btn-gold intl-only" data-i18n="cta-btn-intl">Contact via Email</a>
+      <a href="https://www.instagram.com/madewellmusic_official" target="_blank" class="btn-ig">Instagram @madewellmusic_official</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner container">
+    <div>
+      <div class="foot-logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL Music Studio"/></div>
+      <div class="foot-meta" data-i18n="foot-meta">서울시 강남구 역삼동 682-15 4층 · 선정릉역 도보 40초<br/>madewellofficial@gmail.com · © 2026 (주)메이드웰뮤직</div>
+    </div>
+    <div class="foot-links">
+      <a href="http://pf.kakao.com/_axcYxlb" target="_blank" data-i18n="foot-kakao">카카오채널</a>
+      <a href="https://www.instagram.com/madewellmusic_official" target="_blank">Instagram</a>
+      <a href="https://www.madewellmusic.co.kr" target="_blank" data-i18n="foot-site">공식사이트</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+const navLogoImg=document.getElementById('nav-logo-img');
+const navLinks=document.getElementById('nav-links');
+window.addEventListener('scroll',()=>{
+  if(scrollY>80){
+    nav.classList.replace('light-nav','dark-nav');
+    if(navLogoImg)navLogoImg.classList.add('dark');
+    navLinks.classList.add('dark');
+  }else{
+    nav.classList.replace('dark-nav','light-nav');
+    if(navLogoImg)navLogoImg.classList.remove('dark');
+    navLinks.classList.remove('dark');
+  }
+});
+function sa(btn,id){
+  document.querySelectorAll('.ab-panel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.ab-btn').forEach(b=>b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+// Mobile menu
+const hamburger=document.getElementById('nav-hamburger');
+const mobileMenu=document.getElementById('mobile-menu');
+function toggleMobileMenu(){
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.classList.toggle('menu-open');
+}
+function closeMobileMenu(){
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.classList.remove('menu-open');
+}
+// Close menu on ESC key
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileMenu()});
+
+// FAQ accordion
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// Reserve form
+function submitReserveForm(e){
+  e.preventDefault();
+  const name=document.getElementById('rf-name').value.trim();
+  const tel=document.getElementById('rf-tel').value.trim();
+  const service=document.getElementById('rf-service').value;
+  const date=document.getElementById('rf-date').value||'미정';
+  const memo=document.getElementById('rf-memo').value.trim()||'없음';
+  const text=`[MADEWELL MUSIC 예약 문의]\n이름: ${name}\n연락처: ${tel}\n서비스: ${service}\n희망 날짜: ${date}\n장르/메모: ${memo}`;
+  document.getElementById('reserveCopyText').value=text;
+  document.getElementById('reserveFormWrap').style.display='none';
+  const suc=document.getElementById('reserveSuccess');
+  suc.style.display='block';
+  suc.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function resetReserveForm(){
+  document.getElementById('reserveFormWrap').style.display='block';
+  document.getElementById('reserveSuccess').style.display='none';
+  document.getElementById('reserveForm').reset();
+}
+// Click textarea to select all
+document.addEventListener('DOMContentLoaded',()=>{
+  const ta=document.getElementById('reserveCopyText');
+  if(ta)ta.addEventListener('click',function(){this.select()});
+});
+
+// ── LANGUAGE SYSTEM ──
+const T={
+  ko:{
+    'nav-gear':'장비','nav-credits':'크레딧','nav-services':'서비스','nav-rental':'대관',
+    'nav-reserve':'예약','nav-about':'소개','nav-contact':'문의하기','nav-contact-intl':'문의하기',
+    'mm-cta':'카카오톡 문의','mm-cta-intl':'카카오톡 문의',
+    'hero-pre':'Seoul · Gangnam · Professional Studio',
+    'hero-h1':'수많은 K-POP<br/>스타들의 음악이<br/>탄생한 곳,<br/><em>지금 당신의</em><br/>음악을 완성합니다.',
+    'hero-sub':'NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/><b>아이돌급 하드웨어, 당신이 감당할 수 있는 가격으로.</b>',
+    'hero-cta-ko':'카카오톡으로 문의','hero-cta-intl':'카카오톡으로 문의','hero-cta-2':'서비스 &amp; 가격 보기',
+    'strip-v1':'25만원~','strip-l1':'싱글 믹스+마스터링',
+    'strip-v2':'45만원~','strip-l2':'멀티트랙 믹스+마스터링',
+    'strip-v3':'10만원~','strip-l3':'마스터링 단독','strip-l4':'선정릉역 도보',
+    'why-h':'이런 장비가<br/>이 가격에?',
+    'gallery-h':'공간이 퀄리티를<br/><em style="font-style:italic;color:var(--gold)">증명합니다.</em>',
+    'loc-h':'선정릉역 도보 <em>40초.</em><br/>서울 강남 교통 요충지.',
+    'loc-p':'9호선 급행 · 분당선 선정릉역 1번 출구 도보 40초.<br/>서울 어디서든 논스톱으로 오실 수 있습니다.<br/>서울시 강남구 역삼동 682-15 4층',
+    'cred-h':'이 음악들을<br/>만들었습니다',
+    'svc-h':'서비스 &amp; 가격','svc-sub':'파일 전송으로 온라인 의뢰 가능. 역삼동 방문 레코딩도 운영 중.',
+    'svc-star-tag':'가장 많이 선택',
+    'svc-nm-1':'릴스 · 싱글 · 커버','svc-dc-1':'완성된 스테레오 파일을 프로 수준으로 다듬습니다. SNS·스트리밍 싱글에 최적.','svc-pr-1':'25만원<sub>/ 1곡</sub>',
+    'svc-li-1':'<li>투트랙 믹싱 + 마스터링 포함</li><li>NEVE · SSL · BETTERMAKER</li><li>픽스 전 자유 수정</li><li>WAV + MP3 납품</li><li>온라인 파일 의뢰 가능</li>',
+    'svc-nm-2':'EP · 앨범 · 정식 발매','svc-dc-2':'분리된 멀티트랙을 처음부터 믹스합니다. 아이돌 세션과 동일한 워크플로우.','svc-pr-2':'45만원<sub>/ 1곡</sub>',
+    'svc-li-2':'<li>멀티트랙 풀 믹싱 + 마스터링</li><li>NEVE 1073 · SSL · TUBE TECH</li><li>픽스 전 자유 수정</li><li>WAV + MP3 납품</li><li>온라인 파일 의뢰 가능</li>',
+    'svc-nm-3':'마스터링 단독','svc-dc-3':'믹스가 완료된 파일에 하드웨어 마스터링. 스트리밍 LUFS 최적화 포함.','svc-pr-3':'10만원<sub>/ 1곡</sub>',
+    'svc-li-3':'<li>NEVE · SSL · BETTERMAKER 아웃보드</li><li>스트리밍 LUFS 최적화</li><li>픽스 전 자유 수정</li><li>WAV + MP3 납품</li><li>온라인 파일 의뢰 가능</li>',
+    'svc-nm-4':'레코딩','svc-dc-4':'Neumann U87 Ai + NEVE 1073 기반 고품질 보컬 레코딩. 선정릉역 도보 40초.','svc-pr-4':'20만원<sub>/ 3.5h</sub>',
+    'svc-li-4':'<li>Neumann U87 Ai Studio Set</li><li>NEVE 1073 Mic Pre</li><li>엔지니어 동반 시 +6만원</li><li>보컬 튜닝 추가 +5만원</li><li>선정릉역 도보 40초</li>',
+    'booking-h':'예약 &amp; 결제,<br/><em style="color:var(--gold2);font-style:italic">어렵지 않습니다.</em>',
+    'booking-sub':'카카오톡 문의 한 번이면 시작됩니다.',
+    'bk-t1':'문의','bk-d1':'카카오채널 또는 인스타 DM으로 서비스·날짜 문의',
+    'bk-t2':'확정','bk-d2':'서비스 종류·날짜·곡 수 최종 확인 후 예약 확정',
+    'bk-t3':'예약금 입금','bk-d3':'총금액의 50% 예약금 입금으로 일정 확보',
+    'bk-t4':'작업 진행','bk-d4':'파일 전송 or 방문 레코딩 — 엔지니어가 직접 핸들링',
+    'bk-t5':'납품','bk-d5':'잔금 결제 후 WAV + MP3 최종 파일 전달',
+    'pay-t1':'카카오페이','pay-n1':'예약 확정 후 카카오페이<br/>송금 링크 개별 발송',
+    'pay-t2':'계좌이체','pay-n2':'예약 확정 후 계좌번호<br/>채팅으로 개별 안내',
+    'pay-t3':'온라인 의뢰 가능','pay-n3':'방문 없이 파일만 전송<br/>마스터링·믹싱 모두 OK',
+    'booking-cta-ko':'카카오톡으로 예약 문의','booking-cta-intl':'카카오톡으로 예약 문의',
+    'faq-h':'자주 묻는 질문','faq-sub':'더 궁금한 점은 언제든 카카오 채널로 문의 주세요.',
+    'reserve-h':'예약 내용을<br/>먼저 작성하고<br/><em>카카오로 보내요.</em>',
+    'reserve-desc':'아래 양식을 작성한 뒤 내용을 복사해서 카카오 채널로 보내주시면 빠르게 확인 후 안내드립니다. 실제 전송 버튼은 없어요 — 카카오 채널이 훨씬 빠릅니다.',
+    'ri-t1':'카카오 채널로 문의','ri-d1':'작성 내용을 카카오 채널에 붙여넣기 하시면 1~2 영업일 내 답변드립니다.',
+    'ri-t2':'온라인 파일 의뢰 OK','ri-d2':'방문 없이 파일만 보내주셔도 마스터링·믹싱 모두 가능합니다.',
+    'ri-t3':'방문 레코딩','ri-d3':'서울 강남구 역삼동 682-15 4층 · 선정릉역 3번 출구 도보 40초',
+    'ri-t4':'결제 방법','ri-d4':'카카오페이 · 계좌이체 · 예약금(50%) 선입금 후 일정 확보',
+    'form-name-lbl':'이름 *','form-name-ph':'홍길동','form-tel-lbl':'연락처 *','form-tel-ph':'010-0000-0000',
+    'form-submit':'예약 내용 확인하기 →',
+    'success-title':'예약 내용이 준비됐습니다',
+    'success-sub':'아래 내용을 복사해서 카카오 채널로 보내주시면<br/>빠르게 확인 후 연락드리겠습니다.',
+    'success-copy-tip':'↑ 클릭해서 전체 선택 후 복사 (Ctrl+A → Ctrl+C)',
+    'success-btn-ko':'카카오 채널로 보내기 →','success-btn-intl':'카카오 채널로 보내기 →',
+    'cta-h':'지금 바로<br/>시작하세요.','cta-sub':'파일만 보내주시면 됩니다.<br/>빠른 답변, 빠른 작업, 프로 퀄리티.',
+    'cta-btn-ko':'카카오톡으로 문의하기','cta-btn-intl':'카카오톡으로 문의하기',
+    'hero-sub':'NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/><b>스타 K-POP 아티스트들의 하드웨어, 당신이 감당할 수 있는 가격으로.</b>',
+    'why-body1':'KOMCA 등록 100곡 이상. PRODUCE 101 JAPAN 4, VIVIZ, (여자)아이들, 인피니트, 마마무 화사 — 동일한 하드웨어 체인으로 당신의 음악을 처리합니다.',
+    'why-body2':'국내 최상급 마스터링 스튜디오와 동일한 아웃보드, 아이돌 프로듀서 직접 핸들링, 그리고 합리적인 가격.',
+    'why-q1':'"아이돌 앨범에 실제로 사용된 그 장비 그대로.<br/>방구석에서 만든 음악도, 스트리밍 차트에<br/>올라갈 수 있는 퀄리티로 끌어올립니다."',
+    'why-q2':'"마스터링 단 10만원. 픽스 전 자유 수정.<br/>일반 마스터링 스튜디오 대비 최저가."',
+    'why-q3':'"업계 동급 믹스 최소 70~100만원.<br/>여기선 45만원. 같은 장비, 같은 사람이 직접.<br/>원래는 엄두도 못 냈을 그 퀄리티."',
+    'cred-sub':'국내 주요 아이돌, 드라마 OST, 일본 진출 앨범까지.<br/>같은 장비와 손으로 당신의 음악을 만듭니다.',
+    'cred-gidle':'(여자)아이들 전소연',
+    'cmp-h1':'일반 마스터링 스튜디오','cmp-h2':'프리미엄 스튜디오 평균',
+    'cmp-r1':'마스터링 기본가','cmp-r1v1':'10~15만원','cmp-r1v2':'15만원~','cmp-r1v3':'10만원',
+    'cmp-r2':'수정 무료 횟수','cmp-r2v1':'1~2회','cmp-r2v2':'유료','cmp-r2v3':'5회 무료',
+    'cmp-r3':'하드웨어 아웃보드','cmp-r4':'NEVE 1073 채널 스트립','cmp-r5':'아이돌 프로듀서 직접 작업','cmp-r6':'레코딩 원스톱',
+    'tab-career':'경력','tab-albums':'음반','tab-records':'수상 · 기록',
+    'career-tl':'<div class="tl-row"><div class="tl-yr">2007</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">3인조 아이돌 그룹 타키온 메인보컬 데뷔</div></div></div><div class="tl-row"><div class="tl-yr">2011</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">5인조 아이돌 그룹 엔트레인 리더 및 보컬 데뷔</div></div></div><div class="tl-row"><div class="tl-yr">2014</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">6인조 아이돌 그룹 빅플로 BIGFLO</div><div class="tl-d">리더 · 메인보컬 · 프로듀서 데뷔</div></div></div><div class="tl-row"><div class="tl-yr">2018</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">(주)스튜디오J2K 설립</div></div></div><div class="tl-row"><div class="tl-yr">2020</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">(주)MADEWELL MUSIC 법인설립 및 대표 프로듀서</div><div class="tl-d">스튜디오 오픈 · 서울 강남구 역삼동</div></div></div><div class="tl-row"><div class="tl-yr">2022</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">(주)AVEC MUSIC 겸임 프로듀서</div></div></div><div class="tl-row"><div class="tl-yr">2023</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">We:A (元 BIGFLO) 결성 · 리더 · 메인보컬</div><div class="tl-d">1st Single &amp; Japan Single 「24/7」 발매</div></div></div><div class="tl-row"><div class="tl-yr">2025</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">일본 솔로 2집 「Still UNFINISHED」 발매</div><div class="tl-d">단독 콘서트 개최</div></div></div>',
+    'albums-list':'<div class="alb-row"><div class="alb-yr">2007</div><div class="alb-info">Tachyon 1st Single 「Feel Your Breeze」<span>타키온</span></div></div><div class="alb-row"><div class="alb-yr">2011</div><div class="alb-info">N-train 1st Single 「One Last Cry」<span>엔트레인</span></div></div><div class="alb-row"><div class="alb-yr">2012</div><div class="alb-info">N-train 2nd Single 「I\'ll Forget You」 / 3rd Mini Album 「내게 돌아와」<span>엔트레인</span></div></div><div class="alb-row"><div class="alb-yr">2014</div><div class="alb-info">BIGFLO 1st Mini 「First Flow」 / 2nd Mini 「Second Flow」<span>BIGFLO</span></div></div><div class="alb-row"><div class="alb-yr">2015</div><div class="alb-info">BIGFLO 1st Japan 「Delilah」 / 3rd Mini 「Incant」 / 2nd Japan 「1,2,3,4」<span>BIGFLO · 오리콘 TOP10 · 시부야 타워레코드 주간 1위</span></div></div><div class="alb-row"><div class="alb-yr">2016</div><div class="alb-info">JUNGKYUN Japan Solo Album 「UNFINISHED」<span>솔로 — 오리콘 앨범 9위</span></div></div><div class="alb-row"><div class="alb-yr">2023</div><div class="alb-info">We:A 1st Single &amp; Japan Single 「24/7」<span>We:A (元 BIGFLO)</span></div></div><div class="alb-row"><div class="alb-yr">2025</div><div class="alb-info">JUNGKYUN Japan 2nd Solo Album 「Still UNFINISHED」<span>솔로 — 단독 콘서트</span></div></div>',
+    'records-list':'<div class="rec-item">BIGFLO 1st Japan「Delilah」— 오리콘차트 TOP10 · 시부야 타워레코드 주간 앨범판매량 1위</div><div class="rec-item">BIGFLO 2nd Japan「1,2,3,4」— 오리콘차트 TOP10 · 시부야 타워레코드 주간 앨범판매량 1위</div><div class="rec-item">JUNGKYUN Japan Solo「Unfinished」— 오리콘차트 앨범부문 9위</div><div class="rec-item">일본 단독 콘서트 및 팬미팅 20회 이상 개최 · 전국 프로모션</div><div class="rec-item">BIGFLO「딜라일라(Delilah)」— 독일 K-POP 차트 9위</div><div class="rec-item">BIGFLO 1st Malaysia Showcase &amp; Fan-Meeting</div><div class="rec-item">SBS 인기가요 · KBS 뮤직뱅크 · MBC 쇼음악중심 · Mnet M Countdown · Arirang TV Simply Kpop 등 다수 출연</div><div class="rec-item">2022 — We:A (BIGFLO) 재결성 「Re:born」 일본 단독콘서트 개최</div><div class="rec-item">2023 — We:A 1st Single 「24/7」 발매 · 일본 단독콘서트 개최</div><div class="rec-item">2025–2026 — JUNGKYUN「Still Unfinished」 일본 발매 · 단독 콘서트 개최</div>',
+    'addon-lbl-1':'PROJECT — 대형 편성 · 앨범 전체','addon-note-1':'100트랙 이상 · 방송 · 광고 · 정규앨범 · 트랙 수 확인 후 맞춤 견적','addon-pr-1':'협의<sub>/ 문의</sub>',
+    'addon-lbl-2':'보컬 튜닝','addon-note-2':'Melodyne · AutoTune · 피치 보정 · 단독 의뢰 가능','addon-pr-2':'5만원<sub>/ 1곡</sub>',
+    'rental-h':'스튜디오 대관 &amp;<br/><em style="font-style:italic;color:var(--gold)">공간 대여.</em>','rental-p':'선정릉역 도보 40초. 강남 최고 입지의 프리미엄 스튜디오를 시간 단위로 대여하실 수 있습니다.',
+    'rental-dc-1':'NEVE 1073 · BAREFOOT MicroMain 27 · Pro Tools HDX. 레코딩, 믹싱, 작업실로 사용 가능. 스페이스 클라우드 예약 운영 중.',
+    'rental-li-1':'<li>Neumann U87 Ai 사용 가능</li><li>NEVE 1073 + 하드웨어 아웃보드 포함</li><li>레코딩 부스 연동 사용 가능</li><li>스페이스 클라우드로 간편 예약</li>',
+    'rental-nm-2':'전체 대관 · 촬영 대여','rental-dc-2':'뮤직비디오, 유튜브 촬영, 팟캐스트, 행사 등 전체 공간 대관. 인원 · 시간 · 목적에 따라 맞춤 견적 제공.',
+    'rental-pr-2':'문의<sub>/ 맞춤 견적</sub>','rental-li-2':'<li>MV · 커버 영상 · 유튜브 촬영</li><li>팟캐스트 · 인터뷰 녹음</li><li>스튜디오 전체 공간 사용</li><li>카카오채널로 문의 후 협의</li>',
+    'rental-cta':'스페이스 클라우드 예약 →',
+    'stat-l1':'KOMCA 등록곡','stat-l2':'시부야 타워레코드','stat-l3':'일본 콘서트','stat-l4':'년 경력',
+    'sk-1':'작곡','sk-2':'편곡','sk-3':'작사','sk-4':'JLPT 1급',
+    'bk-note-txt':'<strong>예약금(50%) 선입금</strong>으로 일정을 확정합니다. 잔금은 작업 완료 후 파일 전달 전 결제하시면 됩니다.<br/>계좌번호 및 카카오페이 링크는 예약 확정 후 채팅으로 개별 안내드립니다. 계좌 정보는 공개하지 않습니다.',
+    'ck-text':'그리고 아직 여기 적히지 않은<br/><em>수백 개의 이야기들.</em><br/>당신의 음악도 그 중 하나가 됩니다.',
+    'cred-hwasa':'마마무 화사 × Sense Mom','cred-fantasy':'MBC 방과후설렘 시즌2 소년판타지','cred-onepact':'원팩트','cred-jaehoon':'이재훈 (쿨)','cred-lapilus':'라필루스','cred-lapilus-role':'Produced by MADEWELL',
+    'faq-q1':'가격이 어떻게 되나요?','faq-q2':'수정은 몇 번까지 가능한가요?','faq-q3':'어떤 포맷으로 납품되나요?','faq-q4':'어떤 장비를 사용하나요?','faq-q5':'주차 가능한가요?',
+    'faq-q6':'음악이 처음인 초보자도 맡길 수 있나요?','faq-q7':'작업 기간이 얼마나 걸리나요?','faq-q8':'레코딩도 믹싱·마스터링과 함께 의뢰할 수 있나요?','faq-q9':'방문 없이 온라인으로만 의뢰해도 되나요?','faq-q10':'일본어로도 소통이 가능한가요?',
+    'faq-a1':'마스터링 단독 <strong>10만원/곡</strong>, 투트랙 믹싱+마스터링 패키지 <strong>25만원/곡</strong>, 멀티트랙 풀 믹싱+마스터링 <strong>45만원/곡</strong>, 보컬 레코딩 <strong>20만원/3.5시간</strong>입니다. 앨범 전체·대형 편성·방송·광고 작업은 트랙 수 확인 후 맞춤 견적을 드립니다. 보컬 튜닝 단독 의뢰는 5만원/곡입니다.',
+    'faq-a2':'파일 <strong>픽스(최종 확정) 전까지 횟수 제한 없이</strong> 수정 가능합니다. 방향이 맞을 때까지 함께 작업합니다. 다만 픽스 이후 추가 수정은 유료로 진행됩니다. 마스터링은 픽스 전 5회까지 무료 수정을 기본으로 안내드리고 있습니다.',
+    'faq-a3':'기본 납품 포맷은 <strong>WAV(고음질 원본)</strong>와 <strong>MP3(320kbps)</strong>를 함께 제공합니다. 멜론, 스포티파이, 애플 뮤직 등 스트리밍 플랫폼에 바로 업로드 가능한 LUFS 레벨로 최적화하여 납품합니다. 별도 포맷이 필요하신 경우 사전에 말씀해 주시면 맞춰드립니다.',
+    'faq-a4':'아날로그 하드웨어 아웃보드 풀 체인으로 작업합니다. 주요 장비는 <strong>NEVE 1073</strong> 채널 스트립, <strong>SSL FUSION</strong>, <strong>BETTERMAKER Mastering Limiter</strong>, <strong>LAVRY GOLD SAVITR</strong>, 레퍼런스 모니터 <strong>Barefoot MicroMain 27</strong>, 레코딩 마이크 <strong>Neumann U87 Ai</strong>, DAW <strong>Pro Tools HDX</strong>입니다. 국내 탑 스튜디오 수준의 장비로 직접 핸들링합니다.',
+    'faq-a5':'건물 내 전용 주차는 어렵습니다. 인근 선릉파크 공영주차장이나 역삼동 공영주차장을 이용하시거나, <strong>대중교통(수인분당선·분당선 선정릉역 3번 출구 도보 40초)</strong>을 추천드립니다. 지하철 이용 시 정말 가깝습니다!',
+    'faq-a6':'물론입니다! 본인이 직접 녹음하거나 제작한 파일이 있다면 수준에 상관없이 작업 가능합니다. 어떤 파일을 보내야 할지 모르시거나 파일 정리가 안 되어 있어도 괜찮습니다. <strong>카카오 채널로 먼저 문의</strong> 주시면 어떤 상태의 파일이든 친절하게 안내드립니다.',
+    'faq-a7':'일반적으로 <strong>마스터링 단독은 1~3 영업일</strong>, <strong>믹싱+마스터링은 3~7 영업일</strong>이 소요됩니다. 앨범 전체 작업이나 대형 편성의 경우 별도 일정을 협의합니다. 급하게 처리가 필요하신 경우(급행 의뢰)에도 상황에 따라 조율 가능하니 문의 주세요.',
+    'faq-a8':'네, <strong>레코딩→믹싱→마스터링 원스톱 처리</strong>가 가능합니다. 선정릉역 도보 40초 스튜디오에서 Neumann U87 Ai + NEVE 1073 기반의 고품질 보컬 레코딩을 진행하고, 이후 믹싱·마스터링까지 한 번에 작업합니다. 레코딩만 단독으로 의뢰하셔도 됩니다.',
+    'faq-a9':'네, 전국 어디서든 파일만 보내주시면 됩니다. 마스터링, 투트랙 믹싱, 멀티트랙 믹싱 모두 <strong>100% 온라인 파일 의뢰 가능</strong>합니다. WeTransfer, 구글 드라이브, 드롭박스 등 편하신 방법으로 파일을 전달해 주시면 됩니다. 해외에서도 의뢰 가능합니다.',
+    'faq-a10':'네! 엔지니어 MADEWELL(정균)은 <strong>JLPT 1급</strong> 보유자로 일본어 소통이 원활합니다. 일본 아티스트나 일본 내 음원 발매를 준비 중이신 분들의 의뢰도 환영합니다. 일본어로 문의 주셔도 됩니다 (日本語でのお問い合わせも歓迎します)。',
+    'cmp-why-h':'왜 MADEWELL MUSIC인가',
+    'sk-5':'피아노','sk-6':'기타','sk-7':'베이스','sk-8':'드럼',
+    'stat-n2':'1위',
+    'form-svc-lbl':'서비스 선택 *','form-date-lbl':'희망 날짜','form-memo-lbl':'장르 / 메모',
+    'form-memo-ph':'예) 발라드 싱글 / 스템 파일 12트랙 / 스트리밍 정식 발매용 / 3일 내 급행 희망',
+    'form-svc-opts':'<option value="" disabled selected>서비스를 선택하세요</option><option value="마스터링 단독 (10만원/곡)">마스터링 단독 (10만원/곡)</option><option value="투트랙 믹싱+마스터링 (25만원/곡)">투트랙 믹싱+마스터링 (25만원/곡)</option><option value="멀티트랙 풀 믹싱+마스터링 (45만원/곡)">멀티트랙 풀 믹싱+마스터링 (45만원/곡)</option><option value="레코딩 (20만원/3.5h)">레코딩 (20만원/3.5h)</option><option value="스튜디오 대관 (55,000원/h~)">스튜디오 대관 (55,000원/h~)</option><option value="보컬 튜닝 (5만원/곡)">보컬 튜닝 (5만원/곡)</option><option value="기타 / 맞춤 견적 (문의)">기타 / 맞춤 견적 (문의)</option>',
+    'form-reset':'다시 작성하기',
+    'foot-meta':'서울시 강남구 역삼동 682-15 4층 · 선정릉역 도보 40초<br/>madewellofficial@gmail.com · © 2026 (주)메이드웰뮤직',
+    'foot-kakao':'카카오채널','foot-site':'공식사이트',
+  },
+  en:{
+    'nav-gear':'Gear','nav-credits':'Credits','nav-services':'Services','nav-rental':'Rental',
+    'nav-reserve':'Book','nav-about':'About','nav-contact':'문의하기','nav-contact-intl':'Contact',
+    'mm-cta':'카카오톡 문의','mm-cta-intl':'Contact via Email',
+    'hero-pre':'Seoul · Gangnam · Professional Studio',
+    'hero-h1':'Where countless<br/>K-POP stars\'<br/>music was born —<br/><em>now completing</em><br/>your music.',
+    'hero-sub':'NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/><b>Idol-grade hardware. At a price you can actually afford.</b>',
+    'hero-cta-ko':'KakaoTalk Inquiry','hero-cta-intl':'Contact via Email','hero-cta-2':'Services &amp; Pricing',
+    'strip-v1':'₩250K~','strip-l1':'Single Mix + Master',
+    'strip-v2':'₩450K~','strip-l2':'Multitrack Mix + Master',
+    'strip-v3':'₩100K~','strip-l3':'Mastering Only','strip-l4':'Walk from Seonjeongneung',
+    'why-h':'This gear,<br/>at this price?',
+    'gallery-h':'The space speaks<br/><em style="font-style:italic;color:var(--gold)">for itself.</em>',
+    'loc-h':'40 seconds<br/><em>from Seonjeongneung Station.</em>',
+    'loc-p':'Line 9 Express · Bundang Line — Exit 1, 40 seconds on foot.<br/>Accessible from anywhere in Seoul.<br/>682-15, Yeoksam-dong, Gangnam-gu, Seoul, 4F',
+    'cred-h':'Music we\'ve<br/>produced',
+    'svc-h':'Services &amp; Pricing','svc-sub':'Online file delivery worldwide. In-studio recording available in Seoul.',
+    'svc-star-tag':'Most Popular',
+    'svc-nm-1':'Reels · Single · Cover','svc-dc-1':'Polish a finished stereo file to professional standard. Ideal for streaming singles &amp; social.','svc-pr-1':'₩250,000<sub>/ track</sub>',
+    'svc-li-1':'<li>2-track Mix + Mastering</li><li>NEVE · SSL · BETTERMAKER</li><li>Unlimited revisions before final approval</li><li>WAV + MP3 delivery</li><li>Online file submission OK</li>',
+    'svc-nm-2':'EP · Album · Official Release','svc-dc-2':'Full multitrack mix from stems. Same workflow used for idol sessions.','svc-pr-2':'₩450,000<sub>/ track</sub>',
+    'svc-li-2':'<li>Full Multitrack Mix + Mastering</li><li>NEVE 1073 · SSL · TUBE TECH</li><li>Unlimited revisions before final approval</li><li>WAV + MP3 delivery</li><li>Online file submission OK</li>',
+    'svc-nm-3':'Mastering Only','svc-dc-3':'Hardware mastering on your finished mix. Streaming LUFS optimized.','svc-pr-3':'₩100,000<sub>/ track</sub>',
+    'svc-li-3':'<li>NEVE · SSL · BETTERMAKER outboard chain</li><li>Streaming LUFS optimization</li><li>Unlimited revisions before final approval</li><li>WAV + MP3 delivery</li><li>Online file submission OK</li>',
+    'svc-nm-4':'Recording','svc-dc-4':'Neumann U87 Ai + NEVE 1073 — top-tier vocal recording. Gangnam, Seoul.','svc-pr-4':'₩200,000<sub>/ 3.5h</sub>',
+    'svc-li-4':'<li>Neumann U87 Ai Studio Set</li><li>NEVE 1073 Mic Pre</li><li>Engineer included +₩60,000</li><li>Vocal tuning add-on +₩50,000</li><li>40 sec walk from Seonjeongneung Stn.</li>',
+    'booking-h':'Booking &amp; Payment,<br/><em style="color:var(--gold2);font-style:italic">made simple.</em>',
+    'booking-sub':'One email is all it takes to get started.',
+    'bk-t1':'Inquiry','bk-d1':'Email us with your service request and preferred dates',
+    'bk-t2':'Confirm','bk-d2':'Finalize service type, date, and track count',
+    'bk-t3':'Deposit','bk-d3':'50% deposit secures your session slot',
+    'bk-t4':'Production','bk-d4':'Send files online or visit for recording — engineer handles everything',
+    'bk-t5':'Delivery','bk-d5':'WAV + MP3 delivered after final payment',
+    'pay-t1':'PayPal','pay-n1':'PayPal invoice sent<br/>after booking confirmed',
+    'pay-t2':'Wire Transfer','pay-n2':'Bank details provided<br/>after booking confirmed',
+    'pay-t3':'Online OK','pay-n3':'Send files remotely —<br/>mastering &amp; mixing both OK',
+    'booking-cta-ko':'KakaoTalk Inquiry','booking-cta-intl':'Send Inquiry via Email',
+    'faq-h':'FAQ','faq-sub':'Have more questions? Email us any time.',
+    'reserve-h':'Fill in your request<br/>and send it<br/><em>to our email.</em>',
+    'reserve-desc':'Complete the form below, copy the summary, and email it to us. We\'ll reply within 1–2 business days.',
+    'ri-t1':'Contact via Email','ri-d1':'Copy the form summary and email madewellofficial@gmail.com — reply in 1–2 business days.',
+    'ri-t2':'Online File Delivery','ri-d2':'No visit needed. Send your files remotely — mastering &amp; mixing both available.',
+    'ri-t3':'In-Studio Recording','ri-d3':'682-15, Yeoksam-dong, Gangnam-gu, Seoul, 4F · 40 sec from Seonjeongneung Stn.',
+    'ri-t4':'Payment','ri-d4':'PayPal · Wire Transfer · 50% deposit to confirm booking',
+    'form-name-lbl':'Name *','form-name-ph':'Your Name','form-tel-lbl':'Contact *','form-tel-ph':'Email or Phone',
+    'form-submit':'Prepare My Inquiry →',
+    'success-title':'Your inquiry is ready',
+    'success-sub':'Copy the text below and email it to us —<br/>we\'ll reply within 1–2 business days.',
+    'success-copy-tip':'↑ Click to select all, then copy (Ctrl+A → Ctrl+C)',
+    'success-btn-ko':'KakaoTalk →','success-btn-intl':'Send via Email →',
+    'cta-h':'Start today.',
+    'cta-sub':'Just send us your files.<br/>Fast replies, fast turnaround, pro quality.',
+    'cta-btn-ko':'KakaoTalk Inquiry','cta-btn-intl':'Contact via Email',
+    'hero-sub':'NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/><b>The hardware of K-POP\'s biggest stars — at a price you can actually afford.</b>',
+    'why-body1':'100+ KOMCA-registered works. PRODUCE 101 JAPAN 4, VIVIZ, (G)I-DLE, INFINITE, Hwasa of MAMAMOO — processed through the exact same hardware chain.',
+    'why-body2':'Same outboard as Korea\'s top mastering studios. Handled directly by an idol producer. At a reasonable price.',
+    'why-q1':'"The exact gear used on actual idol albums.<br/>Even bedroom productions can be elevated<br/>to streaming-chart quality."',
+    'why-q2':'"Mastering from just ₩100,000. Unlimited revisions before approval.<br/>The lowest price vs. comparable studios."',
+    'why-q3':'"Industry-standard mix: ₩700K–1M minimum.<br/>Here: ₩450K. Same gear, same engineer, direct.<br/>Quality you thought was out of reach."',
+    'cred-sub':'Major K-POP idols, drama OSTs, Japanese releases.<br/>Your music, made with the same gear and hands.',
+    'cred-gidle':'(G)I-DLE Jeon Soyeon',
+    'cmp-h1':'Standard Mastering Studio','cmp-h2':'Premium Studio Average',
+    'cmp-r1':'Mastering Base Price','cmp-r1v1':'₩100K–150K','cmp-r1v2':'₩150K+','cmp-r1v3':'₩100K',
+    'cmp-r2':'Free Revisions','cmp-r2v1':'1–2 times','cmp-r2v2':'Paid','cmp-r2v3':'5 times free',
+    'cmp-r3':'Hardware Outboard','cmp-r4':'NEVE 1073 Channel Strip','cmp-r5':'Direct by Idol Producer','cmp-r6':'Recording One-Stop',
+    'tab-career':'Career','tab-albums':'Discography','tab-records':'Records',
+    'career-tl':'<div class="tl-row"><div class="tl-yr">2007</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">Debut as main vocalist of 3-member idol group Tachyon</div></div></div><div class="tl-row"><div class="tl-yr">2011</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">Debut as leader &amp; vocalist of 5-member idol group N-train</div></div></div><div class="tl-row"><div class="tl-yr">2014</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">Debut as leader, main vocalist &amp; producer of 6-member idol group BIGFLO</div></div></div><div class="tl-row"><div class="tl-yr">2018</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">Founded Studio J2K Co., Ltd.</div></div></div><div class="tl-row"><div class="tl-yr">2020</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">Founded MADEWELL MUSIC Co., Ltd. as CEO &amp; Head Producer</div><div class="tl-d">Studio opened · Yeoksam-dong, Gangnam, Seoul</div></div></div><div class="tl-row"><div class="tl-yr">2022</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">Concurrent Producer at AVEC MUSIC Co., Ltd.</div></div></div><div class="tl-row"><div class="tl-yr">2023</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">Formed We:A (formerly BIGFLO) · Leader &amp; Main Vocalist</div><div class="tl-d">Released 1st Single &amp; Japan Single 「24/7」</div></div></div><div class="tl-row"><div class="tl-yr">2025</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">Released Japan Solo 2nd Album 「Still UNFINISHED」</div><div class="tl-d">Solo concert held</div></div></div>',
+    'albums-list':'<div class="alb-row"><div class="alb-yr">2007</div><div class="alb-info">Tachyon 1st Single 「Feel Your Breeze」<span>Tachyon</span></div></div><div class="alb-row"><div class="alb-yr">2011</div><div class="alb-info">N-train 1st Single 「One Last Cry」<span>N-train</span></div></div><div class="alb-row"><div class="alb-yr">2012</div><div class="alb-info">N-train 2nd Single 「I\'ll Forget You」 / 3rd Mini Album<span>N-train</span></div></div><div class="alb-row"><div class="alb-yr">2014</div><div class="alb-info">BIGFLO 1st Mini 「First Flow」 / 2nd Mini 「Second Flow」<span>BIGFLO</span></div></div><div class="alb-row"><div class="alb-yr">2015</div><div class="alb-info">BIGFLO 1st Japan 「Delilah」 / 2nd Japan 「1,2,3,4」<span>BIGFLO · Oricon TOP10 · Shibuya Tower Records Weekly #1</span></div></div><div class="alb-row"><div class="alb-yr">2016</div><div class="alb-info">JUNGKYUN Japan Solo Album 「UNFINISHED」<span>Solo — Oricon Album #9</span></div></div><div class="alb-row"><div class="alb-yr">2023</div><div class="alb-info">We:A 1st Single &amp; Japan Single 「24/7」<span>We:A (formerly BIGFLO)</span></div></div><div class="alb-row"><div class="alb-yr">2025</div><div class="alb-info">JUNGKYUN Japan 2nd Solo Album 「Still UNFINISHED」<span>Solo — Solo Concert</span></div></div>',
+    'records-list':'<div class="rec-item">BIGFLO 1st Japan 「Delilah」— Oricon Chart TOP10 · Shibuya Tower Records Weekly Album Sales #1</div><div class="rec-item">BIGFLO 2nd Japan 「1,2,3,4」— Oricon Chart TOP10 · Shibuya Tower Records Weekly Album Sales #1</div><div class="rec-item">JUNGKYUN Japan Solo 「Unfinished」— Oricon Album Chart #9</div><div class="rec-item">20+ Japan solo concerts &amp; fan meetings · Nationwide promotion</div><div class="rec-item">BIGFLO 「Delilah」— Germany K-POP Chart #9</div><div class="rec-item">BIGFLO 1st Malaysia Showcase &amp; Fan-Meeting</div><div class="rec-item">Performed on SBS Inkigayo · KBS Music Bank · MBC Show Music Core · Mnet M Countdown · Arirang TV Simply Kpop &amp; more</div><div class="rec-item">2022 — We:A (BIGFLO) reformation 「Re:born」 Japan solo concert</div><div class="rec-item">2023 — We:A 1st Single 「24/7」 released · Japan solo concert</div><div class="rec-item">2025–2026 — JUNGKYUN 「Still Unfinished」 Japan release · Solo concert</div>',
+    'addon-lbl-1':'PROJECT — Large Scale · Full Album','addon-note-1':'100+ tracks · Broadcast · Advertising · Full album · Custom quote after track count review','addon-pr-1':'Inquiry<sub>/ Custom Quote</sub>',
+    'addon-lbl-2':'VOCAL TUNING','addon-note-2':'Melodyne · AutoTune · Pitch correction · Available as standalone','addon-pr-2':'₩50,000<sub>/ track</sub>',
+    'rental-h':'Studio Rental &amp;<br/><em style="font-style:italic;color:var(--gold)">Space Hire.</em>','rental-p':'40 seconds from Seonjeongneung Station. Rent Seoul\'s best-located premium studio by the hour.',
+    'rental-dc-1':'NEVE 1073 · BAREFOOT MicroMain 27 · Pro Tools HDX. Available for recording, mixing, and production sessions. Book via Space Cloud.',
+    'rental-li-1':'<li>Neumann U87 Ai available</li><li>NEVE 1073 + hardware outboard included</li><li>Recording booth linkable</li><li>Easy booking via Space Cloud</li>',
+    'rental-nm-2':'Full Venue · Filming Rental','rental-dc-2':'Full space hire for music videos, YouTube shoots, podcasts, events and more. Custom quotes based on party size, hours, and purpose.',
+    'rental-pr-2':'Inquiry<sub>/ Custom Quote</sub>','rental-li-2':'<li>MV · Cover videos · YouTube shoots</li><li>Podcast · Interview recording</li><li>Full studio space access</li><li>Contact via email for details</li>',
+    'rental-cta':'Book on Space Cloud →',
+    'stat-l1':'KOMCA Works','stat-l2':'Shibuya Tower Records','stat-l3':'Japan Concerts','stat-l4':'Yrs Experience',
+    'sk-1':'Composer','sk-2':'Arranger','sk-3':'Lyricist','sk-4':'JLPT N1',
+    'bk-note-txt':'A <strong>50% deposit</strong> confirms your booking. The remaining balance is due after the work is complete, before file delivery.<br/>Payment details (PayPal / wire transfer) are sent individually upon booking confirmation. Account info is not publicly disclosed.',
+    'ck-text':'And hundreds of stories<br/><em>not yet listed here.</em><br/>Your music can be one of them.',
+    'cred-hwasa':'MAMAMOO HWASA × Sense Mom','cred-fantasy':'MBC \'FANTASY BOYS\'','cred-onepact':'ONEPACT','cred-jaehoon':'LEE JAE HOON (COOL)','cred-lapilus':'LAPILUS','cred-lapilus-role':'JP LYRICS BY MADEWELL',
+    'faq-q1':'How much does it cost?','faq-q2':'How many revisions are included?','faq-q3':'What formats do you deliver?','faq-q4':'What gear do you use?','faq-q5':'Is parking available?',
+    'faq-q6':'Can beginners submit files too?','faq-q7':'How long does the process take?','faq-q8':'Can I book recording with mixing &amp; mastering?','faq-q9':'Can I work with you entirely online?','faq-q10':'Do you work with international clients?',
+    'faq-a1':'Mastering only: <strong>₩100,000/track</strong>, 2-track mix + mastering package: <strong>₩250,000/track</strong>, full multitrack mix + mastering: <strong>₩450,000/track</strong>, vocal recording: <strong>₩200,000/3.5hrs</strong>. Large-scale or full album projects receive custom quotes after reviewing the track count. Vocal tuning as a standalone service is ₩50,000/track.',
+    'faq-a2':'<strong>Unlimited revisions until final approval.</strong> We work together until the direction feels right. Revisions after final approval are charged additionally. For mastering, up to 5 free revisions before approval are standard.',
+    'faq-a3':'All deliveries include <strong>WAV (lossless original)</strong> and <strong>MP3 (320kbps)</strong>. Files are LUFS-optimized for streaming platforms like Spotify, Apple Music, and Melon — ready to upload directly. Other formats available on request.',
+    'faq-a4':'We work with a full analog hardware outboard chain. Key gear: <strong>NEVE 1073</strong> channel strip, <strong>SSL FUSION</strong>, <strong>BETTERMAKER Mastering Limiter</strong>, <strong>LAVRY GOLD SAVITR</strong>, reference monitors <strong>Barefoot MicroMain 27</strong>, recording mic <strong>Neumann U87 Ai</strong>, DAW <strong>Pro Tools HDX</strong>. Top-tier studio-level gear, handled directly.',
+    'faq-a5':'Dedicated parking inside the building is limited. Nearby public lots (Seolleung Park, Yeoksam-dong) are available, or take the subway — <strong>Seonjeongneung Station (Bundang Line / Line 9 Express), Exit 3, 40-second walk</strong>. Transit is very convenient!',
+    'faq-a6':'Absolutely! If you\'ve recorded or produced your own files, we can work with them regardless of skill level. Not sure what to send? No problem. <strong>Email us first</strong> — we\'ll guide you through the process whatever state your files are in.',
+    'faq-a7':'Generally, <strong>mastering only takes 1–3 business days</strong>; <strong>mixing + mastering takes 3–7 business days</strong>. Full album or large-scale projects are scheduled by arrangement. Rush delivery is also possible depending on availability — just let us know.',
+    'faq-a8':'Yes! <strong>Recording → Mixing → Mastering one-stop service</strong> is available. High-quality vocal recording with Neumann U87 Ai + NEVE 1073, then mixing and mastering — all in one place, 40 seconds from Seonjeongneung Station. Recording-only bookings are also welcome.',
+    'faq-a9':'Yes — just send your files from anywhere in the world. Mastering, 2-track mixing, and multitrack mixing are all <strong>100% available online</strong>. Use WeTransfer, Google Drive, Dropbox, or any method you prefer. International clients welcome.',
+    'faq-a10':'Yes! We work with clients from all over the world. Just email your files and we\'ll handle the rest. Engineer MADEWELL also holds a <strong>JLPT Level 1</strong> certification and communicates fluently in Japanese — Japanese clients are very welcome (日本語でのお問い合わせも歓迎します)。',
+    'cmp-why-h':'Why MADEWELL MUSIC',
+    'sk-5':'Piano','sk-6':'Guitar','sk-7':'Bass','sk-8':'Drums',
+    'stat-n2':'#1',
+    'form-svc-lbl':'Select Service *','form-date-lbl':'Preferred Date','form-memo-lbl':'Genre / Notes',
+    'form-memo-ph':'e.g. Ballad single / 12 stem tracks / Official streaming release / Rush delivery needed',
+    'form-svc-opts':'<option value="" disabled selected>Select a service</option><option value="Mastering Only (₩100K/track)">Mastering Only (₩100K/track)</option><option value="2-Track Mix + Mastering (₩250K/track)">2-Track Mix + Mastering (₩250K/track)</option><option value="Full Multitrack Mix + Mastering (₩450K/track)">Full Multitrack Mix + Mastering (₩450K/track)</option><option value="Recording (₩200K/3.5h)">Recording (₩200K/3.5h)</option><option value="Studio Rental (₩55K/h~)">Studio Rental (₩55K/h~)</option><option value="Vocal Tuning (₩50K/track)">Vocal Tuning (₩50K/track)</option><option value="Other / Custom Quote (Inquiry)">Other / Custom Quote (Inquiry)</option>',
+    'form-reset':'Start Over',
+    'foot-meta':'682-15 Yeoksam-dong, Gangnam-gu, Seoul, 4F · 40 sec from Seonjeongneung Stn.<br/>madewellofficial@gmail.com · © 2026 MADEWELL MUSIC Corp.',
+    'foot-kakao':'KakaoTalk','foot-site':'Official Site',
+  },
+  ja:{
+    'nav-gear':'機材','nav-credits':'実績','nav-services':'サービス','nav-rental':'レンタル',
+    'nav-reserve':'予約','nav-about':'プロフィール','nav-contact':'문의하기','nav-contact-intl':'お問い合わせ',
+    'mm-cta':'카카오톡 문의','mm-cta-intl':'メールでお問い合わせ',
+    'hero-pre':'Seoul · Gangnam · Professional Studio',
+    'hero-h1':'数々のK-POPスターの<br/>音楽が生まれた場所で、<br/><em>あなたの音楽を</em><br/>完成させます。',
+    'hero-sub':'NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/><b>アイドル級ハードウェア。リーズナブルな価格で。</b>',
+    'hero-cta-ko':'KakaoTalk お問い合わせ','hero-cta-intl':'メールでお問い合わせ','hero-cta-2':'サービス &amp; 料金を見る',
+    'strip-v1':'₩250K~','strip-l1':'シングルMix+Master',
+    'strip-v2':'₩450K~','strip-l2':'マルチトラックMix+Master',
+    'strip-v3':'₩100K~','strip-l3':'マスタリングのみ','strip-l4':'宣靖陵駅から徒歩',
+    'why-h':'この機材が、<br/>この価格で？',
+    'gallery-h':'空間がクオリティを<br/><em style="font-style:italic;color:var(--gold)">証明します。</em>',
+    'loc-h':'宣靖陵駅から<br/><em>徒歩40秒。</em>',
+    'loc-p':'9号線急行・盆唐線 宣靖陵駅1番出口より徒歩40秒。<br/>ソウルのどこからでもアクセス可能。<br/>ソウル市江南区驛三洞682-15 4階',
+    'cred-h':'これまでの<br/>制作実績',
+    'svc-h':'サービス &amp; 料金','svc-sub':'オンラインファイル依頼対応。日本語でのやり取りも可能です。',
+    'svc-star-tag':'最も選ばれています',
+    'svc-nm-1':'リール・シングル・カバー','svc-dc-1':'完成したステレオファイルをプロレベルに仕上げます。SNS・ストリーミングシングルに最適。','svc-pr-1':'₩250,000<sub>/ 1曲</sub>',
+    'svc-li-1':'<li>2トラックMix + マスタリング込み</li><li>NEVE · SSL · BETTERMAKER</li><li>承認前は無制限修正</li><li>WAV + MP3 納品</li><li>オンラインファイル依頼OK</li>',
+    'svc-nm-2':'EP · アルバム · 正式リリース','svc-dc-2':'ステムから全トラックをフルミックス。アイドルセッションと同じワークフロー。','svc-pr-2':'₩450,000<sub>/ 1曲</sub>',
+    'svc-li-2':'<li>マルチトラックフルMix + マスタリング</li><li>NEVE 1073 · SSL · TUBE TECH</li><li>承認前は無制限修正</li><li>WAV + MP3 納品</li><li>オンラインファイル依頼OK</li>',
+    'svc-nm-3':'マスタリングのみ','svc-dc-3':'ミックス済みファイルにハードウェアマスタリング。ストリーミングLUFS最適化込み。','svc-pr-3':'₩100,000<sub>/ 1曲</sub>',
+    'svc-li-3':'<li>NEVE · SSL · BETTERMAKER アウトボード</li><li>ストリーミングLUFS最適化</li><li>承認前は無制限修正</li><li>WAV + MP3 納品</li><li>オンラインファイル依頼OK</li>',
+    'svc-nm-4':'レコーディング','svc-dc-4':'Neumann U87 Ai + NEVE 1073 による高品質ボーカルレコーディング。宣靖陵駅徒歩40秒。','svc-pr-4':'₩200,000<sub>/ 3.5h</sub>',
+    'svc-li-4':'<li>Neumann U87 Ai スタジオセット</li><li>NEVE 1073 マイクプリ</li><li>エンジニア同行 +₩60,000</li><li>ボーカルチューニング追加 +₩50,000</li><li>宣靖陵駅から徒歩40秒</li>',
+    'booking-h':'予約 &amp; お支払い、<br/><em style="color:var(--gold2);font-style:italic">簡単です。</em>',
+    'booking-sub':'メール一本で始められます。日本語対応可。',
+    'bk-t1':'お問い合わせ','bk-d1':'メールでご希望のサービスと日程をご連絡ください',
+    'bk-t2':'確定','bk-d2':'サービス内容・日程・曲数を最終確認',
+    'bk-t3':'前払い','bk-d3':'総額の50%を前払いでスケジュール確保',
+    'bk-t4':'制作','bk-d4':'ファイル送信またはスタジオ来訪 — エンジニアが直接対応',
+    'bk-t5':'納品','bk-d5':'最終支払い後にWAV + MP3を納品',
+    'pay-t1':'PayPal','pay-n1':'予約確定後に<br/>PayPal請求書を送付',
+    'pay-t2':'銀行振込','pay-n2':'予約確定後に<br/>口座情報をご連絡',
+    'pay-t3':'オンライン依頼OK','pay-n3':'来訪不要でファイル送信<br/>マスタリング・ミックス対応',
+    'booking-cta-ko':'KakaoTalk 予約問い合わせ','booking-cta-intl':'メールで予約問い合わせ',
+    'faq-h':'よくある質問','faq-sub':'その他ご不明な点はメールでお気軽にどうぞ。',
+    'reserve-h':'ご依頼内容を<br/>入力して<br/><em>メールで送ってください。</em>',
+    'reserve-desc':'以下のフォームを入力し、内容をコピーしてメールで送信してください。1〜2営業日以内に返信いたします。',
+    'ri-t1':'メールでお問い合わせ','ri-d1':'フォームの内容をコピーし madewellofficial@gmail.com へ — 1〜2営業日以内に返信します。',
+    'ri-t2':'オンラインファイル依頼','ri-d2':'来訪不要。ファイルを送るだけでマスタリング・ミックスに対応します。',
+    'ri-t3':'スタジオ来訪レコーディング','ri-d3':'ソウル市江南区驛三洞682-15 4階 · 宣靖陵駅から徒歩40秒',
+    'ri-t4':'お支払い','ri-d4':'PayPal · 銀行振込 · 総額50%前払いでスケジュール確保',
+    'form-name-lbl':'お名前 *','form-name-ph':'お名前','form-tel-lbl':'連絡先 *','form-tel-ph':'メールアドレス',
+    'form-submit':'内容を確認する →',
+    'success-title':'依頼内容の準備ができました',
+    'success-sub':'下記の内容をコピーしてメールで送信してください。<br/>1〜2営業日以内にご返信いたします。',
+    'success-copy-tip':'↑ クリックして全選択 → コピー (Ctrl+A → Ctrl+C)',
+    'success-btn-ko':'KakaoTalk →','success-btn-intl':'メールで送信 →',
+    'cta-h':'今すぐ<br/>始めましょう。',
+    'cta-sub':'ファイルを送るだけで大丈夫です。<br/>迅速な返信、迅速な作業、プロクオリティ。日本語対応。',
+    'cta-btn-ko':'KakaoTalk お問い合わせ','cta-btn-intl':'メールでお問い合わせ',
+    'hero-sub':'NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/><b>スターK-POPアーティストたちの機材を、あなたが感당できる価格で。</b>',
+    'why-body1':'KOMCA登録100曲以上。PRODUCE 101 JAPAN 4、VIVIZ、(G)I-DLE、INFINITE、MAMAMOO ファサ — 同じハードウェアチェーンであなたの音楽を処理します。',
+    'why-body2':'国内トップマスタリングスタジオと同じアウトボード、アイドルプロデューサーが直接ハンドリング、そして合理的な価格。',
+    'why-q1':'「アイドルアルバムに実際に使用されたその機材そのままに。<br/>自宅で作った音楽も、ストリーミングチャートに<br/>上がれるクオリティに引き上げます。」',
+    'why-q2':'「マスタリングたった₩100,000。承認前は自由に修正。<br/>一般マスタリングスタジオ比最安値。」',
+    'why-q3':'「業界同レベルのミックス最低₩700K〜1M。<br/>ここでは₩450K。同じ機材、同じ人が直接。<br/>これまで手が届かなかったそのクオリティ。」',
+    'cred-sub':'主要K-POPアイドル、ドラマOST、日本進出アルバムまで。<br/>同じ機材と手であなたの音楽を作ります。',
+    'cred-gidle':'(G)I-DLE 田小娟',
+    'cmp-h1':'一般マスタリングスタジオ','cmp-h2':'プレミアムスタジオ平均',
+    'cmp-r1':'マスタリング基本料金','cmp-r1v1':'₩100K〜150K','cmp-r1v2':'₩150K〜','cmp-r1v3':'₩100K',
+    'cmp-r2':'無料修正回数','cmp-r2v1':'1〜2回','cmp-r2v2':'有料','cmp-r2v3':'5回無料',
+    'cmp-r3':'ハードウェアアウトボード','cmp-r4':'NEVE 1073チャンネルストリップ','cmp-r5':'アイドルプロデューサー直接作業','cmp-r6':'レコーディング一括対応',
+    'tab-career':'経歴','tab-albums':'ディスコグラフィー','tab-records':'受賞・記録',
+    'career-tl':'<div class="tl-row"><div class="tl-yr">2007</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">3人組アイドルグループTachyonのメインボーカルとしてデビュー</div></div></div><div class="tl-row"><div class="tl-yr">2011</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">5人組アイドルグループN-trainのリーダー&ボーカルとしてデビュー</div></div></div><div class="tl-row"><div class="tl-yr">2014</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">6人組アイドルグループBIGFLOのリーダー・メインボーカル・プロデューサーとしてデビュー</div></div></div><div class="tl-row"><div class="tl-yr">2018</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">スタジオJ2K株式会社設立</div></div></div><div class="tl-row"><div class="tl-yr">2020</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">MADEWELL MUSIC株式会社設立・代表プロデューサー就任</div><div class="tl-d">スタジオオープン · ソウル江南区驛三洞</div></div></div><div class="tl-row"><div class="tl-yr">2022</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">AVEC MUSIC株式会社兼任プロデューサー</div></div></div><div class="tl-row"><div class="tl-yr">2023</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">We:A (元BIGFLO) 結成 · リーダー&メインボーカル</div><div class="tl-d">1st Single &amp; Japan Single 「24/7」発売</div></div></div><div class="tl-row"><div class="tl-yr">2025</div><div class="tl-dot"></div><div class="tl-c"><div class="tl-t">日本ソロ2ndアルバム 「Still UNFINISHED」発売</div><div class="tl-d">単独コンサート開催</div></div></div>',
+    'albums-list':'<div class="alb-row"><div class="alb-yr">2007</div><div class="alb-info">Tachyon 1st Single 「Feel Your Breeze」<span>タキオン</span></div></div><div class="alb-row"><div class="alb-yr">2011</div><div class="alb-info">N-train 1st Single 「One Last Cry」<span>N-train</span></div></div><div class="alb-row"><div class="alb-yr">2012</div><div class="alb-info">N-train 2nd Single 「I\'ll Forget You」 / 3rd Mini Album<span>N-train</span></div></div><div class="alb-row"><div class="alb-yr">2014</div><div class="alb-info">BIGFLO 1st Mini 「First Flow」 / 2nd Mini 「Second Flow」<span>BIGFLO</span></div></div><div class="alb-row"><div class="alb-yr">2015</div><div class="alb-info">BIGFLO 1st Japan 「Delilah」 / 2nd Japan 「1,2,3,4」<span>BIGFLO · オリコンTOP10 · 渋谷タワーレコード週間1位</span></div></div><div class="alb-row"><div class="alb-yr">2016</div><div class="alb-info">JUNGKYUN Japan Solo Album 「UNFINISHED」<span>ソロ — オリコンアルバム9位</span></div></div><div class="alb-row"><div class="alb-yr">2023</div><div class="alb-info">We:A 1st Single &amp; Japan Single 「24/7」<span>We:A (元BIGFLO)</span></div></div><div class="alb-row"><div class="alb-yr">2025</div><div class="alb-info">JUNGKYUN Japan 2nd Solo Album 「Still UNFINISHED」<span>ソロ — 単独コンサート</span></div></div>',
+    'records-list':'<div class="rec-item">BIGFLO 1st Japan 「Delilah」— オリコンチャートTOP10 · 渋谷タワーレコード週間アルバム販売数1位</div><div class="rec-item">BIGFLO 2nd Japan 「1,2,3,4」— オリコンチャートTOP10 · 渋谷タワーレコード週間アルバム販売数1位</div><div class="rec-item">JUNGKYUN Japan Solo 「Unfinished」— オリコンアルバムチャート9位</div><div class="rec-item">日本単独コンサート&ファンミーティング20回以上開催 · 全国プロモーション</div><div class="rec-item">BIGFLO 「Delilah」— ドイツK-POPチャート9位</div><div class="rec-item">BIGFLO 1st Malaysia Showcase &amp; Fan-Meeting</div><div class="rec-item">SBS人気歌謡・KBS Music Bank・MBC Show! 音楽中心・Mnet M Countdown・Arirang TV Simply Kpop他多数出演</div><div class="rec-item">2022 — We:A (BIGFLO) 再結成 「Re:born」日本単独コンサート開催</div><div class="rec-item">2023 — We:A 1st Single 「24/7」発売 · 日本単独コンサート開催</div><div class="rec-item">2025–2026 — JUNGKYUN 「Still Unfinished」日本発売 · 単独コンサート開催</div>',
+    'addon-lbl-1':'PROJECT — 大規模編成 · フルアルバム','addon-note-1':'100トラック以上 · 放送 · 広告 · フルアルバム · トラック数確認後にお見積もり','addon-pr-1':'要相談<sub>/ お問い合わせ</sub>',
+    'addon-lbl-2':'ボーカルチューニング','addon-note-2':'Melodyne · AutoTune · ピッチ補正 · 単独依頼も可能','addon-pr-2':'₩50,000<sub>/ 1曲</sub>',
+    'rental-h':'スタジオレンタル &amp;<br/><em style="font-style:italic;color:var(--gold)">スペース貸出。</em>','rental-p':'宣靖陵駅から徒歩40秒。江南最高の立地のプレミアムスタジオを時間単位で貸し出します。',
+    'rental-dc-1':'NEVE 1073 · BAREFOOT MicroMain 27 · Pro Tools HDX。レコーディング、ミックス、制作作業室としてご利用可能。Space Cloud予約対応中。',
+    'rental-li-1':'<li>Neumann U87 Ai 使用可能</li><li>NEVE 1073 + ハードウェアアウトボード込み</li><li>レコーディングブース連動使用可能</li><li>Space Cloudで簡単予約</li>',
+    'rental-nm-2':'全館貸切 · 撮影レンタル','rental-dc-2':'ミュージックビデオ、YouTube撮影、ポッドキャスト、イベントなど全スペース貸切。人数・時間・目的に応じたお見積もり提供。',
+    'rental-pr-2':'要相談<sub>/ お見積もり</sub>','rental-li-2':'<li>MV · カバー映像 · YouTube撮影</li><li>ポッドキャスト · インタビュー収録</li><li>スタジオ全スペース使用</li><li>メールでお問い合わせの上ご相談</li>',
+    'rental-cta':'Space Cloudで予約 →',
+    'stat-l1':'KOMCA登録曲','stat-l2':'渋谷タワーレコード','stat-l3':'日本コンサート','stat-l4':'年のキャリア',
+    'sk-1':'作曲','sk-2':'編曲','sk-3':'作詞','sk-4':'JLPT N1',
+    'bk-note-txt':'<strong>前払い(50%)</strong>でスケジュールを確定します。残金は作業完了後、ファイル納品前にお支払いいただきます。<br/>お支払い情報（PayPal / 銀行振込）は予約確定後に個別にご連絡します。口座情報は公開しておりません。',
+    'ck-text':'そして、まだここに記されていない<br/><em>数百のストーリーたち。</em><br/>あなたの音楽もその一つになります。',
+    'cred-hwasa':'MAMAMOO HWASA × Sense Mom','cred-fantasy':'MBC \'FANTASY BOYS\'','cred-onepact':'ONEPACT','cred-jaehoon':'LEE JAE HOON (COOL)','cred-lapilus':'LAPILUS','cred-lapilus-role':'JP LYRICS BY MADEWELL',
+    'faq-q1':'料金はいくらですか？','faq-q2':'修正は何回まで可能ですか？','faq-q3':'どのフォーマットで納品されますか？','faq-q4':'どんな機材を使用していますか？','faq-q5':'駐車場はありますか？',
+    'faq-q6':'音楽初心者でも依頼できますか？','faq-q7':'作業期間はどれくらいかかりますか？','faq-q8':'レコーディングもミックス・マスタリングと一緒に依頼できますか？','faq-q9':'来訪なしでオンラインのみで依頼できますか？','faq-q10':'日本語でのやり取りは可能ですか？',
+    'faq-a1':'マスタリングのみ：<strong>₩100,000/曲</strong>、2トラックMix+マスタリングパッケージ：<strong>₩250,000/曲</strong>、マルチトラックフルMix+マスタリング：<strong>₩450,000/曲</strong>、ボーカルレコーディング：<strong>₩200,000/3.5h</strong>。アルバム全体・大規模編成などはトラック数確認後にお見積もりします。ボーカルチューニング単独依頼は₩50,000/曲です。',
+    'faq-a2':'ファイルの<strong>最終確定（fix）前は回数無制限</strong>で修正可能です。方向性が合うまで一緒に作業します。最終確定後の追加修正は有料となります。マスタリングは最終確定前5回まで無料修正が基本です。',
+    'faq-a3':'基本納品フォーマットは<strong>WAV（高音質オリジナル）</strong>と<strong>MP3（320kbps）</strong>の両方を提供します。Spotify、Apple Music、Melonなどのストリーミングプラットフォームに直接アップロード可能なLUFSレベルに最適化して納品します。別フォーマットが必要な場合は事前にご連絡ください。',
+    'faq-a4':'アナログハードウェアアウトボードのフルチェーンで作業します。主要機材：<strong>NEVE 1073</strong>チャンネルストリップ、<strong>SSL FUSION</strong>、<strong>BETTERMAKER Mastering Limiter</strong>、<strong>LAVRY GOLD SAVITR</strong>、リファレンスモニター<strong>Barefoot MicroMain 27</strong>、レコーディングマイク<strong>Neumann U87 Ai</strong>、DAW <strong>Pro Tools HDX</strong>。国内トップスタジオレベルの機材を直接ハンドリングします。',
+    'faq-a5':'建物内専用駐車場のご利用は難しい状況です。近隣の公営駐車場をご利用いただくか、<strong>公共交通機関（盆唐線/9号線急行 宣靖陵駅3番出口から徒歩40秒）</strong>をお勧めします。地下鉄利用時は非常に便利です！',
+    'faq-a6':'もちろんです！ご自身で録音・制作されたファイルがあれば、レベルに関わらず作業可能です。どんなファイルを送ればいいかわからない場合でも大丈夫です。<strong>まずメールでお問い合わせください</strong>。どんな状態のファイルでも丁寧にご案内します。',
+    'faq-a7':'一般的に<strong>マスタリングのみは1〜3営業日</strong>、<strong>ミックス+マスタリングは3〜7営業日</strong>かかります。アルバム全体や大規模編成の場合は別途日程を協議します。急ぎの場合も状況に応じて対応可能ですのでお問い合わせください。',
+    'faq-a8':'はい、<strong>レコーディング→ミックス→マスタリングのワンストップ対応</strong>が可能です。宣靖陵駅徒歩40秒のスタジオでNeumann U87 Ai + NEVE 1073による高品質ボーカルレコーディングを行い、その後ミックス・マスタリングまで一括対応します。レコーディングのみの単独依頼も歓迎です。',
+    'faq-a9':'はい、どこからでもファイルを送るだけで大丈夫です。マスタリング、2トラックミックス、マルチトラックミックスすべて<strong>100%オンラインファイル依頼対応</strong>です。WeTransfer、Google Drive、Dropboxなどご都合の良い方法でファイルをお送りください。海外からの依頼も歓迎です。',
+    'faq-a10':'はい！エンジニアのMADEWELL（ジョン・ギュン）は<strong>JLPT1級</strong>を保有しており、日本語でのやり取りが問題なく可能です。日本のアーティストや日本国内での音楽リリースをお考えの方のご依頼も大歓迎です。日本語でお気軽にお問い合わせください。',
+    'cmp-why-h':'なぜMADEWELL MUSICなのか',
+    'sk-5':'ピアノ','sk-6':'ギター','sk-7':'ベース','sk-8':'ドラム',
+    'stat-n2':'1位',
+    'form-svc-lbl':'サービスを選択 *','form-date-lbl':'希望日','form-memo-lbl':'ジャンル / メモ',
+    'form-memo-ph':'例）バラードシングル / ステムファイル12トラック / ストリーミング正式リリース用 / 3日以内急行希望',
+    'form-svc-opts':'<option value="" disabled selected>サービスを選択してください</option><option value="マスタリングのみ (₩100K/曲)">マスタリングのみ (₩100K/曲)</option><option value="2トラックMix+マスタリング (₩250K/曲)">2トラックMix+マスタリング (₩250K/曲)</option><option value="マルチトラックフルMix+マスタリング (₩450K/曲)">マルチトラックフルMix+マスタリング (₩450K/曲)</option><option value="レコーディング (₩200K/3.5h)">レコーディング (₩200K/3.5h)</option><option value="スタジオレンタル (₩55K/h~)">スタジオレンタル (₩55K/h~)</option><option value="ボーカルチューニング (₩50K/曲)">ボーカルチューニング (₩50K/曲)</option><option value="その他 / カスタム見積もり (お問い合わせ)">その他 / カスタム見積もり (お問い合わせ)</option>',
+    'form-reset':'もう一度入力する',
+    'foot-meta':'ソウル市江南区驛三洞682-15 4階 · 宣靖陵駅から徒歩40秒<br/>madewellofficial@gmail.com · © 2026 株式会社メイドウェルミュージック',
+    'foot-kakao':'KakaoTalk','foot-site':'公式サイト',
+  }
+};
+
+let currentLang='ko';
+
+function setLang(lang){
+  currentLang=lang;
+  // toggle button states (desktop + mobile)
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.classList.toggle('on',b.textContent.trim().toLowerCase()===lang||(lang==='ja'&&b.textContent.trim()==='JP'));
+  });
+  // update html lang
+  document.documentElement.lang=lang==='ja'?'ja':lang==='en'?'en':'ko';
+  // translate data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.getAttribute('data-i18n');
+    if(T[lang]&&T[lang][key]!==undefined)el.innerHTML=T[lang][key];
+  });
+  // translate placeholders
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const key=el.getAttribute('data-i18n-ph');
+    if(T[lang]&&T[lang][key]!==undefined)el.placeholder=T[lang][key];
+  });
+  // show/hide KO vs international elements
+  const isKo=lang==='ko';
+  function displayFor(el,show){
+    if(!show){el.style.display='none';return;}
+    const tag=el.tagName;
+    if(el.classList.contains('bk-pay-item'))el.style.display='flex';
+    else if(el.classList.contains('form-notice'))el.style.display='block';
+    else if(tag==='A'||tag==='BUTTON')el.style.display='inline-flex';
+    else el.style.display='block';
+  }
+  document.querySelectorAll('.ko-only').forEach(el=>displayFor(el,isKo));
+  document.querySelectorAll('.intl-only').forEach(el=>displayFor(el,!isKo));
+  // save preference
+  try{localStorage.setItem('mw-lang',lang);}catch(e){}
+}
+
+// init: restore saved lang
+(function(){
+  let saved='ko';
+  try{saved=localStorage.getItem('mw-lang')||'ko';}catch(e){}
+  if(saved!=='ko')setLang(saved);
+})();
+
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.07});
+document.querySelectorAll('.reveal,.reveal2').forEach(el=>ro.observe(el));
+
+// Gallery Slider
+(function(){
+  const slider=document.getElementById('gallerySlider');
+  if(!slider)return;
+  const slides=slider.querySelectorAll('.slide');
+  const dotsWrap=document.getElementById('slideDots');
+  const counter=document.getElementById('slideCounter');
+  const total=slides.length;
+  let cur=0,timer;
+
+  // build dots
+  slides.forEach((_,i)=>{
+    const d=document.createElement('span');
+    d.className='dot'+(i===0?' on':'');
+    d.addEventListener('click',()=>go(i));
+    dotsWrap.appendChild(d);
+  });
+
+  function go(n){
+    slides[cur].classList.remove('active');
+    dotsWrap.children[cur].classList.remove('on');
+    cur=(n+total)%total;
+    slides[cur].classList.add('active');
+    dotsWrap.children[cur].classList.add('on');
+    if(counter)counter.textContent=(cur+1)+' / '+total;
+  }
+
+  slider.querySelector('.slide-prev').addEventListener('click',e=>{e.stopPropagation();go(cur-1);resetAuto();});
+  slider.querySelector('.slide-next').addEventListener('click',e=>{e.stopPropagation();go(cur+1);resetAuto();});
+
+  // swipe
+  let tx=0;
+  slider.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+  slider.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>44){go(dx<0?cur+1:cur-1);resetAuto();}
+  });
+
+  // keyboard
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft'){go(cur-1);resetAuto();}
+    if(e.key==='ArrowRight'){go(cur+1);resetAuto();}
+  });
+
+  // auto
+  function startAuto(){timer=setInterval(()=>go(cur+1),5000);}
+  function resetAuto(){clearInterval(timer);startAuto();}
+  slider.addEventListener('mouseenter',()=>clearInterval(timer));
+  slider.addEventListener('mouseleave',startAuto);
+  startAuto();
+})();
+</script>
+</body>
+</html>
