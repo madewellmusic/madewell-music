@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+body{width:1080px;height:1080px;overflow:hidden;background:#07070A;font-family:'Montserrat',sans-serif;display:flex;align-items:center;justify-content:center;position:relative}
+.bg-line{position:absolute;top:0;left:50%;width:1px;height:100%;background:linear-gradient(to bottom,transparent,rgba(201,169,60,.08) 30%,rgba(201,169,60,.08) 70%,transparent)}
+.corner-tl{position:absolute;top:40px;left:40px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4)}
+.corner-tr{position:absolute;top:40px;right:40px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4)}
+.corner-bl{position:absolute;bottom:40px;left:40px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4)}
+.corner-br{position:absolute;bottom:40px;right:40px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4)}
+.wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px;gap:0}
+.label{font-size:10px;font-weight:700;letter-spacing:.3em;color:rgba(201,169,60,.6);text-transform:uppercase;margin-bottom:48px}
+.main{font-family:'Cormorant Garamond',serif;font-size:76px;font-weight:300;color:#fff;line-height:1.05;letter-spacing:.02em;margin-bottom:48px}
+.main em{color:#C9A93C;font-style:italic}
+.divider{width:48px;height:1px;background:rgba(201,169,60,.5);margin:0 auto 48px}
+.sub{font-size:13px;font-weight:400;color:rgba(255,255,255,.5);letter-spacing:.12em;line-height:2;margin-bottom:64px}
+.sub strong{color:rgba(255,255,255,.85);font-weight:500}
+.stats{display:flex;gap:56px;align-items:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:#C9A93C}
+.stat-lbl{font-size:9px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.35);text-transform:uppercase;margin-top:4px}
+.stat-div{width:1px;height:40px;background:rgba(255,255,255,.1)}
+.logo{position:absolute;bottom:54px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;letter-spacing:.35em;color:rgba(201,169,60,.4);white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="bg-line"></div>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="wrap">
+  <div class="label">Gangnam · Yeoksam-dong Studio</div>
+  <div class="main">수많은 K-POP<br/>스타들의 음악이<br/>탄생한 곳,<br/><em>지금 당신의</em><br/>음악을 완성합니다.</div>
+  <div class="divider"></div>
+  <div class="sub">
+    <strong>믹싱 · 마스터링 · 레코딩 · 레슨</strong><br/>
+    온라인 파일 의뢰 가능 · 선정릉역 도보 40초
+  </div>
+  <div class="stats">
+    <div><div class="stat-num">100+</div><div class="stat-lbl">KOMCA 등록곡</div></div>
+    <div class="stat-div"></div>
+    <div><div class="stat-num">10만~</div><div class="stat-lbl">마스터링 단독</div></div>
+    <div class="stat-div"></div>
+    <div><div class="stat-num">40초</div><div class="stat-lbl">선정릉역 도보</div></div>
+  </div>
+</div>
+<div class="logo">MADEWELL MUSIC · 1 / 5</div>
+</body>
+</html>

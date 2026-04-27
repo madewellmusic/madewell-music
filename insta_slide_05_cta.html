@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+body{width:1080px;height:1080px;overflow:hidden;background:#07070A;font-family:'Montserrat',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px;position:relative}
+.bg-line-v{position:absolute;top:0;left:50%;width:1px;height:100%;background:linear-gradient(to bottom,transparent,rgba(201,169,60,.06) 30%,rgba(201,169,60,.06) 70%,transparent)}
+.corner-tl{position:absolute;top:40px;left:40px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4)}
+.corner-tr{position:absolute;top:40px;right:40px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4)}
+.corner-bl{position:absolute;bottom:40px;left:40px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4)}
+.corner-br{position:absolute;bottom:40px;right:40px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4)}
+.label{font-size:10px;font-weight:700;letter-spacing:.28em;color:rgba(201,169,60,.6);text-transform:uppercase;margin-bottom:32px;text-align:center}
+.main{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:300;color:#fff;text-align:center;line-height:1.15;margin-bottom:16px}
+.main em{color:#C9A93C;font-style:italic}
+.sub{font-size:13px;color:rgba(255,255,255,.35);text-align:center;letter-spacing:.1em;line-height:2;margin-bottom:56px}
+.divider{width:48px;height:1px;background:rgba(201,169,60,.4);margin:0 auto 56px}
+.ways{display:flex;flex-direction:column;gap:16px;width:100%;max-width:680px;margin-bottom:56px}
+.way{display:flex;align-items:center;gap:24px;border:1px solid rgba(255,255,255,.07);padding:22px 28px}
+.way-num{font-family:'Cormorant Garamond',serif;font-size:32px;color:rgba(201,169,60,.3);flex-shrink:0;width:40px}
+.way-info{}
+.way-title{font-size:12px;font-weight:600;letter-spacing:.18em;color:#fff;text-transform:uppercase;margin-bottom:4px}
+.way-desc{font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.06em}
+.price-note{text-align:center;font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.1em;line-height:1.9}
+.price-note strong{color:rgba(201,169,60,.6);font-weight:500}
+.logo{position:absolute;bottom:48px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;letter-spacing:.35em;color:rgba(201,169,60,.4);white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="bg-line-v"></div>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="label">Contact</div>
+<div class="main">지금 바로<br/><em>문의하세요.</em></div>
+<div class="sub">온라인 파일 의뢰 가능 · 방문 레코딩도 운영 중<br/>선정릉역 도보 40초 · 강남구 역삼동 682-15 4층</div>
+<div class="divider"></div>
+<div class="ways">
+  <div class="way">
+    <div class="way-num">01</div>
+    <div class="way-info">
+      <div class="way-title">카카오 채널</div>
+      <div class="way-desc">@madewellmusic — 자동응답 24시간 · 빠른 상담</div>
+    </div>
+  </div>
+  <div class="way">
+    <div class="way-num">02</div>
+    <div class="way-info">
+      <div class="way-title">인스타그램 DM</div>
+      <div class="way-desc">@madewellmusic_official — 포트폴리오 · 문의</div>
+    </div>
+  </div>
+  <div class="way">
+    <div class="way-num">03</div>
+    <div class="way-info">
+      <div class="way-title">랜딩페이지</div>
+      <div class="way-desc">madewellmusic.github.io/madewell-music</div>
+    </div>
+  </div>
+</div>
+<div class="price-note">
+  마스터링 <strong>10만원~</strong> · 싱글 믹스+마스터링 <strong>25만원~</strong> · 멀티트랙 <strong>45만원~</strong><br/>
+  픽스 전 자유 수정 · WAV + MP3 납품 · 온라인 의뢰 가능
+</div>
+<div class="logo">MADEWELL MUSIC · 5 / 5</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1080px;overflow:hidden;background:#07070A;font-family:'Montserrat',sans-serif;display:flex;align-items:center;justify-content:center}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+.wrap{width:100%;height:100%;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px}
+.corner-tl{position:absolute;top:40px;left:40px;width:40px;height:40px;border-top:1px solid rgba(201,169,60,.5);border-left:1px solid rgba(201,169,60,.5)}
+.corner-tr{position:absolute;top:40px;right:40px;width:40px;height:40px;border-top:1px solid rgba(201,169,60,.5);border-right:1px solid rgba(201,169,60,.5)}
+.corner-bl{position:absolute;bottom:40px;left:40px;width:40px;height:40px;border-bottom:1px solid rgba(201,169,60,.5);border-left:1px solid rgba(201,169,60,.5)}
+.corner-br{position:absolute;bottom:40px;right:40px;width:40px;height:40px;border-bottom:1px solid rgba(201,169,60,.5);border-right:1px solid rgba(201,169,60,.5)}
+.label{font-size:11px;font-weight:700;letter-spacing:.25em;color:rgba(201,169,60,.7);text-transform:uppercase;margin-bottom:20px}
+.title{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#fff;letter-spacing:.04em;margin-bottom:52px;text-align:center}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%}
+.card{border:1px solid rgba(201,169,60,.2);padding:28px 24px;position:relative}
+.card.highlight{border-color:rgba(201,169,60,.6);background:rgba(201,169,60,.04)}
+.badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:#C9A93C;color:#07070A;font-size:9px;font-weight:700;letter-spacing:.15em;padding:4px 14px;text-transform:uppercase;white-space:nowrap}
+.card-type{font-size:9px;font-weight:700;letter-spacing:.2em;color:rgba(201,169,60,.6);text-transform:uppercase;margin-bottom:8px}
+.card-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#fff;margin-bottom:6px}
+.card-desc{font-size:10px;color:rgba(255,255,255,.4);line-height:1.5;margin-bottom:16px}
+.card-price{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:#C9A93C}
+.card-price span{font-size:14px;color:rgba(255,255,255,.4);font-family:'Montserrat',sans-serif;font-weight:300}
+.bottom{margin-top:40px;font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.15em;text-align:center}
+.logo{font-size:11px;font-weight:700;letter-spacing:.3em;color:rgba(201,169,60,.5);margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="corner-tl"></div>
+  <div class="corner-tr"></div>
+  <div class="corner-bl"></div>
+  <div class="corner-br"></div>
+
+  <div class="label">Services &amp; Pricing</div>
+  <div class="title">서비스 &amp; 가격</div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-type">Single</div>
+      <div class="card-name">릴스 · 싱글 · 커버</div>
+      <div class="card-desc">투트랙 믹싱 + 마스터링<br>SNS · 스트리밍 최적화</div>
+      <div class="card-price">25만원<span> / 곡</span></div>
+    </div>
+    <div class="card highlight">
+      <div class="badge">가장 많이 선택</div>
+      <div class="card-type">Release</div>
+      <div class="card-name">EP · 앨범 · 정식 발매</div>
+      <div class="card-desc">멀티트랙 풀 믹싱 + 마스터링<br>아이돌 세션 동일 워크플로우</div>
+      <div class="card-price">45만원<span> / 곡</span></div>
+    </div>
+    <div class="card">
+      <div class="card-type">Master</div>
+      <div class="card-name">마스터링 단독</div>
+      <div class="card-desc">하드웨어 마스터링<br>스트리밍 LUFS 최적화</div>
+      <div class="card-price">10만원<span> / 곡</span></div>
+    </div>
+    <div class="card">
+      <div class="card-type">Rec</div>
+      <div class="card-name">보컬 레코딩</div>
+      <div class="card-desc">Neumann U87 + NEVE 1073<br>선정릉역 도보 40초</div>
+      <div class="card-price">20만원<span> / 3.5h</span></div>
+    </div>
+  </div>
+
+  <div class="bottom">온라인 파일 의뢰 가능 · 픽스 전 자유 수정 · WAV + MP3 납품</div>
+  <div class="logo">MADEWELL MUSIC</div>
+</div>
+</body>
+</html>

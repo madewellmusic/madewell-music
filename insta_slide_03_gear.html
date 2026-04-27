@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+body{width:1080px;height:1080px;overflow:hidden;background:#07070A;font-family:'Montserrat',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:64px 80px;position:relative}
+.corner-tl{position:absolute;top:40px;left:40px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4)}
+.corner-tr{position:absolute;top:40px;right:40px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4)}
+.corner-bl{position:absolute;bottom:40px;left:40px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4)}
+.corner-br{position:absolute;bottom:40px;right:40px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4)}
+.top{text-align:center;margin-bottom:20px}
+.label{font-size:10px;font-weight:700;letter-spacing:.28em;color:rgba(201,169,60,.6);text-transform:uppercase;margin-bottom:12px}
+.title{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#fff;margin-bottom:8px}
+.quote{font-size:12px;color:rgba(255,255,255,.35);font-style:italic;line-height:1.7;text-align:center;max-width:640px;margin:0 auto 36px}
+.quote em{color:rgba(201,169,60,.7);font-style:normal}
+.gear-list{width:100%;display:flex;flex-direction:column;gap:0;margin-bottom:36px}
+.gear-row{display:flex;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.gear-row:first-child{border-top:1px solid rgba(255,255,255,.06)}
+.gear-num{font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(201,169,60,.3);width:36px;flex-shrink:0}
+.gear-cat{font-size:8px;font-weight:700;letter-spacing:.2em;color:rgba(201,169,60,.5);text-transform:uppercase;width:180px;flex-shrink:0}
+.gear-name{font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;flex:1}
+.gear-note{font-size:9px;color:rgba(255,255,255,.2);text-align:right}
+.bottom-quote{text-align:center;font-size:11px;color:rgba(255,255,255,.25);letter-spacing:.1em;line-height:1.8}
+.logo{position:absolute;bottom:48px;right:64px;font-size:9px;font-weight:700;letter-spacing:.28em;color:rgba(201,169,60,.35)}
+</style>
+</head>
+<body>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="top">
+  <div class="label">Hardware Chain</div>
+  <div class="title">아이돌 앨범과 동일한 장비</div>
+</div>
+<div class="quote">
+  "아이돌 앨범에 실제로 사용된 <em>그 장비 그대로.</em><br/>
+  방구석에서 만든 음악도, 스트리밍 차트에 올라갈 수 있는 퀄리티로 끌어올립니다."
+</div>
+<div class="gear-list">
+  <div class="gear-row">
+    <div class="gear-num">01</div>
+    <div class="gear-cat">Preamp</div>
+    <div class="gear-name">NEVE 1073</div>
+    <div class="gear-note">Analog Mic Pre</div>
+  </div>
+  <div class="gear-row">
+    <div class="gear-num">02</div>
+    <div class="gear-cat">Stereo Bus</div>
+    <div class="gear-name">SSL FUSION</div>
+    <div class="gear-note">Analog Processor</div>
+  </div>
+  <div class="gear-row">
+    <div class="gear-num">03</div>
+    <div class="gear-cat">Mastering Limiter</div>
+    <div class="gear-name">Bettermaker</div>
+    <div class="gear-note">Mastering Limiter</div>
+  </div>
+  <div class="gear-row">
+    <div class="gear-num">04</div>
+    <div class="gear-cat">Converter</div>
+    <div class="gear-name">LAVRY GOLD SAVITR</div>
+    <div class="gear-note">AD/DA Converter</div>
+  </div>
+  <div class="gear-row">
+    <div class="gear-num">05</div>
+    <div class="gear-cat">Monitor Speaker</div>
+    <div class="gear-name">BAREFOOT MM27</div>
+    <div class="gear-note">Mastering Reference</div>
+  </div>
+  <div class="gear-row">
+    <div class="gear-num">06</div>
+    <div class="gear-cat">Microphone</div>
+    <div class="gear-name">Neumann U87</div>
+    <div class="gear-note">Studio Condenser</div>
+  </div>
+  <div class="gear-row">
+    <div class="gear-num">07</div>
+    <div class="gear-cat">DAW</div>
+    <div class="gear-name">Pro Tools HDX</div>
+    <div class="gear-note">Professional Audio</div>
+  </div>
+</div>
+<div class="bottom-quote">국내 최상급 마스터링 스튜디오와 동일한 아웃보드 · 아이돌 프로듀서 직접 핸들링</div>
+<div class="logo">MADEWELL MUSIC · 3 / 5</div>
+</body>
+</html>

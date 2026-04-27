@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+body{width:1080px;height:1080px;overflow:hidden;background:#0A0818;font-family:'Montserrat',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px 80px;position:relative}
+.bg-glow{position:absolute;top:-10%;right:-10%;width:60%;height:70%;background:radial-gradient(ellipse at 70% 30%,rgba(74,44,138,.25) 0%,transparent 60%);pointer-events:none}
+.corner-tl{position:absolute;top:40px;left:40px;width:48px;height:48px;border-top:1px solid rgba(120,80,200,.4);border-left:1px solid rgba(120,80,200,.4)}
+.corner-tr{position:absolute;top:40px;right:40px;width:48px;height:48px;border-top:1px solid rgba(120,80,200,.4);border-right:1px solid rgba(120,80,200,.4)}
+.corner-bl{position:absolute;bottom:40px;left:40px;width:48px;height:48px;border-bottom:1px solid rgba(120,80,200,.4);border-left:1px solid rgba(120,80,200,.4)}
+.corner-br{position:absolute;bottom:40px;right:40px;width:48px;height:48px;border-bottom:1px solid rgba(120,80,200,.4);border-right:1px solid rgba(120,80,200,.4)}
+.label{font-size:10px;font-weight:700;letter-spacing:.28em;color:rgba(120,80,200,.8);text-transform:uppercase;margin-bottom:20px;text-align:center}
+.title{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:#fff;text-align:center;line-height:1.05;margin-bottom:12px}
+.title em{color:rgba(150,100,255,.9);font-style:italic}
+.sub{font-size:12px;color:rgba(255,255,255,.35);text-align:center;letter-spacing:.12em;margin-bottom:52px}
+.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;width:100%;margin-bottom:48px}
+.card{border:1px solid rgba(120,80,200,.2);padding:24px 20px;background:rgba(74,44,138,.06)}
+.c-icon{font-size:10px;font-weight:700;letter-spacing:.18em;color:rgba(120,80,200,.6);text-transform:uppercase;margin-bottom:12px}
+.c-name{font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;margin-bottom:8px}
+.c-desc{font-size:10px;color:rgba(255,255,255,.35);line-height:1.7}
+.divider{width:40px;height:1px;background:rgba(120,80,200,.4);margin:0 auto 36px}
+.bottom{text-align:center}
+.bottom-main{font-family:'Cormorant Garamond',serif;font-size:20px;color:rgba(255,255,255,.6);margin-bottom:12px}
+.bottom-sub{font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.12em;line-height:1.8}
+.logo{position:absolute;bottom:48px;right:64px;font-size:9px;font-weight:700;letter-spacing:.28em;color:rgba(120,80,200,.35)}
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="label">Lesson · 1:1</div>
+<div class="title">Lesson<br/><em>Composition</em><br/>Production.</div>
+<div class="sub">현직 K-POP 프로듀서 1:1 · 강남 역삼동 스튜디오</div>
+<div class="cards">
+  <div class="card">
+    <div class="c-icon">작곡 · 편곡</div>
+    <div class="c-name">Composition</div>
+    <div class="c-desc">DAW 기초부터 K-POP 스타일 트랙 제작까지. Ableton · Logic · Pro Tools</div>
+  </div>
+  <div class="card">
+    <div class="c-icon">믹싱 · 마스터링</div>
+    <div class="c-name">Mixing</div>
+    <div class="c-desc">프로 아날로그 장비 직접 사용. 홈레코딩 최적화 방법 포함</div>
+  </div>
+  <div class="card">
+    <div class="c-icon">레코딩 · 프로듀싱</div>
+    <div class="c-name">Recording</div>
+    <div class="c-desc">아이돌급 보컬 세팅 & 녹음 기법. Neumann U87 + Pro Tools HDX</div>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="bottom">
+  <div class="bottom-main">이론보다 현장에서 쓰는 기술 중심</div>
+  <div class="bottom-sub">1회 2시간 · 레벨 · 목표 맞춤 상담 · 카카오 채널 문의</div>
+</div>
+<div class="logo">MADEWELL MUSIC · 4 / 5</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+body{width:1080px;height:1080px;overflow:hidden;background:#07070A;font-family:'Montserrat',sans-serif;display:flex;align-items:center;justify-content:center}
+.wrap{width:100%;height:100%;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px}
+.corner-tl{position:absolute;top:40px;left:40px;width:40px;height:40px;border-top:1px solid rgba(201,169,60,.5);border-left:1px solid rgba(201,169,60,.5)}
+.corner-tr{position:absolute;top:40px;right:40px;width:40px;height:40px;border-top:1px solid rgba(201,169,60,.5);border-right:1px solid rgba(201,169,60,.5)}
+.corner-bl{position:absolute;bottom:40px;left:40px;width:40px;height:40px;border-bottom:1px solid rgba(201,169,60,.5);border-left:1px solid rgba(201,169,60,.5)}
+.corner-br{position:absolute;bottom:40px;right:40px;width:40px;height:40px;border-bottom:1px solid rgba(201,169,60,.5);border-right:1px solid rgba(201,169,60,.5)}
+.label{font-size:11px;font-weight:700;letter-spacing:.25em;color:rgba(201,169,60,.7);text-transform:uppercase;margin-bottom:20px}
+.title{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#fff;letter-spacing:.04em;margin-bottom:16px;text-align:center}
+.subtitle{font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.15em;margin-bottom:52px}
+.divider{width:40px;height:1px;background:rgba(201,169,60,.4);margin:0 auto 52px}
+.credits{width:100%;display:flex;flex-direction:column;gap:0}
+.credit-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.credit-row:first-child{border-top:1px solid rgba(255,255,255,.06)}
+.credit-artist{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#fff}
+.credit-role{font-size:9px;font-weight:600;letter-spacing:.18em;color:rgba(201,169,60,.6);text-transform:uppercase}
+.bottom{margin-top:48px;text-align:center}
+.komca{font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.12em;margin-bottom:6px}
+.logo{font-size:11px;font-weight:700;letter-spacing:.3em;color:rgba(201,169,60,.5)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="corner-tl"></div>
+  <div class="corner-tr"></div>
+  <div class="corner-bl"></div>
+  <div class="corner-br"></div>
+
+  <div class="label">Work Credits</div>
+  <div class="title">주요 작업</div>
+  <div class="subtitle">KOMCA 등록 100곡+</div>
+
+  <div class="credits">
+    <div class="credit-row">
+      <div class="credit-artist">PRODUCE 101 JAPAN 4</div>
+      <div class="credit-role">작곡 · 편곡</div>
+    </div>
+    <div class="credit-row">
+      <div class="credit-artist">VIVIZ</div>
+      <div class="credit-role">작곡 · 편곡</div>
+    </div>
+    <div class="credit-row">
+      <div class="credit-artist">인피니트 장동우</div>
+      <div class="credit-role">작곡 · 편곡</div>
+    </div>
+    <div class="credit-row">
+      <div class="credit-artist">마마무 화사</div>
+      <div class="credit-role">작곡 · 편곡</div>
+    </div>
+    <div class="credit-row">
+      <div class="credit-artist">(여자)아이들 전소연</div>
+      <div class="credit-role">작곡 · 편곡</div>
+    </div>
+    <div class="credit-row">
+      <div class="credit-artist">HORI7ON · BIGFLO</div>
+      <div class="credit-role">작곡 · 편곡</div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="komca">KOMCA 등록 프로듀서 직접 엔지니어링</div>
+    <div class="logo">MADEWELL MUSIC</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+body{width:1080px;height:1080px;overflow:hidden;background:#07070A;font-family:'Montserrat',sans-serif;display:flex;align-items:center;justify-content:center}
+.wrap{width:100%;height:100%;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px}
+.corner-tl{position:absolute;top:40px;left:40px;width:40px;height:40px;border-top:1px solid rgba(201,169,60,.5);border-left:1px solid rgba(201,169,60,.5)}
+.corner-tr{position:absolute;top:40px;right:40px;width:40px;height:40px;border-top:1px solid rgba(201,169,60,.5);border-right:1px solid rgba(201,169,60,.5)}
+.corner-bl{position:absolute;bottom:40px;left:40px;width:40px;height:40px;border-bottom:1px solid rgba(201,169,60,.5);border-left:1px solid rgba(201,169,60,.5)}
+.corner-br{position:absolute;bottom:40px;right:40px;width:40px;height:40px;border-bottom:1px solid rgba(201,169,60,.5);border-right:1px solid rgba(201,169,60,.5)}
+.label{font-size:11px;font-weight:700;letter-spacing:.25em;color:rgba(201,169,60,.7);text-transform:uppercase;margin-bottom:20px}
+.title{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;color:#fff;letter-spacing:.04em;margin-bottom:8px;text-align:center;line-height:1.1}
+.subtitle{font-family:'Cormorant Garamond',serif;font-size:28px;font-style:italic;color:rgba(201,169,60,.8);margin-bottom:52px;text-align:center}
+.gear-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;margin-bottom:48px}
+.gear{border-left:2px solid rgba(201,169,60,.3);padding:10px 16px}
+.gear-cat{font-size:8px;font-weight:700;letter-spacing:.2em;color:rgba(201,169,60,.5);text-transform:uppercase;margin-bottom:4px}
+.gear-name{font-size:13px;color:rgba(255,255,255,.85);line-height:1.4}
+.location{text-align:center;padding:20px;border:1px solid rgba(255,255,255,.06)}
+.loc-label{font-size:9px;font-weight:700;letter-spacing:.2em;color:rgba(201,169,60,.5);text-transform:uppercase;margin-bottom:8px}
+.loc-text{font-size:14px;color:rgba(255,255,255,.7)}
+.logo{margin-top:32px;font-size:11px;font-weight:700;letter-spacing:.3em;color:rgba(201,169,60,.5)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="corner-tl"></div>
+  <div class="corner-tr"></div>
+  <div class="corner-bl"></div>
+  <div class="corner-br"></div>
+
+  <div class="label">Studio</div>
+  <div class="title">Mixing<br>Mastering</div>
+  <div class="subtitle">Recording.</div>
+
+  <div class="gear-grid">
+    <div class="gear">
+      <div class="gear-cat">Preamp</div>
+      <div class="gear-name">NEVE 1073</div>
+    </div>
+    <div class="gear">
+      <div class="gear-cat">Mastering</div>
+      <div class="gear-name">SSL FUSION<br>Bettermaker · LAVRY GOLD</div>
+    </div>
+    <div class="gear">
+      <div class="gear-cat">Monitor</div>
+      <div class="gear-name">BAREFOOT MM27</div>
+    </div>
+    <div class="gear">
+      <div class="gear-cat">Microphone</div>
+      <div class="gear-name">Neumann U87</div>
+    </div>
+    <div class="gear">
+      <div class="gear-cat">DAW</div>
+      <div class="gear-name">Pro Tools HDX</div>
+    </div>
+    <div class="gear">
+      <div class="gear-cat">Engineer</div>
+      <div class="gear-name">KOMCA 등록<br>프로듀서 직접</div>
+    </div>
+  </div>
+
+  <div class="location">
+    <div class="loc-label">Location</div>
+    <div class="loc-text">강남 역삼동 · 선정릉역 도보 40초</div>
+  </div>
+
+  <div class="logo">MADEWELL MUSIC</div>
+</div>
+</body>
+</html>

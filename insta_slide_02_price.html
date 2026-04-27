@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+body{width:1080px;height:1080px;overflow:hidden;background:#07070A;font-family:'Montserrat',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:64px;position:relative}
+.corner-tl{position:absolute;top:40px;left:40px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4)}
+.corner-tr{position:absolute;top:40px;right:40px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4)}
+.corner-bl{position:absolute;bottom:40px;left:40px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4)}
+.corner-br{position:absolute;bottom:40px;right:40px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4)}
+.top{text-align:center;margin-bottom:44px}
+.label{font-size:10px;font-weight:700;letter-spacing:.28em;color:rgba(201,169,60,.6);text-transform:uppercase;margin-bottom:14px}
+.title{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;margin-bottom:20px}
+.card{border:1px solid rgba(255,255,255,.08);padding:28px 26px;position:relative}
+.card.hl{border-color:rgba(201,169,60,.5);background:rgba(201,169,60,.03)}
+.badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:#C9A93C;color:#07070A;font-size:8px;font-weight:800;letter-spacing:.14em;padding:4px 16px;white-space:nowrap;text-transform:uppercase}
+.c-type{font-size:8px;font-weight:700;letter-spacing:.22em;color:rgba(201,169,60,.55);text-transform:uppercase;margin-bottom:6px}
+.c-name{font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;margin-bottom:6px}
+.c-desc{font-size:10px;color:rgba(255,255,255,.35);line-height:1.6;margin-bottom:18px}
+.c-price{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#C9A93C;line-height:1}
+.c-unit{font-size:12px;color:rgba(255,255,255,.3);font-family:'Montserrat',sans-serif}
+.items{font-size:9px;color:rgba(255,255,255,.3);margin-top:10px;line-height:1.7}
+.bottom{display:flex;gap:24px;font-size:9px;color:rgba(255,255,255,.25);letter-spacing:.12em}
+.bottom span{padding:0 24px;border-left:1px solid rgba(255,255,255,.08)}
+.bottom span:first-child{border-left:none}
+.logo{position:absolute;bottom:48px;right:64px;font-size:9px;font-weight:700;letter-spacing:.28em;color:rgba(201,169,60,.35)}
+</style>
+</head>
+<body>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="top">
+  <div class="label">Services &amp; Pricing</div>
+  <div class="title">서비스 &amp; 가격</div>
+</div>
+<div class="grid">
+  <div class="card">
+    <div class="c-type">Single</div>
+    <div class="c-name">릴스 · 싱글 · 커버</div>
+    <div class="c-desc">완성된 스테레오 파일을 프로 수준으로.<br/>SNS · 스트리밍 싱글에 최적.</div>
+    <div class="c-price">25만원<span class="c-unit"> / 곡</span></div>
+    <div class="items">투트랙 믹싱 + 마스터링 · NEVE · SSL · BETTERMAKER<br/>픽스 전 자유 수정 · WAV + MP3 납품</div>
+  </div>
+  <div class="card hl">
+    <div class="badge">가장 많이 선택</div>
+    <div class="c-type">Release</div>
+    <div class="c-name">EP · 앨범 · 정식 발매</div>
+    <div class="c-desc">멀티트랙 처음부터 믹싱.<br/>아이돌 세션과 동일한 워크플로우.</div>
+    <div class="c-price">45만원<span class="c-unit"> / 곡</span></div>
+    <div class="items">멀티트랙 풀 믹싱 + 마스터링 · NEVE 1073 · SSL · TUBE TECH<br/>픽스 전 자유 수정 · WAV + MP3 납품</div>
+  </div>
+  <div class="card">
+    <div class="c-type">Master</div>
+    <div class="c-name">마스터링 단독</div>
+    <div class="c-desc">믹스가 완료된 파일에 하드웨어 마스터링.<br/>스트리밍 LUFS 최적화 포함.</div>
+    <div class="c-price">10만원<span class="c-unit"> / 곡</span></div>
+    <div class="items">NEVE · SSL · BETTERMAKER 아웃보드<br/>픽스 전 자유 수정 · WAV + MP3 납품</div>
+  </div>
+  <div class="card">
+    <div class="c-type">Rec</div>
+    <div class="c-name">보컬 레코딩</div>
+    <div class="c-desc">Neumann U87 Ai + NEVE 1073<br/>고품질 보컬 레코딩.</div>
+    <div class="c-price">20만원<span class="c-unit"> / 3.5h</span></div>
+    <div class="items">엔지니어 동반 +6만원 · 보컬 튜닝 추가 +5만원<br/>선정릉역 도보 40초</div>
+  </div>
+</div>
+<div class="bottom">
+  <span>온라인 파일 의뢰 가능</span>
+  <span>PROJECT 대형편성 · 협의</span>
+  <span>보컬 튜닝 5만원/곡</span>
+</div>
+<div class="logo">MADEWELL MUSIC · 2 / 5</div>
+</body>
+</html>
