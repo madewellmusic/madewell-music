@@ -2,29 +2,29 @@
 <html>
 <head>
 <meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
-body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative}
+body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative;background:#07070A}
 .bg{position:absolute;inset:0;background:url('images/MAIN ROOM.jpg') center/cover no-repeat}
-.overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(7,7,10,.85) 0%,rgba(7,7,10,.5) 50%,rgba(7,7,10,.75) 100%)}
-.corner-tl{position:absolute;top:44px;left:44px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.5);border-left:1px solid rgba(201,169,60,.5);z-index:2}
-.corner-tr{position:absolute;top:44px;right:44px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.5);border-right:1px solid rgba(201,169,60,.5);z-index:2}
-.corner-bl{position:absolute;bottom:44px;left:44px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.5);border-left:1px solid rgba(201,169,60,.5);z-index:2}
-.corner-br{position:absolute;bottom:44px;right:44px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.5);border-right:1px solid rgba(201,169,60,.5);z-index:2}
-.content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 84px;z-index:3}
-.tag{font-size:10px;font-weight:700;letter-spacing:.28em;color:rgba(201,169,60,.8);text-transform:uppercase;margin-bottom:24px}
-.main{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:#fff;line-height:1.08;letter-spacing:.01em;margin-bottom:20px}
+.overlay{position:absolute;inset:0;background:linear-gradient(170deg,rgba(7,7,10,.92) 0%,rgba(7,7,10,.62) 45%,rgba(7,7,10,.9) 100%)}
+.corner-tl{position:absolute;top:52px;left:52px;width:72px;height:72px;border-top:2px solid rgba(201,169,60,.5);border-left:2px solid rgba(201,169,60,.5);z-index:3}
+.corner-tr{position:absolute;top:52px;right:52px;width:72px;height:72px;border-top:2px solid rgba(201,169,60,.5);border-right:2px solid rgba(201,169,60,.5);z-index:3}
+.corner-bl{position:absolute;bottom:52px;left:52px;width:72px;height:72px;border-bottom:2px solid rgba(201,169,60,.5);border-left:2px solid rgba(201,169,60,.5);z-index:3}
+.corner-br{position:absolute;bottom:52px;right:52px;width:72px;height:72px;border-bottom:2px solid rgba(201,169,60,.5);border-right:2px solid rgba(201,169,60,.5);z-index:3}
+.logo{position:absolute;top:56px;left:50%;transform:translateX(-50%);z-index:4;opacity:.7;filter:brightness(0) invert(1)}
+.content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:88px 92px;z-index:4}
+.tag{font-size:17px;font-weight:700;letter-spacing:.22em;color:rgba(201,169,60,.8);text-transform:uppercase;margin-bottom:30px}
+.main{font-family:'Cormorant Garamond',serif;font-size:88px;font-weight:300;color:#fff;line-height:1.06;margin-bottom:32px}
 .main em{color:#C9A93C;font-style:italic}
-.sub{font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.1em;line-height:1.9;margin-bottom:44px}
+.sub{font-size:22px;color:rgba(255,255,255,.55);letter-spacing:.05em;line-height:1.7;margin-bottom:56px}
 .sub strong{color:rgba(255,255,255,.9);font-weight:500}
-.stats{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.1);padding-top:28px}
-.stat{flex:1;border-right:1px solid rgba(255,255,255,.08);padding-right:28px;margin-right:28px}
+.stats{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.12);padding-top:40px}
+.stat{flex:1;padding-right:24px;margin-right:24px;border-right:1px solid rgba(255,255,255,.08)}
 .stat:last-child{border-right:none;padding-right:0;margin-right:0}
-.stat-n{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#C9A93C;line-height:1}
-.stat-l{font-size:9px;font-weight:600;letter-spacing:.16em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-top:6px}
-.logo{position:absolute;top:48px;left:50%;transform:translateX(-50%);z-index:3;opacity:.6;filter:brightness(0) invert(1)}
-.page{position:absolute;bottom:50px;right:80px;font-size:9px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:3}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:78px;font-weight:300;color:#C9A93C;line-height:1}
+.stat-l{font-size:16px;font-weight:600;letter-spacing:.1em;color:rgba(255,255,255,.35);text-transform:uppercase;margin-top:10px}
+.page{position:absolute;bottom:58px;right:88px;font-size:14px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:4}
 </style>
 </head>
 <body>
@@ -32,10 +32,10 @@ body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-se
 <div class="overlay"></div>
 <div class="corner-tl"></div><div class="corner-tr"></div>
 <div class="corner-bl"></div><div class="corner-br"></div>
-<div class="logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="40"/></div>
+<div class="logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="48"/></div>
 <div class="content">
-  <div class="tag">Gangnam · Yeoksam Studio · Seoul</div>
-  <div class="main">수많은 K-POP<br/>스타들의 음악이<br/>탄생한 곳,<br/><em>지금은 당신</em><br/>차례입니다.</div>
+  <div class="tag">Gangnam · Seoul · Studio</div>
+  <div class="main">수많은 K-POP<br/>스타들의 음악이<br/>탄생한 곳,<br/><em>지금은 당신</em><br/><em>차례입니다.</em></div>
   <div class="sub">
     <strong>믹싱 · 마스터링 · 레코딩 · 레슨</strong><br/>
     온라인 파일 의뢰 가능 · 마스터링 10만원부터
