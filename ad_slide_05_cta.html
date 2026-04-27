@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative;background:#07070A}
+.bg{position:absolute;inset:0;background:url('images/MAIN ROOM.jpg') center/cover no-repeat}
+.overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,7,10,.75) 0%,rgba(7,7,10,.55) 35%,rgba(7,7,10,.95) 100%)}
+.corner-tl{position:absolute;top:44px;left:44px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4);z-index:3}
+.corner-tr{position:absolute;top:44px;right:44px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4);z-index:3}
+.corner-bl{position:absolute;bottom:44px;left:44px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4);z-index:3}
+.corner-br{position:absolute;bottom:44px;right:44px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4);z-index:3}
+.content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:72px 80px 80px;z-index:4}
+
+/* 핵심 변경: 방구석 훅을 제목으로 */
+.tag{font-size:9px;font-weight:700;letter-spacing:.26em;color:rgba(201,169,60,.7);text-transform:uppercase;margin-bottom:16px}
+.title{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:300;color:#fff;line-height:1.08;margin-bottom:10px}
+.title em{color:#C9A93C;font-style:italic}
+.title-sub{font-size:13px;color:rgba(255,255,255,.45);letter-spacing:.08em;line-height:1.8;margin-bottom:28px}
+.title-sub strong{color:rgba(255,255,255,.8);font-weight:500}
+
+.ways{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.way{border:1px solid rgba(255,255,255,.1);padding:18px 20px;background:rgba(7,7,10,.6);backdrop-filter:blur(4px)}
+.way.gold{border-color:rgba(201,169,60,.35);background:rgba(201,169,60,.06)}
+.w-label{font-size:8px;font-weight:700;letter-spacing:.2em;color:rgba(201,169,60,.6);text-transform:uppercase;margin-bottom:5px}
+.w-main{font-size:12px;color:#fff;margin-bottom:3px}
+.w-sub{font-size:9px;color:rgba(255,255,255,.28)}
+
+.location{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;display:flex;align-items:center;justify-content:space-between}
+.loc-left{font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.06em;line-height:1.8}
+.loc-left strong{color:rgba(255,255,255,.65)}
+.loc-right{text-align:right}
+.loc-badge{font-size:9px;font-weight:700;letter-spacing:.16em;color:rgba(201,169,60,.6);text-transform:uppercase;margin-bottom:4px}
+.loc-access{font-size:10px;color:rgba(255,255,255,.28)}
+
+.logo{position:absolute;top:48px;left:50%;transform:translateX(-50%);z-index:5;opacity:.6;filter:brightness(0) invert(1)}
+.page{position:absolute;bottom:50px;right:80px;font-size:9px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:5}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="overlay"></div>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="40"/></div>
+<div class="content">
+  <div class="tag">Contact · 지금 바로 시작하세요</div>
+  <div class="title">방구석 음악도,<br/><em>여기서 달라집니다.</em></div>
+  <div class="title-sub">
+    <strong>홈레코딩 · 아마추어 작업물 · 온라인 파일 의뢰 모두 가능</strong><br/>
+    아이돌 프로듀서가 직접 · 같은 하드웨어 · 마스터링 10만원부터
+  </div>
+  <div class="ways">
+    <div class="way gold">
+      <div class="w-label">카카오 채널</div>
+      <div class="w-main">@madewellmusic</div>
+      <div class="w-sub">자동응답 24H · 빠른 상담</div>
+    </div>
+    <div class="way">
+      <div class="w-label">인스타그램 DM</div>
+      <div class="w-main">@madewellmusic_official</div>
+      <div class="w-sub">포트폴리오 · 견적 문의</div>
+    </div>
+    <div class="way">
+      <div class="w-label">온라인 의뢰</div>
+      <div class="w-main">파일 전송으로 전국 가능</div>
+      <div class="w-sub">마스터링 · 믹싱 · 보컬 튜닝</div>
+    </div>
+    <div class="way">
+      <div class="w-label">방문 레코딩 · 레슨</div>
+      <div class="w-main">강남 역삼동 스튜디오</div>
+      <div class="w-sub">사전 예약 후 방문</div>
+    </div>
+  </div>
+  <div class="location">
+    <div class="loc-left">
+      서울 강남구 역삼동 682-15 4층<br/>
+      <strong>선정릉역 1번 출구 도보 40초</strong>
+    </div>
+    <div class="loc-right">
+      <div class="loc-badge">마스터링 단독</div>
+      <div class="loc-access">10만원부터 · 픽스 전 자유 수정</div>
+    </div>
+  </div>
+</div>
+<div class="page">6 / 6</div>
+</body>
+</html>

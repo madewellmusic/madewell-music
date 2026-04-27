@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative;background:#07070A}
+.bg{position:absolute;inset:0;background:url('images/MIC.jpg') center/cover no-repeat}
+.overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(7,7,10,.97) 0%,rgba(7,7,10,.9) 55%,rgba(7,7,10,.5) 100%)}
+.corner-tl{position:absolute;top:44px;left:44px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4);z-index:3}
+.corner-tr{position:absolute;top:44px;right:44px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4);z-index:3}
+.corner-bl{position:absolute;bottom:44px;left:44px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4);z-index:3}
+.corner-br{position:absolute;bottom:44px;right:44px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4);z-index:3}
+.content{position:absolute;left:0;top:0;bottom:0;width:62%;display:flex;flex-direction:column;justify-content:center;padding:72px 80px;z-index:4}
+.tag{font-size:9px;font-weight:700;letter-spacing:.26em;color:rgba(201,169,60,.7);text-transform:uppercase;margin-bottom:16px}
+.title{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:300;color:#fff;line-height:1.1;margin-bottom:36px}
+.title em{color:#C9A93C;font-style:italic}
+.items{display:flex;flex-direction:column;gap:0;margin-bottom:28px}
+.item{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.item:first-child{border-top:1px solid rgba(255,255,255,.06)}
+.item.hl{background:rgba(201,169,60,.04);margin:0 -12px;padding:16px 12px;border-bottom:1px solid rgba(201,169,60,.15);border-top:1px solid rgba(201,169,60,.15)}
+.i-left{}
+.i-type{font-size:7px;font-weight:700;letter-spacing:.2em;color:rgba(201,169,60,.5);text-transform:uppercase;margin-bottom:3px}
+.i-name{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff}
+.i-desc{font-size:9px;color:rgba(255,255,255,.3);margin-top:2px}
+.i-price{font-family:'Cormorant Garamond',serif;font-size:30px;color:#C9A93C;text-align:right;white-space:nowrap}
+.i-price span{font-size:10px;color:rgba(255,255,255,.3);font-family:'Montserrat',sans-serif}
+.i-best{font-size:7px;font-weight:700;letter-spacing:.12em;color:#C9A93C;text-transform:uppercase}
+.notes{font-size:9px;color:rgba(255,255,255,.2);line-height:1.9;letter-spacing:.08em}
+.notes strong{color:rgba(255,255,255,.4)}
+.logo{position:absolute;top:48px;left:50%;transform:translateX(-50%);z-index:5;opacity:.6;filter:brightness(0) invert(1)}
+.page{position:absolute;bottom:50px;right:80px;font-size:9px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:5}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="overlay"></div>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="40"/></div>
+<div class="content">
+  <div class="tag">Services &amp; Pricing</div>
+  <div class="title">합리적인 가격,<br/><em>프리미엄 퀄리티.</em></div>
+  <div class="items">
+    <div class="item">
+      <div class="i-left">
+        <div class="i-type">Single</div>
+        <div class="i-name">릴스 · 싱글 믹싱+마스터링</div>
+        <div class="i-desc">SNS · 스트리밍 최적화</div>
+      </div>
+      <div class="i-price">25만<span> / 곡</span></div>
+    </div>
+    <div class="item hl">
+      <div class="i-left">
+        <div class="i-type">Release ★ 인기</div>
+        <div class="i-name">EP · 앨범 풀 믹싱+마스터링</div>
+        <div class="i-desc">멀티트랙 · 아이돌 워크플로우</div>
+      </div>
+      <div class="i-price">45만<span> / 곡</span></div>
+    </div>
+    <div class="item">
+      <div class="i-left">
+        <div class="i-type">Master</div>
+        <div class="i-name">마스터링 단독</div>
+        <div class="i-desc">하드웨어 · LUFS 최적화</div>
+      </div>
+      <div class="i-price">10만<span> / 곡</span></div>
+    </div>
+    <div class="item">
+      <div class="i-left">
+        <div class="i-type">Rec</div>
+        <div class="i-name">보컬 레코딩</div>
+        <div class="i-desc">Neumann U87 · NEVE 1073</div>
+      </div>
+      <div class="i-price">20만<span> / 3.5h</span></div>
+    </div>
+    <div class="item">
+      <div class="i-left">
+        <div class="i-type">Lesson</div>
+        <div class="i-name">1:1 프로듀서 레슨</div>
+        <div class="i-desc">작곡 · 믹싱 · 레코딩 · 프로듀싱</div>
+      </div>
+      <div class="i-price" style="font-size:22px">상담<span> 후 결정</span></div>
+    </div>
+  </div>
+  <div class="notes">
+    <strong>픽스 전 자유 수정</strong> · WAV + MP3 납품 · 온라인 파일 의뢰 가능<br/>
+    PROJECT 대형편성 · 방송 · 광고 → 별도 견적 · 보컬 튜닝 5만원/곡
+  </div>
+</div>
+<div class="page">5 / 6</div>
+</body>
+</html>

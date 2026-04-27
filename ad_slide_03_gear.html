@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative;background:#07070A}
+.bg{position:absolute;inset:0;background:url('images/GEAR 1_web.jpg') center/cover no-repeat}
+.overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,7,10,.92) 0%,rgba(7,7,10,.6) 40%,rgba(7,7,10,.88) 100%)}
+.corner-tl{position:absolute;top:44px;left:44px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4);z-index:3}
+.corner-tr{position:absolute;top:44px;right:44px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4);z-index:3}
+.corner-bl{position:absolute;bottom:44px;left:44px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4);z-index:3}
+.corner-br{position:absolute;bottom:44px;right:44px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4);z-index:3}
+.content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:72px 80px;z-index:4}
+.top{text-align:center}
+.tag{font-size:9px;font-weight:700;letter-spacing:.26em;color:rgba(201,169,60,.7);text-transform:uppercase;margin-bottom:12px}
+.title{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:#fff}
+.title em{color:#C9A93C;font-style:italic}
+.quote{font-size:12px;color:rgba(255,255,255,.35);font-style:italic;margin-top:10px;letter-spacing:.05em}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.g-cat{font-size:8px;font-weight:700;letter-spacing:.2em;color:rgba(201,169,60,.5);text-transform:uppercase;padding-bottom:8px;border-bottom:1px solid rgba(201,169,60,.15);margin-bottom:8px}
+.g-items{display:flex;flex-direction:column;gap:5px}
+.g-item{font-size:10px;color:rgba(255,255,255,.7);line-height:1.4;padding-left:8px;border-left:1px solid rgba(255,255,255,.1)}
+.g-item.gold{color:rgba(201,169,60,.85);border-left-color:rgba(201,169,60,.3)}
+.bottom{text-align:center}
+.b-tag{font-size:9px;font-weight:700;letter-spacing:.22em;color:rgba(255,255,255,.2);text-transform:uppercase;margin-bottom:6px}
+.b-text{font-size:12px;color:rgba(255,255,255,.4);letter-spacing:.08em}
+.logo{position:absolute;top:54px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;letter-spacing:.32em;color:rgba(201,169,60,.45);white-space:nowrap;z-index:5}
+.page{position:absolute;bottom:50px;right:80px;font-size:9px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:5}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="overlay"></div>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="logo">MADEWELL MUSIC</div>
+<div class="content">
+  <div class="top">
+    <div class="tag">Hardware Chain · Studio Gear</div>
+    <div class="title">아이돌 앨범과 <em>동일한 장비.</em></div>
+    <div class="quote">"방구석에서 만든 음악도, 스트리밍 차트에 올라갈 수 있는 퀄리티로 끌어올립니다."</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="g-cat">Preamp</div>
+      <div class="g-items">
+        <div class="g-item gold">AMS NEVE 1073 SPX</div>
+        <div class="g-item">AVID HD OMNI</div>
+      </div>
+    </div>
+    <div>
+      <div class="g-cat">Compressor / Limiter</div>
+      <div class="g-items">
+        <div class="g-item gold">TUBE TECH CL1B</div>
+        <div class="g-item gold">BETTERMAKER Mastering Limiter</div>
+        <div class="g-item">SSL FUSION Channelstrip</div>
+      </div>
+    </div>
+    <div>
+      <div class="g-cat">EQ</div>
+      <div class="g-items">
+        <div class="g-item gold">AUDIOSCAPE EQP-2A Pultec</div>
+        <div class="g-item">SSL FUSION</div>
+      </div>
+    </div>
+    <div>
+      <div class="g-cat">AD/DA Converter</div>
+      <div class="g-items">
+        <div class="g-item gold">LAVRY GOLD SAVITR</div>
+        <div class="g-item">AVID Pro Tools HD OMNI</div>
+      </div>
+    </div>
+    <div>
+      <div class="g-cat">Monitor System</div>
+      <div class="g-items">
+        <div class="g-item gold">BAREFOOT MicroMain 27</div>
+        <div class="g-item">YAMAHA HS-7 · AURATONE 5C</div>
+        <div class="g-item">SPL MTC 2381 Controller</div>
+        <div class="g-item">TC Electronic Clarity M</div>
+      </div>
+    </div>
+    <div>
+      <div class="g-cat">Microphone · DAW</div>
+      <div class="g-items">
+        <div class="g-item gold">Neumann U87 Ai Studio Set</div>
+        <div class="g-item gold">Pro Tools HDX</div>
+        <div class="g-item">UAD · Waves · Melodyne</div>
+        <div class="g-item">FabFilter · iZotope · SoundToys</div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="b-tag">국내 최상급 마스터링 스튜디오와 동일한 아웃보드</div>
+    <div class="b-text">아이돌 프로듀서가 직접 핸들링 · 강남 역삼동</div>
+  </div>
+</div>
+<div class="page">4 / 6</div>
+</body>
+</html>

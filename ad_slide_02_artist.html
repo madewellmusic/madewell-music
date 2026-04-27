@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative;background:#07070A}
+
+.photo-main{position:absolute;left:0;top:0;width:46%;height:100%;background:url('images/메이드웰_프로필.jpg') center 10%/cover no-repeat;opacity:.75}
+.photo-fade-r{position:absolute;left:0;top:0;width:46%;height:100%;background:linear-gradient(to right,transparent 45%,#07070A 100%);z-index:2}
+.photo-fade-b{position:absolute;left:0;bottom:0;width:46%;height:35%;background:linear-gradient(to top,#07070A 15%,transparent);z-index:2}
+
+.corner-tl{position:absolute;top:44px;left:44px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4);z-index:5}
+.corner-tr{position:absolute;top:44px;right:44px;width:48px;height:48px;border-top:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4);z-index:5}
+.corner-bl{position:absolute;bottom:44px;left:44px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-left:1px solid rgba(201,169,60,.4);z-index:5}
+.corner-br{position:absolute;bottom:44px;right:44px;width:48px;height:48px;border-bottom:1px solid rgba(201,169,60,.4);border-right:1px solid rgba(201,169,60,.4);z-index:5}
+
+.content{position:absolute;right:0;top:0;bottom:0;width:58%;display:flex;flex-direction:column;justify-content:center;padding:60px 56px 60px 40px;z-index:4}
+
+.tag{font-size:8px;font-weight:700;letter-spacing:.26em;color:rgba(201,169,60,.7);text-transform:uppercase;margin-bottom:10px}
+.title{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#fff;line-height:1.08;margin-bottom:4px}
+.title em{color:#C9A93C;font-style:italic}
+.title-sub{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.08em;margin-bottom:18px}
+
+/* 2컬럼 정보 그리드 */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 20px;margin-bottom:16px}
+
+.col-label{font-size:7px;font-weight:700;letter-spacing:.2em;color:rgba(201,169,60,.45);text-transform:uppercase;padding-bottom:7px;border-bottom:1px solid rgba(201,169,60,.15);margin-bottom:8px}
+
+/* 경력 */
+.c-row{display:flex;gap:8px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.c-year{font-size:8px;font-weight:700;color:rgba(201,169,60,.55);letter-spacing:.06em;min-width:30px;margin-top:1px}
+.c-text{font-size:9px;color:rgba(255,255,255,.65);line-height:1.45}
+.c-sub{font-size:8px;color:rgba(255,255,255,.25);margin-top:1px}
+
+/* 음반 */
+.d-row{display:flex;gap:8px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.d-year{font-size:8px;font-weight:700;color:rgba(201,169,60,.4);letter-spacing:.06em;min-width:30px;margin-top:1px}
+.d-text{font-size:9px;color:rgba(255,255,255,.6);line-height:1.45}
+.d-sub{font-size:7px;color:rgba(201,169,60,.5);margin-top:1px}
+
+/* 수상·기록 */
+.awards{margin-bottom:16px}
+.a-row{font-size:8.5px;color:rgba(255,255,255,.45);padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);padding-left:8px;border-left:1px solid rgba(201,169,60,.2)}
+.a-row.gold{color:rgba(201,169,60,.8);border-left-color:rgba(201,169,60,.5)}
+
+/* 스탯 바 */
+.stats{display:flex;gap:0;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)}
+.stat{flex:1;text-align:center}
+.stat+.stat{border-left:1px solid rgba(255,255,255,.06)}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:26px;color:#C9A93C;line-height:1}
+.stat-l{font-size:6.5px;font-weight:600;letter-spacing:.12em;color:rgba(255,255,255,.22);text-transform:uppercase;margin-top:4px}
+
+.logo{position:absolute;top:48px;left:50%;transform:translateX(-50%);z-index:6;opacity:.6;filter:brightness(0) invert(1)}
+.page{position:absolute;bottom:50px;right:80px;font-size:9px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:6}
+</style>
+</head>
+<body>
+<div class="photo-main"></div>
+<div class="photo-fade-r"></div>
+<div class="photo-fade-b"></div>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="40"/></div>
+
+<div class="content">
+  <div class="tag">Artist · Producer · Engineer · JUNGKYUN (정균)</div>
+  <div class="title">단순한 엔지니어가<br/><em>아닙니다.</em></div>
+  <div class="title-sub">무대 위에 서봤던 사람이 당신의 음악을 만집니다.</div>
+
+  <div class="info-grid">
+    <!-- 경력 -->
+    <div>
+      <div class="col-label">경력</div>
+      <div class="c-row"><div class="c-year">2007</div><div class="c-text">타키온 메인보컬 데뷔</div></div>
+      <div class="c-row"><div class="c-year">2011</div><div class="c-text">엔트레인 리더·보컬 데뷔</div></div>
+      <div class="c-row"><div class="c-year">2014</div><div class="c-text">BIGFLO 리더·메인보컬<div class="c-sub">프로듀서 데뷔</div></div></div>
+      <div class="c-row"><div class="c-year">2018</div><div class="c-text">(주)스튜디오J2K 설립</div></div>
+      <div class="c-row"><div class="c-year">2020</div><div class="c-text">MADEWELL MUSIC 법인설립<div class="c-sub">강남구 역삼동 스튜디오 오픈</div></div></div>
+      <div class="c-row"><div class="c-year">2022</div><div class="c-text">AVEC MUSIC 겸임 프로듀서</div></div>
+      <div class="c-row"><div class="c-year">2023</div><div class="c-text">We:A (元 BIGFLO) 결성·리더</div></div>
+    </div>
+    <!-- 음반 -->
+    <div>
+      <div class="col-label">주요 음반</div>
+      <div class="d-row"><div class="d-year">2007</div><div class="d-text">Tachyon「Feel Your Breeze」<div class="d-sub">타키온</div></div></div>
+      <div class="d-row"><div class="d-year">2011</div><div class="d-text">N-train「One Last Cry」<div class="d-sub">엔트레인</div></div></div>
+      <div class="d-row"><div class="d-year">2014</div><div class="d-text">BIGFLO 1st~3rd Mini<div class="d-sub">1st·2nd Japan — 오리콘 TOP10</div></div></div>
+      <div class="d-row"><div class="d-year">2016</div><div class="d-text">JUNGKYUN「UNFINISHED」<div class="d-sub">일본 솔로 — 오리콘 앨범 9위</div></div></div>
+      <div class="d-row"><div class="d-year">2023</div><div class="d-text">We:A「24/7」Japan Single</div></div>
+      <div class="d-row"><div class="d-year">2025</div><div class="d-text">JUNGKYUN「Still UNFINISHED」<div class="d-sub">일본 솔로 2집 · 단독 콘서트</div></div></div>
+    </div>
+  </div>
+
+  <!-- 수상·기록 -->
+  <div class="awards">
+    <div class="col-label" style="margin-bottom:8px">수상 · 기록</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px 12px">
+      <div class="a-row gold">오리콘 솔로 앨범차트 9위</div>
+      <div class="a-row gold">시부야 타워레코드 주간 1위</div>
+      <div class="a-row">오리콘 그룹 TOP10 (2회)</div>
+      <div class="a-row">독일 K-POP 차트 9위</div>
+      <div class="a-row">일본 단독 콘서트 20회+</div>
+      <div class="a-row">SBS·KBS·MBC·Mnet 다수 출연</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-n">9위</div>
+      <div class="stat-l">오리콘 솔로</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">1위</div>
+      <div class="stat-l">타워레코드</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">100+</div>
+      <div class="stat-l">KOMCA 등록</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">19+</div>
+      <div class="stat-l">년 경력</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">2 / 6</div>
+</body>
+</html>
