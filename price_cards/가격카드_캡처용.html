@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>MADEWELL MUSIC 가격카드 캡처용</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@700;800&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C9A93C;--gold2:#DDB84A;--gold-dim:rgba(184,149,46,.12);
+  --dark:#070709;--dark2:#0C0C0F;
+  --bg:#0E0E12;--bg2:#141418;--bg3:#1C1C21;
+  --ink:#F0F0F4;--body:rgba(240,240,244,.62);--muted:rgba(240,240,244,.35);--dim:rgba(240,240,244,.18);
+  --border:rgba(255,255,255,.07);--border2:rgba(201,169,60,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#1a1a1a;
+  font-family:'Noto Sans KR',sans-serif;
+  padding:40px 30px;
+}
+.guide{
+  color:#aaa;
+  font-size:13px;
+  margin-bottom:30px;
+  text-align:center;
+  line-height:1.8;
+  font-family:'Noto Sans KR',sans-serif;
+}
+.guide strong{color:var(--gold)}
+.cards-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+  align-items:flex-start;
+}
+.card-block{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.card-label{
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;
+  letter-spacing:.2em;
+  color:var(--gold);
+  text-transform:uppercase;
+}
+
+/* ── 카드 (800×800 고정) ── */
+.svc-card{
+  width:800px;
+  height:800px;
+  background:var(--bg2);
+  padding:64px 60px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.svc-card.star{
+  background:var(--dark);
+  box-shadow:0 0 60px rgba(184,149,46,.12),inset 0 0 40px rgba(184,149,46,.04);
+}
+.star-tag{
+  position:absolute;
+  top:0;right:0;
+  background:var(--gold);
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.14em;
+  padding:8px 20px;
+  text-transform:uppercase;
+}
+/* 상단 브랜드 라인 */
+.brand-line{
+  position:absolute;
+  top:32px;left:60px;right:60px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.brand-line span{
+  font-family:'Montserrat',sans-serif;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.3em;
+  color:var(--gold);
+  text-transform:uppercase;
+}
+.brand-line::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:var(--gold);
+  opacity:.4;
+}
+/* 하단 주소 라인 */
+.addr-line{
+  position:absolute;
+  bottom:32px;left:60px;right:60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.addr-line .loc{
+  font-size:12px;
+  color:var(--muted);
+  font-family:'Montserrat',sans-serif;
+  letter-spacing:.05em;
+}
+.addr-line .insta{
+  font-size:12px;
+  color:var(--gold);
+  font-family:'Montserrat',sans-serif;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+
+.svc-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:100px;
+  font-weight:300;
+  color:var(--border);
+  line-height:1;
+  margin-bottom:6px;
+  letter-spacing:.02em;
+}
+.svc-card.star .svc-n{color:rgba(255,255,255,.07)}
+
+.svc-nm{
+  font-family:'Montserrat',sans-serif;
+  font-weight:700;
+  font-size:18px;
+  letter-spacing:.1em;
+  color:var(--ink);
+  margin-bottom:16px;
+  text-transform:uppercase;
+}
+.svc-card.star .svc-nm{color:#fff}
+
+.svc-dc{
+  font-size:15px;
+  color:var(--muted);
+  line-height:1.85;
+  margin-bottom:32px;
+  max-width:560px;
+}
+.svc-card.star .svc-dc{color:rgba(255,255,255,.45)}
+
+.svc-pr{
+  font-family:'Cormorant Garamond',serif;
+  font-size:80px;
+  font-weight:600;
+  color:var(--gold);
+  line-height:1;
+  margin-bottom:32px;
+}
+.svc-pr sub{
+  font-size:20px;
+  font-weight:300;
+  color:var(--muted);
+  vertical-align:baseline;
+  margin-left:6px;
+}
+.svc-card.star .svc-pr{color:var(--gold2)}
+
+.divider{
+  width:40px;
+  height:1px;
+  background:var(--gold);
+  opacity:.5;
+  margin-bottom:28px;
+}
+
+.svc-li{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.svc-li li{
+  font-size:15px;
+  color:var(--body);
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+}
+.svc-card.star .svc-li li{color:rgba(255,255,255,.55)}
+.svc-li li::before{
+  content:'—';
+  color:var(--gold);
+  flex-shrink:0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;
+}
+
+/* addon cards */
+.addon-card{
+  width:800px;
+  height:320px;
+  background:var(--bg2);
+  padding:0 60px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+}
+.addon-card .left{}
+.addon-lbl{
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.14em;
+  color:var(--ink);
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.addon-note{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.7;
+}
+.addon-pr{
+  font-family:'Cormorant Garamond',serif;
+  font-size:72px;
+  font-weight:600;
+  color:var(--gold);
+  white-space:nowrap;
+  line-height:1;
+  flex-shrink:0;
+}
+.addon-pr sub{
+  font-size:16px;
+  font-weight:300;
+  color:var(--muted);
+  vertical-align:baseline;
+  margin-left:4px;
+}
+
+/* 다운로드 버튼 */
+.dl-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:10px;
+  padding:10px 24px;
+  background:var(--gold);
+  color:#000;
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  border:none;
+  cursor:pointer;
+  transition:background .2s;
+}
+.dl-btn:hover{background:var(--gold2)}
+.dl-btn svg{width:14px;height:14px;fill:#000}
+</style>
+</head>
+<body>
+
+<div class="guide">
+  💡 <strong>캡처 방법</strong>: Mac에서 <strong>CMD + SHIFT + 4</strong> → 각 카드 정확히 드래그 (카드 크기 800px)<br>
+  또는 카드 위에서 <strong>우클릭 → 검사</strong> 후 해당 요소 우클릭 → <strong>Capture node screenshot</strong>
+</div>
+
+<div class="cards-wrap">
+
+  <!-- 1. SINGLE -->
+  <div class="card-block">
+    <div class="card-label">① SINGLE — 릴스·싱글·커버 (25만원)</div>
+    <div class="svc-card" id="card1">
+      <div class="brand-line"><span>MADEWELL MUSIC</span></div>
+      <div class="svc-n">SINGLE</div>
+      <div class="svc-nm">릴스 · 싱글 · 커버</div>
+      <div class="svc-dc">완성된 스테레오 파일을 프로 수준으로 다듬습니다.<br>SNS · 스트리밍 싱글에 최적.</div>
+      <div class="divider"></div>
+      <div class="svc-pr">25만원<sub>/ 1곡</sub></div>
+      <ul class="svc-li">
+        <li>투트랙 믹싱 + 마스터링 포함</li>
+        <li>NEVE · SSL · BETTERMAKER</li>
+        <li>픽스 전 자유 수정</li>
+        <li>WAV + MP3 납품</li>
+        <li>온라인 파일 의뢰 가능</li>
+      </ul>
+      <div class="addr-line">
+        <span class="loc">선정릉역 도보 40초 · 강남구 역삼동</span>
+        <span class="insta">@madewellmusic_official</span>
+      </div>
+    </div>
+    <button class="dl-btn" onclick="saveCard('card1','01_SINGLE_25만원')">⬇ PNG 저장</button>
+  </div>
+
+  <!-- 2. RELEASE (BEST) -->
+  <div class="card-block">
+    <div class="card-label">② RELEASE — EP·앨범·정식 발매 (45만원) ★ BEST</div>
+    <div class="svc-card star" id="card2">
+      <div class="star-tag">가장 많이 선택</div>
+      <div class="brand-line"><span>MADEWELL MUSIC</span></div>
+      <div class="svc-n">RELEASE</div>
+      <div class="svc-nm">EP · 앨범 · 정식 발매</div>
+      <div class="svc-dc">분리된 멀티트랙을 처음부터 믹스합니다.<br>아이돌 세션과 동일한 워크플로우.</div>
+      <div class="divider"></div>
+      <div class="svc-pr">45만원<sub>/ 1곡</sub></div>
+      <ul class="svc-li">
+        <li>멀티트랙 풀 믹싱 + 마스터링</li>
+        <li>NEVE 1073 · SSL · TUBE TECH</li>
+        <li>픽스 전 자유 수정</li>
+        <li>WAV + MP3 납품</li>
+        <li>온라인 파일 의뢰 가능</li>
+      </ul>
+      <div class="addr-line">
+        <span class="loc">선정릉역 도보 40초 · 강남구 역삼동</span>
+        <span class="insta">@madewellmusic_official</span>
+      </div>
+    </div>
+    <button class="dl-btn" onclick="saveCard('card2','02_RELEASE_45만원')">⬇ PNG 저장</button>
+  </div>
+
+  <!-- 3. MASTER -->
+  <div class="card-block">
+    <div class="card-label">③ MASTER — 마스터링 단독 (10만원)</div>
+    <div class="svc-card" id="card3">
+      <div class="brand-line"><span>MADEWELL MUSIC</span></div>
+      <div class="svc-n">MASTER</div>
+      <div class="svc-nm">마스터링 단독</div>
+      <div class="svc-dc">믹스가 완료된 파일에 하드웨어 마스터링.<br>스트리밍 LUFS 최적화 포함.</div>
+      <div class="divider"></div>
+      <div class="svc-pr">10만원<sub>/ 1곡</sub></div>
+      <ul class="svc-li">
+        <li>NEVE · SSL · BETTERMAKER 아웃보드</li>
+        <li>스트리밍 LUFS 최적화</li>
+        <li>픽스 전 자유 수정</li>
+        <li>WAV + MP3 납품</li>
+        <li>온라인 파일 의뢰 가능</li>
+      </ul>
+      <div class="addr-line">
+        <span class="loc">선정릉역 도보 40초 · 강남구 역삼동</span>
+        <span class="insta">@madewellmusic_official</span>
+      </div>
+    </div>
+    <button class="dl-btn" onclick="saveCard('card3','03_MASTER_10만원')">⬇ PNG 저장</button>
+  </div>
+
+  <!-- 4. REC -->
+  <div class="card-block">
+    <div class="card-label">④ REC — 레코딩 (20만원 / 3.5h)</div>
+    <div class="svc-card" id="card4">
+      <div class="brand-line"><span>MADEWELL MUSIC</span></div>
+      <div class="svc-n">REC</div>
+      <div class="svc-nm">레코딩</div>
+      <div class="svc-dc">Neumann U87 Ai + NEVE 1073 기반 고품질 보컬 레코딩.<br>선정릉역 도보 40초.</div>
+      <div class="divider"></div>
+      <div class="svc-pr">20만원<sub>/ 3.5h</sub></div>
+      <ul class="svc-li">
+        <li>Neumann U87 Ai Studio Set</li>
+        <li>NEVE 1073 Mic Pre</li>
+        <li>엔지니어 동반 시 +6만원</li>
+        <li>보컬 튜닝 추가 +5만원</li>
+        <li>선정릉역 도보 40초</li>
+      </ul>
+      <div class="addr-line">
+        <span class="loc">선정릉역 도보 40초 · 강남구 역삼동</span>
+        <span class="insta">@madewellmusic_official</span>
+      </div>
+    </div>
+    <button class="dl-btn" onclick="saveCard('card4','04_REC_20만원')">⬇ PNG 저장</button>
+  </div>
+
+  <!-- 5. PROJECT -->
+  <div class="card-block">
+    <div class="card-label">⑤ PROJECT — 대형 편성·앨범 전체 (협의)</div>
+    <div class="addon-card" id="card5">
+      <div class="brand-line" style="position:absolute;top:28px;left:60px;right:60px"><span>MADEWELL MUSIC</span></div>
+      <div class="left">
+        <div class="addon-lbl">PROJECT — 대형 편성 · 앨범 전체</div>
+        <div class="addon-note">60트랙 이상 · 방송 · 광고 · 정규앨범<br>트랙 수 확인 후 맞춤 견적</div>
+      </div>
+      <div class="addon-pr">협의<sub>/ 문의</sub></div>
+    </div>
+    <button class="dl-btn" onclick="saveCard('card5','05_PROJECT_협의')">⬇ PNG 저장</button>
+  </div>
+
+  <!-- 6. 보컬 튜닝 -->
+  <div class="card-block">
+    <div class="card-label">⑥ 보컬 튜닝 (5만원)</div>
+    <div class="addon-card" id="card6">
+      <div class="brand-line" style="position:absolute;top:28px;left:60px;right:60px"><span>MADEWELL MUSIC</span></div>
+      <div class="left">
+        <div class="addon-lbl">보컬 튜닝</div>
+        <div class="addon-note">Melodyne · AutoTune · 피치 보정<br>단독 의뢰 가능</div>
+      </div>
+      <div class="addon-pr">5만원<sub>/ 1곡</sub></div>
+    </div>
+    <button class="dl-btn" onclick="saveCard('card6','06_보컬튜닝_5만원')">⬇ PNG 저장</button>
+  </div>
+
+</div>
+
+<script>
+function saveCard(id, filename) {
+  const el = document.getElementById(id);
+  const btn = el.nextElementSibling;
+  btn.textContent = '저장 중...';
+  btn.disabled = true;
+
+  html2canvas(el, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: null,
+    logging: false
+  }).then(canvas => {
+    const link = document.createElement('a');
+    link.download = filename + '.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    btn.textContent = '✓ 저장 완료!';
+    setTimeout(() => {
+      btn.textContent = '⬇ PNG 저장';
+      btn.disabled = false;
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>

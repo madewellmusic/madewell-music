@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{width:1080px;height:1080px;overflow:hidden;background:#080612}
+body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative;background:#080612}
+.photo{position:absolute;left:0;top:0;width:43%;height:100%;background:url('images/메이드웰_프로필.jpg') center 10%/cover no-repeat;opacity:.75}
+.photo-fade{position:absolute;left:0;top:0;width:43%;height:100%;background:linear-gradient(to right,transparent 30%,#080612 100%);z-index:2}
+.glow{position:absolute;top:30%;right:10%;width:500px;height:500px;background:radial-gradient(ellipse,rgba(96,64,168,.2) 0%,transparent 70%);z-index:1}
+.corner-tl{position:absolute;top:52px;left:52px;width:72px;height:72px;border-top:2px solid rgba(139,92,246,.5);border-left:2px solid rgba(139,92,246,.5);z-index:5}
+.corner-tr{position:absolute;top:52px;right:52px;width:72px;height:72px;border-top:2px solid rgba(139,92,246,.5);border-right:2px solid rgba(139,92,246,.5);z-index:5}
+.corner-bl{position:absolute;bottom:52px;left:52px;width:72px;height:72px;border-bottom:2px solid rgba(139,92,246,.5);border-left:2px solid rgba(139,92,246,.5);z-index:5}
+.corner-br{position:absolute;bottom:52px;right:52px;width:72px;height:72px;border-bottom:2px solid rgba(139,92,246,.5);border-right:2px solid rgba(139,92,246,.5);z-index:5}
+.logo{position:absolute;top:56px;left:50%;transform:translateX(-50%);z-index:6;opacity:.65;filter:brightness(0) invert(1)}
+.content{position:absolute;right:0;top:0;bottom:0;width:61%;display:flex;flex-direction:column;justify-content:center;padding:56px 64px 56px 36px;z-index:4}
+.tag{font-size:13px;font-weight:700;letter-spacing:.18em;color:rgba(167,139,250,.7);text-transform:uppercase;margin-bottom:12px}
+.title{font-family:'Cormorant Garamond',serif;font-size:76px;font-weight:300;color:#fff;line-height:1.04;margin-bottom:10px}
+.title em{color:#A78BFA;font-style:italic}
+.sub{font-size:19px;color:rgba(255,255,255,.4);line-height:1.55;margin-bottom:20px}
+/* 보컬 레코딩 뱃지 */
+.record-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(139,92,246,.4);padding:8px 16px;background:rgba(96,64,168,.12);margin-bottom:18px}
+.rb-dot{width:8px;height:8px;border-radius:50%;background:#8B5CF6}
+.rb-text{font-size:16px;font-weight:600;color:rgba(167,139,250,.9);letter-spacing:.04em}
+.tl-label{font-size:11px;font-weight:700;letter-spacing:.2em;color:rgba(139,92,246,.45);text-transform:uppercase;margin-bottom:8px}
+.timeline{display:flex;flex-direction:column;margin-bottom:20px}
+.tl-row{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.tl-yr{font-size:14px;font-weight:700;color:rgba(167,139,250,.7);letter-spacing:.06em;min-width:36px;flex-shrink:0}
+.tl-main{font-size:19px;color:rgba(255,255,255,.8);line-height:1.35;white-space:nowrap}
+.tl-main.hl{color:#A78BFA}
+.tl-sub{font-size:14px;color:rgba(255,255,255,.3);margin-left:6px;white-space:nowrap}
+.tl-sub em{color:rgba(167,139,250,.7);font-style:normal}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border-top:1px solid rgba(255,255,255,.07);padding-top:18px}
+.stat{text-align:center;border-right:1px solid rgba(255,255,255,.07)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:54px;color:#A78BFA;line-height:1}
+.stat-l{font-size:13px;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-top:6px}
+.page{position:absolute;bottom:58px;right:88px;font-size:14px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:5}
+</style>
+</head>
+<body>
+<div class="photo"></div>
+<div class="photo-fade"></div>
+<div class="glow"></div>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="48"/></div>
+<div class="content">
+  <div class="tag">Instructor · Artist · MADEWELL</div>
+  <div class="title">선생님이 아닌,<br/><em>아티스트가</em><br/>가르칩니다.</div>
+  <div class="sub">19년 현역 — 무대에 직접 서봤던 사람의 레슨</div>
+  <div class="record-badge">
+    <div class="rb-dot"></div>
+    <div class="rb-text">보컬 레슨 수강 시 · 직접 레코딩 + 음원 납품까지</div>
+  </div>
+  <div class="tl-label">Career</div>
+  <div class="timeline">
+    <div class="tl-row">
+      <div class="tl-yr">2007</div>
+      <div><div class="tl-main">타키온 메인보컬 데뷔</div></div>
+      <div class="tl-sub">SBS · KBS · MBC · Mnet</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-yr">2011</div>
+      <div><div class="tl-main">엔트레인(N.TRAIN) 리더·보컬 데뷔</div></div>
+      <div class="tl-sub">방송·일본 콘서트 다수</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-yr">2014</div>
+      <div><div class="tl-main hl">BIGFLO (WE:A) 리더·메인보컬·프로듀서</div></div>
+      <div class="tl-sub"><em>오리콘 TOP10 · 타워레코드 1위</em></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-yr">2016</div>
+      <div><div class="tl-main hl">JUNGKYUN 일본 솔로 「UNFINISHED」</div></div>
+      <div class="tl-sub"><em>오리콘 솔로 앨범차트 9위</em></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-yr">2025</div>
+      <div><div class="tl-main">「Still UNFINISHED」 솔로 2집 · 단독 콘서트</div></div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-n">9위</div><div class="stat-l">오리콘 솔로</div></div>
+    <div class="stat"><div class="stat-n">1위</div><div class="stat-l">타워레코드</div></div>
+    <div class="stat"><div class="stat-n">100+</div><div class="stat-l">KOMCA 등록</div></div>
+    <div class="stat"><div class="stat-n">19+</div><div class="stat-l">년 현역</div></div>
+  </div>
+</div>
+<div class="page">3 / 6</div>
+</body>
+</html>

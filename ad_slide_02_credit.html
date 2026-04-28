@@ -6,23 +6,49 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative;background:#07070A}
-.bg{position:absolute;right:0;top:0;width:48%;height:100%;background:url('images/메이드웰_프로필2.jpg') center top/cover no-repeat;opacity:.7}
-.bg-fade{position:absolute;right:0;top:0;width:48%;height:100%;background:linear-gradient(to right,#07070A 0%,rgba(7,7,10,.1) 55%,rgba(7,7,10,.5) 100%);z-index:2}
+.bg{position:absolute;right:0;top:0;width:46%;height:100%;background:url('images/메이드웰_프로필2.jpg') center top/cover no-repeat;opacity:.7}
+.bg-fade{position:absolute;right:0;top:0;width:46%;height:100%;background:linear-gradient(to right,#07070A 0%,rgba(7,7,10,.08) 55%,rgba(7,7,10,.5) 100%);z-index:2}
 .corner-tl{position:absolute;top:52px;left:52px;width:72px;height:72px;border-top:2px solid rgba(201,169,60,.5);border-left:2px solid rgba(201,169,60,.5);z-index:5}
 .corner-tr{position:absolute;top:52px;right:52px;width:72px;height:72px;border-top:2px solid rgba(201,169,60,.5);border-right:2px solid rgba(201,169,60,.5);z-index:5}
 .corner-bl{position:absolute;bottom:52px;left:52px;width:72px;height:72px;border-bottom:2px solid rgba(201,169,60,.5);border-left:2px solid rgba(201,169,60,.5);z-index:5}
 .corner-br{position:absolute;bottom:52px;right:52px;width:72px;height:72px;border-bottom:2px solid rgba(201,169,60,.5);border-right:2px solid rgba(201,169,60,.5);z-index:5}
 .logo{position:absolute;top:56px;left:50%;transform:translateX(-50%);z-index:6;opacity:.65;filter:brightness(0) invert(1)}
-.content{position:absolute;left:0;top:0;bottom:0;width:56%;display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;z-index:4}
-.tag{font-size:15px;font-weight:700;letter-spacing:.22em;color:rgba(201,169,60,.7);text-transform:uppercase;margin-bottom:24px}
-.title{font-family:'Cormorant Garamond',serif;font-size:68px;font-weight:300;color:#fff;line-height:1.06;margin-bottom:36px}
+.content{position:absolute;left:0;top:0;bottom:0;width:57%;display:flex;flex-direction:column;justify-content:center;padding:72px 52px 72px 80px;z-index:4}
+.tag{font-size:15px;font-weight:700;letter-spacing:.22em;color:rgba(201,169,60,.7);text-transform:uppercase;margin-bottom:16px}
+.title{font-family:'Cormorant Garamond',serif;font-size:62px;font-weight:300;color:#fff;line-height:1.05;margin-bottom:18px}
 .title em{color:#C9A93C;font-style:italic}
-.divider{width:44px;height:2px;background:rgba(201,169,60,.4);margin-bottom:32px}
-.credits{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:40px}
-.credits em{color:#C9A93C;font-style:normal;font-weight:400}
-.hook{padding:22px 24px;border-left:3px solid #C9A93C;background:rgba(201,169,60,.05)}
-.hook-main{font-size:22px;font-weight:700;color:#C9A93C;letter-spacing:.02em;margin-bottom:6px}
-.hook-sub{font-size:18px;color:rgba(255,255,255,.35);line-height:1.6}
+.divider{width:40px;height:2px;background:rgba(201,169,60,.4);margin-bottom:12px}
+.credit-label{font-size:13px;font-weight:700;letter-spacing:.2em;color:rgba(201,169,60,.4);text-transform:uppercase;margin-bottom:9px}
+
+/* 골드 아티스트 2컬럼 */
+.credits-gold{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:9px}
+.c-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.c-dot-gold{width:5px;height:5px;border-radius:50%;background:rgba(201,169,60,.8);flex-shrink:0}
+.c-name-gold{font-size:20px;color:rgba(201,169,60,.9);line-height:1.3}
+
+/* MBC/SBS/KBS 방송 크레딧 */
+.credits-broadcast{display:flex;flex-direction:column;gap:0;margin-bottom:9px}
+.b-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.ch-badge{display:inline-flex;align-items:center;gap:3px;border:1px solid rgba(201,169,60,.32);padding:3px 8px;background:rgba(201,169,60,.06);flex-shrink:0}
+.ch-badge-name{font-size:12px;font-weight:700;letter-spacing:.1em;color:rgba(201,169,60,.65);text-transform:uppercase}
+.ch-badge-plus{font-size:12px;font-weight:700;color:rgba(201,169,60,.5)}
+.b-name{font-size:18px;color:rgba(255,255,255,.55);line-height:1.3}
+
+/* 기타 묶음 */
+.credits-etc{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);margin-bottom:12px}
+.c-dot-dim{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0}
+.etc-names{font-size:18px;color:rgba(255,255,255,.4)}
+
+/* KOMCA */
+.komca-row{display:flex;align-items:center;gap:10px;margin-bottom:13px}
+.komca-badge{display:inline-flex;align-items:center;gap:3px;border:1px solid rgba(201,169,60,.35);padding:4px 10px;background:rgba(201,169,60,.07)}
+.komca-n{font-family:'Cormorant Garamond',serif;font-size:28px;color:#C9A93C;line-height:1}
+.komca-plus{font-size:16px;font-weight:700;color:rgba(201,169,60,.6)}
+.komca-text{font-size:17px;color:rgba(255,255,255,.32);line-height:1.45}
+
+.hook{padding:15px 18px;border-left:3px solid #C9A93C;background:rgba(201,169,60,.05)}
+.hook-main{font-size:22px;font-weight:700;color:#C9A93C;letter-spacing:.02em;margin-bottom:4px}
+.hook-sub{font-size:15px;color:rgba(255,255,255,.3);line-height:1.6}
 .page{position:absolute;bottom:58px;right:88px;font-size:14px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:5}
 </style>
 </head>
@@ -33,20 +59,52 @@ body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-se
 <div class="corner-bl"></div><div class="corner-br"></div>
 <div class="logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="48"/></div>
 <div class="content">
-  <div class="tag">Artist Credits · 정균 (MADEWELL)</div>
+  <div class="tag">Artist Credits · MADEWELL</div>
   <div class="title">이들이 거쳐간<br/><em>스튜디오,</em><br/>지금은 당신.</div>
   <div class="divider"></div>
-  <div class="credits">
-    <em>VIVIZ · 인피니트 장동우</em><br/>
-    <em>마마무 화사 · (G)IDLE 전소연</em><br/>
-    소년판타지 · B:My BOYZ<br/>
-    수상한그녀 OST · 원팩트 등
+  <div class="credit-label">Worked With</div>
+
+  <div class="credits-gold">
+    <div class="c-row"><div class="c-dot-gold"></div><div class="c-name-gold">PRODUCE 101 JAPAN</div></div>
+    <div class="c-row"><div class="c-dot-gold"></div><div class="c-name-gold">VIVIZ (비비지)</div></div>
+    <div class="c-row"><div class="c-dot-gold"></div><div class="c-name-gold">인피니트 장동우</div></div>
+    <div class="c-row"><div class="c-dot-gold"></div><div class="c-name-gold">마마무 화사</div></div>
+    <div class="c-row"><div class="c-dot-gold"></div><div class="c-name-gold">(G)IDLE 전소연</div></div>
+    <div class="c-row"><div class="c-dot-gold"></div><div class="c-name-gold">SNH48</div></div>
   </div>
+
+  <div class="credits-broadcast">
+    <div class="b-row">
+      <div class="ch-badge"><span class="ch-badge-name">MBC</span><span class="ch-badge-plus">+</span></div>
+      <div class="b-name">방과후설렘 시즌2 소년판타지(FANTASY BOYS)</div>
+    </div>
+    <div class="b-row">
+      <div class="ch-badge"><span class="ch-badge-name">SBS</span><span class="ch-badge-plus">+</span></div>
+      <div class="b-name">글로벌 아이돌 오디션 B:My BOYZ</div>
+    </div>
+    <div class="b-row">
+      <div class="ch-badge"><span class="ch-badge-name">KBS</span><span class="ch-badge-plus">+</span></div>
+      <div class="b-name">드라마 '수상한 그녀' OST</div>
+    </div>
+  </div>
+
+  <div class="credits-etc">
+    <div class="c-dot-dim"></div>
+    <div class="etc-names">앤씨아(NC.A) · 디바(DIVA) · 원팩트(ONEPACT) 등</div>
+  </div>
+
+  <div class="komca-row">
+    <div class="komca-badge">
+      <span class="komca-n">100</span><span class="komca-plus">+</span>
+    </div>
+    <div class="komca-text">KOMCA 등록곡 100곡 이상 작업, 그 외 다수</div>
+  </div>
+
   <div class="hook">
     <div class="hook-main">방구석 홈레코딩도, 아마추어 작업물도 OK.</div>
-    <div class="hook-sub">같은 손, 같은 장비 · 온라인 의뢰 가능</div>
+    <div class="hook-sub">이들과 같은 손, 같은 장비 · 온라인 의뢰 가능</div>
   </div>
 </div>
-<div class="page">3 / 6</div>
+<div class="page">2 / 6</div>
 </body>
 </html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{width:1080px;height:1080px;overflow:hidden;background:#07070A}
+body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative;background:#07070A}
+.bg{position:absolute;inset:0;background:url('images/MIC.jpg') center/cover no-repeat;opacity:.25}
+.overlay{position:absolute;inset:0;background:rgba(7,7,10,.88)}
+.corner-tl{position:absolute;top:52px;left:52px;width:72px;height:72px;border-top:2px solid rgba(201,169,60,.5);border-left:2px solid rgba(201,169,60,.5);z-index:3}
+.corner-tr{position:absolute;top:52px;right:52px;width:72px;height:72px;border-top:2px solid rgba(201,169,60,.5);border-right:2px solid rgba(201,169,60,.5);z-index:3}
+.corner-bl{position:absolute;bottom:52px;left:52px;width:72px;height:72px;border-bottom:2px solid rgba(201,169,60,.5);border-left:2px solid rgba(201,169,60,.5);z-index:3}
+.corner-br{position:absolute;bottom:52px;right:52px;width:72px;height:72px;border-bottom:2px solid rgba(201,169,60,.5);border-right:2px solid rgba(201,169,60,.5);z-index:3}
+.logo{position:absolute;top:56px;left:50%;transform:translateX(-50%);z-index:4;opacity:.65;filter:brightness(0) invert(1)}
+.content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:80px 88px;z-index:4}
+.eyebrow{font-size:15px;font-weight:700;letter-spacing:.25em;color:rgba(201,169,60,.7);text-transform:uppercase;margin-bottom:14px;text-align:center}
+.title{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:#fff;line-height:1.05;margin-bottom:44px;text-align:center}
+.title em{color:#C9A93C;font-style:italic}
+.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+.card{border:1px solid rgba(255,255,255,.1);padding:38px 32px;background:rgba(255,255,255,.03);display:flex;flex-direction:column}
+.card.gold{border-color:rgba(201,169,60,.4);background:rgba(201,169,60,.06)}
+.card-icon{font-size:38px;margin-bottom:20px}
+.card-label{font-size:13px;font-weight:700;letter-spacing:.2em;color:rgba(201,169,60,.6);text-transform:uppercase;margin-bottom:12px}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:#fff;line-height:1.1;margin-bottom:16px}
+.card-title em{color:#C9A93C;font-style:italic}
+.card-items{display:flex;flex-direction:column;gap:8px}
+.card-item{display:flex;align-items:baseline;gap:8px}
+.ci-dot{width:4px;height:4px;border-radius:50%;background:rgba(201,169,60,.5);flex-shrink:0;margin-top:8px}
+.ci-text{font-size:17px;color:rgba(255,255,255,.5);line-height:1.4}
+.card.gold .ci-text{color:rgba(255,255,255,.7)}
+.page{position:absolute;bottom:58px;right:88px;font-size:14px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:4}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="overlay"></div>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="48"/></div>
+<div class="content">
+  <div class="eyebrow">Courses · 레슨 종목</div>
+  <div class="title">원하는 걸<br/><em>전부 배울 수 있어요.</em></div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-label">Vocal</div>
+      <div class="card-title">보컬<br/>레슨</div>
+      <div class="card-items">
+        <div class="card-item"><div class="ci-dot"></div><div class="ci-text">발성 · 음정 · 리듬</div></div>
+        <div class="card-item"><div class="ci-dot"></div><div class="ci-text">표현력 · 감성</div></div>
+        <div class="card-item"><div class="ci-dot"></div><div class="ci-text">녹음 보컬 트레이닝</div></div>
+        <div class="card-item"><div class="ci-dot"></div><div class="ci-text">오디션 · 데뷔 준비</div></div>
+      </div>
+    </div>
+    <div class="card gold">
+      <div class="card-label">Composition</div>
+      <div class="card-title">작곡<br/><em>프로듀싱</em></div>
+      <div class="card-items">
+        <div class="card-item"><div class="ci-dot"></div><div class="ci-text">멜로디 · 화성학</div></div>
+        <div class="card-item"><div class="ci-dot"></div><div class="ci-text">비트메이킹 · 편곡</div></div>
+        <div class="card-item"><div class="ci-dot"></div><div class="ci-text">DAW 활용 (Logic·Ableton)</div></div>
+        <div class="card-item"><div class="ci-dot"></div><div class="ci-text">K-POP 작법 실전</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Mixing & Mastering</div>
+      <div class="card-title">믹싱<br/>마스터링</div>
+      <div class="card-items">
+        <div class="card-item"><div class="ci-dot"></div><div class="ci-text">홈레코딩 업그레이드</div></div>
+        <div class="card-item"><div class="ci-dot"></div><div class="ci-text">플러그인 활용법</div></div>
+        <div class="card-item"><div class="ci-dot"></div><div class="ci-text">LUFS · 스트리밍 최적화</div></div>
+        <div class="card-item"><div class="ci-dot"></div><div class="ci-text">실제 작업물로 실습</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page">2 / 6</div>
+</body>
+</html>

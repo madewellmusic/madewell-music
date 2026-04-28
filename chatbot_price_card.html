@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MADEWELL MUSIC - 서비스 카드</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding: 40px;
+  }
+
+  .card {
+    width: 800px;
+    background: linear-gradient(145deg, #0d0d0d 0%, #1a1a1a 100%);
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* 상단 헤더 */
+  .header {
+    padding: 36px 40px 28px;
+    border-bottom: 1px solid #222;
+    position: relative;
+    background: linear-gradient(135deg, #0d0d0d 0%, #1c1408 100%);
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #C9A84C, #F0D080, #C9A84C);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  .brand-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #C9A84C;
+    text-transform: uppercase;
+  }
+
+  .tagline {
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-left: 50px;
+  }
+
+  .header-title {
+    font-size: 26px;
+    font-weight: 900;
+    color: #fff;
+    margin-top: 20px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  .header-title span {
+    color: #C9A84C;
+  }
+
+  /* 메인 컨텐츠 */
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    min-height: 320px;
+  }
+
+  .divider-line {
+    background: linear-gradient(180deg, transparent, #2a2a2a 20%, #2a2a2a 80%, transparent);
+  }
+
+  /* 스튜디오 서비스 */
+  .section {
+    padding: 28px 32px;
+  }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #C9A84C;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, #2a2a2a, transparent);
+  }
+
+  .service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .service-item:last-child {
+    border-bottom: none;
+  }
+
+  .service-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: #ddd;
+    line-height: 1.4;
+  }
+
+  .service-sub {
+    font-size: 10px;
+    color: #555;
+    font-weight: 300;
+    margin-top: 2px;
+  }
+
+  .service-price {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    text-align: right;
+    white-space: nowrap;
+    margin-left: 12px;
+  }
+
+  .service-price .unit {
+    font-size: 10px;
+    color: #666;
+    font-weight: 400;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(201, 168, 76, 0.15);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    color: #C9A84C;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-top: 3px;
+  }
+
+  /* 레슨 섹션 */
+  .lesson-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .lesson-item:last-child {
+    border-bottom: none;
+  }
+
+  .lesson-num {
+    width: 20px;
+    height: 20px;
+    background: rgba(201, 168, 76, 0.12);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: #C9A84C;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .lesson-text {
+    font-size: 12px;
+    color: #ccc;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .lesson-text strong {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* 하단 CTA */
+  .footer {
+    padding: 18px 40px;
+    background: rgba(201, 168, 76, 0.06);
+    border-top: 1px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-text {
+    font-size: 11px;
+    color: #666;
+    font-weight: 300;
+  }
+
+  .footer-highlight {
+    color: #C9A84C;
+    font-weight: 500;
+  }
+
+  .cta-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(201, 168, 76, 0.1);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  .cta-badge span {
+    font-size: 11px;
+    color: #C9A84C;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* 배경 장식 */
+  .bg-deco {
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-deco"></div>
+
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="brand">
+      <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL MUSIC" style="height:38px; width:auto; filter:brightness(0) invert(1); opacity:0.92;">
+    </div>
+    <div class="tagline" style="text-align:center;">100+ KOMCA 등록곡이 탄생한 강남 스튜디오 · 선정릉역 도보 40초</div>
+    <div class="header-title" style="text-align:center;">스튜디오 <span>서비스 &amp; 가격</span> 안내</div>
+  </div>
+
+  <!-- 메인 -->
+  <div class="content">
+
+    <!-- 왼쪽: 스튜디오 서비스 -->
+    <div class="section">
+      <div class="section-title">🎛 Studio Services</div>
+
+      <div class="service-item">
+        <div>
+          <div class="service-name">마스터링</div>
+          <div class="service-sub">수정 5회 무료 포함</div>
+        </div>
+        <div class="service-price">10만원~<span class="unit">/곡</span></div>
+      </div>
+
+      <div class="service-item">
+        <div>
+          <div class="service-name">투트랙 믹싱</div>
+          <div class="service-sub"></div>
+        </div>
+        <div class="service-price">20만원~<span class="unit">/곡</span></div>
+      </div>
+
+      <div class="service-item">
+        <div>
+          <div class="service-name">스템 믹싱</div>
+          <div class="service-sub"></div>
+        </div>
+        <div class="service-price">55만원~<span class="unit">/곡</span></div>
+      </div>
+
+      <div class="service-item">
+        <div>
+          <div class="service-name">레코딩</div>
+          <div class="service-sub">NEVE 1073 · Neumann U87</div>
+        </div>
+        <div class="service-price">20만원<span class="unit">/3.5h</span></div>
+      </div>
+
+      <div class="service-item">
+        <div>
+          <div class="service-name">패키지</div>
+          <div class="service-sub">투트랙 믹싱 + 마스터링</div>
+          <div class="badge">BEST</div>
+        </div>
+        <div class="service-price">25만원~<span class="unit">/곡</span></div>
+      </div>
+
+      <div class="service-item">
+        <div>
+          <div class="service-name">보컬 튜닝</div>
+        </div>
+        <div class="service-price" style="color:#888; font-size:11px;">별도 문의</div>
+      </div>
+    </div>
+
+    <div class="divider-line"></div>
+
+    <!-- 오른쪽: 레슨 -->
+    <div class="section">
+      <div class="section-title">🎵 Lesson</div>
+
+      <div style="margin-bottom: 14px;">
+        <div style="font-size:12px; color:#aaa; font-weight:300; line-height:1.6;">
+          K-POP 현업 프로듀서 <strong style="color:#fff;">1:1 맞춤 레슨</strong><br>
+          입문자부터 중급자까지 · 실전 커리큘럼
+        </div>
+      </div>
+
+      <div class="lesson-item">
+        <div class="lesson-num">1</div>
+        <div class="lesson-text"><strong>DAW 기초 &amp; 음악 이론</strong><br>프로툴스 / 로직 세팅, 스케일, 코드</div>
+      </div>
+
+      <div class="lesson-item">
+        <div class="lesson-num">2</div>
+        <div class="lesson-text"><strong>사운드 디자인 &amp; 미디</strong><br>신스, 드럼 프로그래밍, 어레인지</div>
+      </div>
+
+      <div class="lesson-item">
+        <div class="lesson-num">3</div>
+        <div class="lesson-text"><strong>믹싱 &amp; 마스터링 기초</strong><br>EQ, 컴프, 리버브 실전 적용</div>
+      </div>
+
+      <div class="lesson-item">
+        <div class="lesson-num">4</div>
+        <div class="lesson-text"><strong>K-POP 실전 프로듀싱</strong><br>현업 노하우 · 곡 완성 프로젝트</div>
+      </div>
+
+      <div style="margin-top:14px; padding:10px 12px; background:rgba(201,168,76,0.07); border-radius:8px; border:1px solid rgba(201,168,76,0.15);">
+        <div style="font-size:10px; color:#C9A84C; font-weight:700; letter-spacing:1px; margin-bottom:4px;">수강료</div>
+        <div style="font-size:12px; color:#ddd;">상담 후 확정 · 맞춤 견적 제공</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 푸터 -->
+  <div class="footer">
+    <div class="footer-text">
+      자세한 문의는 <span class="footer-highlight">채팅으로</span> 편하게 연락주세요 😊
+    </div>
+    <div class="cta-badge">
+      <span>📍 선정릉역 도보 40초</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

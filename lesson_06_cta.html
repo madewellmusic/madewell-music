@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{width:1080px;height:1080px;overflow:hidden;background:#080612}
+body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative;background:#080612}
+.bg{position:absolute;inset:0;background:url('images/MAIN ROOM.jpg') center/cover no-repeat;opacity:.15}
+.overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,6,18,.9) 0%,rgba(20,10,50,.7) 40%,rgba(8,6,18,.98) 100%)}
+.glow{position:absolute;top:10%;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(96,64,168,.3) 0%,transparent 70%)}
+.corner-tl{position:absolute;top:52px;left:52px;width:72px;height:72px;border-top:2px solid rgba(139,92,246,.5);border-left:2px solid rgba(139,92,246,.5);z-index:3}
+.corner-tr{position:absolute;top:52px;right:52px;width:72px;height:72px;border-top:2px solid rgba(139,92,246,.5);border-right:2px solid rgba(139,92,246,.5);z-index:3}
+.corner-bl{position:absolute;bottom:52px;left:52px;width:72px;height:72px;border-bottom:2px solid rgba(139,92,246,.5);border-left:2px solid rgba(139,92,246,.5);z-index:3}
+.corner-br{position:absolute;bottom:52px;right:52px;width:72px;height:72px;border-bottom:2px solid rgba(139,92,246,.5);border-right:2px solid rgba(139,92,246,.5);z-index:3}
+.logo{position:absolute;top:56px;left:50%;transform:translateX(-50%);z-index:4;opacity:.7;filter:brightness(0) invert(1)}
+.content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 88px;z-index:4}
+.eyebrow{font-size:16px;font-weight:700;letter-spacing:.22em;color:rgba(167,139,250,.7);text-transform:uppercase;margin-bottom:28px}
+.title{font-family:'Cormorant Garamond',serif;font-size:96px;font-weight:300;color:#fff;line-height:1.06;margin-bottom:16px}
+.title em{color:#A78BFA;font-style:italic}
+.sub{font-size:22px;color:rgba(255,255,255,.38);letter-spacing:.03em;line-height:1.6;margin-bottom:44px}
+.ways{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:36px}
+.way{border:1px solid rgba(255,255,255,.08);padding:28px 28px;background:rgba(255,255,255,.02)}
+.way.hl{border-color:rgba(139,92,246,.4);background:rgba(96,64,168,.1)}
+.w-label{font-size:14px;font-weight:700;letter-spacing:.18em;color:rgba(139,92,246,.65);text-transform:uppercase;margin-bottom:10px}
+.w-main{font-size:22px;color:#fff;font-weight:500;margin-bottom:6px}
+.w-sub{font-size:15px;color:rgba(255,255,255,.3)}
+.location{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;font-size:18px;color:rgba(255,255,255,.38);letter-spacing:.03em;line-height:1.8}
+.location strong{color:rgba(255,255,255,.65)}
+.page{position:absolute;bottom:58px;right:88px;font-size:14px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:4}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="overlay"></div>
+<div class="glow"></div>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="48"/></div>
+<div class="content">
+  <div class="eyebrow">Contact · 레슨 신청</div>
+  <div class="title">지금 바로<br/><em>문의하세요.</em></div>
+  <div class="sub">첫 상담 무료 — 커리큘럼 상담부터 부담 없이</div>
+  <div class="ways">
+    <div class="way hl">
+      <div class="w-label">카카오 채널</div>
+      <div class="w-main">@madewellmusic</div>
+      <div class="w-sub">자동응답 24H · 빠른 상담</div>
+    </div>
+    <div class="way">
+      <div class="w-label">인스타그램 DM</div>
+      <div class="w-main">@madewellmusic_official</div>
+      <div class="w-sub">포트폴리오 · 레슨 문의</div>
+    </div>
+    <div class="way">
+      <div class="w-label">온라인 레슨</div>
+      <div class="w-main">전국 어디서든 가능</div>
+      <div class="w-sub">Zoom · 화면 공유 실시간</div>
+    </div>
+    <div class="way">
+      <div class="w-label">방문 레슨</div>
+      <div class="w-main">강남 역삼동 스튜디오</div>
+      <div class="w-sub">사전 예약 후 방문</div>
+    </div>
+  </div>
+  <div class="location">
+    서울 강남구 역삼동 682-15 4층&nbsp;&nbsp;·&nbsp;&nbsp;<strong>선정릉역 1번 출구 도보 40초</strong>
+  </div>
+</div>
+<div class="page">6 / 6</div>
+</body>
+</html>

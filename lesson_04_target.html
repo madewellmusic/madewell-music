@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{width:1080px;height:1080px;overflow:hidden;background:#07070A}
+body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative;background:#07070A}
+.bg{position:absolute;right:0;top:0;width:46%;height:100%;background:url('images/메이드웰_프로필2.jpg') center top/cover no-repeat;opacity:.5}
+.bg-fade{position:absolute;right:0;top:0;width:46%;height:100%;background:linear-gradient(to right,#07070A 0%,rgba(7,7,10,.15) 55%,rgba(7,7,10,.6) 100%);z-index:2}
+.corner-tl{position:absolute;top:52px;left:52px;width:72px;height:72px;border-top:2px solid rgba(201,169,60,.5);border-left:2px solid rgba(201,169,60,.5);z-index:5}
+.corner-tr{position:absolute;top:52px;right:52px;width:72px;height:72px;border-top:2px solid rgba(201,169,60,.5);border-right:2px solid rgba(201,169,60,.5);z-index:5}
+.corner-bl{position:absolute;bottom:52px;left:52px;width:72px;height:72px;border-bottom:2px solid rgba(201,169,60,.5);border-left:2px solid rgba(201,169,60,.5);z-index:5}
+.corner-br{position:absolute;bottom:52px;right:52px;width:72px;height:72px;border-bottom:2px solid rgba(201,169,60,.5);border-right:2px solid rgba(201,169,60,.5);z-index:5}
+.logo{position:absolute;top:56px;left:50%;transform:translateX(-50%);z-index:6;opacity:.65;filter:brightness(0) invert(1)}
+.content{position:absolute;left:0;top:0;bottom:0;width:60%;display:flex;flex-direction:column;justify-content:center;padding:80px 52px 80px 88px;z-index:4}
+.eyebrow{font-size:15px;font-weight:700;letter-spacing:.22em;color:rgba(201,169,60,.7);text-transform:uppercase;margin-bottom:14px}
+.title{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:#fff;line-height:1.04;margin-bottom:32px}
+.title em{color:#C9A93C;font-style:italic}
+.checks{display:flex;flex-direction:column;gap:0;margin-bottom:32px}
+.check{display:flex;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.check:first-child{border-top:1px solid rgba(255,255,255,.07)}
+.ck-mark{width:28px;height:28px;border:1.5px solid rgba(201,169,60,.5);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ck-inner{width:10px;height:10px;background:#C9A93C}
+.ck-text{font-size:24px;color:rgba(255,255,255,.75);line-height:1.3}
+.ck-text span{color:rgba(255,255,255,.35);font-size:18px;margin-left:8px}
+.hook{padding:18px 22px;border-left:3px solid #C9A93C;background:rgba(201,169,60,.05)}
+.hook-main{font-size:20px;font-weight:700;color:#C9A93C;letter-spacing:.02em;margin-bottom:4px}
+.hook-sub{font-size:15px;color:rgba(255,255,255,.3);line-height:1.6}
+.page{position:absolute;bottom:58px;right:88px;font-size:14px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:5}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="bg-fade"></div>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="48"/></div>
+<div class="content">
+  <div class="eyebrow">For You · 이런 분께</div>
+  <div class="title">혹시<br/><em>해당되시나요?</em></div>
+  <div class="checks">
+    <div class="check">
+      <div class="ck-mark"><div class="ck-inner"></div></div>
+      <div class="ck-text">노래는 좋아하는데 발성을 모르겠어<span>— 보컬 레슨</span></div>
+    </div>
+    <div class="check">
+      <div class="ck-mark"><div class="ck-inner"></div></div>
+      <div class="ck-text">작곡 해보고 싶은데 어디서 시작하지<span>— 작곡 레슨</span></div>
+    </div>
+    <div class="check">
+      <div class="ck-mark"><div class="ck-inner"></div></div>
+      <div class="ck-text">홈레코딩 하는데 소리가 아마추어 같아<span>— 믹싱 레슨</span></div>
+    </div>
+    <div class="check">
+      <div class="ck-mark"><div class="ck-inner"></div></div>
+      <div class="ck-text">데뷔·오디션 준비 중인데 혼자 막막해<span>— 전 종목</span></div>
+    </div>
+    <div class="check">
+      <div class="ck-mark"><div class="ck-inner"></div></div>
+      <div class="ck-text">취미로 배우고 싶어 부담 없이<span>— 누구나</span></div>
+    </div>
+  </div>
+  <div class="hook">
+    <div class="hook-main">레벨 상관없습니다. 완전 초보도 OK.</div>
+    <div class="hook-sub">1:1 맞춤 커리큘럼 · 처음부터 끝까지 책임지고 가르칩니다</div>
+  </div>
+</div>
+<div class="page">4 / 6</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{width:1080px;height:1080px;overflow:hidden;background:#080612}
+body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative;background:#080612}
+.bg{position:absolute;inset:0;background:url('images/MAIN ROOM.jpg') center/cover no-repeat;opacity:.55}
+.overlay{position:absolute;inset:0;background:linear-gradient(150deg,rgba(8,6,18,.97) 0%,rgba(20,10,55,.82) 40%,rgba(8,6,18,.75) 100%)}
+.glow{position:absolute;top:15%;left:50%;transform:translateX(-50%);width:800px;height:450px;background:radial-gradient(ellipse,rgba(96,64,168,.28) 0%,transparent 70%);z-index:1}
+.corner-tl{position:absolute;top:52px;left:52px;width:72px;height:72px;border-top:2px solid rgba(139,92,246,.5);border-left:2px solid rgba(139,92,246,.5);z-index:3}
+.corner-tr{position:absolute;top:52px;right:52px;width:72px;height:72px;border-top:2px solid rgba(139,92,246,.5);border-right:2px solid rgba(139,92,246,.5);z-index:3}
+.corner-bl{position:absolute;bottom:52px;left:52px;width:72px;height:72px;border-bottom:2px solid rgba(139,92,246,.5);border-left:2px solid rgba(139,92,246,.5);z-index:3}
+.corner-br{position:absolute;bottom:52px;right:52px;width:72px;height:72px;border-bottom:2px solid rgba(139,92,246,.5);border-right:2px solid rgba(139,92,246,.5);z-index:3}
+.logo{position:absolute;top:56px;left:50%;transform:translateX(-50%);z-index:4;opacity:.7;filter:brightness(0) invert(1)}
+.content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:100px 96px;z-index:4}
+.eyebrow{font-size:16px;font-weight:700;letter-spacing:.28em;color:rgba(167,139,250,.75);text-transform:uppercase;margin-bottom:28px}
+.title{font-family:'Cormorant Garamond',serif;font-size:102px;font-weight:300;color:#fff;line-height:1.03;margin-bottom:24px}
+.title em{color:#A78BFA;font-style:italic}
+.divider{width:56px;height:2px;background:rgba(139,92,246,.5);margin-bottom:26px}
+.desc{font-size:24px;color:rgba(255,255,255,.48);line-height:1.65;letter-spacing:.01em;margin-bottom:44px}
+.desc strong{color:rgba(167,139,250,.85);font-weight:600}
+.tags{display:flex;gap:14px}
+.tag{border:1px solid rgba(139,92,246,.35);padding:12px 26px;font-size:17px;font-weight:600;letter-spacing:.12em;color:rgba(167,139,250,.8);text-transform:uppercase;background:rgba(96,64,168,.12)}
+.page{position:absolute;bottom:58px;right:88px;font-size:14px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:4}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="overlay"></div>
+<div class="glow"></div>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="48"/></div>
+<div class="content">
+  <div class="eyebrow">Lesson · 레슨 모집</div>
+  <div class="title">레슨 한 번에<br/><em>음원까지</em><br/>완성됩니다.</div>
+  <div class="divider"></div>
+  <div class="desc">
+    독학의 한계, 이제 넘어설 때입니다.<br/>
+    <strong>수많은 K-POP 스타들의 음악을 만들어온 프로듀서</strong>에게<br/>
+    직접 배웁니다 &nbsp;·&nbsp; 보컬 · 작곡 · 믹싱 전 종목
+  </div>
+  <div class="tags">
+    <div class="tag">강남 역삼동</div>
+    <div class="tag">온라인 가능</div>
+    <div class="tag">초보 OK</div>
+  </div>
+</div>
+<div class="page">1 / 6</div>
+</body>
+</html>

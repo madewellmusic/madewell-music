@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{width:1080px;height:1080px;overflow:hidden;background:#07070A}
+body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative;background:#07070A}
+.photo{position:absolute;left:0;top:0;width:43%;height:100%;background:url('images/메이드웰_프로필.jpg') center 10%/cover no-repeat;opacity:.8}
+.photo-fade{position:absolute;left:0;top:0;width:43%;height:100%;background:linear-gradient(to right,transparent 30%,#07070A 100%);z-index:2}
+.corner-tl{position:absolute;top:52px;left:52px;width:72px;height:72px;border-top:2px solid rgba(201,169,60,.5);border-left:2px solid rgba(201,169,60,.5);z-index:5}
+.corner-tr{position:absolute;top:52px;right:52px;width:72px;height:72px;border-top:2px solid rgba(201,169,60,.5);border-right:2px solid rgba(201,169,60,.5);z-index:5}
+.corner-bl{position:absolute;bottom:52px;left:52px;width:72px;height:72px;border-bottom:2px solid rgba(201,169,60,.5);border-left:2px solid rgba(201,169,60,.5);z-index:5}
+.corner-br{position:absolute;bottom:52px;right:52px;width:72px;height:72px;border-bottom:2px solid rgba(201,169,60,.5);border-right:2px solid rgba(201,169,60,.5);z-index:5}
+.logo{position:absolute;top:56px;left:50%;transform:translateX(-50%);z-index:6;opacity:.65;filter:brightness(0) invert(1)}
+.content{position:absolute;right:0;top:0;bottom:0;width:61%;display:flex;flex-direction:column;justify-content:center;padding:64px 68px 64px 40px;z-index:4}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.2em;color:rgba(201,169,60,.7);text-transform:uppercase;margin-bottom:12px}
+.title{font-family:'Cormorant Garamond',serif;font-size:68px;font-weight:300;color:#fff;line-height:1.04;margin-bottom:10px}
+.title em{color:#C9A93C;font-style:italic}
+.sub{font-size:19px;color:rgba(255,255,255,.4);line-height:1.55;margin-bottom:22px}
+.c-label{font-size:11px;font-weight:700;letter-spacing:.2em;color:rgba(201,169,60,.4);text-transform:uppercase;margin-bottom:9px}
+.timeline{display:flex;flex-direction:column;margin-bottom:22px}
+.tl-row{display:flex;gap:14px;align-items:baseline;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.tl-yr{font-size:13px;font-weight:700;color:rgba(201,169,60,.65);letter-spacing:.06em;min-width:36px;flex-shrink:0}
+.tl-main{font-size:18px;color:rgba(255,255,255,.8);line-height:1.35;white-space:nowrap}
+.tl-main.gold{color:#C9A93C}
+.tl-sub{font-size:13px;color:rgba(255,255,255,.3);margin-left:6px;white-space:nowrap}
+.tl-sub em{color:rgba(201,169,60,.7);font-style:normal}
+.badge-row{display:flex;gap:10px;flex-wrap:wrap}
+.badge{border:1px solid rgba(201,169,60,.3);padding:10px 18px;background:rgba(201,169,60,.07)}
+.badge-n{font-family:'Cormorant Garamond',serif;font-size:36px;color:#C9A93C;line-height:1}
+.badge-l{font-size:12px;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-top:3px}
+.page{position:absolute;bottom:58px;right:88px;font-size:14px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:5}
+</style>
+</head>
+<body>
+<div class="photo"></div>
+<div class="photo-fade"></div>
+<div class="corner-tl"></div><div class="corner-tr"></div>
+<div class="corner-bl"></div><div class="corner-br"></div>
+<div class="logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="48"/></div>
+<div class="content">
+  <div class="eyebrow">Instructor · 강사 소개</div>
+  <div class="title">강사가<br/>직접 무대에<br/><em>서봤습니다.</em></div>
+  <div class="sub">이론이 아니라 실전으로 가르칩니다.</div>
+  <div class="c-label">Career Highlights</div>
+  <div class="timeline">
+    <div class="tl-row">
+      <div class="tl-yr">2007</div>
+      <div><div class="tl-main">타키온 메인보컬 데뷔</div></div>
+      <div class="tl-sub">SBS · KBS · MBC · Mnet</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-yr">2014</div>
+      <div><div class="tl-main gold">BIGFLO 리더·메인보컬·프로듀서</div></div>
+      <div class="tl-sub"><em>오리콘 TOP10 · 타워레코드 1위</em></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-yr">2016</div>
+      <div><div class="tl-main gold">일본 솔로 오리콘 9위</div></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-yr">2020</div>
+      <div><div class="tl-main">MADEWELL MUSIC 법인 설립</div></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-yr">2025</div>
+      <div><div class="tl-main">솔로 2집 · 단독 콘서트</div></div>
+    </div>
+  </div>
+  <div class="badge-row">
+    <div class="badge"><div class="badge-n">19+</div><div class="badge-l">년 현역</div></div>
+    <div class="badge"><div class="badge-n">100+</div><div class="badge-l">KOMCA 등록</div></div>
+    <div class="badge"><div class="badge-n">K-POP</div><div class="badge-l">현직 프로듀서</div></div>
+  </div>
+</div>
+<div class="page">3 / 6</div>
+</body>
+</html>
