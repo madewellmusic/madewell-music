@@ -239,7 +239,11 @@ h1.lesson-h1 em{font-style:italic;color:rgba(180,150,255,.9)}
 
 /* ── CURRICULUM ── */
 #curriculum{background:var(--bg);padding:120px 0}
-.curr-tabs{display:flex;gap:2px;margin-top:52px;background:var(--border)}
+.lesson-type-switcher{display:flex;gap:4px;margin-top:48px}
+.lt-btn{padding:14px 32px;background:var(--bg2);border:1px solid var(--border);cursor:pointer;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:all .25s}
+.lt-btn.on{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+.lt-btn:hover:not(.on){background:var(--bg3);color:var(--indigo);border-color:var(--border-i)}
+.curr-tabs{display:flex;gap:2px;margin-top:24px;background:var(--border)}
 .curr-tab{flex:1;padding:18px 16px;background:var(--bg2);border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:all .25s;text-align:center}
 .curr-tab.on{background:var(--indigo);color:#fff}
 .curr-tab:hover:not(.on){background:var(--bg3);color:var(--indigo)}
@@ -260,7 +264,14 @@ h1.lesson-h1 em{font-style:italic;color:rgba(180,150,255,.9)}
 .s-content{flex:1}
 .s-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;color:var(--ink);letter-spacing:.07em;margin-bottom:5px}
 .s-desc{font-size:12.5px;color:var(--muted);line-height:1.7}
-@media(max-width:760px){.curr-panel.on{grid-template-columns:1fr}.curr-tabs{flex-direction:column}.curr-tab{text-align:left;padding:16px 20px}}
+.vocal-tabs{display:flex;gap:2px;margin-top:24px;background:var(--border)}
+.vocal-tab{flex:1;padding:18px 16px;background:var(--bg2);border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:all .25s;text-align:center}
+.vocal-tab.on{background:var(--indigo);color:#fff}
+.vocal-tab:hover:not(.on){background:var(--bg3);color:var(--indigo)}
+.vocal-panels{margin-top:2px}
+.vocal-panel{display:none}
+.vocal-panel.on{display:grid;grid-template-columns:1fr 2fr;gap:2px;background:var(--border)}
+@media(max-width:760px){.curr-panel.on{grid-template-columns:1fr}.curr-tabs{flex-direction:column}.curr-tab{text-align:left;padding:16px 20px}.vocal-panel.on{grid-template-columns:1fr}.vocal-tabs{flex-direction:column}.vocal-tab{text-align:left;padding:16px 20px}.lesson-type-switcher{flex-direction:column}}
 @media(max-width:600px){#curriculum{padding:72px 0}.curr-panel-info{padding:28px 20px}.curr-panel-subjects{padding:24px 20px}}
 
 /* ── REVIEWS ── */
@@ -616,15 +627,23 @@ footer{background:#060610;border-top:1px solid rgba(74,44,138,.2);padding:52px 0
   <div class="container">
     <div class="reveal">
       <div class="tag" style="margin-bottom:16px">Curriculum</div>
-      <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,54px)">3단계<br/>레슨 커리큘럼</h2>
-      <p style="font-size:14px;color:var(--body);margin-top:16px;line-height:1.85;max-width:480px">기초부터 실전까지. 수강생의 수준에 맞춰 단계를 건너뛰거나 조합할 수 있습니다.</p>
+      <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,54px)">레슨<br/>커리큘럼</h2>
+      <p style="font-size:14px;color:var(--body);margin-top:16px;line-height:1.85;max-width:480px">미디·작곡부터 보컬 트레이닝까지. 수강생의 목표와 수준에 맞춰 100% 맞춤 설계합니다.</p>
     </div>
-    <div class="curr-tabs reveal2">
+    <!-- 레슨 타입 선택 -->
+    <div class="lesson-type-switcher reveal2">
+      <button class="lt-btn on" onclick="switchLessonType('midi')">🎹 미디·작곡 레슨</button>
+      <button class="lt-btn" onclick="switchLessonType('vocal')">🎤 보컬 레슨</button>
+    </div>
+
+    <!-- 미디·작곡 커리큘럼 -->
+    <div id="midi-curriculum">
+    <div class="curr-tabs">
       <button class="curr-tab on" onclick="switchTab(this,'tab-basic')">LEVEL 1 — 기초</button>
       <button class="curr-tab" onclick="switchTab(this,'tab-mid')">LEVEL 2 — 중급</button>
       <button class="curr-tab" onclick="switchTab(this,'tab-pro')">LEVEL 3 — 실전</button>
     </div>
-    <div class="curr-panels reveal">
+    <div class="curr-panels">
       <!-- BASIC -->
       <div class="curr-panel on" id="tab-basic">
         <div class="curr-panel-info">
@@ -725,6 +744,125 @@ footer{background:#060610;border-top:1px solid rgba(74,44,138,.2);padding:52px 0
         </div>
       </div>
     </div>
+    </div><!-- /midi-curriculum -->
+
+    <!-- 보컬 레슨 커리큘럼 -->
+    <div id="vocal-curriculum" style="display:none">
+      <div class="vocal-tabs">
+        <button class="vocal-tab on" onclick="switchVocalTab(this,'vtab-1')">1회차</button>
+        <button class="vocal-tab" onclick="switchVocalTab(this,'vtab-2')">2회차</button>
+        <button class="vocal-tab" onclick="switchVocalTab(this,'vtab-3')">3회차</button>
+        <button class="vocal-tab" onclick="switchVocalTab(this,'vtab-4')">4회차</button>
+      </div>
+      <div class="vocal-panels">
+
+        <!-- 1회차 -->
+        <div class="vocal-panel on" id="vtab-1">
+          <div class="curr-panel-info">
+            <div class="curr-panel-level">Week 1</div>
+            <h3 class="curr-panel-title">기초 발성<br/><em>Foundation</em></h3>
+            <p class="curr-panel-desc">현재 목소리 상태를 점검하고, 발성의 기본인 호흡과 지지를 잡는 첫 번째 수업. 잘못된 습관을 바로잡는 것이 핵심입니다.</p>
+            <span class="curr-badge">완전 초보 · 발성 교정 · 취미 보컬</span>
+          </div>
+          <div class="curr-panel-subjects">
+            <div class="subject-list">
+              <div class="subject-item">
+                <div class="s-num">01</div>
+                <div class="s-content"><div class="s-title">현재 발성 진단</div><div class="s-desc">Neumann U87 앞에서 본인 목소리 녹음 후 강사와 함께 청취. 문제점 파악 및 맞춤 방향 설정.</div></div>
+              </div>
+              <div class="subject-item">
+                <div class="s-num">02</div>
+                <div class="s-content"><div class="s-title">호흡 & 지지 기초</div><div class="s-desc">복식호흡, 성대 닫힘, 발성 지지 훈련. 노래할 때 힘이 들어가는 위치를 바로잡습니다.</div></div>
+              </div>
+              <div class="subject-item">
+                <div class="s-num">03</div>
+                <div class="s-content"><div class="s-title">흉성 · 두성 구분</div><div class="s-desc">가슴 소리와 머리 소리의 차이를 느끼고, 음역대별 자연스러운 발성 포지션 찾기.</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2회차 -->
+        <div class="vocal-panel" id="vtab-2">
+          <div class="curr-panel-info">
+            <div class="curr-panel-level">Week 2</div>
+            <h3 class="curr-panel-title">음정 & 창법<br/><em>Technique</em></h3>
+            <p class="curr-panel-desc">음정·리듬·박자를 정확하게 잡고, K-POP 특유의 어택과 에너지 전달 방식을 배웁니다. 실제 K-POP 레퍼런스 곡으로 실습합니다.</p>
+            <span class="curr-badge">음치 극복 · SNS 커버 · 오디션 준비생</span>
+          </div>
+          <div class="curr-panel-subjects">
+            <div class="subject-list">
+              <div class="subject-item">
+                <div class="s-num">01</div>
+                <div class="s-content"><div class="s-title">음정 교정 트레이닝</div><div class="s-desc">Piano roll 기반 피드백. 음 이탈 구간 파악 및 반복 훈련으로 음정 정확도를 높입니다.</div></div>
+              </div>
+              <div class="subject-item">
+                <div class="s-num">02</div>
+                <div class="s-content"><div class="s-title">리듬 & 박자 정확도</div><div class="s-desc">클릭 트랙 맞춰 노래하기. 밀리거나 당기는 습관 교정, 그루브 살리는 법.</div></div>
+              </div>
+              <div class="subject-item">
+                <div class="s-num">03</div>
+                <div class="s-content"><div class="s-title">K-POP 창법 분석 & 실습</div><div class="s-desc">레퍼런스 곡 선정 후 어택·발음·에너지 전달 방식 분석. 스타일을 흡수하는 방법을 배웁니다.</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3회차 -->
+        <div class="vocal-panel" id="vtab-3">
+          <div class="curr-panel-info">
+            <div class="curr-panel-level">Week 3</div>
+            <h3 class="curr-panel-title">심화 & 표현<br/><em>Expression</em></h3>
+            <p class="curr-panel-desc">고음 확장과 혼성 발성을 훈련하고, 감정 표현과 다이나믹 컨트롤을 배웁니다. Neumann U87 앞에서 실전 마이크 테크닉도 함께합니다.</p>
+            <span class="curr-badge">중급 보컬 · 커버 영상 · 실력 업그레이드</span>
+          </div>
+          <div class="curr-panel-subjects">
+            <div class="subject-list">
+              <div class="subject-item">
+                <div class="s-num">01</div>
+                <div class="s-content"><div class="s-title">고음 확장 & 믹스보이스</div><div class="s-desc">두성 고음 트레이닝, 혼성(믹스보이스) 구현 방법. 억지로 지르지 않고 자연스럽게 올라가는 법.</div></div>
+              </div>
+              <div class="subject-item">
+                <div class="s-num">02</div>
+                <div class="s-content"><div class="s-title">감정 표현 & 다이나믹</div><div class="s-desc">같은 음정이라도 감정에 따라 달라지는 발성. 세기와 질감을 조절해 곡을 살리는 표현법.</div></div>
+              </div>
+              <div class="subject-item">
+                <div class="s-num">03</div>
+                <div class="s-content"><div class="s-title">마이크 앞 실전 레코딩 실습</div><div class="s-desc">Pro Tools HDX + Neumann U87로 실제 레코딩. 마이크 거리·방향·흡입음 처리 등 스튜디오 테크닉.</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4회차 -->
+        <div class="vocal-panel" id="vtab-4">
+          <div class="curr-panel-info">
+            <div class="curr-panel-level">Week 4</div>
+            <h3 class="curr-panel-title">실전 레코딩<br/><em>Studio Session</em></h3>
+            <p class="curr-panel-desc">본인 음원을 직접 레코딩하고, 오토튠·멜로다인 보정 과정을 체험합니다. 완성된 믹싱 음원 1곡을 결과물로 가져갑니다.</p>
+            <span class="curr-badge">프리미엄 전용 · 음원 발매 준비 · 포트폴리오</span>
+          </div>
+          <div class="curr-panel-subjects">
+            <div class="subject-list">
+              <div class="subject-item">
+                <div class="s-num">01</div>
+                <div class="s-content"><div class="s-title">본인 음원 풀 레코딩</div><div class="s-desc">선택한 곡 전체를 Pro Tools HDX로 레코딩. 테이크 선택 및 comp 편집까지 실습합니다.</div></div>
+              </div>
+              <div class="subject-item">
+                <div class="s-num">02</div>
+                <div class="s-content"><div class="s-title">AutoTune & Melodyne 보정 체험</div><div class="s-desc">프로 현장에서 사용하는 보정 과정을 직접 체험. 자연스러운 튜닝의 기준을 귀로 배웁니다.</div></div>
+              </div>
+              <div class="subject-item">
+                <div class="s-num">03</div>
+                <div class="s-content"><div class="s-title">완성 믹싱 음원 제공</div><div class="s-desc">수업 중 레코딩한 음원을 강사가 직접 믹싱·마스터링하여 완성 파일로 제공. 포트폴리오 및 SNS 업로드 가능.</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /vocal-curriculum -->
+
   </div>
 </section>
 
@@ -963,6 +1101,23 @@ function closeMenu(){
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
 
 // Curriculum tabs
+function switchLessonType(type){
+  document.querySelectorAll('.lt-btn').forEach(b=>b.classList.remove('on'));
+  event.currentTarget.classList.add('on');
+  if(type==='midi'){
+    document.getElementById('midi-curriculum').style.display='block';
+    document.getElementById('vocal-curriculum').style.display='none';
+  } else {
+    document.getElementById('midi-curriculum').style.display='none';
+    document.getElementById('vocal-curriculum').style.display='block';
+  }
+}
+function switchVocalTab(btn,id){
+  document.querySelectorAll('.vocal-tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.vocal-panel').forEach(p=>p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById(id).classList.add('on');
+}
 function switchTab(btn,id){
   document.querySelectorAll('.curr-tab').forEach(t=>t.classList.remove('on'));
   document.querySelectorAll('.curr-panel').forEach(p=>p.classList.remove('on'));
