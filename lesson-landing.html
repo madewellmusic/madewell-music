@@ -182,6 +182,42 @@ h1.lesson-h1 em{font-style:italic;color:rgba(180,150,255,.9)}
 .bio-btn{background:none;border:none;border-bottom:2px solid transparent;padding:10px 0;margin-right:24px;margin-bottom:-1px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.3);text-transform:uppercase;cursor:pointer;transition:all .2s}
 .bio-btn.on{color:rgba(180,150,255,.9);border-bottom-color:rgba(180,150,255,.8)}
 .bio-panel{display:none}
+
+/* ── INST FULL SECTIONS ── */
+.inst-full{margin-top:80px;position:relative;z-index:1}
+.inst-sec-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.28em;color:rgba(180,150,255,.6);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.inst-sec-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.06)}
+.inst-sec-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,3vw,42px);color:#fff;margin-bottom:28px;line-height:1.1}
+.inst-sec-title em{font-style:italic;color:rgba(180,150,255,.9)}
+.inst-cred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:72px}
+@media(max-width:900px){.inst-cred-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.inst-cred-grid{grid-template-columns:1fr}}
+.inst-cred-cell{background:rgba(255,255,255,.025);padding:20px 18px;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s}
+.inst-cred-cell:hover{background:rgba(74,44,138,.14)}
+.inst-cred-art{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;color:rgba(180,150,255,.85);text-transform:uppercase;margin-bottom:5px}
+.inst-cred-ttl{font-size:12.5px;color:rgba(255,255,255,.5);line-height:1.5}
+.inst-career-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:72px}
+@media(max-width:768px){.inst-career-grid{grid-template-columns:1fr}}
+.inst-block-title{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;color:rgba(74,44,138,.65);text-transform:uppercase;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:4px}
+.inst-tl-row{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.inst-tl-yr{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:rgba(180,150,255,.8);min-width:36px;flex-shrink:0;padding-top:2px}
+.inst-tl-main{font-size:14px;color:rgba(255,255,255,.8);margin-bottom:3px}
+.inst-tl-main.hl{color:rgba(180,150,255,.9)}
+.inst-tl-sub{font-size:12px;color:rgba(255,255,255,.35)}
+.inst-tl-sub em{color:rgba(180,150,255,.6);font-style:normal}
+.inst-disc-list{display:flex;flex-direction:column;gap:2px;margin-bottom:72px}
+.inst-disc-row{display:flex;gap:20px;padding:16px 18px;background:rgba(255,255,255,.02);border-left:2px solid transparent;transition:all .2s}
+.inst-disc-row:hover{background:rgba(74,44,138,.1);border-left-color:rgba(74,44,138,.6)}
+.inst-disc-yr{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:rgba(180,150,255,.8);min-width:36px;flex-shrink:0}
+.inst-disc-info{font-size:14px;color:rgba(255,255,255,.75);line-height:1.5}
+.inst-disc-sub{font-size:12px;color:rgba(255,255,255,.35);margin-top:3px}
+.inst-disc-sub em{color:rgba(180,150,255,.6);font-style:normal}
+.inst-rec-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+@media(max-width:600px){.inst-rec-grid{grid-template-columns:1fr}}
+.inst-rec-card{background:rgba(255,255,255,.02);padding:24px 20px;border-left:2px solid rgba(74,44,138,.45)}
+.inst-rec-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.18em;color:rgba(74,44,138,.7);text-transform:uppercase;margin-bottom:8px}
+.inst-rec-text{font-size:14px;color:rgba(255,255,255,.65);line-height:1.75}
+.inst-rec-text strong{color:rgba(180,150,255,.9)}
 .bio-panel.on{display:block}
 .bio-tl{display:flex;flex-direction:column;gap:0}
 .bio-tl-row{display:flex;gap:14px;position:relative;padding-bottom:14px}
@@ -480,80 +516,6 @@ footer{background:#060610;border-top:1px solid rgba(74,44,138,.2);padding:52px 0
           지금도 현역으로 K-POP 곡을 만들며 강남 역삼동 스튜디오를 운영 중입니다.
           <em>교재가 아닌 현장의 언어로 가르칩니다.</em>
         </p>
-        <div class="credits-wrap">
-          <div class="credit-row">
-            <span class="cred-artist">PRODUCE 101 JAPAN</span>
-            <span class="cred-work">SEASON 4 — Produced by MADEWELL</span>
-          </div>
-          <div class="credit-row">
-            <span class="cred-artist">VIVIZ (비비지)</span>
-            <span class="cred-work">「A Montage of ( ),」— TOXIC 정규 1집</span>
-          </div>
-          <div class="credit-row">
-            <span class="cred-artist">(여자)아이들 전소연</span>
-            <span class="cred-work">「아무너케」M2 Live</span>
-          </div>
-          <div class="credit-row">
-            <span class="cred-artist">마마무 화사</span>
-            <span class="cred-work">「Two Side」(× Sense Mom)</span>
-          </div>
-          <div class="credit-row">
-            <span class="cred-artist">인피니트 장동우</span>
-            <span class="cred-work">「Super Birthday」「인생(LIFE)」</span>
-          </div>
-          <div class="credit-row">
-            <span class="cred-artist">MBC 방과후설렘 시즌2 소년판타지</span>
-            <span class="cred-work">「Fantasy」「Shut Off」「BATTLE FIELD」</span>
-          </div>
-          <div class="credit-row">
-            <span class="cred-artist">SBS 글로벌 아이돌 오디션 B:MY BOYZ</span>
-            <span class="cred-work">「Be my boyz」 타이틀곡</span>
-          </div>
-        </div>
-        <!-- Biography Tabs -->
-        <div class="bio-tabs">
-          <button class="bio-btn on" onclick="saBio(this,'bio-career')">경력</button>
-          <button class="bio-btn" onclick="saBio(this,'bio-albums')">음반</button>
-          <button class="bio-btn" onclick="saBio(this,'bio-records')">수상 · 기록</button>
-        </div>
-        <div class="bio-panel on" id="bio-career">
-          <div class="bio-tl">
-            <div class="bio-tl-row"><div class="bio-tl-yr">2007</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">3인조 아이돌 그룹 타키온 메인보컬 데뷔</div></div></div>
-            <div class="bio-tl-row"><div class="bio-tl-yr">2011</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">5인조 아이돌 그룹 엔트레인 리더 및 보컬 데뷔</div></div></div>
-            <div class="bio-tl-row"><div class="bio-tl-yr">2014</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">6인조 아이돌 그룹 빅플로 BIGFLO</div><div class="bio-tl-d">리더 · 메인보컬 · 프로듀서 데뷔</div></div></div>
-            <div class="bio-tl-row"><div class="bio-tl-yr">2018</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">(주)스튜디오J2K 설립</div></div></div>
-            <div class="bio-tl-row"><div class="bio-tl-yr">2020</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">(주)MADEWELL MUSIC 법인설립 및 대표 프로듀서</div><div class="bio-tl-d">스튜디오 오픈 · 서울 강남구 역삼동</div></div></div>
-            <div class="bio-tl-row"><div class="bio-tl-yr">2022</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">(주)AVEC MUSIC 겸임 프로듀서</div></div></div>
-            <div class="bio-tl-row"><div class="bio-tl-yr">2023</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">We:A (元 BIGFLO) 결성 · 리더 · 메인보컬</div><div class="bio-tl-d">1st Single &amp; Japan Single 「24/7」 발매</div></div></div>
-            <div class="bio-tl-row"><div class="bio-tl-yr">2025</div><div class="bio-tl-dot"></div><div class="bio-tl-c"><div class="bio-tl-t">일본 솔로 2집 「Still UNFINISHED」 발매</div><div class="bio-tl-d">단독 콘서트 개최</div></div></div>
-          </div>
-        </div>
-        <div class="bio-panel" id="bio-albums">
-          <div class="bio-alb-list">
-            <div class="bio-alb-row"><div class="bio-alb-yr">2007</div><div class="bio-alb-info">Tachyon 1st Single 「Feel Your Breeze」<span>타키온</span></div></div>
-            <div class="bio-alb-row"><div class="bio-alb-yr">2011</div><div class="bio-alb-info">N-train 1st Single 「One Last Cry」<span>엔트레인</span></div></div>
-            <div class="bio-alb-row"><div class="bio-alb-yr">2012</div><div class="bio-alb-info">N-train 2nd Single 「I'll Forget You」 / 3rd Mini Album 「내게 돌아와」<span>엔트레인</span></div></div>
-            <div class="bio-alb-row"><div class="bio-alb-yr">2014</div><div class="bio-alb-info">BIGFLO 1st Mini 「First Flow」 / 2nd Mini 「Second Flow」<span>BIGFLO</span></div></div>
-            <div class="bio-alb-row"><div class="bio-alb-yr">2015</div><div class="bio-alb-info">BIGFLO 1st Japan 「Delilah」 / 3rd Mini 「Incant」 / 2nd Japan 「1,2,3,4」<span>BIGFLO · 오리콘 TOP10 · 시부야 타워레코드 주간 1위</span></div></div>
-            <div class="bio-alb-row"><div class="bio-alb-yr">2016</div><div class="bio-alb-info">JUNGKYUN Japan Solo Album 「UNFINISHED」<span>솔로 — 오리콘 앨범 9위</span></div></div>
-            <div class="bio-alb-row"><div class="bio-alb-yr">2023</div><div class="bio-alb-info">We:A 1st Single &amp; Japan Single 「24/7」<span>We:A (元 BIGFLO)</span></div></div>
-            <div class="bio-alb-row"><div class="bio-alb-yr">2025</div><div class="bio-alb-info">JUNGKYUN Japan 2nd Solo Album 「Still UNFINISHED」<span>솔로 — 단독 콘서트</span></div></div>
-          </div>
-        </div>
-        <div class="bio-panel" id="bio-records">
-          <div class="bio-rec-list">
-            <div class="bio-rec-item">BIGFLO 1st Japan「Delilah」— 오리콘차트 TOP10 · 시부야 타워레코드 주간 앨범판매량 1위</div>
-            <div class="bio-rec-item">BIGFLO 2nd Japan「1,2,3,4」— 오리콘차트 TOP10 · 시부야 타워레코드 주간 앨범판매량 1위</div>
-            <div class="bio-rec-item">JUNGKYUN Japan Solo「Unfinished」— 오리콘차트 앨범부문 9위</div>
-            <div class="bio-rec-item">일본 단독 콘서트 및 팬미팅 20회 이상 개최 · 전국 프로모션</div>
-            <div class="bio-rec-item">BIGFLO「딜라일라(Delilah)」— 독일 K-POP 차트 9위</div>
-            <div class="bio-rec-item">BIGFLO 1st Malaysia Showcase &amp; Fan-Meeting</div>
-            <div class="bio-rec-item">SBS 인기가요 · KBS 뮤직뱅크 · MBC 쇼음악중심 · Mnet M Countdown · Arirang TV Simply Kpop 등 다수 출연</div>
-            <div class="bio-rec-item">2022 — We:A (BIGFLO) 재결성 「Re:born」 일본 단독콘서트 개최</div>
-            <div class="bio-rec-item">2023 — We:A 1st Single 「24/7」 발매 · 일본 단독콘서트 개최</div>
-            <div class="bio-rec-item">2025–2026 — JUNGKYUN「Still Unfinished」 일본 발매 · 단독 콘서트 개최</div>
-          </div>
-        </div>
         <div class="inst-skills">
           <span class="i-skill">작곡</span>
           <span class="i-skill">편곡</span>
@@ -567,6 +529,83 @@ footer{background:#060610;border-top:1px solid rgba(74,44,138,.2);padding:52px 0
           <span class="i-skill">Pro Tools HDX</span>
           <span class="i-skill">Logic Pro</span>
         </div>
+      </div>
+    </div>
+
+    <!-- 전체 크레딧 -->
+    <div class="inst-full">
+      <div class="inst-sec-label">Works</div>
+      <div class="inst-sec-title">함께한 <em>아티스트들</em></div>
+      <div class="inst-cred-grid">
+        <div class="inst-cred-cell"><div class="inst-cred-art">PRODUCE 101 JAPAN</div><div class="inst-cred-ttl">작곡 · 편곡</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">VIVIZ (비비지)</div><div class="inst-cred-ttl">「A Montage of ( ),」— TOXIC 정규 1집</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">(여자)아이들 전소연</div><div class="inst-cred-ttl">「아무너케」 M2 Live</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">인피니트 장동우</div><div class="inst-cred-ttl">「Super Birthday」「인생(LIFE)」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">마마무 화사 × Sense Mom</div><div class="inst-cred-ttl">「Two Side」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">MBC 방과후설렘 시즌2 소년판타지</div><div class="inst-cred-ttl">「Fantasy」「Shut Off」「BATTLE FIELD」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">SBS B:MY BOYZ</div><div class="inst-cred-ttl">「Be my boyz」 타이틀곡</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">루나 (에프엑스) × 울</div><div class="inst-cred-ttl">「이 밤이 지나면」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">MBC M 팬픽(FAN PICK)</div><div class="inst-cred-ttl">「휘파람」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">KBS 드라마 수상한 그녀</div><div class="inst-cred-ttl">OST 「The Way I Love」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">JTBC 싱어게인2</div><div class="inst-cred-ttl">NC.A (앤씨아) — 「빗물」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">경서 (경서예지)</div><div class="inst-cred-ttl">「좋은 날엔 네가 있어」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">원팩트</div><div class="inst-cred-ttl">1st Album 「G.O.A.T / 100 / WILD」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">김채원 (에이프릴)</div><div class="inst-cred-ttl">「Tomorrow」「雨が急に降っている」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">NC.A (앤씨아)</div><div class="inst-cred-ttl">「널 위한 멜로디」「My Little」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">SNH48</div><div class="inst-cred-ttl">「Call Me Louder」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">디바 (DIVA)</div><div class="inst-cred-ttl">「왜불러」「그래」「Joy」「Up&amp;Down」「딱이야」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">이재훈 (쿨)</div><div class="inst-cred-ttl">콘서트 편곡</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">HORI7ON</div><div class="inst-cred-ttl">1st Mini Album 「SIXTEEN,」</div></div>
+        <div class="inst-cred-cell"><div class="inst-cred-art">WeNU</div><div class="inst-cred-ttl">1st · 2nd · 3rd Mini Album</div></div>
+      </div>
+
+      <!-- 경력 타임라인 -->
+      <div class="inst-sec-label">Career</div>
+      <div class="inst-sec-title">경력 <em>타임라인</em></div>
+      <div class="inst-career-grid">
+        <div>
+          <div class="inst-block-title">Artist Career</div>
+          <div class="inst-tl-row"><div class="inst-tl-yr">2007</div><div><div class="inst-tl-main">3인조 아이돌 그룹 타키온 메인보컬 데뷔</div><div class="inst-tl-sub">SBS · KBS · MBC · Mnet</div></div></div>
+          <div class="inst-tl-row"><div class="inst-tl-yr">2011</div><div><div class="inst-tl-main">5인조 아이돌 그룹 엔트레인(N.TRAIN) 리더·보컬 데뷔</div></div></div>
+          <div class="inst-tl-row"><div class="inst-tl-yr">2014</div><div><div class="inst-tl-main hl">6인조 아이돌 그룹 빅플로 BIGFLO</div><div class="inst-tl-sub">리더 · 메인보컬 · 프로듀서 데뷔</div></div></div>
+          <div class="inst-tl-row"><div class="inst-tl-yr">2015</div><div><div class="inst-tl-main hl">BIGFLO 일본 진출</div><div class="inst-tl-sub"><em>오리콘 TOP10 · 시부야 타워레코드 주간 1위</em></div></div></div>
+          <div class="inst-tl-row"><div class="inst-tl-yr">2016</div><div><div class="inst-tl-main hl">JUNGKYUN 일본 솔로 「UNFINISHED」</div><div class="inst-tl-sub"><em>오리콘 솔로 앨범차트 9위</em></div></div></div>
+          <div class="inst-tl-row"><div class="inst-tl-yr">2023</div><div><div class="inst-tl-main">We:A (元 BIGFLO) 결성 · 리더 · 메인보컬</div><div class="inst-tl-sub">1st Single &amp; Japan Single 「24/7」</div></div></div>
+          <div class="inst-tl-row"><div class="inst-tl-yr">2025</div><div><div class="inst-tl-main hl">솔로 정규 「Still UNFINISHED」</div><div class="inst-tl-sub"><em>일본 한정반 100장 완판 · 단독 콘서트</em></div></div></div>
+        </div>
+        <div>
+          <div class="inst-block-title">Producer Career</div>
+          <div class="inst-tl-row"><div class="inst-tl-yr">2018</div><div><div class="inst-tl-main">(주)스튜디오J2K 설립</div></div></div>
+          <div class="inst-tl-row"><div class="inst-tl-yr">2020</div><div><div class="inst-tl-main hl">(주)MADEWELL MUSIC 법인 설립</div><div class="inst-tl-sub">스튜디오 오픈 · 서울 강남구 역삼동</div></div></div>
+          <div class="inst-tl-row"><div class="inst-tl-yr">2022</div><div><div class="inst-tl-main">(주)AVEC MUSIC 겸임 프로듀서</div></div></div>
+          <div class="inst-tl-row"><div class="inst-tl-yr">현재</div><div><div class="inst-tl-main hl">MADEWELL MUSIC STUDIO 대표 운영</div><div class="inst-tl-sub">강남 선정릉역 · 믹싱 · 마스터링 · 레코딩 · 레슨</div></div></div>
+        </div>
+      </div>
+
+      <!-- 음반 -->
+      <div class="inst-sec-label">Discography</div>
+      <div class="inst-sec-title">음반 <em>목록</em></div>
+      <div class="inst-disc-list">
+        <div class="inst-disc-row"><div class="inst-disc-yr">2007</div><div><div class="inst-disc-info">Tachyon 1st Single 「Feel Your Breeze」</div><div class="inst-disc-sub">타키온</div></div></div>
+        <div class="inst-disc-row"><div class="inst-disc-yr">2011</div><div><div class="inst-disc-info">N-train 1st Single 「One Last Cry」</div><div class="inst-disc-sub">엔트레인</div></div></div>
+        <div class="inst-disc-row"><div class="inst-disc-yr">2012</div><div><div class="inst-disc-info">N-train 2nd Single 「I'll Forget You」 / 3rd Mini Album 「내게 돌아와」</div><div class="inst-disc-sub">엔트레인</div></div></div>
+        <div class="inst-disc-row"><div class="inst-disc-yr">2014</div><div><div class="inst-disc-info">BIGFLO 1st Mini 「First Flow」 / 2nd Mini 「Second Flow」</div><div class="inst-disc-sub">BIGFLO</div></div></div>
+        <div class="inst-disc-row"><div class="inst-disc-yr">2015</div><div><div class="inst-disc-info">BIGFLO 1st Japan 「Delilah」 / 3rd Mini 「Incant」 / 2nd Japan 「1,2,3,4」</div><div class="inst-disc-sub"><em>오리콘 TOP10 · 시부야 타워레코드 주간 1위</em></div></div></div>
+        <div class="inst-disc-row"><div class="inst-disc-yr">2016</div><div><div class="inst-disc-info">JUNGKYUN Japan Solo Album 「UNFINISHED」</div><div class="inst-disc-sub"><em>오리콘 솔로 앨범차트 9위</em></div></div></div>
+        <div class="inst-disc-row"><div class="inst-disc-yr">2023</div><div><div class="inst-disc-info">We:A 1st Single &amp; Japan Single 「24/7」</div><div class="inst-disc-sub">We:A (元 BIGFLO)</div></div></div>
+        <div class="inst-disc-row"><div class="inst-disc-yr">2025</div><div><div class="inst-disc-info">JUNGKYUN 2nd Japan Solo Album 「Still UNFINISHED」</div><div class="inst-disc-sub"><em>일본 한정반 100장 완판 · 단독 콘서트</em></div></div></div>
+      </div>
+
+      <!-- 수상 기록 -->
+      <div class="inst-sec-label">Records &amp; Awards</div>
+      <div class="inst-sec-title">수상 <em>기록</em></div>
+      <div class="inst-rec-grid">
+        <div class="inst-rec-card"><div class="inst-rec-label">Chart</div><div class="inst-rec-text">BIGFLO 1st Japan 「Delilah」<br/><strong>오리콘차트 TOP10</strong> · 시부야 타워레코드 주간 <strong>1위</strong></div></div>
+        <div class="inst-rec-card"><div class="inst-rec-label">Chart</div><div class="inst-rec-text">BIGFLO 2nd Japan 「1,2,3,4」<br/><strong>오리콘차트 TOP10</strong> · 시부야 타워레코드 주간 <strong>1위</strong></div></div>
+        <div class="inst-rec-card"><div class="inst-rec-label">Solo</div><div class="inst-rec-text">JUNGKYUN Japan Solo 「Unfinished」<br/>오리콘 솔로 앨범차트 <strong>9위</strong></div></div>
+        <div class="inst-rec-card"><div class="inst-rec-label">Global</div><div class="inst-rec-text">BIGFLO 「딜라일라(Delilah)」<br/>독일 K-POP 차트 <strong>9위</strong></div></div>
+        <div class="inst-rec-card"><div class="inst-rec-label">Concert</div><div class="inst-rec-text">일본 단독 콘서트 및 팬미팅 <strong>20회 이상</strong><br/>SBS 인기가요 · KBS 뮤직뱅크 · MBC 쇼음악중심 등 다수 출연</div></div>
+        <div class="inst-rec-card"><div class="inst-rec-label">KOMCA</div><div class="inst-rec-text">한국음악저작권협회 등록 저작물<br/><strong>100곡 이상</strong></div></div>
       </div>
     </div>
   </div>
