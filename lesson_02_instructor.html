@@ -1,94 +1,369 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MADEWELL — Instructor Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"/>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{width:1080px;height:1080px;overflow:hidden;background:#080612}
-body{width:1080px;height:1080px;overflow:hidden;font-family:'Montserrat',sans-serif;position:relative;background:#080612}
-.photo{position:absolute;left:0;top:0;width:43%;height:100%;background:url('images/메이드웰_프로필.jpg') center 10%/cover no-repeat;opacity:.75}
-.photo-fade{position:absolute;left:0;top:0;width:43%;height:100%;background:linear-gradient(to right,transparent 30%,#080612 100%);z-index:2}
-.glow{position:absolute;top:30%;right:10%;width:500px;height:500px;background:radial-gradient(ellipse,rgba(96,64,168,.2) 0%,transparent 70%);z-index:1}
-.corner-tl{position:absolute;top:52px;left:52px;width:72px;height:72px;border-top:2px solid rgba(139,92,246,.5);border-left:2px solid rgba(139,92,246,.5);z-index:5}
-.corner-tr{position:absolute;top:52px;right:52px;width:72px;height:72px;border-top:2px solid rgba(139,92,246,.5);border-right:2px solid rgba(139,92,246,.5);z-index:5}
-.corner-bl{position:absolute;bottom:52px;left:52px;width:72px;height:72px;border-bottom:2px solid rgba(139,92,246,.5);border-left:2px solid rgba(139,92,246,.5);z-index:5}
-.corner-br{position:absolute;bottom:52px;right:52px;width:72px;height:72px;border-bottom:2px solid rgba(139,92,246,.5);border-right:2px solid rgba(139,92,246,.5);z-index:5}
-.logo{position:absolute;top:56px;left:50%;transform:translateX(-50%);z-index:6;opacity:.65;filter:brightness(0) invert(1)}
-.content{position:absolute;right:0;top:0;bottom:0;width:61%;display:flex;flex-direction:column;justify-content:center;padding:56px 64px 56px 36px;z-index:4}
-.tag{font-size:13px;font-weight:700;letter-spacing:.18em;color:rgba(167,139,250,.7);text-transform:uppercase;margin-bottom:12px}
-.title{font-family:'Cormorant Garamond',serif;font-size:76px;font-weight:300;color:#fff;line-height:1.04;margin-bottom:10px}
-.title em{color:#A78BFA;font-style:italic}
-.sub{font-size:19px;color:rgba(255,255,255,.4);line-height:1.55;margin-bottom:20px}
-/* 보컬 레코딩 뱃지 */
-.record-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(139,92,246,.4);padding:8px 16px;background:rgba(96,64,168,.12);margin-bottom:18px}
-.rb-dot{width:8px;height:8px;border-radius:50%;background:#8B5CF6}
-.rb-text{font-size:16px;font-weight:600;color:rgba(167,139,250,.9);letter-spacing:.04em}
-.tl-label{font-size:11px;font-weight:700;letter-spacing:.2em;color:rgba(139,92,246,.45);text-transform:uppercase;margin-bottom:8px}
-.timeline{display:flex;flex-direction:column;margin-bottom:20px}
-.tl-row{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06)}
-.tl-yr{font-size:14px;font-weight:700;color:rgba(167,139,250,.7);letter-spacing:.06em;min-width:36px;flex-shrink:0}
-.tl-main{font-size:19px;color:rgba(255,255,255,.8);line-height:1.35;white-space:nowrap}
-.tl-main.hl{color:#A78BFA}
-.tl-sub{font-size:14px;color:rgba(255,255,255,.3);margin-left:6px;white-space:nowrap}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --purple:#A78BFA;--purple2:#8B5CF6;--purple-dim:rgba(139,92,246,.12);--purple-border:rgba(139,92,246,.3);
+  --bg:#080612;--bg2:#0E0B1A;--bg3:#141025;
+  --ink:#F0F0F4;--body:rgba(240,240,244,.65);--muted:rgba(240,240,244,.35);--dim:rgba(240,240,244,.15);
+  --border:rgba(255,255,255,.07);--gold:#C9A93C;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif;overflow-x:hidden;line-height:1.6}
+.serif{font-family:'Cormorant Garamond',serif}
+.mono{font-family:'Montserrat',sans-serif}
+.container{max-width:1100px;margin:0 auto;padding:0 48px}
+@media(max-width:768px){.container{padding:0 20px}}
+
+/* ── HERO ── */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:100px 0 80px}
+.hero-bg{position:absolute;inset:0;background:url('images/메이드웰_프로필.jpg') center 15%/cover no-repeat;opacity:.18}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,6,18,1) 0%,rgba(8,6,18,.7) 60%,rgba(8,6,18,.9) 100%)}
+.glow{position:absolute;top:20%;right:5%;width:600px;height:600px;background:radial-gradient(ellipse,rgba(96,64,168,.18) 0%,transparent 70%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:40px}}
+.hero-photo{position:relative}
+.hero-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 10%;filter:contrast(1.05) saturate(0.9)}
+.hero-photo::before{content:'';position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:1px solid var(--purple-border);z-index:-1}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,6,18,.6) 0%,transparent 50%)}
+.hero-copy{}
+.hero-tag{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.28em;color:var(--purple);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--purple);opacity:.6}
+.hero-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(52px,6vw,88px);line-height:.9;color:#fff;margin-bottom:8px}
+.hero-name-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(32px,4vw,56px);color:var(--purple);line-height:1;margin-bottom:28px}
+.hero-roles{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.role-badge{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 14px;border:1px solid var(--purple-border);color:rgba(167,139,250,.8);background:var(--purple-dim)}
+.hero-bio{font-size:15px;color:var(--body);line-height:1.9;font-weight:300;margin-bottom:36px}
+.hero-bio strong{color:#fff;font-weight:500}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.stat-item{background:var(--bg2);padding:18px 16px;text-align:center}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--purple);line-height:1}
+.stat-l{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+
+/* ── SECTION COMMON ── */
+.section{padding:100px 0}
+.section-tag{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.28em;color:var(--purple);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.section-tag::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,4vw,52px);color:#fff;margin-bottom:48px;line-height:1.1}
+.section-title em{font-style:italic;color:var(--purple)}
+
+/* ── CREDITS ── */
+#credits{background:var(--bg2)}
+.cred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+@media(max-width:900px){.cred-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.cred-grid{grid-template-columns:1fr}}
+.cred-cell{background:var(--bg);padding:22px 20px;border-bottom:1px solid var(--border);transition:background .2s}
+.cred-cell:hover{background:var(--bg3)}
+.cred-art{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--purple);text-transform:uppercase;margin-bottom:6px}
+.cred-ttl{font-size:13px;color:var(--body);line-height:1.5;margin-bottom:5px}
+.cred-role{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.18em;color:var(--dim);text-transform:uppercase}
+
+/* ── CAREER ── */
+#career{background:var(--bg)}
+.career-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+@media(max-width:768px){.career-grid{grid-template-columns:1fr;gap:40px}}
+.career-block-title{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.tl-row{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.tl-yr{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--purple);letter-spacing:.06em;min-width:40px;flex-shrink:0;padding-top:2px}
+.tl-body{}
+.tl-main{font-size:15px;color:rgba(255,255,255,.85);line-height:1.4;margin-bottom:3px}
+.tl-main.hl{color:var(--purple)}
+.tl-sub{font-size:12px;color:var(--muted);line-height:1.5}
 .tl-sub em{color:rgba(167,139,250,.7);font-style:normal}
-.stats{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border-top:1px solid rgba(255,255,255,.07);padding-top:18px}
-.stat{text-align:center;border-right:1px solid rgba(255,255,255,.07)}
-.stat:last-child{border-right:none}
-.stat-n{font-family:'Cormorant Garamond',serif;font-size:54px;color:#A78BFA;line-height:1}
-.stat-l{font-size:13px;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-top:6px}
-.page{position:absolute;bottom:58px;right:88px;font-size:14px;font-weight:600;letter-spacing:.18em;color:rgba(255,255,255,.2);z-index:5}
+
+/* ── DISCOGRAPHY ── */
+#discography{background:var(--bg2)}
+.disc-list{display:flex;flex-direction:column;gap:2px}
+.disc-row{display:flex;align-items:baseline;gap:20px;padding:18px 20px;background:var(--bg);border-left:2px solid transparent;transition:all .2s}
+.disc-row:hover{background:var(--bg3);border-left-color:var(--purple)}
+.disc-yr{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--purple);min-width:36px;flex-shrink:0}
+.disc-info{font-size:15px;color:rgba(255,255,255,.8);flex:1;line-height:1.5}
+.disc-sub{font-size:12px;color:var(--muted);margin-top:3px}
+.disc-sub em{color:rgba(167,139,250,.7);font-style:normal}
+
+/* ── RECORDS ── */
+#records{background:var(--bg)}
+.rec-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+@media(max-width:600px){.rec-grid{grid-template-columns:1fr}}
+.rec-card{background:var(--bg2);padding:28px 24px;position:relative;overflow:hidden}
+.rec-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--purple2);opacity:.5}
+.rec-icon{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;color:var(--purple);text-transform:uppercase;margin-bottom:10px}
+.rec-text{font-size:15px;color:rgba(255,255,255,.8);line-height:1.6}
+.rec-text strong{color:var(--purple);font-weight:600}
+
+/* ── FOOTER ── */
+#foot{background:var(--bg2);padding:60px 0;border-top:1px solid var(--border);text-align:center}
+.foot-logo{margin-bottom:16px;opacity:.5;filter:brightness(0) invert(1)}
+.foot-text{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
 </style>
 </head>
 <body>
-<div class="photo"></div>
-<div class="photo-fade"></div>
-<div class="glow"></div>
-<div class="corner-tl"></div><div class="corner-tr"></div>
-<div class="corner-bl"></div><div class="corner-br"></div>
-<div class="logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="48"/></div>
-<div class="content">
-  <div class="tag">Instructor · Artist · MADEWELL</div>
-  <div class="title">선생님이 아닌,<br/><em>아티스트가</em><br/>가르칩니다.</div>
-  <div class="sub">19년 현역 — 무대에 직접 서봤던 사람의 레슨</div>
-  <div class="record-badge">
-    <div class="rb-dot"></div>
-    <div class="rb-text">보컬 레슨 수강 시 · 직접 레코딩 + 음원 납품까지</div>
-  </div>
-  <div class="tl-label">Career</div>
-  <div class="timeline">
-    <div class="tl-row">
-      <div class="tl-yr">2007</div>
-      <div><div class="tl-main">타키온 메인보컬 데뷔</div></div>
-      <div class="tl-sub">SBS · KBS · MBC · Mnet</div>
-    </div>
-    <div class="tl-row">
-      <div class="tl-yr">2011</div>
-      <div><div class="tl-main">엔트레인(N.TRAIN) 리더·보컬 데뷔</div></div>
-      <div class="tl-sub">방송·일본 콘서트 다수</div>
-    </div>
-    <div class="tl-row">
-      <div class="tl-yr">2014</div>
-      <div><div class="tl-main hl">BIGFLO (WE:A) 리더·메인보컬·프로듀서</div></div>
-      <div class="tl-sub"><em>오리콘 TOP10 · 타워레코드 1위</em></div>
-    </div>
-    <div class="tl-row">
-      <div class="tl-yr">2016</div>
-      <div><div class="tl-main hl">JUNGKYUN 일본 솔로 「UNFINISHED」</div></div>
-      <div class="tl-sub"><em>오리콘 솔로 앨범차트 9위</em></div>
-    </div>
-    <div class="tl-row">
-      <div class="tl-yr">2025</div>
-      <div><div class="tl-main">「Still UNFINISHED」 솔로 2집 · 단독 콘서트</div></div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="glow"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-photo">
+        <img src="images/메이드웰_프로필.jpg" alt="MADEWELL 정균"/>
+      </div>
+      <div class="hero-copy">
+        <div class="hero-tag">Instructor Profile</div>
+        <div class="hero-name">정 균</div>
+        <div class="hero-name-en">MADEWELL</div>
+        <div class="hero-roles">
+          <span class="role-badge">Music Producer</span>
+          <span class="role-badge">Artist</span>
+          <span class="role-badge">Engineer</span>
+          <span class="role-badge">JLPT 1급</span>
+        </div>
+        <p class="hero-bio">
+          2007년 아이돌 그룹으로 데뷔해 <strong>19년간</strong> 현장에서 작곡·편곡·믹싱·마스터링을 직접 해온 프로듀서입니다.<br/><br/>
+          KOMCA 등록 <strong>100곡 이상</strong>, 일본 오리콘 솔로 앨범차트 <strong>9위</strong> · 시부야 타워레코드 주간 1위 달성. 지금도 현역으로 K-POP 곡을 만들며 강남 역삼동 스튜디오를 운영 중입니다.<br/><br/>
+          <strong>교재가 아닌 현장의 언어로 가르칩니다.</strong>
+        </p>
+        <div class="stats-row">
+          <div class="stat-item"><div class="stat-n">19+</div><div class="stat-l">년 현역</div></div>
+          <div class="stat-item"><div class="stat-n">100+</div><div class="stat-l">KOMCA</div></div>
+          <div class="stat-item"><div class="stat-n">9위</div><div class="stat-l">오리콘 솔로</div></div>
+          <div class="stat-item"><div class="stat-n">1위</div><div class="stat-l">타워레코드</div></div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="stats">
-    <div class="stat"><div class="stat-n">9위</div><div class="stat-l">오리콘 솔로</div></div>
-    <div class="stat"><div class="stat-n">1위</div><div class="stat-l">타워레코드</div></div>
-    <div class="stat"><div class="stat-n">100+</div><div class="stat-l">KOMCA 등록</div></div>
-    <div class="stat"><div class="stat-n">19+</div><div class="stat-l">년 현역</div></div>
+</section>
+
+<!-- CREDITS -->
+<section id="credits" class="section">
+  <div class="container">
+    <div class="section-tag">Works</div>
+    <div class="section-title">함께한 <em>아티스트들</em></div>
+    <div class="cred-grid">
+      <div class="cred-cell"><div class="cred-art">PRODUCE 101 JAPAN</div><div class="cred-ttl">작곡 · 편곡</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">VIVIZ (비비지)</div><div class="cred-ttl">「A Montage of ( ),」— TOXIC 정규 1집</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">(여자)아이들 전소연</div><div class="cred-ttl">「아무너케」 M2 Live</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">인피니트 장동우</div><div class="cred-ttl">「Super Birthday」「인생(LIFE)」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">마마무 화사 × Sense Mom</div><div class="cred-ttl">「Two Side」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">MBC 방과후설렘 시즌2 소년판타지</div><div class="cred-ttl">「Fantasy」「Shut Off」「BATTLE FIELD」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">SBS B:MY BOYZ</div><div class="cred-ttl">「Be my boyz」 타이틀곡</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">루나 (에프엑스) × 울</div><div class="cred-ttl">「이 밤이 지나면」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">MBC M 팬픽(FAN PICK)</div><div class="cred-ttl">「휘파람」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">KBS 드라마 수상한 그녀</div><div class="cred-ttl">OST 「The Way I Love」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">JTBC 싱어게인2</div><div class="cred-ttl">NC.A (앤씨아) — 「빗물」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">경서 (경서예지)</div><div class="cred-ttl">「좋은 날엔 네가 있어」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">원팩트</div><div class="cred-ttl">1st Album 「G.O.A.T / 100 / WILD」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">김채원 (에이프릴)</div><div class="cred-ttl">「Tomorrow」「雨が急に降っている」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">NC.A (앤씨아)</div><div class="cred-ttl">「널 위한 멜로디」「My Little」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">SNH48</div><div class="cred-ttl">「Call Me Louder」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">디바 (DIVA)</div><div class="cred-ttl">「왜불러」「그래」「Joy」「Up&amp;Down」「딱이야」— 타임캡슐 수퍼콘서트</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">이재훈 (쿨)</div><div class="cred-ttl">콘서트 편곡</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">HORI7ON</div><div class="cred-ttl">1st Mini Album 「SIXTEEN,」</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">WeNU</div><div class="cred-ttl">1st · 2nd · 3rd Mini Album</div><div class="cred-role">Produced by MADEWELL</div></div>
+    </div>
   </div>
-</div>
-<div class="page">3 / 6</div>
+</section>
+
+<!-- CAREER -->
+<section id="career" class="section">
+  <div class="container">
+    <div class="section-tag">Career</div>
+    <div class="section-title">경력 <em>타임라인</em></div>
+    <div class="career-grid">
+      <div>
+        <div class="career-block-title">Artist Career</div>
+        <div class="tl-row">
+          <div class="tl-yr">2007</div>
+          <div class="tl-body">
+            <div class="tl-main">3인조 아이돌 그룹 타키온 메인보컬 데뷔</div>
+            <div class="tl-sub">SBS · KBS · MBC · Mnet</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-yr">2011</div>
+          <div class="tl-body">
+            <div class="tl-main">5인조 아이돌 그룹 엔트레인(N.TRAIN) 리더·보컬 데뷔</div>
+            <div class="tl-sub">방송 다수 · 일본 콘서트</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-yr">2014</div>
+          <div class="tl-body">
+            <div class="tl-main hl">6인조 아이돌 그룹 빅플로 BIGFLO</div>
+            <div class="tl-sub">리더 · 메인보컬 · 프로듀서 데뷔</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-yr">2015</div>
+          <div class="tl-body">
+            <div class="tl-main hl">BIGFLO 일본 진출</div>
+            <div class="tl-sub"><em>오리콘차트 TOP10 · 시부야 타워레코드 주간 1위</em></div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-yr">2016</div>
+          <div class="tl-body">
+            <div class="tl-main hl">JUNGKYUN 일본 솔로 「UNFINISHED」 발매</div>
+            <div class="tl-sub"><em>오리콘 솔로 앨범차트 9위</em></div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-yr">2023</div>
+          <div class="tl-body">
+            <div class="tl-main">We:A (元 BIGFLO) 결성 · 리더 · 메인보컬</div>
+            <div class="tl-sub">1st Single &amp; Japan Single 「24/7」 발매</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-yr">2025</div>
+          <div class="tl-body">
+            <div class="tl-main hl">솔로 정규 「Still UNFINISHED」 발매</div>
+            <div class="tl-sub"><em>일본 한정반 100장 완판 · 단독 콘서트 개최</em></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="career-block-title">Producer Career</div>
+        <div class="tl-row">
+          <div class="tl-yr">2018</div>
+          <div class="tl-body">
+            <div class="tl-main">(주)스튜디오J2K 설립</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-yr">2020</div>
+          <div class="tl-body">
+            <div class="tl-main hl">(주)MADEWELL MUSIC 법인 설립</div>
+            <div class="tl-sub">스튜디오 오픈 · 서울 강남구 역삼동</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-yr">2022</div>
+          <div class="tl-body">
+            <div class="tl-main">(주)AVEC MUSIC 겸임 프로듀서</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-yr">현재</div>
+          <div class="tl-body">
+            <div class="tl-main hl">MADEWELL MUSIC STUDIO 대표 운영</div>
+            <div class="tl-sub">강남 선정릉역 · 믹싱 · 마스터링 · 레코딩 · 레슨</div>
+          </div>
+        </div>
+        <div style="margin-top:32px">
+          <div class="career-block-title">Skills</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
+            <span style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border:1px solid var(--purple-border);color:rgba(167,139,250,.8)">작곡 · 편곡</span>
+            <span style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border:1px solid var(--purple-border);color:rgba(167,139,250,.8)">믹싱 · 마스터링</span>
+            <span style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border:1px solid var(--purple-border);color:rgba(167,139,250,.8)">보컬 디렉팅</span>
+            <span style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border:1px solid var(--purple-border);color:rgba(167,139,250,.8)">레코딩</span>
+            <span style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border:1px solid var(--purple-border);color:rgba(167,139,250,.8)">JLPT 1급</span>
+            <span style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border:1px solid var(--purple-border);color:rgba(167,139,250,.8)">작사</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCOGRAPHY -->
+<section id="discography" class="section">
+  <div class="container">
+    <div class="section-tag">Discography</div>
+    <div class="section-title">음반 <em>목록</em></div>
+    <div class="disc-list">
+      <div class="disc-row">
+        <div class="disc-yr">2014</div>
+        <div>
+          <div class="disc-info">BIGFLO 1st Mini Album 「First Flow」 / 2nd Mini Album 「Second Flow」</div>
+          <div class="disc-sub">BIGFLO</div>
+        </div>
+      </div>
+      <div class="disc-row">
+        <div class="disc-yr">2015</div>
+        <div>
+          <div class="disc-info">BIGFLO 1st Japan Single 「Delilah」 / 3rd Mini Album 「Incant」 / 2nd Japan「1,2,3,4」</div>
+          <div class="disc-sub"><em>오리콘 TOP10 · 시부야 타워레코드 주간 앨범판매량 1위</em></div>
+        </div>
+      </div>
+      <div class="disc-row">
+        <div class="disc-yr">2015</div>
+        <div>
+          <div class="disc-info">나라사랑 캠페인 Single 「우리, 이젠」</div>
+          <div class="disc-sub">BIGFLO · 서울지방보훈청 홍보대사</div>
+        </div>
+      </div>
+      <div class="disc-row">
+        <div class="disc-yr">2016</div>
+        <div>
+          <div class="disc-info">JUNGKYUN 1st Japan Solo Album 「UNFINISHED」</div>
+          <div class="disc-sub"><em>오리콘 솔로 앨범차트 9위</em></div>
+        </div>
+      </div>
+      <div class="disc-row">
+        <div class="disc-yr">2023</div>
+        <div>
+          <div class="disc-info">We:A 1st Single &amp; Japan Single 「24/7」</div>
+          <div class="disc-sub">We:A (元 BIGFLO)</div>
+        </div>
+      </div>
+      <div class="disc-row">
+        <div class="disc-yr">2025</div>
+        <div>
+          <div class="disc-info">JUNGKYUN 2nd Japan Solo Album 「Still UNFINISHED」</div>
+          <div class="disc-sub"><em>일본 한정반 100장 완판 · 단독 콘서트 개최</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECORDS -->
+<section id="records" class="section">
+  <div class="container">
+    <div class="section-tag">Records &amp; Awards</div>
+    <div class="section-title">수상 <em>기록</em></div>
+    <div class="rec-grid">
+      <div class="rec-card">
+        <div class="rec-icon">🏆 Chart</div>
+        <div class="rec-text">BIGFLO 1st Japan 「Delilah」<br/><strong>오리콘차트 TOP10</strong> · 시부야 타워레코드 주간 앨범판매량 <strong>1위</strong></div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-icon">🏆 Chart</div>
+        <div class="rec-text">BIGFLO 2nd Japan 「1,2,3,4」<br/><strong>오리콘차트 TOP10</strong> · 시부야 타워레코드 주간 앨범판매량 <strong>1위</strong></div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-icon">🌍 Global</div>
+        <div class="rec-text">BIGFLO 「딜라일라(Delilah)」<br/>독일 K-POP 차트 <strong>9위</strong></div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-icon">🎤 Solo</div>
+        <div class="rec-text">JUNGKYUN 솔로 일본 앨범<br/>오리콘 솔로 앨범차트 <strong>9위</strong></div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-icon">🎵 KOMCA</div>
+        <div class="rec-text">한국음악저작권협회(KOMCA)<br/>등록 저작물 <strong>100곡 이상</strong></div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-icon">🎸 Concert</div>
+        <div class="rec-text">BIGFLO 1st Malaysia Showcase &amp; Fan-Meeting<br/>We:A 일본 단독 콘서트 2022 · 2023<br/>솔로 단독 콘서트 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="foot">
+  <div class="container">
+    <div class="foot-logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" height="44" alt="MADEWELL MUSIC"/></div>
+    <div class="foot-text">MADEWELL MUSIC STUDIO · 강남 선정릉역 · madewellmusic.co.kr</div>
+  </div>
+</footer>
+
 </body>
 </html>
