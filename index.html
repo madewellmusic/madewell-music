@@ -6,7 +6,6 @@
 <meta name="description" content="MADEWELL MUSIC — 강남 역삼동 프로 스튜디오. 믹싱·마스터링·레코딩·음악 레슨."/>
 <meta name="naver-site-verification" content="a4195eeb17fd67f94d49178cdab804fa732ed739"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 a{text-decoration:none;color:inherit}
@@ -15,80 +14,95 @@ html,body{height:100%;overflow:hidden;background:#03030A;font-family:'Montserrat
 
 #bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
 
-/* ── LOGO CINEMATIC ── */
+/* ═══════════════════════════════
+   CINEMATIC INTRO
+═══════════════════════════════ */
 #logo-intro{
   position:fixed;inset:0;z-index:50;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   pointer-events:none;
-  opacity:1;
-  transition:opacity 1.2s ease 0.2s;
 }
-#logo-intro.hidden{opacity:0;pointer-events:none}
+#logo-intro.fade-out{
+  opacity:0;transition:opacity 1.1s cubic-bezier(.4,0,.2,1);
+}
 
-#logo-glow-ring{
-  position:absolute;
-  width:320px;height:320px;
-  border-radius:50%;
-  border:1px solid rgba(201,169,60,0);
-  box-shadow:0 0 0px rgba(201,169,60,0);
-  transition:none;
-}
-#logo-img-wrap{
-  position:relative;
+/* INTRO LOGO */
+#intro-logo-wrap{
   opacity:0;
-  transform:scale(0.4) translateY(20px);
-  transition:opacity 1s cubic-bezier(.16,1,.3,1), transform 1.2s cubic-bezier(.16,1,.3,1);
+  transform:scale(.7) translateY(16px);
+  transition:opacity .9s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1);
 }
-#logo-img-wrap.show{opacity:1;transform:scale(1) translateY(0)}
-#logo-img-wrap img{
-  height:72px;width:auto;
-  filter:brightness(0) invert(1) drop-shadow(0 0 30px rgba(201,169,60,.8));
+#intro-logo-wrap.show{opacity:1;transform:scale(1) translateY(0)}
+#intro-logo-wrap img{
+  height:120px;width:auto;
+  filter:brightness(0) invert(1) drop-shadow(0 0 40px rgba(201,169,60,.85));
 }
-#logo-tagline{
-  margin-top:24px;
-  font-size:9px;letter-spacing:.45em;color:rgba(255,255,255,0);
-  text-transform:uppercase;font-weight:500;
-  transition:color 1.2s ease 0.5s;
-}
-#logo-tagline.show{color:rgba(255,255,255,.3)}
 
-/* ── PULSE RING ANIMATION ── */
+/* SLOGAN */
+#intro-slogan{
+  margin-top:32px;
+  display:flex;gap:0;
+  font-size:11px;letter-spacing:.5em;text-transform:uppercase;font-weight:600;
+  color:transparent;
+}
+#intro-slogan span{
+  display:inline-block;
+  opacity:0;transform:translateY(10px);
+  transition:opacity .7s ease, transform .7s ease;
+  color:rgba(255,255,255,.35);
+}
+#intro-slogan span.show{opacity:1;transform:translateY(0)}
+
+/* PULSE RINGS */
 @keyframes ringPulse{
-  0%{transform:scale(0.6);opacity:.9;border-color:rgba(201,169,60,.7);box-shadow:0 0 40px rgba(201,169,60,.5),inset 0 0 40px rgba(201,169,60,.1)}
-  100%{transform:scale(2.2);opacity:0;border-color:rgba(201,169,60,0);box-shadow:0 0 0px rgba(201,169,60,0)}
+  0%  {transform:scale(.5);opacity:1;border-color:rgba(201,169,60,.8)}
+  100%{transform:scale(2.8);opacity:0;border-color:rgba(201,169,60,0)}
 }
 .pulse-ring{
   position:absolute;
-  width:200px;height:200px;
-  border-radius:50%;
-  border:1px solid rgba(201,169,60,.6);
-  animation:ringPulse 2s cubic-bezier(.2,.6,.4,1) forwards;
+  width:180px;height:180px;border-radius:50%;
+  border:1px solid rgba(201,169,60,.7);
+  animation:ringPulse 1.8s cubic-bezier(.2,.6,.4,1) forwards;
+  pointer-events:none;
 }
 
-/* ── LOGO FLOAT IDLE ── */
-@keyframes logoFloat{
-  0%,100%{transform:translateY(0px)}
-  50%{transform:translateY(-8px)}
+/* LOGO IDLE */
+@keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes logoGlow{
+  0%,100%{filter:brightness(0) invert(1) drop-shadow(0 0 20px rgba(201,169,60,.45))}
+  50%    {filter:brightness(0) invert(1) drop-shadow(0 0 50px rgba(201,169,60,.9)) drop-shadow(0 0 90px rgba(201,169,60,.25))}
 }
-@keyframes logoGlowPulse{
-  0%,100%{filter:brightness(0) invert(1) drop-shadow(0 0 20px rgba(201,169,60,.5))}
-  50%{filter:brightness(0) invert(1) drop-shadow(0 0 45px rgba(201,169,60,.9)) drop-shadow(0 0 80px rgba(201,169,60,.3))}
-}
-#logo-img-wrap.idle{animation:logoFloat 4s ease-in-out infinite}
-#logo-img-wrap.idle img{animation:logoGlowPulse 3s ease-in-out infinite}
+#intro-logo-wrap.idle{animation:logoFloat 4s ease-in-out infinite}
+#intro-logo-wrap.idle img{animation:logoGlow 3.2s ease-in-out infinite}
 
 /* NOISE */
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px}
 
-/* ── SPLIT UI ── */
+/* ═══════════════════════════════
+   SPLIT UI
+═══════════════════════════════ */
 .split{
   display:flex;height:100vh;width:100vw;
   position:relative;z-index:10;
-  opacity:0;transform:translateY(8px);
-  transition:opacity 1.4s cubic-bezier(.4,0,.2,1), transform 1.4s cubic-bezier(.4,0,.2,1);
+  opacity:0;
+  transition:opacity 1.2s cubic-bezier(.4,0,.2,1);
 }
-.split.show{opacity:1;transform:translateY(0)}
+.split.show{opacity:1}
 @media(max-width:640px){.split{flex-direction:column;height:auto;min-height:100vh}}
+
+/* CENTER LOGO — absolute, centered across both sides */
+.center-logo{
+  position:absolute;top:30px;left:50%;transform:translateX(-50%);
+  z-index:20;pointer-events:none;text-align:center;
+  opacity:0;transition:opacity .8s ease .4s;
+}
+.center-logo img{
+  height:48px;width:auto;
+  filter:brightness(0) invert(1) drop-shadow(0 0 10px rgba(201,169,60,.35));
+}
+.split.show .center-logo{opacity:1}
 
 .side{
   flex:1;position:relative;display:flex;align-items:center;justify-content:center;
@@ -98,32 +112,34 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:100;o
 .side:hover{flex:1.22}
 @media(max-width:640px){.side{flex:none;min-height:50vh;width:100%}}
 
-.side.studio{background:linear-gradient(145deg,rgba(12,11,8,.88) 0%,rgba(16,15,10,.82) 50%,rgba(10,10,12,.88) 100%)}
+.side.studio{background:linear-gradient(145deg,rgba(12,11,8,.9) 0%,rgba(16,15,10,.84) 50%,rgba(10,10,12,.9) 100%)}
 .studio-glow{position:absolute;top:-20%;left:-15%;width:80%;height:100%;background:radial-gradient(ellipse at 30% 40%,rgba(184,149,46,.3) 0%,transparent 60%);pointer-events:none;transition:opacity .5s}
 .side.studio:hover .studio-glow{opacity:1.6}
 .studio-glow2{position:absolute;bottom:-30%;right:-10%;width:60%;height:70%;background:radial-gradient(ellipse at 70% 80%,rgba(184,149,46,.14) 0%,transparent 55%);pointer-events:none}
 
-.side.lesson{background:linear-gradient(145deg,rgba(10,8,24,.88) 0%,rgba(13,7,32,.82) 50%,rgba(7,7,10,.88) 100%)}
+.side.lesson{background:linear-gradient(145deg,rgba(10,8,24,.9) 0%,rgba(13,7,32,.84) 50%,rgba(7,7,10,.9) 100%)}
 .lesson-glow{position:absolute;top:-20%;right:-15%;width:80%;height:100%;background:radial-gradient(ellipse at 70% 40%,rgba(74,44,138,.45) 0%,transparent 60%);pointer-events:none}
 .lesson-glow2{position:absolute;bottom:-30%;left:-10%;width:60%;height:70%;background:radial-gradient(ellipse at 30% 80%,rgba(74,44,138,.22) 0%,transparent 55%);pointer-events:none}
 
 .divider{
   position:absolute;top:0;bottom:0;left:50%;width:1px;
-  background:linear-gradient(to bottom,transparent 0%,rgba(201,169,60,.2) 30%,rgba(201,169,60,.35) 50%,rgba(201,169,60,.2) 70%,transparent 100%);
+  background:linear-gradient(to bottom,transparent 0%,rgba(201,169,60,.18) 30%,rgba(201,169,60,.32) 50%,rgba(201,169,60,.18) 70%,transparent 100%);
   z-index:5;pointer-events:none;
   transform:translateX(-50%) scaleY(0);transform-origin:50% 0%;
-  transition:transform 1s cubic-bezier(.4,0,.2,1);
+  transition:transform 1s cubic-bezier(.4,0,.2,1) .5s;
 }
 .split.show .divider{transform:translateX(-50%) scaleY(1)}
 @media(max-width:640px){.divider{display:none}}
 
 .side,.side *{text-decoration:none!important;-webkit-tap-highlight-color:transparent}
 
-.side-content{position:relative;z-index:2;padding:40px 52px;text-align:left;max-width:480px;
-  opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
-.split.show .side-content{opacity:1;transform:translateY(0)}
-.split.show .studio .side-content{transition-delay:.2s}
-.split.show .lesson .side-content{transition-delay:.35s}
+.side-content{
+  position:relative;z-index:2;padding:40px 52px;text-align:left;max-width:480px;
+  opacity:0;transform:translateY(22px);
+  transition:opacity .9s ease, transform .9s ease;
+}
+.split.show .studio .side-content{opacity:1;transform:translateY(0);transition-delay:.25s}
+.split.show .lesson  .side-content{opacity:1;transform:translateY(0);transition-delay:.4s}
 @media(max-width:900px){.side-content{padding:40px 32px}}
 @media(max-width:640px){.side-content{padding:48px 28px;text-align:center;max-width:100%}}
 
@@ -150,30 +166,22 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:100;o
 .side-cta-arrow{font-size:14px;transition:transform .2s}
 .side-cta:hover .side-cta-arrow{transform:translateX(5px)}
 
-.side-foot{position:absolute;bottom:32px;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:.12em;z-index:2;text-transform:uppercase;
-  opacity:0;transition:opacity .8s ease}
-.split.show .side-foot{opacity:1}
-.split.show .studio .side-foot{transition-delay:.5s}
-.split.show .lesson .side-foot{transition-delay:.6s}
+.side-foot{
+  position:absolute;bottom:32px;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:.12em;z-index:2;text-transform:uppercase;
+  opacity:0;transition:opacity .8s ease;
+}
+.split.show .studio .side-foot{opacity:1;transition-delay:.6s}
+.split.show .lesson  .side-foot{opacity:1;transition-delay:.7s}
 .studio .side-foot{left:52px}
 .lesson .side-foot{right:52px;text-align:right}
 @media(max-width:640px){.side-foot{position:relative;bottom:auto;left:auto!important;right:auto!important;text-align:center!important;padding:0 28px 32px;display:block}}
-
-/* CENTER LOGO IN SPLIT (idle) */
-.split-logo{
-  position:absolute;top:30px;left:50%;transform:translateX(-50%);
-  z-index:20;pointer-events:none;text-align:center;
-  opacity:0;transition:opacity .8s ease .8s;
-}
-.split-logo img{height:42px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 0 10px rgba(201,169,60,.4))}
-.split.show .split-logo{opacity:1}
 
 /* LANG */
 .idx-lang{
   position:fixed;top:22px;right:28px;z-index:200;
   display:flex;gap:2px;background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.09);padding:3px;
-  opacity:0;transition:opacity .6s ease 1.2s;
+  opacity:0;transition:opacity .6s ease;
 }
 .idx-lang.show{opacity:1}
 .idx-lang button{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.38);background:none;border:none;padding:5px 10px;cursor:pointer;text-transform:uppercase;transition:all .2s;line-height:1}
@@ -186,13 +194,14 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:100;o
 
 <canvas id="bg-canvas"></canvas>
 
-<!-- CINEMATIC LOGO INTRO -->
+<!-- ── CINEMATIC INTRO ── -->
 <div id="logo-intro">
-  <div id="logo-glow-ring"></div>
-  <div id="logo-img-wrap">
+  <div id="intro-logo-wrap">
     <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL MUSIC"/>
   </div>
-  <div id="logo-tagline">Seoul · Gangnam · Professional Studio</div>
+  <div id="intro-slogan">
+    <span id="s1">MUSIC,&nbsp;</span><span id="s2">MADE,&nbsp;</span><span id="s3">WELL</span>
+  </div>
 </div>
 
 <!-- LANG -->
@@ -202,16 +211,17 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:100;o
   <button onclick="idxLang('ja')">JP</button>
 </div>
 
-<!-- SPLIT UI -->
+<!-- SPLIT -->
 <div class="split" id="split">
   <div class="divider"></div>
 
+  <!-- 로고 가운데 위 (양쪽에 걸침) -->
+  <div class="center-logo">
+    <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL MUSIC"/>
+  </div>
+
   <a class="side studio" href="mixing-mastering-landing.html">
-    <div class="studio-glow"></div>
-    <div class="studio-glow2"></div>
-    <div class="split-logo">
-      <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL MUSIC"/>
-    </div>
+    <div class="studio-glow"></div><div class="studio-glow2"></div>
     <div class="side-content">
       <div class="side-tag">Studio</div>
       <h2 class="side-h">Mixing<br/>Mastering<br/><em>Recording.</em></h2>
@@ -222,8 +232,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:100;o
   </a>
 
   <a class="side lesson" href="lesson-landing.html">
-    <div class="lesson-glow"></div>
-    <div class="lesson-glow2"></div>
+    <div class="lesson-glow"></div><div class="lesson-glow2"></div>
     <div class="side-content">
       <div class="side-tag">Lesson</div>
       <h2 class="side-h">Lesson<br/>Composition<br/><em>Production.</em></h2>
@@ -234,280 +243,210 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:100;o
   </a>
 </div>
 
-<!-- ══ THREE.JS CINEMATIC ══ -->
+<!-- ══ INTRO CONTROLLER ══ -->
 <script>
 (function(){
-  if(typeof THREE === 'undefined') return;
+  const intro    = document.getElementById('logo-intro');
+  const logoWrap = document.getElementById('intro-logo-wrap');
+  const split    = document.getElementById('split');
+  const lang     = document.getElementById('idx-lang');
+  const s1=document.getElementById('s1'),s2=document.getElementById('s2'),s3=document.getElementById('s3');
 
-  const canvas   = document.getElementById('bg-canvas');
-  const scene    = new THREE.Scene();
-  const camera   = new THREE.PerspectiveCamera(70, innerWidth/innerHeight, 0.1, 2000);
-  const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
-  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-  renderer.setSize(innerWidth, innerHeight);
-
-  // ── PHASE CONTROL ──
-  // 0: warp  1: settle  2: ambient
-  let phase = 0, phaseT = 0;
-  camera.position.z = 80;
-
-  // ── WARP STARS ──
-  const WARP = 800;
-  const warpGeo = new THREE.BufferGeometry();
-  const warpPos = new Float32Array(WARP * 3);
-  const warpDir = [];
-  for(let i = 0; i < WARP; i++){
-    const theta = Math.random() * Math.PI * 2;
-    const phi   = Math.acos(2*Math.random()-1);
-    const r     = 0.5 + Math.random() * 3;
-    warpPos[i*3]   = Math.sin(phi)*Math.cos(theta)*r;
-    warpPos[i*3+1] = Math.sin(phi)*Math.sin(theta)*r;
-    warpPos[i*3+2] = Math.cos(phi)*r + camera.position.z;
-    warpDir.push({
-      x: (warpPos[i*3])   * 0.18,
-      y: (warpPos[i*3+1]) * 0.18,
-      z: -2.2 - Math.random()*1.5,
-    });
-  }
-  warpGeo.setAttribute('position', new THREE.BufferAttribute(warpPos, 3));
-  const warpMat = new THREE.PointsMaterial({
-    color:0xFFFFFF, size:0.08,
-    transparent:true, opacity:0.85,
-    blending: THREE.AdditiveBlending, depthWrite:false
-  });
-  const warpPts = new THREE.Points(warpGeo, warpMat);
-  scene.add(warpPts);
-
-  // ── AMBIENT STARS ──
-  const STARS = 1200;
-  const starGeo = new THREE.BufferGeometry();
-  const starPos = new Float32Array(STARS * 3);
-  for(let i=0;i<STARS;i++){
-    starPos[i*3]   = (Math.random()-.5)*120;
-    starPos[i*3+1] = (Math.random()-.5)*80;
-    starPos[i*3+2] = (Math.random()-.5)*80 - 10;
-  }
-  starGeo.setAttribute('position', new THREE.BufferAttribute(starPos,3));
-  const starMat = new THREE.PointsMaterial({
-    color:0xFFFFFF, size:0.055,
-    transparent:true, opacity:0,
-    blending:THREE.AdditiveBlending, depthWrite:false
-  });
-  scene.add(new THREE.Points(starGeo, starMat));
-
-  // ── GOLD RINGS (orbit) ──
-  const rings = [];
-  const ringCols = [0xC9A93C, 0xDDB84A, 0xA08020];
-  [4.5, 6.5, 8.8].forEach((r,i)=>{
-    const N=200, g=new THREE.BufferGeometry();
-    const p=new Float32Array(N*3);
-    for(let j=0;j<N;j++){
-      const a=(j/N)*Math.PI*2;
-      p[j*3]=Math.cos(a)*r;
-      p[j*3+1]=Math.sin(a)*r*0.18+Math.sin(a*4)*.28;
-      p[j*3+2]=Math.sin(a)*r*(i*.2);
-    }
-    g.setAttribute('position',new THREE.BufferAttribute(p,3));
-    const m=new THREE.PointsMaterial({
-      color:ringCols[i],size:i===1?.03:.018,
-      transparent:true,opacity:0,
-      blending:THREE.AdditiveBlending,depthWrite:false
-    });
-    const pts=new THREE.Points(g,m);
-    scene.add(pts);
-    rings.push({pts,speed:.09+i*.06,offset:i*Math.PI*.6,mat:m});
-  });
-
-  // ── GOLD NEBULA PARTICLES ──
-  const NEB=500;
-  const nebGeo=new THREE.BufferGeometry();
-  const nebPos=new Float32Array(NEB*3);
-  const nebVel=[];
-  for(let i=0;i<NEB;i++){
-    nebPos[i*3]  =(Math.random()-.5)*30;
-    nebPos[i*3+1]=(Math.random()-.5)*20;
-    nebPos[i*3+2]=(Math.random()-.5)*12-5;
-    nebVel.push({x:(Math.random()-.5)*.001,y:(Math.random()-.5)*.001+.0003});
-  }
-  nebGeo.setAttribute('position',new THREE.BufferAttribute(nebPos,3));
-  const nebMat=new THREE.PointsMaterial({
-    color:0xC9A93C,size:.02,transparent:true,opacity:0,
-    blending:THREE.AdditiveBlending,depthWrite:false
-  });
-  scene.add(new THREE.Points(nebGeo,nebMat));
-
-  // ── MOUSE ──
-  let mx=0, my=0;
-  document.addEventListener('mousemove',e=>{
-    mx=(e.clientX/innerWidth-.5);
-    my=(e.clientY/innerHeight-.5);
-  });
-
-  // ── LOGO REVEAL TRIGGER ──
-  let logoRevealed=false;
-  function revealLogo(){
-    if(logoRevealed)return;
-    logoRevealed=true;
-    const wrap=document.getElementById('logo-img-wrap');
-    const tag=document.getElementById('logo-tagline');
-    wrap.classList.add('show');
-    tag.classList.add('show');
-
-    // pulse rings
-    setTimeout(()=>{
-      const intro=document.getElementById('logo-intro');
-      for(let i=0;i<3;i++){
-        setTimeout(()=>{
-          const ring=document.createElement('div');
-          ring.className='pulse-ring';
-          intro.appendChild(ring);
-          setTimeout(()=>ring.remove(),2200);
-        },i*280);
-      }
-    },200);
-
-    // idle float after settle
-    setTimeout(()=>wrap.classList.add('idle'),1500);
-  }
-
-  // ── UI REVEAL ──
-  let uiRevealed=false;
   function revealUI(){
-    if(uiRevealed)return;
-    uiRevealed=true;
-    // Fade rings + nebula in
-    rings.forEach(r=>r.mat.opacity=0);
-    nebMat.opacity=0;
-    starMat.opacity=0;
+    intro.classList.add('fade-out');
+    split.classList.add('show');
+    lang.classList.add('show');
+    setTimeout(()=>intro.style.display='none', 1400);
+  }
 
+  // ── 재방문자: 인트로 스킵 ──
+  const seen = sessionStorage.getItem('mw-intro');
+  if(seen){
+    intro.style.display='none';
+    split.classList.add('show');
+    lang.classList.add('show');
+    return;
+  }
+  sessionStorage.setItem('mw-intro','1');
+
+  // ── 첫 방문: 시네마틱 인트로 ──
+  // 로고 즉시 등장 (CSS만 사용, Three.js 기다리지 않음)
+  requestAnimationFrame(()=>{
     setTimeout(()=>{
-      document.getElementById('logo-intro').classList.add('hidden');
-      document.getElementById('split').classList.add('show');
-      document.getElementById('idx-lang').classList.add('show');
-    },1200);
-  }
+      logoWrap.classList.add('show');
 
-  // ── ANIMATE ──
-  let t=0;
-  function animate(){
-    requestAnimationFrame(animate);
-    t+=0.016;
-    phaseT+=0.016;
+      // 슬로건 stagger
+      setTimeout(()=>s1.classList.add('show'), 500);
+      setTimeout(()=>s2.classList.add('show'), 750);
+      setTimeout(()=>s3.classList.add('show'), 1000);
 
-    if(phase===0){
-      // WARP PHASE (0 - 2.8s)
-      const wp=warpGeo.attributes.position.array;
-      for(let i=0;i<WARP;i++){
-        wp[i*3]  +=warpDir[i].x;
-        wp[i*3+1]+=warpDir[i].y;
-        wp[i*3+2]+=warpDir[i].z;
-        // reset if too close
-        if(wp[i*3+2]<-5){
-          const theta=Math.random()*Math.PI*2;
-          const phi=Math.acos(2*Math.random()-1);
-          const r=0.3+Math.random()*2;
-          wp[i*3]  =Math.sin(phi)*Math.cos(theta)*r;
-          wp[i*3+1]=Math.sin(phi)*Math.sin(theta)*r;
-          wp[i*3+2]=50+Math.random()*30;
+      // 펄스 링 3개
+      setTimeout(()=>{
+        for(let i=0;i<3;i++){
+          setTimeout(()=>{
+            const r=document.createElement('div');
+            r.className='pulse-ring';
+            r.style.top='50%';r.style.left='50%';
+            r.style.marginTop='-90px';r.style.marginLeft='-90px';
+            r.style.position='absolute';
+            intro.appendChild(r);
+            setTimeout(()=>r.remove(),2000);
+          },i*300);
         }
-      }
-      warpGeo.attributes.position.needsUpdate=true;
+      },400);
 
-      // Camera fly-in
-      const targetZ=6;
-      camera.position.z+=(targetZ-camera.position.z)*0.028;
+      // 로고 둥둥
+      setTimeout(()=>logoWrap.classList.add('idle'),1200);
 
-      if(phaseT>2.8){phase=1;phaseT=0;}
-
-    } else if(phase===1){
-      // SETTLE (slow warp, reveal logo)
-      const wp=warpGeo.attributes.position.array;
-      const slowFactor=Math.max(0,1-phaseT/1.2);
-      for(let i=0;i<WARP;i++){
-        wp[i*3]  +=warpDir[i].x*slowFactor*.3;
-        wp[i*3+1]+=warpDir[i].y*slowFactor*.3;
-        wp[i*3+2]+=warpDir[i].z*slowFactor*.3;
-      }
-      warpGeo.attributes.position.needsUpdate=true;
-      warpMat.opacity=Math.max(0,0.85-phaseT*0.7);
-
-      camera.position.z+=(5.5-camera.position.z)*0.05;
-
-      if(phaseT>0.3&&!logoRevealed) revealLogo();
-      if(phaseT>1.5){phase=2;phaseT=0;}
-
-    } else {
-      // AMBIENT
-      warpMat.opacity=Math.max(0,warpMat.opacity-0.02);
-
-      // Fade in ambient elements
-      starMat.opacity=Math.min(.22,starMat.opacity+.003);
-      nebMat.opacity=Math.min(.2,nebMat.opacity+.002);
-      rings.forEach(r=>{r.mat.opacity=Math.min(r===rings[1]?.5:.28,r.mat.opacity+.004)});
-
-      // Ring orbit
-      rings.forEach(r=>{
-        r.pts.rotation.z=t*r.speed+r.offset;
-        r.pts.rotation.x=Math.sin(t*.15+r.offset)*.12;
-      });
-
-      // Nebula drift
-      const np=nebGeo.attributes.position.array;
-      for(let i=0;i<NEB;i++){
-        np[i*3]  +=nebVel[i].x;
-        np[i*3+1]+=nebVel[i].y;
-        if(np[i*3+1]>10)np[i*3+1]=-10;
-        if(Math.abs(np[i*3])>15)np[i*3]*=-1;
-      }
-      nebGeo.attributes.position.needsUpdate=true;
-
-      if(phaseT>1&&!uiRevealed) revealUI();
-
-      // Camera parallax
-      camera.position.x+=(mx*.5-camera.position.x)*.03;
-      camera.position.y+=(-my*.3-camera.position.y)*.03;
-    }
-
-    camera.lookAt(scene.position);
-    renderer.render(scene,camera);
-  }
-  animate();
-
-  window.addEventListener('resize',()=>{
-    camera.aspect=innerWidth/innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(innerWidth,innerHeight);
+      // UI 등장
+      setTimeout(revealUI, 3200);
+    },80);
   });
+})();
+</script>
+
+<!-- ══ THREE.JS 비동기 로드 (인트로 딜레이 없음) ══ -->
+<script>
+(function(){
+  const s=document.createElement('script');
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  s.onload=initScene;
+  document.head.appendChild(s);
+
+  function initScene(){
+    const canvas=document.getElementById('bg-canvas');
+    if(!canvas||typeof THREE==='undefined')return;
+
+    const scene=new THREE.Scene();
+    const cam=new THREE.PerspectiveCamera(70,innerWidth/innerHeight,.1,2000);
+    const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+    renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+    renderer.setSize(innerWidth,innerHeight);
+
+    // ── WARP STARS ──
+    const seen=sessionStorage.getItem('mw-intro-3d');
+    const doWarp=!seen;
+    sessionStorage.setItem('mw-intro-3d','1');
+
+    const WARP=700;
+    const wGeo=new THREE.BufferGeometry();
+    const wPos=new Float32Array(WARP*3);
+    const wDir=[];
+    cam.position.z=doWarp?80:6;
+
+    for(let i=0;i<WARP;i++){
+      const th=Math.random()*Math.PI*2,ph=Math.acos(2*Math.random()-1);
+      const r=.3+Math.random()*2.5;
+      wPos[i*3]  =Math.sin(ph)*Math.cos(th)*r;
+      wPos[i*3+1]=Math.sin(ph)*Math.sin(th)*r;
+      wPos[i*3+2]=Math.cos(ph)*r+(doWarp?cam.position.z:6);
+      wDir.push({x:wPos[i*3]*.16,y:wPos[i*3+1]*.16,z:-2-Math.random()*1.4});
+    }
+    wGeo.setAttribute('position',new THREE.BufferAttribute(wPos,3));
+    const wMat=new THREE.PointsMaterial({color:0xFFFFFF,size:.07,transparent:true,opacity:doWarp?.9:0,blending:THREE.AdditiveBlending,depthWrite:false});
+    scene.add(new THREE.Points(wGeo,wMat));
+
+    // ── AMBIENT STARS ──
+    const STARS=1400;
+    const sGeo=new THREE.BufferGeometry();
+    const sPos=new Float32Array(STARS*3);
+    for(let i=0;i<STARS;i++){sPos[i*3]=(Math.random()-.5)*140;sPos[i*3+1]=(Math.random()-.5)*90;sPos[i*3+2]=(Math.random()-.5)*90-10;}
+    sGeo.setAttribute('position',new THREE.BufferAttribute(sPos,3));
+    const sMat=new THREE.PointsMaterial({color:0xFFFFFF,size:.05,transparent:true,opacity:doWarp?0:.2,blending:THREE.AdditiveBlending,depthWrite:false});
+    scene.add(new THREE.Points(sGeo,sMat));
+
+    // ── GOLD RINGS ──
+    const rings=[];
+    [4.5,6.5,9].forEach((r,i)=>{
+      const N=220,g=new THREE.BufferGeometry(),p=new Float32Array(N*3);
+      for(let j=0;j<N;j++){const a=(j/N)*Math.PI*2;p[j*3]=Math.cos(a)*r;p[j*3+1]=Math.sin(a)*r*.18+Math.sin(a*4)*.28;p[j*3+2]=Math.sin(a)*r*(i*.2);}
+      g.setAttribute('position',new THREE.BufferAttribute(p,3));
+      const m=new THREE.PointsMaterial({color:[0xC9A93C,0xDDB84A,0xA08020][i],size:i===1?.028:.018,transparent:true,opacity:doWarp?0:[.28,.5,.25][i],blending:THREE.AdditiveBlending,depthWrite:false});
+      const pts=new THREE.Points(g,m);
+      scene.add(pts);
+      rings.push({pts,speed:.09+i*.06,offset:i*Math.PI*.6,mat:m,target:[.28,.5,.25][i]});
+    });
+
+    // ── NEBULA ──
+    const NEB=500,nGeo=new THREE.BufferGeometry(),nPos=new Float32Array(NEB*3),nVel=[];
+    for(let i=0;i<NEB;i++){nPos[i*3]=(Math.random()-.5)*32;nPos[i*3+1]=(Math.random()-.5)*22;nPos[i*3+2]=(Math.random()-.5)*14-5;nVel.push({x:(Math.random()-.5)*.001,y:(Math.random()-.5)*.001+.0003});}
+    nGeo.setAttribute('position',new THREE.BufferAttribute(nPos,3));
+    const nMat=new THREE.PointsMaterial({color:0xC9A93C,size:.02,transparent:true,opacity:doWarp?0:.18,blending:THREE.AdditiveBlending,depthWrite:false});
+    scene.add(new THREE.Points(nGeo,nMat));
+
+    let mx=0,my=0;
+    document.addEventListener('mousemove',e=>{mx=(e.clientX/innerWidth-.5);my=(e.clientY/innerHeight-.5);});
+
+    // phase: 0=warp 1=settle 2=ambient
+    let phase=doWarp?0:2, phaseT=0, t=0;
+
+    function tick(){
+      requestAnimationFrame(tick);
+      t+=.016; phaseT+=.016;
+
+      if(phase===0){
+        // WARP
+        const wp=wGeo.attributes.position.array;
+        for(let i=0;i<WARP;i++){
+          wp[i*3]+=wDir[i].x;wp[i*3+1]+=wDir[i].y;wp[i*3+2]+=wDir[i].z;
+          if(wp[i*3+2]<-5){const th=Math.random()*Math.PI*2,ph2=Math.acos(2*Math.random()-1),r=.3+Math.random()*2;wp[i*3]=Math.sin(ph2)*Math.cos(th)*r;wp[i*3+1]=Math.sin(ph2)*Math.sin(th)*r;wp[i*3+2]=60+Math.random()*20;}
+        }
+        wGeo.attributes.position.needsUpdate=true;
+        cam.position.z+=(6-cam.position.z)*.025;
+        if(phaseT>2.8){phase=1;phaseT=0;}
+
+      }else if(phase===1){
+        // SETTLE
+        const f=Math.max(0,1-phaseT/1.2);
+        const wp=wGeo.attributes.position.array;
+        for(let i=0;i<WARP;i++){wp[i*3]+=wDir[i].x*f*.25;wp[i*3+1]+=wDir[i].y*f*.25;wp[i*3+2]+=wDir[i].z*f*.25;}
+        wGeo.attributes.position.needsUpdate=true;
+        wMat.opacity=Math.max(0,wMat.opacity-.012);
+        cam.position.z+=(5.5-cam.position.z)*.04;
+        if(phaseT>1.6){phase=2;phaseT=0;}
+
+      }else{
+        // AMBIENT
+        wMat.opacity=Math.max(0,wMat.opacity-.008);
+        sMat.opacity=Math.min(.2,sMat.opacity+.002);
+        nMat.opacity=Math.min(.18,nMat.opacity+.002);
+        rings.forEach(r=>{r.mat.opacity=Math.min(r.target,r.mat.opacity+.003)});
+
+        rings.forEach(r=>{
+          r.pts.rotation.z=t*r.speed+r.offset;
+          r.pts.rotation.x=Math.sin(t*.14+r.offset)*.11;
+        });
+        const np=nGeo.attributes.position.array;
+        for(let i=0;i<NEB;i++){np[i*3]+=nVel[i].x;np[i*3+1]+=nVel[i].y;if(np[i*3+1]>11)np[i*3+1]=-11;if(Math.abs(np[i*3])>16)np[i*3]*=-1;}
+        nGeo.attributes.position.needsUpdate=true;
+      }
+
+      cam.position.x+=(mx*.5-cam.position.x)*.03;
+      cam.position.y+=(-my*.3-cam.position.y)*.03;
+      cam.lookAt(scene.position);
+      renderer.render(scene,cam);
+    }
+    tick();
+
+    window.addEventListener('resize',()=>{
+      cam.aspect=innerWidth/innerHeight;
+      cam.updateProjectionMatrix();
+      renderer.setSize(innerWidth,innerHeight);
+    });
+  }
 })();
 </script>
 
 <!-- ══ i18n ══ -->
 <script>
 const IDX_T={
-  ko:{
-    'studio-desc':'수많은 K-POP 아이돌·아티스트들이 사랑하는<br/>그 장비, 그 사운드, 그 손으로.<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>선정릉역 도보 40초 · KOMCA 등록 프로듀서',
-    'studio-cta-txt':'스튜디오 바로가기',
-    'lesson-desc':'현직 K-POP 프로듀서 1:1 레슨<br/>작곡 · 편곡 · 믹싱 · 프로듀싱<br/>강남 역삼동 스튜디오',
-    'lesson-cta-txt':'레슨 바로가기'
-  },
-  en:{
-    'studio-desc':'Where countless K-POP idols & artists\' music was born.<br/>Same gear. Same sound. Same hands.<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>40 sec from Seonjeongneung Stn. · KOMCA-registered producer',
-    'studio-cta-txt':'Enter Studio',
-    'lesson-desc':'1-on-1 lessons with an active K-POP producer<br/>Composition · Arrangement · Mixing · Producing<br/>Gangnam, Seoul Studio',
-    'lesson-cta-txt':'Explore Lessons'
-  },
-  ja:{
-    'studio-desc':'数々のK-POPアイドル・アーティストが愛した<br/>その機材、そのサウンド、その手で。<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>宣靖陵駅から徒歩40秒 · KOMCA登録プロデューサー',
-    'studio-cta-txt':'スタジオへ進む',
-    'lesson-desc':'現役K-POPプロデューサーによる1対1レッスン<br/>作曲 · 編曲 · ミックス · プロデュース<br/>ソウル江南スタジオ',
-    'lesson-cta-txt':'レッスンへ進む'
-  }
+  ko:{'studio-desc':'수많은 K-POP 아이돌·아티스트들이 사랑하는<br/>그 장비, 그 사운드, 그 손으로.<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>선정릉역 도보 40초 · KOMCA 등록 프로듀서','studio-cta-txt':'스튜디오 바로가기','lesson-desc':'현직 K-POP 프로듀서 1:1 레슨<br/>작곡 · 편곡 · 믹싱 · 프로듀싱<br/>강남 역삼동 스튜디오','lesson-cta-txt':'레슨 바로가기'},
+  en:{'studio-desc':'Where countless K-POP idols & artists\' music was born.<br/>Same gear. Same sound. Same hands.<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>40 sec from Seonjeongneung Stn. · KOMCA-registered producer','studio-cta-txt':'Enter Studio','lesson-desc':'1-on-1 lessons with an active K-POP producer<br/>Composition · Arrangement · Mixing · Producing<br/>Gangnam, Seoul Studio','lesson-cta-txt':'Explore Lessons'},
+  ja:{'studio-desc':'数々のK-POPアイドル・アーティストが愛した<br/>その機材、そのサウンド、その手で。<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>宣靖陵駅から徒歩40秒 · KOMCA登録プロデューサー','studio-cta-txt':'スタジオへ進む','lesson-desc':'現役K-POPプロデューサーによる1対1レッスン<br/>作曲 · 編曲 · ミックス · プロデュース<br/>ソウル江南スタジオ','lesson-cta-txt':'レッスンへ進む'}
 };
 function idxLang(lang){
   try{localStorage.setItem('mw-lang',lang);}catch(e){}
-  document.querySelectorAll('#idx-lang button').forEach(b=>{
-    b.classList.toggle('on',b.textContent.trim().toLowerCase()===lang||(lang==='ja'&&b.textContent.trim()==='JP'));
-  });
+  document.querySelectorAll('#idx-lang button').forEach(b=>{b.classList.toggle('on',b.textContent.trim().toLowerCase()===lang||(lang==='ja'&&b.textContent.trim()==='JP'));});
   const t=IDX_T[lang]||IDX_T.ko;
   const sd=document.getElementById('studio-desc');if(sd)sd.innerHTML=t['studio-desc'];
   const sc=document.getElementById('studio-cta');if(sc)sc.innerHTML=t['studio-cta-txt']+' <span class="side-cta-arrow">→</span>';
