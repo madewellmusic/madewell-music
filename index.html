@@ -28,126 +28,88 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:'Montserrat',s
 .lbx-b.hide{transform:translateY(100%)}
 
 /* ════════════════════════
-   IMPACT FLASH
+   PARTICLE INTRO CANVAS
 ════════════════════════ */
-#impact-flash{
-  position:fixed;inset:0;z-index:68;pointer-events:none;opacity:0;
-  background:radial-gradient(ellipse 90% 70% at 50% 48%,
-    rgba(255,248,200,1) 0%,rgba(228,195,68,.75) 25%,
-    rgba(201,169,60,.3) 55%,transparent 78%);
+#particle-canvas{
+  position:fixed;inset:0;z-index:56;pointer-events:none;
+  opacity:1;transition:opacity 1.6s cubic-bezier(.4,0,.2,1);
 }
-@keyframes impactBurst{
-  0%  {opacity:0;transform:scale(.25)}
-  18% {opacity:1;transform:scale(1.04)}
-  100%{opacity:0;transform:scale(1.3)}
+#particle-canvas.fade-out{opacity:0}
+
+/* ════════════════════════
+   CINEMATIC FLASH
+════════════════════════ */
+#intro-flash{
+  position:fixed;inset:0;z-index:62;pointer-events:none;opacity:0;
+  background:radial-gradient(ellipse 55% 45% at 50% 50%,
+    rgba(255,252,230,1) 0%,rgba(230,195,70,.7) 28%,
+    rgba(180,140,30,.25) 55%,transparent 78%);
+}
+@keyframes flashBurst{
+  0%  {opacity:0;transform:scale(.3)}
+  12% {opacity:1;transform:scale(1.05)}
+  100%{opacity:0;transform:scale(2.2)}
 }
 
 /* ════════════════════════
-   CINEMATIC INTRO
+   SHOCK RINGS
 ════════════════════════ */
-#logo-intro{
-  position:fixed;inset:0;z-index:58;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
+.shock-ring{
+  position:fixed;top:50%;left:50%;
+  width:10px;height:10px;margin:-5px 0 0 -5px;
+  border-radius:50%;border:1.5px solid rgba(201,169,60,.95);
+  z-index:63;pointer-events:none;
+  animation:shockwave 2s cubic-bezier(.08,.65,.15,1) forwards;
+}
+@keyframes shockwave{
+  0%  {transform:scale(0);opacity:1;border-color:rgba(255,245,190,.98);border-width:2.5px}
+  40% {opacity:.55;border-color:rgba(201,169,60,.6)}
+  100%{transform:scale(220);opacity:0;border-color:rgba(201,169,60,0)}
+}
+
+/* ════════════════════════
+   SLOGAN SLAM
+════════════════════════ */
+#intro-slogan-wrap{
+  position:fixed;
+  top:50%;left:0;right:0;
+  margin-top:90px;
+  z-index:65;
+  display:flex;align-items:center;justify-content:center;
   pointer-events:none;
+  transition:opacity 1.2s ease;
 }
-#logo-intro.fade-out{opacity:0;transition:opacity 1.3s cubic-bezier(.4,0,.2,1)}
-
-/* 스캔라인 (인트로 전용) */
-#logo-intro::before{
-  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
-  background:repeating-linear-gradient(0deg,transparent 0px,transparent 3px,rgba(0,0,0,.1) 3px,rgba(0,0,0,.1) 4px);
-  opacity:1;transition:opacity 1s ease 2s;
+.sw{
+  font-family:'Montserrat',sans-serif;font-weight:800;
+  font-size:clamp(12px,1.6vw,22px);
+  letter-spacing:.65em;text-transform:uppercase;
+  color:transparent;opacity:0;
+  transform:scaleX(1.7) translateY(0);
+  display:inline-block;
+  will-change:transform,opacity,color;
 }
-#logo-intro.fade-out::before{opacity:0}
-
-/* INTRO LOGO */
-#intro-logo-wrap{
-  position:relative;z-index:2;
-  opacity:0;transform:scale(.55);
+.sw.slam{
+  color:rgba(255,255,255,.93);opacity:1;
+  transform:scaleX(1) translateY(0);
+  text-shadow:0 0 45px rgba(201,169,60,1),0 0 90px rgba(201,169,60,.55),0 0 180px rgba(201,169,60,.2);
+  transition:transform .28s cubic-bezier(.16,1,.3,1),
+             opacity .18s ease,color .18s ease,text-shadow .18s ease;
 }
-#intro-logo-wrap.show{opacity:1;transform:scale(1)}
-#intro-logo-wrap img{
-  height:130px;width:auto;display:block;
-  filter:brightness(0) invert(1) drop-shadow(0 0 44px rgba(201,169,60,.9));
+.sw.dim{
+  color:rgba(255,255,255,.38);opacity:1;
+  transform:scaleX(1);
+  text-shadow:0 0 18px rgba(201,169,60,.3);
+  transition:color .9s ease,text-shadow .9s ease;
 }
-
-/* 3D 우주 비행 로고 등장 — Interstellar 스타일 */
-@keyframes logo3DFlyIn{
-  0%{
-    transform:perspective(500px) translateZ(-5000px) rotateY(22deg) rotateX(-10deg);
-    opacity:0;
-    filter:brightness(0) invert(1) blur(24px);
-  }
-  12%{
-    opacity:.15;
-    filter:brightness(0) invert(1) blur(14px);
-  }
-  30%{
-    opacity:.7;
-    filter:brightness(0) invert(1) blur(5px);
-    transform:perspective(500px) translateZ(-800px) rotateY(10deg) rotateX(-4deg);
-  }
-  50%{
-    /* 피크 접근 — 크로마틱 어버레이션 */
-    transform:perspective(500px) translateZ(90px) rotateY(-4deg) rotateX(3deg);
-    opacity:1;
-    filter:brightness(8) invert(1) blur(0px)
-      drop-shadow(-12px 0 16px rgba(255,30,30,1))
-      drop-shadow(12px  0 16px rgba(30,30,255,1))
-      drop-shadow(0 0 100px rgba(255,255,255,.7));
-  }
-  64%{
-    transform:perspective(500px) translateZ(20px) rotateY(1.5deg) rotateX(-1deg);
-    filter:brightness(0) invert(1)
-      drop-shadow(-3px 0 6px rgba(255,30,30,.4))
-      drop-shadow(3px  0 6px rgba(30,30,255,.4))
-      drop-shadow(0 0 60px rgba(201,169,60,1));
-  }
-  78%{
-    transform:perspective(500px) translateZ(-12px) rotateY(-0.5deg) rotateX(0.3deg);
-    filter:brightness(0) invert(1) drop-shadow(0 0 50px rgba(201,169,60,.85));
-  }
-  90%{transform:perspective(500px) translateZ(4px) rotateY(0deg) rotateX(0deg);}
-  100%{
-    transform:perspective(500px) translateZ(0px) rotateY(0deg) rotateX(0deg);
-    filter:brightness(0) invert(1) drop-shadow(0 0 44px rgba(201,169,60,.88));
-  }
+.sw-sep{
+  font-family:'Montserrat',sans-serif;font-weight:300;
+  font-size:clamp(10px,1.2vw,16px);
+  color:rgba(201,169,60,0);
+  margin:0 clamp(8px,1.4vw,20px);
+  opacity:0;letter-spacing:.1em;
+  transition:opacity .5s ease,color .5s ease;
 }
-
-/* SLOGAN */
-#intro-slogan{
-  position:relative;z-index:2;
-  margin-top:36px;display:flex;gap:0;
-  font-size:11px;letter-spacing:.55em;text-transform:uppercase;font-weight:600;
-}
-#intro-slogan span{
-  display:inline-block;opacity:0;transform:translateY(14px);
-  transition:opacity .75s ease,transform .75s cubic-bezier(.16,1,.3,1);
-  color:rgba(255,255,255,.28);
-}
-#intro-slogan span.show{opacity:1;transform:translateY(0)}
-
-/* PULSE RINGS */
-@keyframes ringPulse{
-  0%  {transform:scale(.35);opacity:1;border-color:rgba(201,169,60,.95)}
-  100%{transform:scale(3.6);opacity:0;border-color:rgba(201,169,60,0)}
-}
-.pulse-ring{
-  position:absolute;width:200px;height:200px;border-radius:50%;
-  border:1px solid rgba(201,169,60,.8);
-  animation:ringPulse 2.2s cubic-bezier(.15,.6,.35,1) forwards;
-  pointer-events:none;z-index:1;
-  top:50%;left:50%;margin-top:-100px;margin-left:-100px;
-}
-
-/* LOGO IDLE */
-@keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-@keyframes logoGlow{
-  0%,100%{filter:brightness(0) invert(1) drop-shadow(0 0 18px rgba(201,169,60,.4))}
-  50%    {filter:brightness(0) invert(1) drop-shadow(0 0 60px rgba(201,169,60,1)) drop-shadow(0 0 115px rgba(201,169,60,.35))}
-}
-#intro-logo-wrap.idle{animation:logoFloat 4.2s ease-in-out infinite}
-#intro-logo-wrap.idle img{animation:logoGlow 3.4s ease-in-out infinite}
+.sw-sep.show{opacity:1;color:rgba(201,169,60,.72)}
 
 /* ════════════════════════
    SPLIT UI
@@ -268,19 +230,21 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:'Montserrat',s
 <div class="lbx lbx-t" id="lbx-t"></div>
 <div class="lbx lbx-b" id="lbx-b"></div>
 
-<!-- 임팩트 플래시 -->
-<div id="impact-flash"></div>
+<!-- 시네마틱 플래시 -->
+<div id="intro-flash"></div>
+
+<!-- 파티클 로고 어셈블리 캔버스 -->
+<canvas id="particle-canvas"></canvas>
 
 <canvas id="bg-canvas"></canvas>
 
-<!-- ── CINEMATIC INTRO ── -->
-<div id="logo-intro">
-  <div id="intro-logo-wrap">
-    <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL MUSIC"/>
-  </div>
-  <div id="intro-slogan">
-    <span id="s1">MUSIC,&nbsp;</span><span id="s2">MADE,&nbsp;</span><span id="s3">WELL</span>
-  </div>
+<!-- 슬로건 슬램 -->
+<div id="intro-slogan-wrap">
+  <span class="sw" id="sw1">MUSIC</span>
+  <span class="sw-sep" id="ssep1">·</span>
+  <span class="sw" id="sw2">MADE</span>
+  <span class="sw-sep" id="ssep2">·</span>
+  <span class="sw" id="sw3">WELL</span>
 </div>
 
 <!-- LANG -->
@@ -322,34 +286,29 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:'Montserrat',s
   </a>
 </div>
 
-<!-- ══ INTRO CONTROLLER ══ -->
+<!-- ══ PARTICLE INTRO ENGINE ══ -->
 <script>
 (function(){
-  const intro    = document.getElementById('logo-intro');
-  const logoWrap = document.getElementById('intro-logo-wrap');
-  const logoImg  = logoWrap.querySelector('img');
-  const flash    = document.getElementById('impact-flash');
-  const lbxT     = document.getElementById('lbx-t');
-  const lbxB     = document.getElementById('lbx-b');
-  const split    = document.getElementById('split');
-  const lang     = document.getElementById('idx-lang');
-  const s1=document.getElementById('s1'),s2=document.getElementById('s2'),s3=document.getElementById('s3');
+  /* ─── REFS ─── */
+  const pCv   = document.getElementById('particle-canvas');
+  const pCt   = pCv.getContext('2d');
+  const flash = document.getElementById('intro-flash');
+  const sw1   = document.getElementById('sw1');
+  const sw2   = document.getElementById('sw2');
+  const sw3   = document.getElementById('sw3');
+  const ssep1 = document.getElementById('ssep1');
+  const ssep2 = document.getElementById('ssep2');
+  const sWrap = document.getElementById('intro-slogan-wrap');
+  const lbxT  = document.getElementById('lbx-t');
+  const lbxB  = document.getElementById('lbx-b');
+  const split  = document.getElementById('split');
+  const lang   = document.getElementById('idx-lang');
 
-  function revealUI(){
-    lbxT.classList.add('hide');
-    lbxB.classList.add('hide');
-    setTimeout(()=>{
-      intro.classList.add('fade-out');
-      split.classList.add('show');
-      lang.classList.add('show');
-      setTimeout(()=>intro.style.display='none', 1500);
-    }, 200);
-  }
-
-  // ── 재방문자: 인트로 스킵 ──
+  /* ─── SKIP: 재방문자 ─── */
   const seen = sessionStorage.getItem('mw-intro');
   if(seen){
-    intro.style.display='none';
+    pCv.style.display='none';
+    sWrap.style.display='none';
     lbxT.classList.add('hide');
     lbxB.classList.add('hide');
     split.classList.add('show');
@@ -358,45 +317,276 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:'Montserrat',s
   }
   sessionStorage.setItem('mw-intro','1');
 
-  // ── 첫 방문: 시네마틱 인트로 ──
-  requestAnimationFrame(()=>{
+  /* ─── RESIZE ─── */
+  let W = pCv.width  = window.innerWidth;
+  let H = pCv.height = window.innerHeight;
 
-    // T=900ms → 임팩트 플래시 (하이퍼점프 도착)
-    setTimeout(()=>{
-      flash.style.animation='impactBurst 1.1s cubic-bezier(.22,.6,.36,1) forwards';
-      setTimeout(()=>{flash.style.animation='';flash.style.opacity='0';},1150);
-    }, 900);
+  /* ─── CONSTANTS ─── */
+  const PC = 1800;          // 파티클 수
+  const particles = [];
+  let phase = 'scatter';    // scatter | gather | locked | done
+  let gatherT = 0, raf;
+  let lockFired = false;
+  let logoBottom = H * 0.56; // 슬로건 위치 fallback
 
-    // T=1200ms → 로고 3D 우주 진입
-    setTimeout(()=>{
-      logoWrap.classList.add('show');
-      logoImg.style.animation='logo3DFlyIn 2.8s cubic-bezier(.16,1,.3,1) forwards';
-      // 3D 진입 끝나면 idle glow
-      setTimeout(()=>{
-        logoImg.style.animation='';
-        logoWrap.classList.add('idle');
-      }, 2900);
-    }, 1200);
+  /* ─── PARTICLE INIT ─── */
+  function initParticles(){
+    for(let i=0;i<PC;i++){
+      const ang = Math.random()*Math.PI*2;
+      const dst = H*0.25 + Math.random()*Math.max(W,H)*0.75;
+      particles.push({
+        x:  W/2 + Math.cos(ang)*dst,
+        y:  H/2 + Math.sin(ang)*dst*0.65,
+        vx: (Math.random()-.5)*2.8,
+        vy: (Math.random()-.5)*2.8,
+        tx: 0, ty: 0,
+        sz: 0.6 + Math.random()*1.5,
+        hue:36 + Math.random()*22,
+        spd:0.55 + Math.random()*0.9,
+        dly:Math.random()
+      });
+    }
+  }
 
-    // T=1400ms → 펄스 링 3발
-    setTimeout(()=>{
-      for(let i=0;i<3;i++){
-        setTimeout(()=>{
-          const r=document.createElement('div');
-          r.className='pulse-ring';
-          intro.appendChild(r);
-          setTimeout(()=>r.remove(),3000);
-        }, i*600);
+  /* ─── LOGO PIXEL SAMPLING ─── */
+  function loadTargets(cb){
+    const img = new Image();
+    img.src = 'images/MADEWELL MUSIC_LOGO_cropped.PNG';
+    const to = setTimeout(()=>cb(ellipseTargets()), 3500);
+
+    img.onload = function(){
+      clearTimeout(to);
+      try{
+        const sw=520, sh=Math.round(520*img.naturalHeight/img.naturalWidth);
+        const ofc=document.createElement('canvas');
+        ofc.width=sw; ofc.height=sh;
+        const oct=ofc.getContext('2d');
+        oct.drawImage(img,0,0,sw,sh);
+        const px=oct.getImageData(0,0,sw,sh).data;
+
+        /* 로고 표시 크기: 화면 너비 62%, 수직 중앙보다 약간 위 */
+        const lw = Math.min(W*0.62, 530);
+        const lh = lw*(sh/sw);
+        const lx = (W-lw)/2;
+        const ly = (H-lh)/2 - H*0.035;
+        logoBottom = ly + lh;
+
+        /* 슬로건 위치 실시간 세팅 */
+        sWrap.style.top = (logoBottom + 24)+'px';
+        sWrap.style.marginTop = '0';
+
+        const pts=[];
+        for(let y=0;y<sh;y++){
+          for(let x=0;x<sw;x++){
+            const i4=(y*sw+x)*4;
+            if(px[i4+3]>80 && Math.random()<0.20){
+              pts.push({
+                x: lx+(x/sw)*lw,
+                y: ly+(y/sh)*lh
+              });
+            }
+          }
+        }
+        if(pts.length<120){ cb(ellipseTargets()); return; }
+
+        /* 셔플 */
+        for(let i=pts.length-1;i>0;i--){
+          const j=Math.floor(Math.random()*(i+1));
+          [pts[i],pts[j]]=[pts[j],pts[i]];
+        }
+        cb(pts);
+      } catch(e){ cb(ellipseTargets()); }
+    };
+    img.onerror=()=>{ clearTimeout(to); cb(ellipseTargets()); };
+  }
+
+  function ellipseTargets(){
+    const pts=[], rx=Math.min(W*0.26,190), ry=rx*0.38, cx=W/2, cy=H/2;
+    for(let i=0;i<PC;i++){
+      const a=Math.random()*Math.PI*2, r=0.4+Math.random()*0.6;
+      pts.push({ x:cx+Math.cos(a)*rx*r, y:cy+Math.sin(a)*ry*r+(Math.random()-.5)*ry*1.8 });
+    }
+    return pts;
+  }
+
+  function assignTargets(tArr){
+    for(let i=0;i<PC;i++){
+      const t=tArr[i%tArr.length];
+      particles[i].tx=t.x;
+      particles[i].ty=t.y;
+    }
+  }
+
+  /* ─── RENDER LOOP ─── */
+  function draw(ts){
+    const elapsed=(ts-gatherT)/1000;
+
+    /* 모션 블러 트레일 */
+    pCt.fillStyle='rgba(0,0,0,0.20)';
+    pCt.fillRect(0,0,W,H);
+
+    let allClose=true;
+
+    for(const p of particles){
+
+      if(phase==='scatter'){
+        p.x += p.vx*0.22;
+        p.y += p.vy*0.22;
+        if(p.x<-120) p.x=W+120; if(p.x>W+120) p.x=-120;
+        if(p.y<-120) p.y=H+120; if(p.y>H+120) p.y=-120;
+
+        pCt.globalAlpha=0.18+Math.random()*0.18;
+        pCt.fillStyle=`hsl(${p.hue},55%,58%)`;
+        pCt.beginPath();
+        pCt.arc(p.x,p.y,p.sz*0.55,0,Math.PI*2);
+        pCt.fill();
+        allClose=false;
+
+      } else if(phase==='gather'){
+        const tp=Math.max(0,elapsed-p.dly*0.45);
+        const pp=Math.min(1,tp/1.6);
+        const ease=pp*pp*(3-2*pp); // smoothstep
+
+        /* 스프링 강도: 시간따라 exponential 증가 */
+        const spring=0.012+ease*ease*0.13*p.spd;
+        const friction=0.83+ease*0.09;
+
+        p.vx+=(p.tx-p.x)*spring;
+        p.vy+=(p.ty-p.y)*spring;
+        p.vx*=friction; p.vy*=friction;
+        p.x+=p.vx; p.y+=p.vy;
+
+        const dx=p.x-p.tx, dy=p.y-p.ty;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        const near=Math.max(0,1-dist/65);
+        if(dist>6) allClose=false;
+
+        const alpha=0.30+near*0.70;
+        const sz=p.sz*(1+near*2.2);
+
+        if(near>0.55){
+          pCt.shadowBlur=11;
+          pCt.shadowColor=`hsl(${p.hue+8},95%,72%)`;
+        }
+        pCt.globalAlpha=alpha;
+        pCt.fillStyle=near>0.35
+          ? `hsl(${p.hue+near*18},92%,78%)`
+          : `hsl(${p.hue},62%,58%)`;
+        pCt.beginPath();
+        pCt.arc(p.x,p.y,sz,0,Math.PI*2);
+        pCt.fill();
+        pCt.shadowBlur=0;
+
+      } else if(phase==='locked'){
+        /* 잠긴 상태: 펄스 글로우 */
+        const pulse=0.60+Math.sin(ts*0.0045+p.dly*Math.PI*2)*0.40;
+        pCt.globalAlpha=0.68*pulse;
+        pCt.shadowBlur=14;
+        pCt.shadowColor=`hsl(${p.hue},95%,72%)`;
+        pCt.fillStyle=`hsl(${p.hue+10},98%,84%)`;
+        pCt.beginPath();
+        pCt.arc(p.tx,p.ty,p.sz*1.6,0,Math.PI*2);
+        pCt.fill();
+        pCt.shadowBlur=0;
       }
-    }, 1400);
+    }
+    pCt.globalAlpha=1;
 
-    // T=2600ms → 슬로건 stagger
-    setTimeout(()=>s1.classList.add('show'), 2600);
-    setTimeout(()=>s2.classList.add('show'), 2900);
-    setTimeout(()=>s3.classList.add('show'), 3200);
+    /* gather → locked 자동전환 */
+    if(phase==='gather'){
+      if((allClose && elapsed>0.8) || elapsed>3.0){
+        phase='locked';
+        onLogoLocked();
+      }
+    }
 
-    // T=5200ms → UI 공개 + 레터박스 제거
-    setTimeout(revealUI, 5200);
+    if(phase!=='done') raf=requestAnimationFrame(draw);
+  }
+
+  /* ─── START GATHER ─── */
+  function startGather(){
+    phase='gather';
+    gatherT=performance.now();
+  }
+
+  /* ─── LOGO LOCKED: FLASH + 슬로건 + REVEAL ─── */
+  function onLogoLocked(){
+    if(lockFired) return;
+    lockFired=true;
+
+    /* 충격파 플래시 */
+    flash.style.animation='flashBurst .85s cubic-bezier(.22,.6,.36,1) forwards';
+    setTimeout(()=>{ flash.style.animation=''; flash.style.opacity='0'; }, 900);
+
+    /* 충격파 링 4발 */
+    for(let i=0;i<4;i++){
+      setTimeout(()=>{
+        const r=document.createElement('div');
+        r.className='shock-ring';
+        /* 링 원점: 로고 세로 중앙으로 보정 */
+        const midY=(logoBottom+H*0.35)/2;
+        r.style.top=midY+'px';
+        r.style.marginTop='0';
+        document.body.appendChild(r);
+        setTimeout(()=>r.remove(),2500);
+      }, i*320);
+    }
+
+    /* ── 슬로건 슬램 시퀀스 ── */
+    setTimeout(()=>{
+      /* MUSIC */
+      sw1.classList.add('slam');
+      /* · */
+      setTimeout(()=>ssep1.classList.add('show'), 280);
+      /* MADE */
+      setTimeout(()=>sw2.classList.add('slam'), 360);
+      /* · */
+      setTimeout(()=>ssep2.classList.add('show'), 650);
+      /* WELL — 제일 강하게 */
+      setTimeout(()=>{
+        sw3.classList.add('slam');
+        sw3.style.textShadow='0 0 60px rgba(201,169,60,1),0 0 120px rgba(201,169,60,.7),0 0 240px rgba(201,169,60,.25)';
+      }, 740);
+
+      /* 피크 후 dim */
+      setTimeout(()=>{
+        [sw1,sw2,sw3].forEach(s=>{
+          s.classList.remove('slam');
+          s.classList.add('dim');
+          s.style.textShadow='';
+        });
+        ssep1.style.opacity='0.3';
+        ssep2.style.opacity='0.3';
+      }, 1550);
+    }, 280);
+
+    /* ── UI 공개: 잠금 후 2.1s ── */
+    setTimeout(revealUI, 2100);
+  }
+
+  /* ─── REVEAL UI ─── */
+  function revealUI(){
+    lbxT.classList.add('hide');
+    lbxB.classList.add('hide');
+    setTimeout(()=>{
+      sWrap.style.opacity='0';
+      pCv.classList.add('fade-out');
+      split.classList.add('show');
+      lang.classList.add('show');
+      phase='done';
+      cancelAnimationFrame(raf);
+    }, 320);
+  }
+
+  /* ─── BOOT ─── */
+  initParticles();
+  loadTargets(function(tArr){
+    assignTargets(tArr);
+    /* 즉시 scatter 시작 */
+    gatherT=performance.now();
+    raf=requestAnimationFrame(draw);
+    /* 1600ms 후 gather 돌입 */
+    setTimeout(startGather, 1600);
   });
 })();
 </script>
