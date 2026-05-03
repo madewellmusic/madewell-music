@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<title>MADEWELL MUSIC — Gear List Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0c;display:flex;justify-content:center;align-items:flex-start;padding:40px;min-height:100vh}
+
+/* ── CARD ── */
+.card{
+  width:800px;
+  background:#0a0a0c;
+  position:relative;overflow:hidden;
+}
+
+/* 노이즈 레이어 */
+.noise{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px}
+
+/* ── HEADER ── */
+.gear-header{padding:52px 56px 36px;position:relative;z-index:2}
+.tag{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.28em;color:#C8A96E;text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.tag::after{content:'';width:28px;height:1px;background:rgba(200,169,110,.5)}
+h2.gear-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:68px;line-height:.92;color:#fff;letter-spacing:-.01em}
+
+/* ── PHOTO STRIP ── */
+.gear-photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;height:220px;margin:0}
+.gear-ph{overflow:hidden;position:relative}
+.gear-ph img{width:100%;height:100%;object-fit:cover;filter:contrast(1.14) brightness(0.82) saturate(0.78)}
+.gear-ph-cap{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:8px 14px;
+  background:linear-gradient(transparent,rgba(10,10,12,.6));
+  font-family:'Montserrat',sans-serif;font-size:7.5px;letter-spacing:.2em;color:rgba(255,255,255,.65);text-transform:uppercase}
+
+/* ── GEAR ALL GRID ── */
+.gear-all{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.05);position:relative;z-index:2}
+.ga-group{background:#0a0a0c;padding:22px 24px 24px}
+.ga-label{font-family:'Montserrat',sans-serif;font-size:7.5px;font-weight:700;letter-spacing:.22em;color:#C8A96E;text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(200,169,110,.15)}
+.ga-item{margin-bottom:10px}
+.ga-item:last-child{margin-bottom:0}
+.ga-name{font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:600;color:rgba(255,255,255,.88);letter-spacing:.02em;line-height:1.3}
+.ga-desc{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:400;color:rgba(255,255,255,.32);letter-spacing:.06em;margin-top:2px}
+
+/* ── PLUGINS ── */
+.plugins-row{background:#0a0a0c;padding:18px 24px;border-top:1px solid rgba(255,255,255,.05);position:relative;z-index:2}
+.plugins-label{font-family:'Montserrat',sans-serif;font-size:7.5px;font-weight:700;letter-spacing:.22em;color:#C8A96E;text-transform:uppercase;margin-bottom:10px}
+.plugin-tags{display:flex;flex-wrap:wrap;gap:5px}
+.ptag{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.38);
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:3px 10px}
+
+/* ── FOOTER ── */
+.gear-footer{padding:18px 56px 26px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.05)}
+.footer-loc{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:400;letter-spacing:.14em;color:rgba(255,255,255,.22);text-transform:uppercase;line-height:1.9}
+.footer-brand{text-align:right}
+.brand-name{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.28em;color:rgba(255,255,255,.42);text-transform:uppercase}
+.brand-sub{font-family:'Montserrat',sans-serif;font-size:7.5px;font-weight:400;letter-spacing:.16em;color:rgba(255,255,255,.2);text-transform:uppercase;margin-top:3px}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="noise"></div>
+
+  <!-- 헤더 -->
+  <div class="gear-header">
+    <div class="tag">Main Studio 'M Studio'</div>
+    <h2 class="gear-title">Gear<br/>List</h2>
+  </div>
+
+  <!-- 사진 스트립 -->
+  <div class="gear-photo-strip">
+    <div class="gear-ph">
+      <img src="images/GEAR 1_web.jpg" alt="Outboard Chain"/>
+      <div class="gear-ph-cap">Outboard Chain</div>
+    </div>
+    <div class="gear-ph">
+      <img src="images/GEAR 2.png" alt="Studio Gear"/>
+      <div class="gear-ph-cap">Studio Gear</div>
+    </div>
+    <div class="gear-ph">
+      <img src="images/GEAR 4.png" alt="Outboard & Monitors"/>
+      <div class="gear-ph-cap">Outboard &amp; Monitors</div>
+    </div>
+    <div class="gear-ph">
+      <img src="images/GEAR 5.png" alt="Reference Headphones"/>
+      <div class="gear-ph-cap">Reference Headphones</div>
+    </div>
+  </div>
+
+  <!-- 기어 그리드 -->
+  <div class="gear-all">
+
+    <div class="ga-group">
+      <div class="ga-label">AD/DA Converter</div>
+      <div class="ga-item"><div class="ga-name">LAVRY GOLD SAVITR</div><div class="ga-desc">Mastering Grade · Reference Quality</div></div>
+      <div class="ga-item"><div class="ga-name">AVID Pro Tools HD OMNI</div><div class="ga-desc">Full HD System · High Resolution</div></div>
+    </div>
+
+    <div class="ga-group">
+      <div class="ga-label">Mic Preamp</div>
+      <div class="ga-item"><div class="ga-name">AMS NEVE 1073 SPX</div><div class="ga-desc">Legendary British · Mic Pre / EQ</div></div>
+      <div class="ga-item"><div class="ga-name">AVID HD OMNI Preamp</div><div class="ga-desc">Pro Tools HD Integrated</div></div>
+    </div>
+
+    <div class="ga-group">
+      <div class="ga-label">Compressor / Limiter</div>
+      <div class="ga-item"><div class="ga-name">TUBE TECH CL1B</div><div class="ga-desc">Classic Opto · Smooth Character</div></div>
+      <div class="ga-item"><div class="ga-name">BETTERMAKER Mastering Limiter</div><div class="ga-desc">Pro Mastering Grade</div></div>
+      <div class="ga-item"><div class="ga-name">SSL FUSION Channelstrip</div><div class="ga-desc">Analogue Colouring · Warmth</div></div>
+    </div>
+
+    <div class="ga-group">
+      <div class="ga-label">EQ &amp; Mastering</div>
+      <div class="ga-item"><div class="ga-name">AUDIOSCAPE EQP-2A Pultec</div><div class="ga-desc">Passive Stereo · Smooth &amp; Musical</div></div>
+      <div class="ga-item"><div class="ga-name">SSL FUSION (EQ Section)</div><div class="ga-desc">High Frequency · Broad EQ</div></div>
+    </div>
+
+    <div class="ga-group">
+      <div class="ga-label">Microphone</div>
+      <div class="ga-item"><div class="ga-name">Neumann U87 Ai</div><div class="ga-desc">Large Diaphragm · Industry Standard</div></div>
+      <div class="ga-item"><div class="ga-name">Studio Set (Shock Mount)</div><div class="ga-desc">With Pop Filter · Full Recording Chain</div></div>
+    </div>
+
+    <div class="ga-group">
+      <div class="ga-label">Monitor Speakers</div>
+      <div class="ga-item"><div class="ga-name">BAREFOOT MicroMain 27</div><div class="ga-desc">AES/EBU &amp; Analogue · Mastering Grade</div></div>
+      <div class="ga-item"><div class="ga-name">YAMAHA HS-7</div><div class="ga-desc">Near-field Reference · 2nd Monitor</div></div>
+      <div class="ga-item"><div class="ga-name">AURATONE 5C</div><div class="ga-desc">Mono Check · Translation Reference</div></div>
+    </div>
+
+    <div class="ga-group">
+      <div class="ga-label">Monitor Control &amp; Metering</div>
+      <div class="ga-item"><div class="ga-name">SPL MTC 2381</div><div class="ga-desc">Professional Monitor Management</div></div>
+      <div class="ga-item"><div class="ga-name">CREDIT SOUND CS-82</div><div class="ga-desc">Multi-Channel Headphone Amp</div></div>
+      <div class="ga-item"><div class="ga-name">TC Electronic Clarity M</div><div class="ga-desc">Broadcast Grade · LUFS Monitoring</div></div>
+    </div>
+
+    <div class="ga-group">
+      <div class="ga-label">DAW &amp; Core Software</div>
+      <div class="ga-item"><div class="ga-name">Avid Pro Tools HDX</div><div class="ga-desc">Industry Standard DAW · Full HD System</div></div>
+      <div class="ga-item"><div class="ga-name">SONY MDR-7506</div><div class="ga-desc">Industry Standard Reference</div></div>
+    </div>
+
+    <!-- 플러그인 (3열 전체) -->
+    <div class="ga-group" style="grid-column:1/-1;padding:18px 24px">
+      <div class="ga-label" style="margin-bottom:10px">Plugins &amp; Software</div>
+      <div class="plugin-tags">
+        <span class="ptag">Universal Audio (UAD)</span>
+        <span class="ptag">WAVES</span>
+        <span class="ptag">Plugin Alliance</span>
+        <span class="ptag">Antares AutoTune</span>
+        <span class="ptag">Celemony Melodyne</span>
+        <span class="ptag">Brainworx</span>
+        <span class="ptag">SoundToys</span>
+        <span class="ptag">Valhalla DSP</span>
+        <span class="ptag">FabFilter</span>
+        <span class="ptag">iZotope</span>
+        <span class="ptag">Native Instruments</span>
+        <span class="ptag">Eventide</span>
+        <span class="ptag">TC Electronic</span>
+        <span class="ptag">TBProAudio</span>
+        <span class="ptag">Voxengo</span>
+        <span class="ptag">Nicky Romero</span>
+        <span class="ptag">Reveal Sound</span>
+        <span class="ptag">Dada Life</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 푸터 -->
+  <div class="gear-footer">
+    <div class="footer-loc">
+      선정릉역 도보 40초 · 강남구 역삼동<br/>
+      KOMCA 등록 100곡+ · K-POP Production Grade
+    </div>
+    <div class="footer-brand">
+      <div class="brand-name">MADEWELL</div>
+      <div class="brand-sub">Music Studio</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

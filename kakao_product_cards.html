@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<title>MADEWELL MUSIC — 카카오 예약상품 카드</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a1a;font-family:'Noto Sans KR',sans-serif;padding:40px}
+.guide{color:#888;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.1em;text-align:center;margin-bottom:32px;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:repeat(3,800px);gap:32px;width:fit-content;margin:0 auto}
+.card{width:800px;height:800px;position:relative;overflow:hidden;background:#080810;display:flex;flex-direction:column;justify-content:space-between;padding:64px}
+
+/* 배경 그라데이션 */
+.card::before{content:'';position:absolute;inset:0;pointer-events:none}
+.card.lesson-midi::before{background:radial-gradient(ellipse at 20% 20%,rgba(74,44,138,.45) 0%,transparent 60%),radial-gradient(ellipse at 80% 80%,rgba(74,44,138,.2) 0%,transparent 50%)}
+.card.lesson-vocal::before{background:radial-gradient(ellipse at 80% 20%,rgba(74,44,138,.4) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(74,44,138,.15) 0%,transparent 50%)}
+.card.mix-single::before{background:radial-gradient(ellipse at 30% 30%,rgba(200,169,110,.18) 0%,transparent 55%),radial-gradient(ellipse at 70% 70%,rgba(74,44,138,.3) 0%,transparent 55%)}
+.card.mix-multi::before{background:radial-gradient(ellipse at 70% 20%,rgba(200,169,110,.22) 0%,transparent 55%),radial-gradient(ellipse at 30% 80%,rgba(74,44,138,.3) 0%,transparent 55%)}
+.card.mastering::before{background:radial-gradient(ellipse at 50% 20%,rgba(200,169,110,.25) 0%,transparent 60%),radial-gradient(ellipse at 50% 80%,rgba(74,44,138,.2) 0%,transparent 50%)}
+.card.recording::before{background:radial-gradient(ellipse at 20% 50%,rgba(74,44,138,.4) 0%,transparent 55%),radial-gradient(ellipse at 80% 50%,rgba(200,169,110,.15) 0%,transparent 55%)}
+
+/* 격자 패턴 */
+.card::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:80px 80px}
+
+.card-inner{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;justify-content:space-between}
+
+/* 상단 태그 */
+.tag-row{display:flex;align-items:center;gap:14px}
+.tag{font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(200,169,110,.85)}
+.tag-line{height:1px;width:32px;background:rgba(200,169,110,.4)}
+.category{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
+/* 메인 타이틀 */
+.main-block{}
+.sub-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(200,169,110,.7);margin-bottom:16px}
+.title-ko{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:72px;line-height:.95;color:#fff;letter-spacing:-.01em;margin-bottom:8px}
+.title-ko em{font-style:italic;color:#C8A96E}
+.title-en{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:14px}
+
+/* 구분선 */
+.divider{width:100%;height:1px;background:linear-gradient(90deg,rgba(200,169,110,.4) 0%,rgba(255,255,255,.05) 100%);margin:28px 0}
+
+/* 피처 리스트 */
+.features{display:flex;flex-direction:column;gap:12px}
+.feature{display:flex;align-items:flex-start;gap:14px}
+.feat-dot{width:4px;height:4px;border-radius:50%;background:#C8A96E;margin-top:7px;flex-shrink:0}
+.feat-text{font-size:14px;color:rgba(255,255,255,.65);line-height:1.5;letter-spacing:.01em}
+.feat-text strong{color:rgba(255,255,255,.9);font-weight:500}
+
+/* 가격 + 브랜딩 */
+.bottom-row{display:flex;align-items:flex-end;justify-content:space-between}
+.price-block{}
+.price-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:rgba(200,169,110,.6);margin-bottom:8px}
+.price{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;color:#C8A96E;line-height:1}
+.price sub{font-size:14px;font-weight:300;color:rgba(200,169,110,.6);vertical-align:baseline;margin-left:4px;letter-spacing:.05em}
+.price-note{font-size:11px;color:rgba(255,255,255,.3);margin-top:6px;font-family:'Montserrat',sans-serif;letter-spacing:.05em}
+
+.brand-block{text-align:right}
+.brand-mw{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:.28em;color:rgba(255,255,255,.5);text-transform:uppercase}
+.brand-sub{font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:400;letter-spacing:.18em;color:rgba(255,255,255,.25);text-transform:uppercase;margin-top:4px}
+
+/* 장식 원 */
+.deco-circle{position:absolute;border-radius:50%;pointer-events:none}
+.dc1{width:320px;height:320px;right:-80px;top:-80px;border:1px solid rgba(74,44,138,.18)}
+.dc2{width:200px;height:200px;right:-20px;top:-20px;border:1px solid rgba(74,44,138,.1)}
+.dc3{width:160px;height:160px;left:-40px;bottom:-40px;border:1px solid rgba(200,169,110,.08)}
+
+/* 코너 브라켓 */
+.corner{position:absolute;width:24px;height:24px}
+.corner.tl{top:24px;left:24px;border-top:1px solid rgba(200,169,110,.3);border-left:1px solid rgba(200,169,110,.3)}
+.corner.tr{top:24px;right:24px;border-top:1px solid rgba(200,169,110,.3);border-right:1px solid rgba(200,169,110,.3)}
+.corner.bl{bottom:24px;left:24px;border-bottom:1px solid rgba(200,169,110,.3);border-left:1px solid rgba(200,169,110,.3)}
+.corner.br{bottom:24px;right:24px;border-bottom:1px solid rgba(200,169,110,.3);border-right:1px solid rgba(200,169,110,.3)}
+
+/* KAKAO 채널 문의 배지 */
+.kakao-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(254,229,0,.12);border:1px solid rgba(254,229,0,.2);padding:7px 16px;margin-top:14px}
+.kakao-badge span{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(254,229,0,.8)}
+.kakao-dot{width:6px;height:6px;border-radius:50%;background:#FEE500}
+</style>
+</head>
+<body>
+
+<p class="guide">각 카드를 800×800 기준으로 스크린샷 — 카카오 채널 상품 이미지로 사용</p>
+
+<div class="grid">
+
+<!-- 01 미디·작곡 레슨 -->
+<div class="card lesson-midi">
+  <div class="deco-circle dc1"></div>
+  <div class="deco-circle dc2"></div>
+  <div class="deco-circle dc3"></div>
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+  <div class="card-inner">
+    <div class="tag-row">
+      <span class="tag">1:1 레슨</span>
+      <span class="tag-line"></span>
+      <span class="category">MIDI · 작곡 · 프로듀싱</span>
+    </div>
+    <div class="main-block">
+      <div class="sub-label">K-POP 프로듀서 직강</div>
+      <div class="title-ko">미디·작곡<br/><em>레슨</em></div>
+      <div class="title-en">Composition · Production Lesson</div>
+      <div class="divider"></div>
+      <div class="features">
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text"><strong>NEVE · SSL · Pro Tools HDX</strong> 실제 아이돌 음악 제작 환경에서 배웁니다</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">기초 입문부터 <strong>실전 프로 데뷔</strong> 레벨까지 맞춤 설계</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">수업 중 만든 곡 <strong>본인 명의 발매 가능</strong></div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">KOMCA 등록 100곡+ · PRODUCE 101 JAPAN · VIVIZ 등 <strong>실적 강사 직접 지도</strong></div></div>
+      </div>
+      <div class="kakao-badge"><div class="kakao-dot"></div><span>카카오 채널 문의 후 예약</span></div>
+    </div>
+    <div class="bottom-row">
+      <div class="price-block">
+        <div class="price-label">Starting From</div>
+        <div class="price">문의<sub>/ 1회</sub></div>
+        <div class="price-note">체험 수업 · 정기 레슨 패키지 가능</div>
+      </div>
+      <div class="brand-block">
+        <div class="brand-mw">MADEWELL</div>
+        <div class="brand-sub">MUSIC STUDIO · 강남 선정릉역</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 02 보컬 레슨 -->
+<div class="card lesson-vocal">
+  <div class="deco-circle dc1"></div>
+  <div class="deco-circle dc2"></div>
+  <div class="deco-circle dc3"></div>
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+  <div class="card-inner">
+    <div class="tag-row">
+      <span class="tag">1:1 레슨</span>
+      <span class="tag-line"></span>
+      <span class="category">보컬 · 발성 · 스튜디오 레코딩</span>
+    </div>
+    <div class="main-block">
+      <div class="sub-label">프로 레코딩 스튜디오 수업</div>
+      <div class="title-ko">보컬<br/><em>레슨</em></div>
+      <div class="title-en">Vocal · Studio Recording Lesson</div>
+      <div class="divider"></div>
+      <div class="features">
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text"><strong>Neumann U87 Ai</strong> 마이크로 실제 레코딩 환경에서 발성 교정</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">기초 발성 → 음정·창법 → 심화 표현 → <strong>실전 레코딩</strong> 단계 커리큘럼</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">수업 결과물로 <strong>완성 믹싱 음원 1곡</strong> 제공 (프리미엄 과정)</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">AutoTune · Melodyne 보정 과정 <strong>직접 체험</strong></div></div>
+      </div>
+      <div class="kakao-badge"><div class="kakao-dot"></div><span>카카오 채널 문의 후 예약</span></div>
+    </div>
+    <div class="bottom-row">
+      <div class="price-block">
+        <div class="price-label">Starting From</div>
+        <div class="price">문의<sub>/ 1회</sub></div>
+        <div class="price-note">체험 수업 · 정기 레슨 패키지 가능</div>
+      </div>
+      <div class="brand-block">
+        <div class="brand-mw">MADEWELL</div>
+        <div class="brand-sub">MUSIC STUDIO · 강남 선정릉역</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 03 싱글 믹스+마스터링 -->
+<div class="card mix-single">
+  <div class="deco-circle dc1"></div>
+  <div class="deco-circle dc2"></div>
+  <div class="deco-circle dc3"></div>
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+  <div class="card-inner">
+    <div class="tag-row">
+      <span class="tag">믹싱 · 마스터링</span>
+      <span class="tag-line"></span>
+      <span class="category">싱글 · 투트랙 / Single Track</span>
+    </div>
+    <div class="main-block">
+      <div class="sub-label">하드웨어 아웃보드 전 과정 적용</div>
+      <div class="title-ko">싱글<br/><em>믹스+마스터링</em></div>
+      <div class="title-en">Mix + Mastering · Single</div>
+      <div class="divider"></div>
+      <div class="features">
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">투트랙 파일 기준 <strong>믹싱 + 마스터링</strong> 원스톱 완성</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text"><strong>SSL FUSION · BETTERMAKER · NEVE 1073</strong> 하드웨어 아웃보드 전 과정 적용</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">스트리밍 LUFS 최적화 · <strong>픽스 전 자유 수정</strong></div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">업계 동급 대비 <strong>최저가 수준</strong> 유지</div></div>
+      </div>
+    </div>
+    <div class="bottom-row">
+      <div class="price-block">
+        <div class="price-label">Price</div>
+        <div class="price">25만원<sub>/ 1곡</sub></div>
+        <div class="price-note">카카오 채널 문의 → 파일 전달 → 납품</div>
+      </div>
+      <div class="brand-block">
+        <div class="brand-mw">MADEWELL</div>
+        <div class="brand-sub">MUSIC STUDIO · 강남 선정릉역</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 멀티트랙 믹스+마스터링 -->
+<div class="card mix-multi">
+  <div class="deco-circle dc1"></div>
+  <div class="deco-circle dc2"></div>
+  <div class="deco-circle dc3"></div>
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+  <div class="card-inner">
+    <div class="tag-row">
+      <span class="tag">믹싱 · 마스터링</span>
+      <span class="tag-line"></span>
+      <span class="category">멀티트랙 / Full Stem Mix</span>
+    </div>
+    <div class="main-block">
+      <div class="sub-label">풀 스템 · 프리미엄 사운드</div>
+      <div class="title-ko">멀티트랙<br/><em>믹스+마스터링</em></div>
+      <div class="title-en">Full Multitrack Mix + Mastering</div>
+      <div class="divider"></div>
+      <div class="features">
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">스템 파일 전체 <strong>풀 믹싱 + 마스터링</strong> 완성</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">아이돌 프로듀서가 <strong>직접 핸들링</strong> — 같은 장비, 같은 사람</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">업계 평균 70~100만원 대비 <strong>45만원</strong>으로 동급 퀄리티</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">보컬 튜닝 추가 <strong>+5만원</strong> 옵션 선택 가능</div></div>
+      </div>
+    </div>
+    <div class="bottom-row">
+      <div class="price-block">
+        <div class="price-label">Price</div>
+        <div class="price">45만원<sub>/ 1곡</sub></div>
+        <div class="price-note">카카오 채널 문의 → 파일 전달 → 납품</div>
+      </div>
+      <div class="brand-block">
+        <div class="brand-mw">MADEWELL</div>
+        <div class="brand-sub">MUSIC STUDIO · 강남 선정릉역</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 마스터링 단독 -->
+<div class="card mastering">
+  <div class="deco-circle dc1"></div>
+  <div class="deco-circle dc2"></div>
+  <div class="deco-circle dc3"></div>
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+  <div class="card-inner">
+    <div class="tag-row">
+      <span class="tag">마스터링</span>
+      <span class="tag-line"></span>
+      <span class="category">Mastering Only · Hardware</span>
+    </div>
+    <div class="main-block">
+      <div class="sub-label">국내 최상급 아웃보드 마스터링</div>
+      <div class="title-ko">마스터링<br/><em>단독</em></div>
+      <div class="title-en">Hardware Mastering · Only</div>
+      <div class="divider"></div>
+      <div class="features">
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">믹스 완료 파일에 <strong>하드웨어 마스터링</strong> 단독 적용</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text"><strong>BETTERMAKER Mastering Limiter</strong> — 프로 마스터링 스튜디오 동급 장비</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">스트리밍 <strong>LUFS 최적화</strong> 포함 · 픽스 전 자유 수정</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">일반 마스터링 스튜디오 대비 <strong>최저가</strong> 유지</div></div>
+      </div>
+    </div>
+    <div class="bottom-row">
+      <div class="price-block">
+        <div class="price-label">Price</div>
+        <div class="price">10만원<sub>/ 1곡</sub></div>
+        <div class="price-note">카카오 채널 문의 → 파일 전달 → 납품</div>
+      </div>
+      <div class="brand-block">
+        <div class="brand-mw">MADEWELL</div>
+        <div class="brand-sub">MUSIC STUDIO · 강남 선정릉역</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 06 레코딩 세션 -->
+<div class="card recording">
+  <div class="deco-circle dc1"></div>
+  <div class="deco-circle dc2"></div>
+  <div class="deco-circle dc3"></div>
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+  <div class="card-inner">
+    <div class="tag-row">
+      <span class="tag">레코딩</span>
+      <span class="tag-line"></span>
+      <span class="category">Studio Recording Session</span>
+    </div>
+    <div class="main-block">
+      <div class="sub-label">프리미엄 하드웨어 레코딩</div>
+      <div class="title-ko">레코딩<br/><em>세션</em></div>
+      <div class="title-en">Professional Recording Session</div>
+      <div class="divider"></div>
+      <div class="features">
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text"><strong>Neumann U87 Ai + NEVE 1073</strong> 프리앰프 체인 — 업계 표준 세팅</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text"><strong>Pro Tools HDX</strong> 풀 HD 시스템 · 레코딩 부스 연동</div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">엔지니어 동반 시 <strong>+6만원</strong> / 보컬 튜닝 추가 <strong>+5만원</strong></div></div>
+        <div class="feature"><div class="feat-dot"></div><div class="feat-text">강남 <strong>선정릉역 도보 40초</strong> · 주차 가능</div></div>
+      </div>
+    </div>
+    <div class="bottom-row">
+      <div class="price-block">
+        <div class="price-label">Price</div>
+        <div class="price">20만원<sub>/ 3.5h</sub></div>
+        <div class="price-note">카카오 채널 문의 → 일정 확정 → 예약금 입금</div>
+      </div>
+      <div class="brand-block">
+        <div class="brand-mw">MADEWELL</div>
+        <div class="brand-sub">MUSIC STUDIO · 강남 선정릉역</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<p style="color:#555;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;text-align:center;margin-top:40px;text-transform:uppercase">
+  각 카드 800×800px — 브라우저 줌 100% 고정 후 스크린샷 / Cmd+Shift+4 으로 개별 캡처
+</p>
+
+</body>
+</html>

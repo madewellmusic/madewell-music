@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<title>MADEWELL MUSIC — 카카오 카드 4종</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --dark:#0a0a0c;
+  --dark2:#0e0e12;
+  --gold:#C8A96E;
+  --gold-dim:rgba(200,169,110,.5);
+  --gold-faint:rgba(200,169,110,.15);
+  --white:rgba(255,255,255,.88);
+  --muted:rgba(255,255,255,.38);
+  --dim:rgba(255,255,255,.18);
+  --border:rgba(255,255,255,.06);
+}
+body{background:#111;padding:40px;display:flex;flex-direction:column;gap:60px;align-items:center}
+.guide{color:#555;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;text-align:center;margin-bottom:0}
+
+/* ── 공통 카드 ── */
+.card{width:800px;background:var(--dark);position:relative;overflow:hidden}
+.noise{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px}
+
+/* 공통 태그 */
+.tag{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.tag::after{content:'';width:28px;height:1px;background:var(--gold-dim)}
+
+/* 공통 h2 */
+.card-h2{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:.92;color:#fff;letter-spacing:-.01em}
+.card-h2 em{font-style:italic;color:var(--gold)}
+
+/* 공통 푸터 */
+.card-footer{padding:16px 52px 22px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;border-top:1px solid var(--border)}
+.footer-txt{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:400;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;line-height:1.9}
+.logo-img{height:36px;width:auto;filter:brightness(0) invert(1);opacity:.55}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CARD 1 — GEAR LIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.gear-header{padding:48px 52px 32px;position:relative;z-index:2}
+.gear-h2{font-size:62px}
+
+.gear-photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;height:210px;position:relative;z-index:2}
+.gear-ph{overflow:hidden;position:relative}
+.gear-ph img{width:100%;height:100%;object-fit:cover;filter:contrast(1.14) brightness(0.82) saturate(0.78)}
+.gear-ph-cap{position:absolute;bottom:0;left:0;right:0;padding:8px 14px;
+  background:linear-gradient(transparent,rgba(10,10,12,.62));
+  font-family:'Montserrat',sans-serif;font-size:7.5px;letter-spacing:.2em;color:rgba(255,255,255,.65);text-transform:uppercase}
+
+.gear-all{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);position:relative;z-index:2}
+.ga-group{background:var(--dark);padding:20px 22px}
+.ga-label{font-family:'Montserrat',sans-serif;font-size:7.5px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--gold-faint)}
+.ga-item{margin-bottom:9px}
+.ga-item:last-child{margin-bottom:0}
+.ga-name{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;color:var(--white);letter-spacing:.02em;line-height:1.3}
+.ga-desc{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:400;color:var(--muted);letter-spacing:.06em;margin-top:2px}
+.ptag{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:500;letter-spacing:.06em;color:var(--muted);
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:3px 9px;display:inline-block;margin:2px 2px}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CARD 2 — WHY / 이런 장비가 이 가격에
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.why-hero{position:relative;height:340px;overflow:hidden;z-index:2}
+.why-hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.55) contrast(1.1) saturate(.7)}
+.why-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,12,.1) 0%,rgba(10,10,12,.7) 100%)}
+.why-hero-text{position:absolute;bottom:36px;left:52px;z-index:2}
+.why-hero-text .tag{margin-bottom:12px}
+.why-h2{font-size:54px;color:#fff}
+
+.why-quotes{position:relative;z-index:2;padding:0 2px}
+.why-q{background:#0e0e12;border-left:2px solid var(--gold-dim);padding:18px 22px;margin-bottom:2px}
+.why-q-text{font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:300;color:var(--white);line-height:1.7;letter-spacing:-.01em}
+.why-q-text strong{color:var(--gold);font-weight:500}
+.why-q-source{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-top:8px}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CARD 3 — CREDITS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.cred-header{padding:48px 52px 28px;position:relative;z-index:2}
+.cred-h2{font-size:54px;line-height:.96}
+
+.cred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);position:relative;z-index:2}
+.cred-cell{background:var(--dark);padding:14px 16px}
+.cred-art{font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:600;color:var(--gold);letter-spacing:.04em;line-height:1.3}
+.cred-ttl{font-family:'Noto Sans KR',sans-serif;font-size:10.5px;font-weight:300;color:var(--white);margin-top:4px;line-height:1.4;letter-spacing:-.01em}
+.cred-role{font-family:'Montserrat',sans-serif;font-size:7.5px;font-weight:500;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-top:6px}
+
+.cred-komca{position:relative;z-index:2;padding:22px 52px;display:flex;align-items:center;gap:28px;border-top:1px solid var(--border)}
+.ck-left{display:flex;align-items:flex-end;gap:2px}
+.ck-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:var(--gold);line-height:1}
+.ck-plus{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:6px}
+.ck-block{display:flex;flex-direction:column;gap:4px}
+.ck-label{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.ck-text{font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.7;letter-spacing:-.01em}
+.ck-text em{font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:14px}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CARD 4 — STUDIO RENTAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.rental-header{padding:48px 52px 28px;position:relative;z-index:2}
+.rental-header p{font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,.48);margin-top:16px;line-height:1.7;letter-spacing:-.01em}
+.rental-h2{font-size:54px}
+
+.rental-cards{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);position:relative;z-index:2}
+.rental-card{background:#0e0e12;padding:28px 30px}
+.rental-card.hl{background:#111118;border-top:2px solid var(--gold-dim)}
+.r-icon{font-size:20px;margin-bottom:14px;display:block}
+.r-nm{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;color:#fff;text-transform:uppercase;margin-bottom:10px}
+.r-dc{font-family:'Noto Sans KR',sans-serif;font-size:11.5px;font-weight:300;color:rgba(255,255,255,.45);line-height:1.65;letter-spacing:-.01em;margin-bottom:18px}
+.r-pr{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--gold);line-height:1;margin-bottom:16px}
+.r-pr sub{font-size:13px;font-weight:300;color:var(--gold-dim);vertical-align:baseline;margin-left:3px}
+.r-li{list-style:none;display:flex;flex-direction:column;gap:7px}
+.r-li li{font-family:'Noto Sans KR',sans-serif;font-size:11px;font-weight:300;color:rgba(255,255,255,.5);padding-left:14px;position:relative;line-height:1.4}
+.r-li li::before{content:'—';position:absolute;left:0;color:var(--gold-dim);font-size:10px}
+</style>
+</head>
+<body>
+
+<p class="guide">4장 — 브라우저 줌 100% 고정 후 Cmd+Shift+4 로 각 카드 개별 캡처</p>
+
+<!-- ═══════════════════════════════
+     CARD 1 : GEAR LIST
+═══════════════════════════════ -->
+<div class="card" id="card-gear">
+  <div class="noise"></div>
+  <div class="gear-header">
+    <div class="tag">Main Studio 'M Studio'</div>
+    <h2 class="card-h2 gear-h2">Gear<br/>List</h2>
+  </div>
+  <div class="gear-photo-strip">
+    <div class="gear-ph"><img src="images/GEAR 1_web.jpg" alt="Outboard Chain"/><div class="gear-ph-cap">Outboard Chain</div></div>
+    <div class="gear-ph"><img src="images/GEAR 2.png" alt="Studio Gear"/><div class="gear-ph-cap">Studio Gear</div></div>
+    <div class="gear-ph"><img src="images/GEAR 4.png" alt="Outboard & Monitors"/><div class="gear-ph-cap">Outboard &amp; Monitors</div></div>
+    <div class="gear-ph"><img src="images/GEAR 5.png" alt="Reference Headphones"/><div class="gear-ph-cap">Reference Headphones</div></div>
+  </div>
+  <div class="gear-all">
+    <div class="ga-group">
+      <div class="ga-label">AD/DA Converter</div>
+      <div class="ga-item"><div class="ga-name">LAVRY GOLD SAVITR</div><div class="ga-desc">Mastering Grade · Reference</div></div>
+      <div class="ga-item"><div class="ga-name">AVID Pro Tools HD OMNI</div><div class="ga-desc">Full HD System · High Resolution</div></div>
+      <div class="ga-label" style="margin-top:16px">Mic Preamp</div>
+      <div class="ga-item"><div class="ga-name">AMS NEVE 1073 SPX</div><div class="ga-desc">Legendary British · Mic Pre/EQ</div></div>
+      <div class="ga-item"><div class="ga-name">AVID HD OMNI Preamp</div><div class="ga-desc">Pro Tools HD Integrated</div></div>
+    </div>
+    <div class="ga-group">
+      <div class="ga-label">Compressor / Limiter</div>
+      <div class="ga-item"><div class="ga-name">TUBE TECH CL1B</div><div class="ga-desc">Classic Opto · Smooth</div></div>
+      <div class="ga-item"><div class="ga-name">BETTERMAKER Mastering</div><div class="ga-desc">Pro Mastering Grade</div></div>
+      <div class="ga-item"><div class="ga-name">SSL FUSION Channelstrip</div><div class="ga-desc">Analogue Colouring · Warmth</div></div>
+      <div class="ga-label" style="margin-top:16px">EQ &amp; Mastering</div>
+      <div class="ga-item"><div class="ga-name">AUDIOSCAPE EQP-2A Pultec</div><div class="ga-desc">Passive Stereo · Smooth</div></div>
+      <div class="ga-item"><div class="ga-name">SSL FUSION (EQ)</div><div class="ga-desc">High Frequency · Broad EQ</div></div>
+    </div>
+    <div class="ga-group">
+      <div class="ga-label">Monitor Speakers</div>
+      <div class="ga-item"><div class="ga-name">BAREFOOT MicroMain 27</div><div class="ga-desc">Mastering Grade · AES/EBU</div></div>
+      <div class="ga-item"><div class="ga-name">YAMAHA HS-7</div><div class="ga-desc">Near-field · 2nd Reference</div></div>
+      <div class="ga-item"><div class="ga-name">AURATONE 5C</div><div class="ga-desc">Mono Check · Translation</div></div>
+      <div class="ga-label" style="margin-top:16px">Microphone</div>
+      <div class="ga-item"><div class="ga-name">Neumann U87 Ai</div><div class="ga-desc">Large Diaphragm · Industry Std</div></div>
+      <div class="ga-label" style="margin-top:16px">DAW</div>
+      <div class="ga-item"><div class="ga-name">Avid Pro Tools HDX</div><div class="ga-desc">Industry Standard · Full HD</div></div>
+    </div>
+    <div class="ga-group" style="grid-column:1/-1;padding:14px 22px">
+      <div class="ga-label" style="margin-bottom:10px">Plugins &amp; Software</div>
+      <div>
+        <span class="ptag">UAD</span><span class="ptag">Waves</span><span class="ptag">Plugin Alliance</span><span class="ptag">AutoTune</span><span class="ptag">Melodyne</span><span class="ptag">Brainworx</span><span class="ptag">SoundToys</span><span class="ptag">Valhalla</span><span class="ptag">FabFilter</span><span class="ptag">iZotope</span><span class="ptag">Native Instruments</span><span class="ptag">Eventide</span><span class="ptag">TC Electronic</span><span class="ptag">Voxengo</span><span class="ptag">Nicky Romero</span><span class="ptag">Dada Life</span>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="footer-txt">선정릉역 도보 40초 · 강남구 역삼동<br/>KOMCA 등록 100곡+ · K-POP Production Grade</div>
+    <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL MUSIC" class="logo-img"/>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     CARD 2 : WHY — 이런 장비가 이 가격에?
+═══════════════════════════════ -->
+<div class="card" id="card-why">
+  <div class="noise"></div>
+  <div class="why-hero">
+    <img src="images/MIC.jpg" alt="Studio Mic"/>
+    <div class="why-hero-overlay"></div>
+    <div class="why-hero-text">
+      <div class="tag" style="margin-bottom:14px">Why MADEWELL MUSIC</div>
+      <h2 class="card-h2 why-h2">이런 장비가<br/><em>이 가격에?</em></h2>
+    </div>
+  </div>
+  <div class="why-quotes">
+    <div class="why-q">
+      <div class="why-q-text">아이돌 현장에서 실제로 사용하는 그 장비 그대로.<br/>발구석에서 만든 음악도, <strong>스트리밍 차트에</strong><br/>올라갈 수 있는 퀄리티로 끌어올립니다.</div>
+      <div class="why-q-source">MADEWELL MUSIC</div>
+    </div>
+    <div class="why-q">
+      <div class="why-q-text">마스터링 단 <strong>10만원</strong>. 픽스 전 자유 수정.<br/>일반 마스터링 스튜디오 대비 <strong>최저가</strong>.</div>
+      <div class="why-q-source">MADEWELL MUSIC</div>
+    </div>
+    <div class="why-q">
+      <div class="why-q-text">업계 동급 믹스 최소 70~100만원.<br/>여기선 <strong>45만원</strong>. 같은 장비, 같은 사람이 직접.<br/>원래는 엄두도 못 냈을 그 퀄리티.</div>
+      <div class="why-q-source">MADEWELL MUSIC</div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="footer-txt">선정릉역 도보 40초 · 강남구 역삼동<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27</div>
+    <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL MUSIC" class="logo-img"/>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     CARD 3 : PRODUCTION CREDITS
+═══════════════════════════════ -->
+<div class="card" id="card-credits">
+  <div class="noise"></div>
+  <div class="cred-header">
+    <div class="tag">Production Credits</div>
+    <h2 class="card-h2 cred-h2">이 음악들을<br/>만들었습니다</h2>
+  </div>
+  <div class="cred-grid">
+    <div class="cred-cell"><div class="cred-art">PRODUCE 101 JAPAN</div><div class="cred-ttl">작곡 · 편곡</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">VIVIZ (비비지)</div><div class="cred-ttl">「A Montage of ( ),」— TOXIC 정규 1집</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">(여자)아이들 전소연</div><div class="cred-ttl">「아무너케」 M2 Live</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">인피니트 장동우</div><div class="cred-ttl">「Super Birthday」「인생(LIFE)」</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">마마무 화사 × Sense Mom</div><div class="cred-ttl">「Two Side」</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">MBC 방과후설렘 소년판타지</div><div class="cred-ttl">「Fantasy」「Shut Off」「BATTLE FIELD」</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">SBS B:MY BOYZ</div><div class="cred-ttl">「Be my boyz」 타이틀곡</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">루나 (에프엑스) × 울</div><div class="cred-ttl">「이 밤이 지나면」</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">KBS 드라마 수상한 그녀</div><div class="cred-ttl">OST 「The Way I Love」</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">JTBC 싱어게인2</div><div class="cred-ttl">NC.A — 「빗물」</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">원팩트</div><div class="cred-ttl">1st Album 「G.O.A.T / 100 / WILD」</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">김채원 (에이프릴)</div><div class="cred-ttl">「Tomorrow」「雨が急に降っている」</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">경서 (경서예지)</div><div class="cred-ttl">「좋은 날엔 네가 있어」</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">HORI7ON</div><div class="cred-ttl">1st Mini Album 「SIXTEEN,」</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">디바 (DIVA)</div><div class="cred-ttl">「왜불러」「그래」「Joy」「딱이야」</div><div class="cred-role">Produced by MADEWELL</div></div>
+    <div class="cred-cell"><div class="cred-art">WeNU</div><div class="cred-ttl">1st · 2nd · 3rd Mini Album</div><div class="cred-role">Produced by MADEWELL</div></div>
+  </div>
+  <div class="cred-komca">
+    <div class="ck-left"><div class="ck-num">100</div><div class="ck-plus">+</div></div>
+    <div class="ck-block">
+      <div class="ck-label">KOMCA Registered Works · 한국음악저작권협회 등록</div>
+      <div class="ck-text">그리고 아직 여기 적히지 않은 <em>수백 개의 이야기들.</em><br/>당신의 음악도 그 중 하나가 됩니다.</div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="footer-txt">국내 주요 아이돌 · 드라마 OST · 일본 진출 앨범<br/>같은 장비와 손으로 당신의 음악을 만듭니다</div>
+    <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL MUSIC" class="logo-img"/>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     CARD 4 : STUDIO RENTAL
+═══════════════════════════════ -->
+<div class="card" id="card-rental">
+  <div class="noise"></div>
+  <div class="rental-header">
+    <div class="tag">Studio Rental</div>
+    <h2 class="card-h2 rental-h2">스튜디오 대관 &amp;<br/><em>공간 대여.</em></h2>
+    <p>선정릉역 도보 40초. 강남 최고 입지의 프리미엄 스튜디오를 시간 단위로 대여하실 수 있습니다.</p>
+  </div>
+  <div class="rental-cards">
+    <div class="rental-card hl">
+      <span class="r-icon">🎛</span>
+      <div class="r-nm">M Control Room</div>
+      <div class="r-dc">NEVE 1073 · BAREFOOT MicroMain 27 · Pro Tools HDX.<br/>레코딩, 믹싱, 작업실로 사용 가능.</div>
+      <div class="r-pr">55,000원<sub>/ 1시간</sub></div>
+      <ul class="r-li">
+        <li>Neumann U87 Ai 사용 가능</li>
+        <li>NEVE 1073 + 하드웨어 아웃보드 포함</li>
+        <li>레코딩 부스 연동 사용 가능</li>
+        <li>카카오채널로 간편 예약</li>
+      </ul>
+    </div>
+    <div class="rental-card">
+      <span class="r-icon">🎬</span>
+      <div class="r-nm">전체 대관 · 촬영 대여</div>
+      <div class="r-dc">뮤직비디오, 유튜브 촬영, 팟캐스트, 행사 등 전체 공간 대관.<br/>인원 · 시간 · 목적에 따라 맞춤 견적 제공.</div>
+      <div class="r-pr">문의<sub>/ 맞춤 견적</sub></div>
+      <ul class="r-li">
+        <li>MV · 커버 영상 · 유튜브 촬영</li>
+        <li>팟캐스트 · 인터뷰 녹음</li>
+        <li>스튜디오 전체 공간 사용</li>
+        <li>카카오채널로 문의 후 협의</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card-footer" style="margin-top:2px">
+    <div class="footer-txt">선정릉역 도보 40초 · 강남구 역삼동<br/>주차 가능 · 카카오채널 문의 예약</div>
+    <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL MUSIC" class="logo-img"/>
+  </div>
+</div>
+
+</body>
+</html>
