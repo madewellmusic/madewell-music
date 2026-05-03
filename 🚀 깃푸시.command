@@ -1,5 +1,5 @@
 #!/bin/bash
-cd "$(dirname "$0")"
+cd "/Users/madewell/Documents/Claude/Projects/MADEWELL MUSIC 리브랜딩"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

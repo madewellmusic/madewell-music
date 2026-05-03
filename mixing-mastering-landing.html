@@ -311,6 +311,7 @@ tr:last-child td.hl{border-bottom:2px solid var(--gold)}
 footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,.05);padding:52px 0}
 .foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
 .foot-logo img{height:44px;width:auto;filter:brightness(0) invert(1);display:block;margin-bottom:4px}
+@media(max-width:480px){.foot-logo{text-align:center}.foot-logo img{margin:0 auto 4px}}
 .foot-meta{font-size:12px;color:rgba(255,255,255,.28);line-height:1.9;margin-top:6px}
 .foot-links{display:flex;gap:24px;flex-wrap:wrap}
 .foot-links a{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,.28);text-decoration:none;text-transform:uppercase;transition:color .2s}
@@ -593,7 +594,7 @@ body.menu-open{overflow:hidden}
       <button class="lang-btn" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('ja')">JP</button>
     </div>
-    <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="nav-btn ko-only" id="nav-btn-ko" data-i18n="nav-contact">문의하기</a>
+    <a href="http://pf.kakao.com/_axcYxlb/chat" target="_blank" class="nav-btn ko-only" id="nav-btn-ko" data-i18n="nav-contact">문의하기</a>
     <a href="https://mail.google.com/mail/?view=cm&to=madewellofficial%40gmail.com&su=Mixing%20%26%20Mastering%20Inquiry%20-%20MADEWELL%20MUSIC" target="_blank" class="nav-btn intl-only" id="nav-btn-intl" data-i18n="nav-contact-intl">Contact</a>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="메뉴 열기" onclick="toggleMobileMenu()">
       <span></span><span></span><span></span>
@@ -611,7 +612,7 @@ body.menu-open{overflow:hidden}
   <a href="#reserve" onclick="closeMobileMenu()" data-i18n="nav-reserve">예약</a>
   <a href="#about" onclick="closeMobileMenu()" data-i18n="nav-about">소개</a>
   <div class="mobile-menu-divider"></div>
-  <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="mobile-menu-cta ko-only" id="mm-cta-ko" onclick="closeMobileMenu()" data-i18n="mm-cta">카카오톡 문의</a>
+  <a href="http://pf.kakao.com/_axcYxlb/chat" target="_blank" class="mobile-menu-cta ko-only" id="mm-cta-ko" onclick="closeMobileMenu()" data-i18n="mm-cta">카카오톡 문의</a>
   <a href="https://mail.google.com/mail/?view=cm&to=madewellofficial%40gmail.com&su=Mixing%20%26%20Mastering%20Inquiry%20-%20MADEWELL%20MUSIC" target="_blank" class="mobile-menu-cta intl-only" id="mm-cta-intl" onclick="closeMobileMenu()" data-i18n="mm-cta-intl">Contact via Email</a>
   <div class="mobile-menu-divider"></div>
   <div class="lang-toggle-mobile">
@@ -633,7 +634,7 @@ body.menu-open{overflow:hidden}
       <div class="hero-divider"></div>
       <p class="hero-sub" data-i18n="hero-sub">NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/><b>스타 K-POP 아티스트들의 하드웨어, 당신이 감당할 수 있는 가격으로.</b></p>
       <div class="hero-cta">
-        <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="btn-gold ko-only" data-i18n="hero-cta-ko">카카오톡으로 문의</a>
+        <a href="http://pf.kakao.com/_axcYxlb/chat" target="_blank" class="btn-gold ko-only" data-i18n="hero-cta-ko">카카오톡으로 문의</a>
         <a href="https://mail.google.com/mail/?view=cm&to=madewellofficial%40gmail.com&su=Mixing%20%26%20Mastering%20Inquiry%20-%20MADEWELL%20MUSIC" target="_blank" class="btn-gold intl-only" data-i18n="hero-cta-intl">Contact via Email</a>
         <a href="#services" class="btn-outline-w" data-i18n="hero-cta-2">서비스 &amp; 가격 보기</a>
       </div>
@@ -1117,7 +1118,7 @@ body.menu-open{overflow:hidden}
       </div>
     </div>
     <div class="reveal" style="text-align:center;margin-top:52px">
-      <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="btn-gold ko-only" data-i18n="booking-cta-ko">카카오톡으로 예약 문의</a>
+      <a href="http://pf.kakao.com/_axcYxlb/chat" target="_blank" class="btn-gold ko-only" data-i18n="booking-cta-ko">카카오톡으로 예약 문의</a>
       <a href="https://mail.google.com/mail/?view=cm&to=madewellofficial%40gmail.com&su=Mixing%20%26%20Mastering%20Inquiry%20-%20MADEWELL%20MUSIC" target="_blank" class="btn-gold intl-only" data-i18n="booking-cta-intl">Send Inquiry via Email</a>
     </div>
   </div>
@@ -1287,88 +1288,55 @@ body.menu-open{overflow:hidden}
   </div>
 </section>
 
-<!-- RESERVE -->
-<section id="reserve">
+<!-- RESERVE → 카카오 챗봇 직통 CTA -->
+<section id="reserve" style="background:var(--dark);padding:100px 0;border-top:1px solid var(--border)">
   <div class="container">
-    <div class="reserve-inner">
-      <div class="reserve-copy reveal">
-        <div class="tag" style="margin-bottom:16px">Reservation</div>
-        <h2 class="serif" data-i18n="reserve-h">예약 내용을<br/>먼저 작성하고<br/><em>카카오로 보내요.</em></h2>
-        <p data-i18n="reserve-desc">아래 양식을 작성한 뒤 내용을 복사해서 카카오 채널로 보내주시면 빠르게 확인 후 안내드립니다. 실제 전송 버튼은 없어요 — 카카오 채널이 훨씬 빠릅니다.</p>
-        <div class="reserve-info-list">
-          <div class="ri-item">
-            <span class="ri-icon">💬</span>
-            <div><strong style="color:var(--ink)" data-i18n="ri-t1">카카오 채널로 문의</strong><br/><span data-i18n="ri-d1">작성 내용을 카카오 채널에 붙여넣기 하시면 1~2 영업일 내 답변드립니다.</span></div>
-          </div>
-          <div class="ri-item">
-            <span class="ri-icon">📂</span>
-            <div><strong style="color:var(--ink)" data-i18n="ri-t2">온라인 파일 의뢰 OK</strong><br/><span data-i18n="ri-d2">방문 없이 파일만 보내주셔도 마스터링·믹싱 모두 가능합니다.</span></div>
-          </div>
-          <div class="ri-item">
-            <span class="ri-icon">📍</span>
-            <div><strong style="color:var(--ink)" data-i18n="ri-t3">방문 레코딩</strong><br/><span data-i18n="ri-d3">서울 강남구 역삼동 682-15 4층 · 선정릉역 3번 출구 도보 40초</span></div>
-          </div>
-          <div class="ri-item">
-            <span class="ri-icon">💳</span>
-            <div><strong style="color:var(--ink)" data-i18n="ri-t4">결제 방법</strong><br/><span data-i18n="ri-d4">카카오페이 · 계좌이체 · 예약금(50%) 선입금 후 일정 확보</span></div>
-          </div>
+    <div class="reveal" style="text-align:center;max-width:680px;margin:0 auto">
+      <div class="tag" style="margin-bottom:20px;justify-content:center">Quick Contact</div>
+      <h2 class="serif" style="font-weight:300;font-size:clamp(36px,4.5vw,58px);line-height:1.05;margin-bottom:20px" data-i18n="reserve-h">
+        파일만 보내주세요.<br/><em style="font-style:italic;color:var(--gold)">바로 시작합니다.</em>
+      </h2>
+      <p style="font-size:15px;color:var(--body);line-height:1.9;margin-bottom:44px" data-i18n="reserve-desc">
+        양식 없이 카카오 채팅으로 바로 문의하세요.<br/>
+        챗봇이 24시간 응답하고, 빠른 상담은 영업일 기준 당일 처리합니다.
+      </p>
+      <!-- 인포 그리드 -->
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-bottom:44px;text-align:left">
+        <div style="background:var(--bg2);padding:28px 30px">
+          <div style="font-size:20px;margin-bottom:10px">💬</div>
+          <strong style="color:var(--ink);font-size:13px;font-weight:600" data-i18n="ri-t1">카카오 채팅 바로 연결</strong>
+          <p style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.7" data-i18n="ri-d1">챗봇 24시간 운영 · 빠른 상담 당일 처리</p>
+        </div>
+        <div style="background:var(--bg2);padding:28px 30px">
+          <div style="font-size:20px;margin-bottom:10px">📂</div>
+          <strong style="color:var(--ink);font-size:13px;font-weight:600" data-i18n="ri-t2">온라인 파일 의뢰 OK</strong>
+          <p style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.7" data-i18n="ri-d2">방문 없이 파일만 보내주셔도 가능</p>
+        </div>
+        <div style="background:var(--bg2);padding:28px 30px">
+          <div style="font-size:20px;margin-bottom:10px">📍</div>
+          <strong style="color:var(--ink);font-size:13px;font-weight:600" data-i18n="ri-t3">방문 레코딩</strong>
+          <p style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.7" data-i18n="ri-d3">강남구 역삼동 · 선정릉역 3번 출구 40초</p>
+        </div>
+        <div style="background:var(--bg2);padding:28px 30px">
+          <div style="font-size:20px;margin-bottom:10px">💳</div>
+          <strong style="color:var(--ink);font-size:13px;font-weight:600" data-i18n="ri-t4">결제 방법</strong>
+          <p style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.7" data-i18n="ri-d4">카카오페이 · 계좌이체 · 예약금 50% 선입금</p>
         </div>
       </div>
-      <div class="reserve-form-wrap reveal2">
-        <div id="reserveFormWrap">
-          <form id="reserveForm" onsubmit="submitReserveForm(event)">
-            <div class="form-grid-2">
-              <div class="form-row">
-                <label class="form-label" data-i18n="form-name-lbl">이름 *</label>
-                <input class="form-input" type="text" id="rf-name" data-i18n-ph="form-name-ph" placeholder="홍길동" required/>
-              </div>
-              <div class="form-row">
-                <label class="form-label" data-i18n="form-tel-lbl">연락처 *</label>
-                <input class="form-input" type="tel" id="rf-tel" data-i18n-ph="form-tel-ph" placeholder="010-0000-0000" required/>
-              </div>
-            </div>
-            <div class="form-row">
-              <label class="form-label" data-i18n="form-svc-lbl">서비스 선택 *</label>
-              <select class="form-select" id="rf-service" required data-i18n="form-svc-opts">
-                <option value="" disabled selected>서비스를 선택하세요</option>
-                <option value="마스터링 단독 (10만원/곡)">마스터링 단독 (10만원/곡)</option>
-                <option value="투트랙 믹싱+마스터링 (25만원/곡)">투트랙 믹싱+마스터링 (25만원/곡)</option>
-                <option value="멀티트랙 풀 믹싱+마스터링 (45만원/곡)">멀티트랙 풀 믹싱+마스터링 (45만원/곡)</option>
-                <option value="레코딩 (20만원/3.5h)">레코딩 (20만원/3.5h)</option>
-                <option value="스튜디오 대관 (55,000원/h~)">스튜디오 대관 (55,000원/h~)</option>
-                <option value="보컬 튜닝 (5만원/곡)">보컬 튜닝 (5만원/곡)</option>
-                <option value="기타 / 맞춤 견적 (문의)">기타 / 맞춤 견적 (문의)</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label class="form-label" data-i18n="form-date-lbl">희망 날짜</label>
-              <input class="form-input" type="date" id="rf-date"/>
-            </div>
-            <div class="form-row">
-              <label class="form-label" data-i18n="form-memo-lbl">장르 / 메모</label>
-              <textarea class="form-textarea" id="rf-memo" data-i18n-ph="form-memo-ph" placeholder="예) 발라드 싱글 / 스템 파일 12트랙 / 스트리밍 정식 발매용 / 3일 내 급행 희망"></textarea>
-            </div>
-            <button type="submit" class="form-submit" data-i18n="form-submit">예약 내용 확인하기 →</button>
-            <div class="form-notice ko-only" data-i18n="form-notice-ko">
-              ⚠️ 이 양식은 직접 전송되지 않습니다. 버튼을 누르면 작성 내용이 정리되니 <strong>복사해서 카카오 채널로 보내주세요.</strong><br/>
-              <a href="http://pf.kakao.com/_axcYxlb" target="_blank">→ 카카오 채널 바로가기</a>
-            </div>
-            <div class="form-notice intl-only" style="display:none" data-i18n="form-notice-intl">
-              ⚠️ This form does not send directly. Copy the summary and send it to <strong>madewellofficial@gmail.com</strong>.<br/>
-              <a href="https://mail.google.com/mail/?view=cm&to=madewellofficial%40gmail.com&su=Mixing%20%26%20Mastering%20Inquiry%20-%20MADEWELL%20MUSIC" target="_blank">→ Email us directly</a>
-            </div>
-          </form>
-        </div>
-        <div class="form-success" id="reserveSuccess">
-          <div class="form-success-icon">✅</div>
-          <div class="form-success-title" data-i18n="success-title">예약 내용이 준비됐습니다</div>
-          <div class="form-success-sub" data-i18n="success-sub">아래 내용을 복사해서 카카오 채널로 보내주시면<br/>빠르게 확인 후 연락드리겠습니다.</div>
-          <textarea class="form-copy-area" id="reserveCopyText" readonly></textarea>
-          <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.6" data-i18n="success-copy-tip">↑ 클릭해서 전체 선택 후 복사 (Ctrl+A → Ctrl+C)</p>
-          <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="btn-gold ko-only" data-i18n="success-btn-ko">카카오 채널로 보내기 →</a>
-          <a href="https://mail.google.com/mail/?view=cm&to=madewellofficial%40gmail.com&su=Mixing%20%26%20Mastering%20Inquiry%20-%20MADEWELL%20MUSIC" target="_blank" class="btn-gold intl-only" data-i18n="success-btn-intl">Send via Email →</a>
-          <button onclick="resetReserveForm()" style="display:block;margin:14px auto 0;background:none;border:none;color:var(--muted);font-size:12px;cursor:pointer;text-decoration:underline" data-i18n="form-reset">다시 작성하기</button>
-        </div>
+      <!-- CTA 버튼 -->
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="http://pf.kakao.com/_axcYxlb/chat" target="_blank"
+           class="btn-kakao ko-only"
+           style="font-size:13px;padding:18px 44px;letter-spacing:.08em"
+           data-i18n="reserve-cta-ko">💬 카카오톡으로 바로 문의</a>
+        <a href="https://mail.google.com/mail/?view=cm&to=madewellofficial%40gmail.com&su=Mixing%20%26%20Mastering%20Inquiry%20-%20MADEWELL%20MUSIC"
+           target="_blank"
+           class="btn-gold intl-only"
+           style="font-size:11px;padding:18px 44px"
+           data-i18n="reserve-cta-intl">Send Inquiry via Email →</a>
+        <a href="https://ig.me/m/madewellmusic_official" target="_blank"
+           class="btn-ig intl-only"
+           data-i18n="reserve-cta-ig">DM on Instagram</a>
       </div>
     </div>
   </div>
@@ -1382,7 +1350,7 @@ body.menu-open{overflow:hidden}
     <h2 class="cta-h serif" data-i18n="cta-h">지금 바로<br/>시작하세요.</h2>
     <p class="cta-sub" data-i18n="cta-sub">파일만 보내주시면 됩니다.<br/>빠른 답변, 빠른 작업, 프로 퀄리티.</p>
     <div class="cta-btns">
-      <a href="http://pf.kakao.com/_axcYxlb" target="_blank" class="btn-kakao ko-only" data-i18n="cta-btn-ko">카카오톡으로 문의하기</a>
+      <a href="http://pf.kakao.com/_axcYxlb/chat" target="_blank" class="btn-kakao ko-only" data-i18n="cta-btn-ko">카카오톡으로 문의하기</a>
       <a href="https://mail.google.com/mail/?view=cm&to=madewellofficial%40gmail.com&su=Mixing%20%26%20Mastering%20Inquiry%20-%20MADEWELL%20MUSIC" target="_blank" class="btn-gold intl-only" data-i18n="cta-btn-intl">Contact via Email</a>
       <a href="https://ig.me/m/madewellmusic_official" target="_blank" class="btn-ig intl-only">DM on Instagram</a>
       <a href="https://www.instagram.com/madewellmusic_official" target="_blank" class="btn-ig ko-only">Instagram @madewellmusic_official</a>
@@ -1398,7 +1366,7 @@ body.menu-open{overflow:hidden}
       <div class="foot-meta" data-i18n="foot-meta">서울시 강남구 역삼동 682-15 4층 · 선정릉역 도보 40초<br/>madewellofficial@gmail.com · © 2026 (주)메이드웰뮤직</div>
     </div>
     <div class="foot-links">
-      <a href="http://pf.kakao.com/_axcYxlb" target="_blank" data-i18n="foot-kakao">카카오채널</a>
+      <a href="http://pf.kakao.com/_axcYxlb/chat" target="_blank" data-i18n="foot-kakao">카카오채널</a>
       <a href="https://www.instagram.com/madewellmusic_official" target="_blank">Instagram</a>
       <a href="https://www.madewellmusic.co.kr" target="_blank" data-i18n="foot-site">공식사이트</a>
     </div>
@@ -2058,35 +2026,15 @@ document.querySelectorAll('.reveal,.reveal2').forEach(el=>ro.observe(el));
     opacity:0, y:30, stagger:0.1, duration:0.7, ease:'power2.out'
   });
 
-  // ── Why section ──
-  gsap.from('.why-heading', {
-    scrollTrigger:{ trigger:'#why', start:'top 80%' },
-    opacity:0, y:40, duration:0.9, ease:'power3.out'
-  });
-  gsap.from('.why-photo', {
-    scrollTrigger:{ trigger:'#why', start:'top 75%' },
-    opacity:0, x:-50, duration:1, ease:'power3.out'
-  });
-  gsap.from('.why-copy', {
-    scrollTrigger:{ trigger:'#why', start:'top 75%' },
-    opacity:0, x:50, duration:1, ease:'power3.out'
-  });
+  // ── Why section — .reveal/.reveal2 IntersectionObserver가 담당, GSAP 충돌 제거 ──
 
   // ── Gear section ──
-  gsap.from('#gear .section-header', {
-    scrollTrigger:{ trigger:'#gear', start:'top 80%' },
-    opacity:0, y:40, duration:0.9, ease:'power3.out'
-  });
   gsap.from('.gear-ph', {
     scrollTrigger:{ trigger:'.gear-photo-strip', start:'top 85%' },
     opacity:0, scale:0.9, stagger:0.1, duration:0.8, ease:'power2.out'
   });
 
-  // ── Credits ──
-  gsap.from('#credits .section-header', {
-    scrollTrigger:{ trigger:'#credits', start:'top 80%' },
-    opacity:0, y:40, duration:0.9, ease:'power3.out'
-  });
+  // ── Credits — .cred-head.reveal 은 IO 담당 ──
   gsap.from('.credit-item', {
     scrollTrigger:{ trigger:'#credits', start:'top 75%' },
     opacity:0, y:30, stagger:0.08, duration:0.7, ease:'power2.out'

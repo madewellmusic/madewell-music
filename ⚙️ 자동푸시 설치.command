@@ -7,17 +7,20 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 PLIST_SRC="/Users/madewell/Documents/Claude/Projects/MADEWELL MUSIC 리브랜딩/com.madewell.autopush.plist"
 PLIST_DST="$HOME/Library/LaunchAgents/com.madewell.autopush.plist"
 
-# autopush.sh 실행 권한
+# autopush.sh 실행 권한 + quarantine 해제
 chmod +x "/Users/madewell/Documents/Claude/Projects/MADEWELL MUSIC 리브랜딩/autopush.sh"
+xattr -d com.apple.quarantine "/Users/madewell/Documents/Claude/Projects/MADEWELL MUSIC 리브랜딩/autopush.sh" 2>/dev/null
 
 # 기존 agent 중지 (있다면)
+launchctl bootout gui/$(id -u) "$PLIST_DST" 2>/dev/null
 launchctl unload "$PLIST_DST" 2>/dev/null
 
 # plist 복사
 cp "$PLIST_SRC" "$PLIST_DST"
+chmod 644 "$PLIST_DST"
 
-# agent 등록
-launchctl load "$PLIST_DST"
+# agent 등록 (macOS 신버전 방식)
+launchctl bootstrap gui/$(id -u) "$PLIST_DST" 2>/dev/null || launchctl load "$PLIST_DST"
 
 echo ""
 echo "✅ 설치 완료!"
