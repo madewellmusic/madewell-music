@@ -71,20 +71,47 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:'Montserrat',s
   filter:brightness(0) invert(1) drop-shadow(0 0 44px rgba(201,169,60,.9));
 }
 
-/* 크로마틱 어버레이션 로고 등장 */
-@keyframes chromaReveal{
-  0%  {filter:brightness(14) saturate(0) invert(1);transform:scale(1.28)}
-  10% {filter:brightness(0) invert(1)
-         drop-shadow(-11px 0 16px rgba(255,35,35,1))
-         drop-shadow(11px  0 16px rgba(35,35,255,1))
-         drop-shadow(0 0 90px rgba(255,255,255,.7));
-       transform:scale(1.07)}
-  30% {filter:brightness(0) invert(1)
-         drop-shadow(-4px 0 9px rgba(255,35,35,.5))
-         drop-shadow(4px  0 9px rgba(35,35,255,.5))
-         drop-shadow(0 0 60px rgba(201,169,60,1));
-       transform:scale(1.01)}
-  100%{filter:brightness(0) invert(1) drop-shadow(0 0 44px rgba(201,169,60,.88));transform:scale(1)}
+/* 3D 우주 비행 로고 등장 — Interstellar 스타일 */
+@keyframes logo3DFlyIn{
+  0%{
+    transform:perspective(500px) translateZ(-5000px) rotateY(22deg) rotateX(-10deg);
+    opacity:0;
+    filter:brightness(0) invert(1) blur(24px);
+  }
+  12%{
+    opacity:.15;
+    filter:brightness(0) invert(1) blur(14px);
+  }
+  30%{
+    opacity:.7;
+    filter:brightness(0) invert(1) blur(5px);
+    transform:perspective(500px) translateZ(-800px) rotateY(10deg) rotateX(-4deg);
+  }
+  50%{
+    /* 피크 접근 — 크로마틱 어버레이션 */
+    transform:perspective(500px) translateZ(90px) rotateY(-4deg) rotateX(3deg);
+    opacity:1;
+    filter:brightness(8) invert(1) blur(0px)
+      drop-shadow(-12px 0 16px rgba(255,30,30,1))
+      drop-shadow(12px  0 16px rgba(30,30,255,1))
+      drop-shadow(0 0 100px rgba(255,255,255,.7));
+  }
+  64%{
+    transform:perspective(500px) translateZ(20px) rotateY(1.5deg) rotateX(-1deg);
+    filter:brightness(0) invert(1)
+      drop-shadow(-3px 0 6px rgba(255,30,30,.4))
+      drop-shadow(3px  0 6px rgba(30,30,255,.4))
+      drop-shadow(0 0 60px rgba(201,169,60,1));
+  }
+  78%{
+    transform:perspective(500px) translateZ(-12px) rotateY(-0.5deg) rotateX(0.3deg);
+    filter:brightness(0) invert(1) drop-shadow(0 0 50px rgba(201,169,60,.85));
+  }
+  90%{transform:perspective(500px) translateZ(4px) rotateY(0deg) rotateX(0deg);}
+  100%{
+    transform:perspective(500px) translateZ(0px) rotateY(0deg) rotateX(0deg);
+    filter:brightness(0) invert(1) drop-shadow(0 0 44px rgba(201,169,60,.88));
+  }
 }
 
 /* SLOGAN */
@@ -133,32 +160,23 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:'Montserrat',s
 .split.show{opacity:1}
 @media(max-width:640px){.split{flex-direction:column;height:auto;min-height:100vh}}
 
-/* ── 대형 고스트 로고 (배경 워터마크) ── */
+/* ── 대형 고스트 로고 (심볼만, 텍스트 클립) ── */
 .ghost-logo{
   position:absolute;top:50%;left:50%;
   transform:translate(-50%,-52%);
   z-index:1;pointer-events:none;
   opacity:0;transition:opacity 2.5s ease .5s;
+  overflow:hidden;
+  height:230px; /* 심볼만 보이도록 하단 텍스트 클립 */
 }
 .ghost-logo img{
-  height:360px;width:auto;display:block;
+  height:380px;width:auto;display:block;
   filter:brightness(0) invert(1);
-  opacity:.055;
+  opacity:.06;
+  object-fit:cover;object-position:top center;
 }
 .split.show .ghost-logo{opacity:1}
-@media(max-width:640px){.ghost-logo img{height:200px}}
-
-/* ── 상단 소형 네비 로고 ── */
-.center-logo{
-  position:absolute;top:28px;left:50%;transform:translateX(-50%);
-  z-index:20;pointer-events:none;text-align:center;
-  opacity:0;transition:opacity .9s ease .5s;
-}
-.center-logo img{
-  height:46px;width:auto;
-  filter:brightness(0) invert(1) drop-shadow(0 0 10px rgba(201,169,60,.3));
-}
-.split.show .center-logo{opacity:1}
+@media(max-width:640px){.ghost-logo{height:140px}.ghost-logo img{height:230px}}
 
 .side{
   flex:1;position:relative;display:flex;align-items:center;justify-content:center;
@@ -281,11 +299,6 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:'Montserrat',s
     <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt=""/>
   </div>
 
-  <!-- 상단 소형 네비 로고 -->
-  <div class="center-logo">
-    <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL MUSIC"/>
-  </div>
-
   <a class="side studio" href="mixing-mastering-landing.html">
     <div class="studio-glow"></div><div class="studio-glow2"></div>
     <div class="side-content">
@@ -348,42 +361,42 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:'Montserrat',s
   // ── 첫 방문: 시네마틱 인트로 ──
   requestAnimationFrame(()=>{
 
-    // T=620ms → 임팩트 플래시 (하이퍼점프 도착)
+    // T=900ms → 임팩트 플래시 (하이퍼점프 도착)
     setTimeout(()=>{
-      flash.style.animation='impactBurst .9s cubic-bezier(.22,.6,.36,1) forwards';
-      setTimeout(()=>{flash.style.animation='';flash.style.opacity='0';},950);
-    }, 620);
+      flash.style.animation='impactBurst 1.1s cubic-bezier(.22,.6,.36,1) forwards';
+      setTimeout(()=>{flash.style.animation='';flash.style.opacity='0';},1150);
+    }, 900);
 
-    // T=870ms → 로고 크래시 인 + 크로마틱 어버레이션
+    // T=1200ms → 로고 3D 우주 진입
     setTimeout(()=>{
       logoWrap.classList.add('show');
-      logoImg.style.animation='chromaReveal 1.6s cubic-bezier(.16,1,.3,1) forwards';
-      // 크로마틱 끝나면 idle glow
+      logoImg.style.animation='logo3DFlyIn 2.8s cubic-bezier(.16,1,.3,1) forwards';
+      // 3D 진입 끝나면 idle glow
       setTimeout(()=>{
         logoImg.style.animation='';
         logoWrap.classList.add('idle');
-      }, 1700);
-    }, 870);
+      }, 2900);
+    }, 1200);
 
-    // T=1000ms → 펄스 링 3발
+    // T=1400ms → 펄스 링 3발
     setTimeout(()=>{
       for(let i=0;i<3;i++){
         setTimeout(()=>{
           const r=document.createElement('div');
           r.className='pulse-ring';
           intro.appendChild(r);
-          setTimeout(()=>r.remove(),2500);
-        }, i*400);
+          setTimeout(()=>r.remove(),3000);
+        }, i*600);
       }
-    }, 1000);
+    }, 1400);
 
-    // T=1700ms → 슬로건 stagger
-    setTimeout(()=>s1.classList.add('show'), 1700);
-    setTimeout(()=>s2.classList.add('show'), 1960);
-    setTimeout(()=>s3.classList.add('show'), 2220);
+    // T=2600ms → 슬로건 stagger
+    setTimeout(()=>s1.classList.add('show'), 2600);
+    setTimeout(()=>s2.classList.add('show'), 2900);
+    setTimeout(()=>s3.classList.add('show'), 3200);
 
-    // T=3400ms → UI 공개 + 레터박스 제거
-    setTimeout(revealUI, 3400);
+    // T=5200ms → UI 공개 + 레터박스 제거
+    setTimeout(revealUI, 5200);
   });
 })();
 </script>
