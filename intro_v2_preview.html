@@ -4,8 +4,7 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>MADEWELL MUSIC</title>
 <meta name="description" content="MADEWELL MUSIC — 강남 역삼동 프로 스튜디오. 믹싱·마스터링·레코딩·음악 레슨."/>
-<meta name="naver-site-verification" content="a4195eeb17fd67f94d49178cdab804fa732ed739"/>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 a{text-decoration:none;color:inherit}
@@ -14,7 +13,7 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
 
 #bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
 
-/* 중앙 성운 glow */
+/* 중앙 성운 glow — CSS 레이어 */
 #bg-glow{
   position:fixed;inset:0;z-index:1;pointer-events:none;
   background:
@@ -64,12 +63,12 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
   font-size:clamp(16px,2.8vw,44px);
   letter-spacing:.48em;
   padding-right:.48em;
-  color:rgba(255,255,255,.92);
+  color:rgba(255,255,255,.92);   /* color 고정 — opacity로만 전환 */
   text-transform:uppercase;
   opacity:0;
   transition:opacity 1.8s ease;
   white-space:nowrap;
-  /* 은빛 3D 뎁스 그림자 */
+  /* 은빛 3D 뎁스 그림자 — 앞→뒤로 점점 어두워지는 층 */
   text-shadow:
     1px 2px 0   rgba(210,228,255,.60),
     2px 4px 0   rgba(195,215,250,.42),
@@ -228,7 +227,7 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
     <div class="sl-underline" id="sl-line"></div>
   </div>
 
-  <!-- Phase 2: 로고 (CORPORATION 없는 얇은 버전) -->
+  <!-- Phase 2: 로고 (CORPORATION 없는 버전) -->
   <div id="intro-logo">
     <img src="images/MADEWELL_LOGO_thin.PNG" alt="MADEWELL MUSIC"/>
   </div>
@@ -311,19 +310,33 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
   }
   overlay.addEventListener('click', dismiss);
 
-  /* 시퀀스 */
+  /* ── 시퀀스 ──
+     총 약 7.5초. 여유있게.
+  ─────────────────────── */
+
+  /* 1. MUSIC 페이드인 (0.6s) */
   setTimeout(()=> sw1.classList.add('on'), 600);
+
+  /* 2. MADE (1.4s) */
   setTimeout(()=> sw2.classList.add('on'), 1400);
+
+  /* 3. WELL (2.2s) */
   setTimeout(()=> sw3.classList.add('on'), 2200);
+
+  /* 4. 세로선 + 하단 라인 (2.4s) */
   setTimeout(()=>{
     sp1.classList.add('on');
     sp2.classList.add('on');
     slLine.classList.add('on');
   }, 2400);
+
+  /* 5. 슬로건 fade out + 로고 fade in (4.6s) */
   setTimeout(()=>{
     slogan.classList.add('out');
     setTimeout(()=> iLogo.classList.add('on'), 600);
   }, 4600);
+
+  /* 6. 자동 전환 (7.8s) */
   setTimeout(dismiss, 7800);
 })();
 </script>
@@ -347,7 +360,7 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
     renderer.setSize(innerWidth,innerHeight);
     cam.position.z = 5.5;
 
-    /* ── 배경 별 ── */
+    /* ── 배경 별 (단색, 작고 깔끔하게) ── */
     const STARS = 2200;
     const sGeo  = new THREE.BufferGeometry();
     const sPos  = new Float32Array(STARS*3);
@@ -363,7 +376,11 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
     });
     scene.add(new THREE.Points(sGeo,sMat));
 
-    /* ── 궤도 링 3개 — 별들이 궤도 선 위를 하나씩 흘러감 ── */
+    /* ── 궤도 링 3개
+       별들이 통으로 기울어진 궤도 위를 흘러가는 효과
+       - pts.rotation은 고정 (궤도 기울기만)
+       - 각 별의 θ가 t에 따라 증가 → 궤도 선 위를 이동
+    ── */
     const rings = [];
     [
       {r:4.2, c:0xCCDDFF, op:.18, N:80,  oSpd:.038, flatY:.17, waveA:.24, waveF:3, tiltX:.22, tiltZ:.14},
@@ -372,8 +389,9 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
     ].forEach((cfg,i)=>{
       const geo = new THREE.BufferGeometry();
       const pos = new Float32Array(cfg.N*3);
-      const th0 = [];
+      const th0 = [];  /* 각 별의 초기 각도 */
       for(let j=0;j<cfg.N;j++){
+        /* 균등 간격으로 배치 */
         const theta = (j/cfg.N)*Math.PI*2;
         th0.push(theta);
         pos[j*3]   = Math.cos(theta)*cfg.r;
@@ -386,13 +404,14 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
         blending:THREE.AdditiveBlending, depthWrite:false
       });
       const pts = new THREE.Points(geo,mat);
+      /* 궤도 기울기 고정 */
       pts.rotation.x = cfg.tiltX * 1.1;
       pts.rotation.z = cfg.tiltZ + i*0.55;
       scene.add(pts);
       rings.push({geo, th0, cfg, N:cfg.N, oSpd:cfg.oSpd});
     });
 
-    /* ── 네뷸라 먼지 ── */
+    /* ── 배경 네뷸라 먼지 ── */
     const NEB=600, nGeo=new THREE.BufferGeometry(), nPos=new Float32Array(NEB*3), nVel=[];
     for(let i=0;i<NEB;i++){
       nPos[i*3]  =(Math.random()-.5)*40;
