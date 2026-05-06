@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>JUNGKYUN — Music</title>
+<meta name="description" content="JUNGKYUN 디스코그래피 & 트랙리스트 — MAMA : THE ETERNAL LOVE 2026."/>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+a{text-decoration:none;color:inherit}
+html{scroll-behavior:smooth}
+body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-x:hidden}
+
+/* ── LANG BAR ── */
+.lang-bar{position:fixed;top:22px;right:28px;z-index:300;display:flex;gap:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:3px}
+.lang-bar button{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.38);background:none;border:none;padding:5px 10px;cursor:pointer;text-transform:uppercase;transition:all .2s;line-height:1}
+.lang-bar button.on{background:rgba(65,168,182,.9);color:#040e12}
+.lang-bar button:hover:not(.on){color:rgba(255,255,255,.8)}
+@media(max-width:640px){.lang-bar{top:14px;right:14px}}
+
+/* ── BACK NAV ── */
+.nav-back{position:fixed;top:22px;left:28px;z-index:300;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:8px;transition:color .2s}
+.nav-back:hover{color:rgba(95,200,215,.9)}
+.nav-back svg{width:14px;height:14px;opacity:.5;transition:opacity .2s}
+.nav-back:hover svg{opacity:1}
+@media(max-width:640px){.nav-back{top:14px;left:14px}}
+
+/* ── TAB NAV ── */
+.tab-nav{position:sticky;top:0;z-index:200;display:flex;justify-content:center;background:rgba(5,14,18,.95);border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.tab-link{font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:18px 44px;display:flex;align-items:center;gap:9px;transition:color .2s;border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer}
+.tab-link:hover{color:rgba(255,255,255,.65)}
+.tab-link.active{color:rgba(95,200,215,.9);border-bottom-color:rgba(95,200,215,.55)}
+.tab-badge{font-size:7px;font-weight:700;letter-spacing:.1em;color:rgba(95,200,215,.85);background:rgba(95,200,215,.1);border:1px solid rgba(95,200,215,.25);padding:2px 8px;animation:pulse 1.8s ease-in-out infinite}
+@media(max-width:640px){.tab-link{padding:14px 20px;font-size:8px;letter-spacing:.16em}.tab-badge{display:none}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+
+/* ── PAGE HEADER ── */
+.page-header{padding:100px 72px 60px;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%, rgba(52,138,150,.1) 0%, transparent 65%);pointer-events:none}
+@media(max-width:768px){.page-header{padding:80px 28px 48px}}
+.page-eyebrow{font-size:9px;font-weight:700;letter-spacing:.38em;color:rgba(95,200,215,.6);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.page-eyebrow::after{content:'';width:28px;height:1px;background:rgba(95,200,215,.35)}
+.page-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(36px,5vw,72px);color:#fff;line-height:.95;letter-spacing:-.02em}
+.page-title em{color:rgba(95,200,215,.9);font-style:normal}
+
+/* ── SECTION COMMON ── */
+.section{padding:80px 72px}
+@media(max-width:768px){.section{padding:60px 28px}}
+.section-label{font-size:9px;font-weight:700;letter-spacing:.38em;text-transform:uppercase;color:rgba(95,200,215,.7);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.section-label::after{content:'';flex:1;max-width:44px;height:1px;background:rgba(95,200,215,.3)}
+.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,3vw,46px);line-height:1.1;color:#fff;margin-bottom:12px}
+.section-title em{font-style:italic;color:rgba(95,200,215,.85)}
+.section-sub{font-size:12.5px;color:rgba(255,255,255,.3);line-height:1.9;font-weight:300;max-width:560px}
+
+/* ── TEAL DIVIDER ── */
+.teal-divider{height:1px;background:linear-gradient(to right,transparent,rgba(95,200,215,.1) 20%,rgba(95,200,215,.22) 50%,rgba(95,200,215,.1) 80%,transparent);margin:0 72px}
+@media(max-width:768px){.teal-divider{margin:0 28px}}
+
+/* ── DISCOGRAPHY ── */
+.disco-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;margin-top:48px}
+.disco-card{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:1;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:transform .3s,border-color .3s}
+.disco-card:hover{transform:scale(1.02);border-color:rgba(95,200,215,.2)}
+.disco-cover{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .4s}
+.disco-card:hover .disco-cover{transform:scale(1.06)}
+.disco-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(5,14,18,.94) 0%, transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.disco-year{font-size:9px;color:rgba(255,255,255,.26);letter-spacing:.2em;margin-bottom:4px}
+.disco-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:16px;color:#fff;line-height:1.2}
+.disco-type{font-size:8px;color:rgba(95,200,215,.6);letter-spacing:.22em;text-transform:uppercase;margin-top:5px}
+
+/* COMING SOON 배지 */
+.disco-soon-wrap{position:absolute;top:0;left:0;right:0;display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:14px}
+.disco-soon{display:inline-block;font-size:8px;font-weight:700;letter-spacing:.18em;background:rgba(65,168,182,.9);color:#040e12;padding:4px 12px;text-transform:uppercase;animation:pulse 2s ease-in-out infinite}
+.disco-date{display:inline-block;font-size:8px;font-weight:600;letter-spacing:.14em;background:rgba(5,14,18,.7);color:rgba(255,255,255,.55);padding:3px 10px;border:1px solid rgba(255,255,255,.1)}
+
+/* ── TRACKLIST ── */
+.tracklist-wrap{margin-top:48px}
+.tracklist-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:32px}
+.tracklist-album{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(20px,2.5vw,32px);color:rgba(255,255,255,.7);line-height:1}
+.tracklist-meta{font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.14em}
+.track-list{display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.06)}
+.track-item{display:flex;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s}
+.track-item:hover{background:rgba(95,200,215,.03)}
+.track-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:22px;color:rgba(255,255,255,.1);min-width:30px;text-align:right}
+.track-info{flex:1}
+.track-name{font-size:13px;font-weight:500;color:rgba(255,255,255,.72);letter-spacing:.04em;margin-bottom:3px}
+.track-sub{font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.08em}
+.track-badge{font-size:8px;font-weight:700;letter-spacing:.2em;background:rgba(95,200,215,.12);color:rgba(95,200,215,.8);padding:3px 10px;text-transform:uppercase;border:1px solid rgba(95,200,215,.18);white-space:nowrap}
+.track-badge.jp{background:rgba(255,200,100,.06);color:rgba(255,200,100,.7);border-color:rgba(255,200,100,.18)}
+
+/* 미발매 안내 배너 */
+.unreleased-banner{margin-top:0;padding:14px 24px;background:rgba(95,200,215,.05);border:1px solid rgba(95,200,215,.12);display:flex;align-items:center;gap:12px}
+.unreleased-dot{width:6px;height:6px;border-radius:50%;background:rgba(95,200,215,.7);animation:pulse 1.8s ease-in-out infinite;flex-shrink:0}
+.unreleased-text{font-size:10.5px;color:rgba(95,200,215,.65);letter-spacing:.08em;font-weight:500}
+
+/* ── FOOTER ── */
+.artist-footer{padding:60px 72px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+@media(max-width:640px){.artist-footer{padding:48px 28px;flex-direction:column;text-align:center}}
+.footer-brand{font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:11px;letter-spacing:.44em;color:rgba(255,255,255,.22);text-transform:uppercase}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.footer-links a{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18);transition:color .2s}
+.footer-links a:hover{color:rgba(95,200,215,.7)}
+</style>
+</head>
+<body>
+
+<!-- NAV BACK -->
+<a class="nav-back" href="index.html">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 3L5 8l5 5"/></svg>
+  MADEWELL
+</a>
+<div class="lang-bar">
+  <button onclick="setLang('ko')" class="on">KO</button>
+  <button onclick="setLang('en')">EN</button>
+  <button onclick="setLang('ja')">JP</button>
+</div>
+
+<!-- TAB NAV -->
+<nav class="tab-nav">
+  <a class="tab-link" href="artist.html">ABOUT</a>
+  <a class="tab-link active" href="artist-music.html">MUSIC</a>
+  <a class="tab-link" href="artist-shop.html">SHOP <span class="tab-badge">● PRE-ORDER</span></a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-eyebrow" id="ph-eyebrow">JUNGKYUN · DISCOGRAPHY</div>
+  <h1 class="page-title" id="ph-title">Music &amp; <em>Albums</em></h1>
+</div>
+
+<!-- ─── DISCOGRAPHY ─── -->
+<section class="section" style="padding-top:0">
+  <div class="section-label" id="disco-label">Discography</div>
+  <h2 class="section-title" id="disco-title">지난 <em>앨범들</em></h2>
+
+  <div class="disco-grid">
+
+    <!-- MAMA : THE ETERNAL LOVE — COMING SOON -->
+    <div class="disco-card">
+      <div class="disco-cover" style="background-image:url('images/MAMA앨범 컨셉사진들/메인자켓 1.png')"></div>
+      <div class="disco-soon-wrap">
+        <span class="disco-soon" id="dc1-soon">COMING SOON</span>
+        <span class="disco-date">2026. 06</span>
+      </div>
+      <div class="disco-overlay">
+        <div class="disco-year">2026</div>
+        <div class="disco-name">MAMA : THE ETERNAL LOVE</div>
+        <div class="disco-type" id="dc1-type">3RD SOLO · 2026.06</div>
+      </div>
+    </div>
+
+    <!-- Still UNFINISHED -->
+    <div class="disco-card">
+      <div class="disco-cover" style="background-image:url('images/STILL UNFINIHSED 앨범자료/앨범표지.jpg')"></div>
+      <div class="disco-overlay">
+        <div class="disco-year">2025</div>
+        <div class="disco-name">Still UNFINISHED</div>
+        <div class="disco-type" id="dc2-type">2ND SOLO · 완판</div>
+      </div>
+    </div>
+
+    <!-- UNFINISHED -->
+    <div class="disco-card">
+      <div class="disco-cover" style="background-image:url('images/UNFINISHED 앨범자료/자켓메인.webp')"></div>
+      <div class="disco-overlay">
+        <div class="disco-year">2016</div>
+        <div class="disco-name">UNFINISHED</div>
+        <div class="disco-type" id="dc3-type">1ST SOLO</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="teal-divider"></div>
+
+<!-- ─── TRACKLIST ─── -->
+<section class="section">
+  <div class="section-label">Track List</div>
+  <div class="tracklist-header">
+    <div class="tracklist-album">MAMA : THE ETERNAL LOVE</div>
+    <div class="tracklist-meta" id="tl-meta">9 tracks · 3 title tracks</div>
+  </div>
+
+  <!-- 미발매 안내 -->
+  <div class="unreleased-banner" style="margin-bottom:32px">
+    <div class="unreleased-dot"></div>
+    <div class="unreleased-text" id="unreleased-msg">발매 예정 2026.06 — Pre-order open May 8</div>
+  </div>
+
+  <div class="track-list">
+    <div class="track-item">
+      <div class="track-num">01</div>
+      <div class="track-info"><div class="track-name">MAMA (Be my mama again)</div></div>
+      <div class="track-badge" id="title-badge">Title</div>
+    </div>
+    <div class="track-item">
+      <div class="track-num">02</div>
+      <div class="track-info"><div class="track-name">엄마가 되어주길</div></div>
+      <div class="track-badge" id="title-badge2">Title</div>
+    </div>
+    <div class="track-item">
+      <div class="track-num">03</div>
+      <div class="track-info"><div class="track-name">Eiffel...</div></div>
+      <div class="track-badge" id="title-badge3">Title</div>
+    </div>
+    <div class="track-item">
+      <div class="track-num">04</div>
+      <div class="track-info"><div class="track-name">Thankful</div></div>
+    </div>
+    <div class="track-item">
+      <div class="track-num">05</div>
+      <div class="track-info"><div class="track-name">Midnight Phonecheck</div></div>
+    </div>
+    <div class="track-item">
+      <div class="track-num">06</div>
+      <div class="track-info"><div class="track-name">Neon</div></div>
+    </div>
+    <div class="track-item">
+      <div class="track-num">07</div>
+      <div class="track-info"><div class="track-name">Kitchen Light Glass</div></div>
+    </div>
+    <div class="track-item">
+      <div class="track-num">08</div>
+      <div class="track-info">
+        <div class="track-name">I'll be there (そばにいるよ)</div>
+        <div class="track-sub">Japanese Track</div>
+      </div>
+      <div class="track-badge jp">JP</div>
+    </div>
+    <div class="track-item">
+      <div class="track-num">09</div>
+      <div class="track-info"><div class="track-name">Beautiful Way</div></div>
+    </div>
+  </div>
+
+  <p style="margin-top:24px;font-size:11.5px;color:rgba(95,200,215,.5);line-height:1.9;font-weight:300" id="tl-note">
+    'Eiffel...'은 2집 Still UNFINISHED의 TOKYO TOWER에 이은 탑 이야기 — 같은 감정, 다른 도시.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer class="artist-footer">
+  <div class="footer-brand">MADEWELL · JUNGKYUN</div>
+  <div class="footer-links">
+    <a href="https://instagram.com/madewellmusic_official" target="_blank">Instagram</a>
+    <a href="mixing-mastering-landing.html" id="fl-studio">Studio</a>
+    <a href="lesson-landing.html" id="fl-lesson">Lesson</a>
+    <a href="index.html" id="fl-home">Home</a>
+  </div>
+</footer>
+
+<script>
+const T = {
+  ko:{
+    'ph-eyebrow':'JUNGKYUN · DISCOGRAPHY',
+    'ph-title':'Music &amp; <em>Albums</em>',
+    'disco-label':'Discography','disco-title':'지난 <em>앨범들</em>',
+    'dc1-soon':'COMING SOON','dc1-type':'3RD SOLO · 2026.06',
+    'dc2-type':'2ND SOLO · 완판','dc3-type':'1ST SOLO',
+    'tl-meta':'9 tracks · 3 title tracks',
+    'unreleased-msg':'발매 예정 2026.06 — Pre-order open May 8',
+    'title-badge':'타이틀','title-badge2':'타이틀','title-badge3':'타이틀',
+    'tl-note':'\'Eiffel...\'은 2집 Still UNFINISHED의 TOKYO TOWER에 이은 탑 이야기 — 같은 감정, 다른 도시.',
+    'fl-studio':'스튜디오','fl-lesson':'레슨','fl-home':'홈',
+  },
+  en:{
+    'ph-eyebrow':'JUNGKYUN · DISCOGRAPHY',
+    'ph-title':'Music &amp; <em>Albums</em>',
+    'disco-label':'Discography','disco-title':'<em>Albums</em>',
+    'dc1-soon':'COMING SOON','dc1-type':'3RD SOLO · 2026.06',
+    'dc2-type':'2ND SOLO · SOLD OUT','dc3-type':'1ST SOLO',
+    'tl-meta':'9 tracks · 3 title tracks',
+    'unreleased-msg':'Releasing 2026.06 — Pre-order open May 8',
+    'title-badge':'Title','title-badge2':'Title','title-badge3':'Title',
+    'tl-note':'\'Eiffel...\' continues the tower story from Still UNFINISHED\'s TOKYO TOWER — same feeling, different city.',
+    'fl-studio':'Studio','fl-lesson':'Lesson','fl-home':'Home',
+  },
+  ja:{
+    'ph-eyebrow':'JUNGKYUN · DISCOGRAPHY',
+    'ph-title':'Music &amp; <em>Albums</em>',
+    'disco-label':'Discography','disco-title':'<em>アルバム</em>',
+    'dc1-soon':'COMING SOON','dc1-type':'3RDソロ · 2026.06',
+    'dc2-type':'2NDソロ · 完売','dc3-type':'1STソロ',
+    'tl-meta':'9曲 · タイトル曲3曲',
+    'unreleased-msg':'発売予定 2026.06 — 先行予約 5月8日オープン',
+    'title-badge':'タイトル','title-badge2':'タイトル','title-badge3':'タイトル',
+    'tl-note':'\'Eiffel...\'はStill UNFINISHEDのTOKYO TOWERに続くタワーストーリー — 同じ感情、違う都市。',
+    'fl-studio':'スタジオ','fl-lesson':'レッスン','fl-home':'ホーム',
+  }
+};
+let currentLang='ko';
+function setLang(lang){
+  currentLang=lang;
+  try{localStorage.setItem('mw-lang',lang);}catch(e){}
+  document.querySelectorAll('.lang-bar button').forEach(b=>{
+    b.classList.toggle('on',b.textContent.trim().toLowerCase()===lang||(lang==='ja'&&b.textContent.trim()==='JP'));
+  });
+  const t=T[lang]||T.ko;
+  Object.keys(t).forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=t[id];});
+}
+(function(){
+  let saved='ko';try{saved=localStorage.getItem('mw-lang')||'ko';}catch(e){}
+  if(saved!=='ko')setLang(saved);
+  else document.querySelectorAll('.lang-bar button').forEach(b=>{b.classList.toggle('on',b.textContent.trim()==='KO');});
+})();
+</script>
+</body>
+</html>
