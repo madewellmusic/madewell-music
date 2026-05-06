@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>JUNGKYUN — Artist</title>
-<meta name="description" content="JUNGKYUN — K-POP artist & producer. 3RD SOLO ALBUM MAMA : THE ETERNAL LOVE, 2026."/>
+<title>MADEWELL — Artist</title>
+<meta name="description" content="MADEWELL — K-POP artist & producer. 3RD SOLO ALBUM MAMA : THE ETERNAL LOVE, 2026."/>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -37,18 +37,19 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 /* ── HERO ── */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 60% 40%, rgba(52,138,150,.18) 0%, transparent 60%),radial-gradient(ellipse 40% 50% at 20% 70%, rgba(30,90,100,.14) 0%, transparent 55%),linear-gradient(180deg, #050e12 0%, #0a1e24 40%, #050e12 100%)}
-.hero-img{position:absolute;inset:0;z-index:1;background-image:url('images/STILL UNFINIHSED 앨범자료/JK MAIN.png');background-size:cover;background-position:center top;opacity:.45;-webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.9) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,0) 100%);mask-image:linear-gradient(to bottom, rgba(0,0,0,.9) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,0) 100%)}
+/* 새 사진으로 교체: images/artist_new.jpg 추가 시 자동 적용 */
+.hero-img{position:absolute;inset:0;z-index:1;background-image:url('images/artist_new.jpg'),url('images/STILL UNFINIHSED 앨범자료/JK MAIN.png');background-size:cover;background-position:center 15%;opacity:.38;-webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.85) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,0) 100%);mask-image:linear-gradient(to bottom, rgba(0,0,0,.85) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,0) 100%)}
 .hero-content{position:relative;z-index:2;padding:120px 72px 100px;max-width:900px}
 .hero-eyebrow{font-size:9px;font-weight:700;letter-spacing:.38em;color:rgba(95,200,215,.7);text-transform:uppercase;margin-bottom:32px;display:flex;align-items:center;gap:12px}
 .hero-eyebrow::after{content:'';width:32px;height:1px;background:rgba(95,200,215,.4)}
 
-/* 슬로건 — 강하고 크게 */
-.hero-slogan{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(52px,9.5vw,130px);line-height:.9;color:#fff;letter-spacing:-.02em;margin-bottom:36px}
-.hero-slogan .line1{display:block;color:rgba(255,255,255,.6);font-size:.62em}
-.hero-slogan .line2{display:block;color:rgba(255,255,255,.85);font-size:.82em}
-.hero-slogan .line3{display:block;color:rgba(95,200,215,.95);font-size:1em}
+/* 히어로 — MAMA 앨범타이틀 중심 */
+.hero-album-tag{font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:clamp(9px,.85vw,11px);letter-spacing:.55em;color:rgba(95,200,215,.55);text-transform:uppercase;margin-bottom:20px}
+.hero-slogan{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:.92;color:#fff;letter-spacing:-.02em;margin-bottom:38px}
+.hero-slogan .line-title{display:block;font-size:clamp(11px,1.1vw,15px);font-style:normal;font-family:'Josefin Sans',sans-serif;font-weight:100;letter-spacing:.48em;color:rgba(255,255,255,.32);text-transform:uppercase;margin-bottom:14px}
+.hero-slogan .line-main{display:block;font-style:italic;font-size:clamp(52px,8.5vw,120px);color:rgba(255,255,255,.92)}
+.hero-slogan .line-sub{display:block;font-style:italic;font-size:clamp(38px,5.5vw,78px);color:rgba(95,200,215,.82);margin-top:6px}
 
-.hero-album{font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:clamp(10px,1vw,13px);letter-spacing:.52em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:52px}
 .hero-cta-wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .btn-primary{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:16px 36px;background:rgba(65,168,182,.9);color:#040e12;box-shadow:0 4px 32px rgba(52,138,150,.5);transition:all .28s;cursor:pointer;border:none;font-family:'Montserrat',sans-serif}
 .btn-primary:hover{background:rgba(80,185,200,1);box-shadow:0 8px 44px rgba(52,138,150,.75);transform:translateY(-2px)}
@@ -58,27 +59,50 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 @keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
 .hero-scroll svg{width:16px;height:16px;opacity:.3}
-@media(max-width:768px){.hero-content{padding:100px 28px 80px}.hero-slogan{font-size:clamp(42px,14vw,80px)}}
+@media(max-width:768px){.hero-content{padding:100px 28px 80px}.hero-slogan .line-main{font-size:clamp(42px,13vw,72px)}.hero-slogan .line-sub{font-size:clamp(30px,9vw,52px)}}
 
-/* ── ABOUT WRAP ── */
-.about-wrap{display:grid;grid-template-columns:460px 1fr;gap:0;min-height:60vh;align-items:stretch}
+/* ── ABOUT — 2컬럼 스튜디오 포맷 ── */
+.about-wrap{display:grid;grid-template-columns:420px 1fr;gap:0;min-height:70vh;align-items:stretch}
 @media(max-width:960px){.about-wrap{grid-template-columns:1fr}}
-.artist-photo-wrap{position:relative;overflow:hidden;min-height:540px}
-.artist-photo-img{width:100%;height:100%;background-image:url('images/STILL UNFINIHSED 앨범자료/JK SOFA.png');background-size:cover;background-position:center 30%;transition:transform .6s}
-.artist-photo-wrap:hover .artist-photo-img{transform:scale(1.03)}
-.artist-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, transparent 50%, #050e12 100%);pointer-events:none}
-@media(max-width:960px){.artist-photo-wrap::after{background:linear-gradient(to bottom, transparent 55%, #050e12 100%)}.artist-photo-wrap{min-height:360px}}
-.artist-bio{padding:80px 72px;display:flex;flex-direction:column;justify-content:center}
+
+/* 좌: 사진 2장 세로 스택 */
+.artist-photo-col{position:relative;overflow:hidden;display:flex;flex-direction:column}
+.artist-photo-top{flex:1.2;position:relative;overflow:hidden;min-height:280px}
+.artist-photo-top-img{width:100%;height:100%;background-image:url('images/artist_new.jpg'),url('images/STILL UNFINIHSED 앨범자료/JK MAIN.png');background-size:cover;background-position:center 12%;transition:transform .6s}
+.artist-photo-bottom{flex:1;position:relative;overflow:hidden;min-height:200px;border-top:1px solid rgba(95,200,215,.08)}
+.artist-photo-bottom-img{width:100%;height:100%;background-image:url('images/STILL UNFINIHSED 앨범자료/JK SOFA.png');background-size:cover;background-position:center 30%;transition:transform .6s}
+.artist-photo-col:hover .artist-photo-top-img,
+.artist-photo-col:hover .artist-photo-bottom-img{transform:scale(1.03)}
+.artist-photo-col::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, transparent 55%, #050e12 100%);pointer-events:none;z-index:1}
+@media(max-width:960px){.artist-photo-col::after{background:linear-gradient(to bottom, transparent 60%, #050e12 100%)}.artist-photo-col{min-height:380px}}
+
+/* 우: 바이오 */
+.artist-bio{padding:80px 72px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
 @media(max-width:768px){.artist-bio{padding:48px 28px}}
-.bio-name{font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:clamp(9px,.9vw,11px);letter-spacing:.55em;color:rgba(255,255,255,.22);text-transform:uppercase;margin-bottom:16px}
-.bio-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,3.8vw,52px);color:#fff;line-height:1.05;margin-bottom:32px;letter-spacing:-.01em}
+.bio-eyebrow{font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:clamp(9px,.85vw,11px);letter-spacing:.52em;color:rgba(95,200,215,.55);text-transform:uppercase;margin-bottom:10px}
+.bio-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,4vw,58px);color:#fff;line-height:1.0;margin-bottom:8px;letter-spacing:-.01em}
 .bio-title em{font-style:italic;color:rgba(95,200,215,.85)}
-.bio-desc{font-size:13px;color:rgba(255,255,255,.38);line-height:2.2;font-weight:300;max-width:480px}
-.bio-credits{margin-top:32px;display:flex;flex-direction:column;gap:10px}
-.bio-credit-row{display:flex;align-items:flex-start;gap:14px}
-.credit-dot{width:4px;height:4px;border-radius:50%;background:rgba(95,200,215,.4);margin-top:7px;flex-shrink:0}
-.credit-text{font-size:11.5px;color:rgba(255,255,255,.3);line-height:1.7;font-weight:300}
-.credit-text strong{color:rgba(255,255,255,.5);font-weight:500}
+.bio-sub-role{font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:clamp(9px,.9vw,11px);letter-spacing:.4em;color:rgba(255,255,255,.22);text-transform:uppercase;margin-bottom:32px}
+
+/* 스킬 태그 */
+.bio-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.bio-tag{font-size:9px;font-weight:600;letter-spacing:.14em;padding:5px 14px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.38);text-transform:uppercase}
+
+/* 스탯 그리드 */
+.bio-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);margin-bottom:40px}
+.bio-stat{padding:18px 12px;text-align:center;background:#050e12}
+.bio-stat-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(20px,2.2vw,30px);color:rgba(95,200,215,.8);line-height:1;margin-bottom:6px}
+.bio-stat-label{font-size:8px;color:rgba(255,255,255,.22);letter-spacing:.16em;text-transform:uppercase;line-height:1.4}
+@media(max-width:480px){.bio-stats{grid-template-columns:repeat(2,1fr)}}
+
+/* 타임라인 */
+.bio-timeline{display:flex;flex-direction:column;gap:12px}
+.bio-tl-row{display:flex;gap:16px;align-items:flex-start}
+.bio-tl-year{font-size:10px;font-weight:700;letter-spacing:.1em;color:rgba(95,200,215,.65);min-width:36px;margin-top:2px}
+.bio-tl-dot{width:5px;height:5px;border-radius:50%;background:rgba(95,200,215,.35);margin-top:5px;flex-shrink:0}
+.bio-tl-text{font-size:11.5px;color:rgba(255,255,255,.38);line-height:1.7;font-weight:300}
+.bio-tl-text strong{color:rgba(255,255,255,.55);font-weight:500}
+.bio-tl-sub{font-size:10px;color:rgba(255,255,255,.2);margin-top:2px}
 
 /* ── TEAL DIVIDER ── */
 .teal-divider{height:1px;background:linear-gradient(to right,transparent,rgba(95,200,215,.1) 20%,rgba(95,200,215,.22) 50%,rgba(95,200,215,.1) 80%,transparent);margin:0 72px}
@@ -88,9 +112,10 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 .artist-footer{padding:60px 72px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
 @media(max-width:640px){.artist-footer{padding:48px 28px;flex-direction:column;text-align:center}}
 .footer-brand{font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:11px;letter-spacing:.44em;color:rgba(255,255,255,.22);text-transform:uppercase}
-.footer-links{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
-.footer-links a{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18);transition:color .2s}
+.footer-links{display:flex;gap:28px;flex-wrap:wrap;justify-content:center;align-items:center}
+.footer-links a{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18);transition:color .2s;display:flex;align-items:center;gap:6px}
 .footer-links a:hover{color:rgba(95,200,215,.7)}
+.footer-links a svg{width:12px;height:12px;opacity:.6}
 </style>
 </head>
 <body>
@@ -118,13 +143,12 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
   <div class="hero-bg"></div>
   <div class="hero-img"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow" id="h-eyebrow">JUNGKYUN · 3RD SOLO ALBUM · 2026</div>
+    <div class="hero-eyebrow" id="h-eyebrow">MADEWELL · 3RD SOLO ALBUM · 2026</div>
     <h1 class="hero-slogan">
-      <span class="line1" id="h-line1">THE ALBUM</span>
-      <span class="line2" id="h-line2">I OWE</span>
-      <span class="line3" id="h-line3">HER.</span>
+      <span class="line-title" id="h-album-tag">3RD SOLO ALBUM</span>
+      <span class="line-main" id="h-line1">MAMA</span>
+      <span class="line-sub" id="h-line2">THE ETERNAL LOVE</span>
     </h1>
-    <div class="hero-album">MAMA : THE ETERNAL LOVE</div>
     <div class="hero-cta-wrap">
       <a class="btn-primary" href="artist-shop.html" id="h-cta-1">PRE-ORDER NOW →</a>
       <a class="btn-secondary" href="artist-music.html" id="h-cta-2">TRACKLIST</a>
@@ -136,23 +160,102 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
   </div>
 </section>
 
-<!-- ABOUT SECTION -->
+<!-- ABOUT SECTION — 스튜디오 포맷 -->
 <div class="about-wrap">
-  <div class="artist-photo-wrap">
-    <div class="artist-photo-img"></div>
+  <div class="artist-photo-col">
+    <div class="artist-photo-top"><div class="artist-photo-top-img"></div></div>
+    <div class="artist-photo-bottom"><div class="artist-photo-bottom-img"></div></div>
   </div>
   <div class="artist-bio">
-    <div class="bio-name">MADEWELL · JUNGKYUN</div>
-    <h2 class="bio-title" id="bio-title">2014년 데뷔,<br/><em>지금도 현재진행형.</em></h2>
-    <p class="bio-desc" id="bio-desc">
-      K-POP 아티스트이자 KOMCA 등록 프로듀서. 그룹 빅플로(WE:A)로 데뷔해 다수의 K-POP 아티스트와 협업. 2025년 일본 솔로 정규앨범 100장 완판.
-    </p>
-    <div class="bio-credits">
-      <div class="bio-credit-row"><div class="credit-dot"></div><div class="credit-text"><strong>PRODUCE 101 JAPAN</strong> — 작·편곡</div></div>
-      <div class="bio-credit-row"><div class="credit-dot"></div><div class="credit-text"><strong>VIVIZ, (여자)아이들 전소연</strong> — 협업</div></div>
-      <div class="bio-credit-row"><div class="credit-dot"></div><div class="credit-text"><strong>마마무 화사</strong> — 협업</div></div>
-      <div class="bio-credit-row"><div class="credit-dot"></div><div class="credit-text"><strong>Still UNFINISHED (2025)</strong> — 일본 솔로 정규 2집 · 100장 완판</div></div>
+    <div class="bio-eyebrow">Producer · Artist</div>
+    <h2 class="bio-title" id="bio-title">MADEWELL</h2>
+    <div class="bio-sub-role" id="bio-role">Music Producer · Artist · Engineer</div>
+
+    <div class="bio-tags" id="bio-tags">
+      <span class="bio-tag">작곡</span>
+      <span class="bio-tag">편곡</span>
+      <span class="bio-tag">작사</span>
+      <span class="bio-tag">피아노</span>
+      <span class="bio-tag">기타</span>
+      <span class="bio-tag">베이스</span>
+      <span class="bio-tag">드럼</span>
+      <span class="bio-tag">JLPT 1급</span>
     </div>
+
+    <div class="bio-stats">
+      <div class="bio-stat">
+        <div class="bio-stat-num">100+</div>
+        <div class="bio-stat-label" id="stat1">KOMCA</div>
+      </div>
+      <div class="bio-stat">
+        <div class="bio-stat-num">9위</div>
+        <div class="bio-stat-label" id="stat2">오리콘 솔로</div>
+      </div>
+      <div class="bio-stat">
+        <div class="bio-stat-num">20+</div>
+        <div class="bio-stat-label" id="stat3">일본 콘서트</div>
+      </div>
+      <div class="bio-stat">
+        <div class="bio-stat-num">19+</div>
+        <div class="bio-stat-label" id="stat4">년 경력</div>
+      </div>
+    </div>
+
+    <div class="bio-timeline" id="bio-timeline">
+      <div class="bio-tl-row">
+        <div class="bio-tl-year">2007</div>
+        <div class="bio-tl-dot"></div>
+        <div><div class="bio-tl-text"><strong>타카온</strong> — 3인조 아이돌 메인보컬 데뷔</div></div>
+      </div>
+      <div class="bio-tl-row">
+        <div class="bio-tl-year">2011</div>
+        <div class="bio-tl-dot"></div>
+        <div><div class="bio-tl-text"><strong>엔트레인</strong> — 5인조 아이돌 리더 · 보컬 데뷔</div></div>
+      </div>
+      <div class="bio-tl-row">
+        <div class="bio-tl-year">2014</div>
+        <div class="bio-tl-dot"></div>
+        <div><div class="bio-tl-text"><strong>빅플로 BIGFLO</strong> — 6인조 아이돌 리더 · 메인보컬 · 프로듀서 데뷔</div></div>
+      </div>
+      <div class="bio-tl-row">
+        <div class="bio-tl-year">2018</div>
+        <div class="bio-tl-dot"></div>
+        <div><div class="bio-tl-text"><strong>(주)스튜디오J2K</strong> 설립</div></div>
+      </div>
+      <div class="bio-tl-row">
+        <div class="bio-tl-year">2020</div>
+        <div class="bio-tl-dot"></div>
+        <div>
+          <div class="bio-tl-text"><strong>(주)MADEWELL MUSIC</strong> 법인설립 · 대표 프로듀서</div>
+          <div class="bio-tl-sub">스튜디오 오픈 · 서울 강남구 역삼동</div>
+        </div>
+      </div>
+      <div class="bio-tl-row">
+        <div class="bio-tl-year">2023</div>
+        <div class="bio-tl-dot"></div>
+        <div>
+          <div class="bio-tl-text"><strong>WE:A (元 BIGFLO)</strong> 결성 · 리더 · 메인보컬</div>
+          <div class="bio-tl-sub">1st Single &amp; Japan Single「24/7」발매</div>
+        </div>
+      </div>
+      <div class="bio-tl-row">
+        <div class="bio-tl-year">2025</div>
+        <div class="bio-tl-dot"></div>
+        <div>
+          <div class="bio-tl-text"><strong>Still UNFINISHED</strong> — 일본 솔로 정규 2집</div>
+          <div class="bio-tl-sub">단독 콘서트 · 100장 완판</div>
+        </div>
+      </div>
+      <div class="bio-tl-row">
+        <div class="bio-tl-year">2026</div>
+        <div class="bio-tl-dot"></div>
+        <div>
+          <div class="bio-tl-text"><strong>MAMA : THE ETERNAL LOVE</strong> — 3rd Solo Album</div>
+          <div class="bio-tl-sub">발매 예정 2026.06</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -160,40 +263,65 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 
 <!-- FOOTER -->
 <footer class="artist-footer">
-  <div class="footer-brand">MADEWELL · JUNGKYUN</div>
+  <div class="footer-brand">MADEWELL</div>
   <div class="footer-links">
-    <a href="https://instagram.com/madewellmusic_official" target="_blank">Instagram</a>
-    <a href="mixing-mastering-landing.html" id="fl-studio">Studio</a>
-    <a href="lesson-landing.html" id="fl-lesson">Lesson</a>
-    <a href="index.html" id="fl-home">Home</a>
+    <a href="https://instagram.com/madewellmusic_official" target="_blank">
+      <!-- Instagram icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+      <span id="fl-insta">Instagram</span>
+    </a>
+    <a href="mixing-mastering-landing.html">
+      <!-- Studio icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      <span id="fl-studio">Studio</span>
+    </a>
+    <a href="lesson-landing.html">
+      <!-- Lesson icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <span id="fl-lesson">Lesson</span>
+    </a>
+    <a href="index.html">
+      <!-- Home icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/><rect x="9" y="14" width="6" height="7"/></svg>
+      <span id="fl-home">Home</span>
+    </a>
   </div>
 </footer>
 
 <script>
 const T = {
   ko:{
-    'h-eyebrow':'JUNGKYUN · 3RD SOLO ALBUM · 2026',
-    'h-line1':'THE ALBUM','h-line2':'I OWE','h-line3':'HER.',
-    'h-cta-1':'PRE-ORDER NOW →','h-cta-2':'TRACKLIST',
-    'bio-title':'2014년 데뷔,<br/><em>지금도 현재진행형.</em>',
-    'bio-desc':'K-POP 아티스트이자 KOMCA 등록 프로듀서. 그룹 빅플로(WE:A)로 데뷔해 다수의 K-POP 아티스트와 협업. 2025년 일본 솔로 정규앨범 100장 완판.',
-    'fl-studio':'스튜디오','fl-lesson':'레슨','fl-home':'홈',
+    'h-eyebrow':'MADEWELL · 3RD SOLO ALBUM · 2026',
+    'h-album-tag':'3RD SOLO ALBUM',
+    'h-line1':'MAMA','h-line2':'THE ETERNAL LOVE',
+    'h-cta-1':'선주문하기 →','h-cta-2':'트랙리스트',
+    'bio-title':'MADEWELL',
+    'bio-role':'Music Producer · Artist · Engineer',
+    'bio-tags':'<span class="bio-tag">작곡</span><span class="bio-tag">편곡</span><span class="bio-tag">작사</span><span class="bio-tag">피아노</span><span class="bio-tag">기타</span><span class="bio-tag">베이스</span><span class="bio-tag">드럼</span><span class="bio-tag">JLPT 1급</span>',
+    'stat1':'KOMCA 등록곡','stat2':'오리콘 솔로','stat3':'일본 콘서트','stat4':'년 경력',
+    'fl-insta':'Instagram','fl-studio':'스튜디오','fl-lesson':'레슨','fl-home':'홈',
   },
   en:{
-    'h-eyebrow':'JUNGKYUN · 3RD SOLO ALBUM · 2026',
-    'h-line1':'THE ALBUM','h-line2':'I OWE','h-line3':'HER.',
+    'h-eyebrow':'MADEWELL · 3RD SOLO ALBUM · 2026',
+    'h-album-tag':'3RD SOLO ALBUM',
+    'h-line1':'MAMA','h-line2':'THE ETERNAL LOVE',
     'h-cta-1':'PRE-ORDER NOW →','h-cta-2':'TRACKLIST',
-    'bio-title':'Debuted in 2014,<br/><em>Still going.</em>',
-    'bio-desc':'K-POP artist and KOMCA-registered producer. Debuted with group BIG FLOO (WE:A). Sold out 100-copy Japanese solo album in 2025.',
-    'fl-studio':'Studio','fl-lesson':'Lesson','fl-home':'Home',
+    'bio-title':'MADEWELL',
+    'bio-role':'Music Producer · Artist · Engineer',
+    'bio-tags':'<span class="bio-tag">Compose</span><span class="bio-tag">Arrange</span><span class="bio-tag">Lyricist</span><span class="bio-tag">Piano</span><span class="bio-tag">Guitar</span><span class="bio-tag">Bass</span><span class="bio-tag">Drums</span><span class="bio-tag">JLPT N1</span>',
+    'stat1':'KOMCA Songs','stat2':'Oricon Solo','stat3':'Japan Lives','stat4':'Yrs Career',
+    'fl-insta':'Instagram','fl-studio':'Studio','fl-lesson':'Lesson','fl-home':'Home',
   },
   ja:{
-    'h-eyebrow':'JUNGKYUN · 3RDソロアルバム · 2026',
-    'h-line1':'THE ALBUM','h-line2':'I OWE','h-line3':'HER.',
+    'h-eyebrow':'MADEWELL · 3rdソロアルバム · 2026',
+    'h-album-tag':'3RD SOLO ALBUM',
+    'h-line1':'MAMA','h-line2':'THE ETERNAL LOVE',
     'h-cta-1':'先行予約する →','h-cta-2':'トラックリスト',
-    'bio-title':'2014年デビュー、<br/><em>今も現在進行形。</em>',
-    'bio-desc':'K-POPアーティスト兼KOMCA登録プロデューサー。グループBIG FLOO（WE:A）でデビュー。2025年日本ソロアルバム100枚完売。',
-    'fl-studio':'スタジオ','fl-lesson':'レッスン','fl-home':'ホーム',
+    'bio-title':'MADEWELL',
+    'bio-role':'Music Producer · Artist · Engineer',
+    'bio-tags':'<span class="bio-tag">作曲</span><span class="bio-tag">編曲</span><span class="bio-tag">作詞</span><span class="bio-tag">ピアノ</span><span class="bio-tag">ギター</span><span class="bio-tag">ベース</span><span class="bio-tag">ドラム</span><span class="bio-tag">JLPT N1</span>',
+    'stat1':'KOMCA登録曲','stat2':'オリコン ソロ','stat3':'日本ライブ','stat4':'年のキャリア',
+    'fl-insta':'Instagram','fl-studio':'スタジオ','fl-lesson':'レッスン','fl-home':'ホーム',
   }
 };
 let currentLang = 'ko';

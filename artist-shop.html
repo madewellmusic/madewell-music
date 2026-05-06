@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>JUNGKYUN — Pre-Order</title>
-<meta name="description" content="JUNGKYUN 3RD SOLO ALBUM MAMA 선주문 — 5월 8일 오픈."/>
+<title>MADEWELL — Pre-Order</title>
+<meta name="description" content="MADEWELL 3RD SOLO ALBUM MAMA 선주문 — 5월 8일 오픈."/>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -129,8 +129,9 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 @media(max-width:640px){.artist-footer{padding:48px 28px;flex-direction:column;text-align:center}}
 .footer-brand{font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:11px;letter-spacing:.44em;color:rgba(255,255,255,.22);text-transform:uppercase}
 .footer-links{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
-.footer-links a{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18);transition:color .2s}
+.footer-links a{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18);transition:color .2s;display:flex;align-items:center;gap:6px}
 .footer-links a:hover{color:rgba(95,200,215,.7)}
+.footer-links a svg{width:12px;height:12px;opacity:.6}
 
 /* ── MODAL ── */
 #payment-modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(5,14,18,.96);align-items:center;justify-content:center;padding:20px}
@@ -270,7 +271,7 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
         <li>사인 미니포스터 A3</li>
         <li>자필 개인 손편지</li>
         <li class="gold">1ST 솔로 앨범 UNFINISHED 미개봉본<br/>+ 2026 직필 사인 &amp; 메시지</li>
-        <li class="dinner">소규모 디너에 초대합니다<br/>JUNGKYUN과 함께하는 자리</li>
+        <li class="dinner">소규모 디너에 초대합니다<br/>MADEWELL과 함께하는 자리</li>
       </ul>
       <button class="tier-btn vvip-btn" onclick="openPayment(5)" id="tb5">선주문하기</button>
     </div>
@@ -347,17 +348,17 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
   <div class="milestone-title" id="ms-title">달성 보너스 (판매량 기준)</div>
   <div class="milestone-items">
     <div class="milestone-item">
-      <div class="milestone-num">50장</div>
+      <div class="milestone-num" id="ms1-num">50장</div>
       <div class="milestone-label" id="ms1-label">제작 확정 공지</div>
       <div class="milestone-perk" id="ms1-perk">공식 포스팅</div>
     </div>
     <div class="milestone-item">
-      <div class="milestone-num">70장</div>
+      <div class="milestone-num" id="ms2-num">70장</div>
       <div class="milestone-label" id="ms2-label">디지털 배경화면 팩</div>
       <div class="milestone-perk" id="ms2-perk">전원 무료 공유</div>
     </div>
     <div class="milestone-item">
-      <div class="milestone-num">100장</div>
+      <div class="milestone-num" id="ms3-num">100장</div>
       <div class="milestone-label" id="ms3-label">레코딩 비하인드 영상</div>
       <div class="milestone-perk" id="ms3-perk">완판 기념 릴리즈</div>
     </div>
@@ -366,12 +367,24 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 
 <!-- FOOTER -->
 <footer class="artist-footer">
-  <div class="footer-brand">MADEWELL · JUNGKYUN</div>
+  <div class="footer-brand">MADEWELL</div>
   <div class="footer-links">
-    <a href="https://instagram.com/madewellmusic_official" target="_blank">Instagram</a>
-    <a href="mixing-mastering-landing.html" id="fl-studio">Studio</a>
-    <a href="lesson-landing.html" id="fl-lesson">Lesson</a>
-    <a href="index.html" id="fl-home">Home</a>
+    <a href="https://instagram.com/madewellmusic_official" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+      <span id="fl-insta">Instagram</span>
+    </a>
+    <a href="mixing-mastering-landing.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      <span id="fl-studio">Studio</span>
+    </a>
+    <a href="lesson-landing.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <span id="fl-lesson">Lesson</span>
+    </a>
+    <a href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/><rect x="9" y="14" width="6" height="7"/></svg>
+      <span id="fl-home">Home</span>
+    </a>
   </div>
 </footer>
 
@@ -480,10 +493,10 @@ const T = {
     'su-album-desc':'일본 도쿄, 그 미완성의 감정들. TOKYO TOWER로 시작된 이야기가 담긴 두 번째 솔로 정규앨범.<br/>MAMA의 전작으로, 두 앨범이 이어지는 세계관의 출발점.',
     'su-btn':'구매하기 →','su-note':'잔여 수량 한정 · 구매 후 배송 안내 드립니다',
     'ms-title':'달성 보너스 (판매량 기준)',
-    'ms1-label':'제작 확정 공지','ms1-perk':'공식 포스팅',
-    'ms2-label':'디지털 배경화면 팩','ms2-perk':'전원 무료 공유',
-    'ms3-label':'레코딩 비하인드 영상','ms3-perk':'완판 기념 릴리즈',
-    'fl-studio':'스튜디오','fl-lesson':'레슨','fl-home':'홈',
+    'ms1-num':'50장','ms1-label':'제작 확정 공지','ms1-perk':'공식 포스팅',
+    'ms2-num':'70장','ms2-label':'디지털 배경화면 팩','ms2-perk':'전원 무료 공유',
+    'ms3-num':'100장','ms3-label':'레코딩 비하인드 영상','ms3-perk':'완판 기념 릴리즈',
+    'fl-insta':'Instagram','fl-studio':'스튜디오','fl-lesson':'레슨','fl-home':'홈',
     'modal-after-title':'결제 후 아래로 주문 정보를 보내주세요',
     'modal-after-desc':'📱 Instagram DM: <strong style="color:rgba(95,200,215,.8)">@madewellmusic_official</strong><br/>📧 Email: <strong style="color:rgba(95,200,215,.8)">madewellofficial@gmail.com</strong>',
     'modal-info-list':'결제자명 · 결제 금액 · 배송 주소 · 국가<br/><span style="color:rgba(95,200,215,.45)">배송비는 확인 후 별도 링크로 청구됩니다.</span>',
@@ -503,7 +516,7 @@ const T = {
     't4-name':'Be My Mama Again','t4-qty':'10 copies','t4-limit':'First 5 only',
     't4-perks':'<li>Album CD × 10</li><li>Full photocard set</li><li>Signed polaroid</li><li>Unreleased photocard</li><li>Personal video message QR</li><li>Full album commentary audio</li><li>Signed mini poster A3</li><li>Handwritten personal letter</li><li class="gold">1ST Solo Album UNFINISHED (sealed)<br/>+ 2026 handwritten sign &amp; message</li>',
     't5-name':'Forever Mama','t5-qty':'20 copies','t5-limit':'First 3 only',
-    't5-perks':'<li>Album CD × 20</li><li>Full photocard set</li><li>Signed polaroid</li><li>Unreleased photocard</li><li>Personal video message QR</li><li>Full album commentary audio</li><li>Signed mini poster A3</li><li>Handwritten personal letter</li><li class="gold">1ST Solo Album UNFINISHED (sealed)<br/>+ 2026 handwritten sign &amp; message</li><li class="dinner">Private dinner invitation<br/>An evening with JUNGKYUN</li>',
+    't5-perks':'<li>Album CD × 20</li><li>Full photocard set</li><li>Signed polaroid</li><li>Unreleased photocard</li><li>Personal video message QR</li><li>Full album commentary audio</li><li>Signed mini poster A3</li><li>Handwritten personal letter</li><li class="gold">1ST Solo Album UNFINISHED (sealed)<br/>+ 2026 handwritten sign &amp; message</li><li class="dinner">Private dinner invitation<br/>An evening with MADEWELL</li>',
     'pay-label':'Payment Guide','pay-title':'Click → Pay Directly',
     'pay-sub':'No PayPal account needed — pay with your card directly. Same process worldwide.',
     'ps1-title':'Choose tier & pay',
@@ -519,10 +532,10 @@ const T = {
     'su-album-desc':'Tokyo — and the feelings left unfinished. The album where TOKYO TOWER began.<br/>The prequel to MAMA, where the connected story starts.',
     'su-btn':'Buy Now →','su-note':'Limited remaining stock · Shipping info sent after purchase',
     'ms-title':'Milestone Bonuses',
-    'ms1-label':'Production Confirmed','ms1-perk':'Official Announcement',
-    'ms2-label':'Digital Wallpaper Pack','ms2-perk':'Free for all buyers',
-    'ms3-label':'Recording Behind-the-Scenes','ms3-perk':'Sellout celebration',
-    'fl-studio':'Studio','fl-lesson':'Lesson','fl-home':'Home',
+    'ms1-num':'50 copies','ms1-label':'Production Confirmed','ms1-perk':'Official Announcement',
+    'ms2-num':'70 copies','ms2-label':'Digital Wallpaper Pack','ms2-perk':'Free for all buyers',
+    'ms3-num':'100 copies','ms3-label':'Recording Behind-the-Scenes','ms3-perk':'Sellout celebration',
+    'fl-insta':'Instagram','fl-studio':'Studio','fl-lesson':'Lesson','fl-home':'Home',
     'modal-after-title':'After payment, send your order info',
     'modal-after-desc':'📱 Instagram DM: <strong style="color:rgba(95,200,215,.8)">@madewellmusic_official</strong><br/>📧 Email: <strong style="color:rgba(95,200,215,.8)">madewellofficial@gmail.com</strong>',
     'modal-info-list':'Name · Amount paid · Shipping address · Country<br/><span style="color:rgba(95,200,215,.45)">Shipping fee billed separately via payment link.</span>',
@@ -542,7 +555,7 @@ const T = {
     't4-name':'Be My Mama Again','t4-qty':'10枚','t4-limit':'先着5名様',
     't4-perks':'<li>アルバムCD × 10枚</li><li>フォトカードフルセット</li><li>サインポラロイド</li><li>未公開フォトカード</li><li>個人映像メッセージQR</li><li>全曲解説音声ファイル</li><li>サインミニポスターA3</li><li>手書き個人手紙</li><li class="gold">1stソロアルバム UNFINISHED 未開封<br/>+ 2026年直筆サイン &amp; メッセージ</li>',
     't5-name':'Forever Mama','t5-qty':'20枚','t5-limit':'先着3名様',
-    't5-perks':'<li>アルバムCD × 20枚</li><li>フォトカードフルセット</li><li>サインポラロイド</li><li>未公開フォトカード</li><li>個人映像メッセージQR</li><li>全曲解説音声ファイル</li><li>サインミニポスターA3</li><li>手書き個人手紙</li><li class="gold">1stソロアルバム UNFINISHED 未開封<br/>+ 2026年直筆サイン &amp; メッセージ</li><li class="dinner">小規模ディナーにご招待<br/>JUNGKYUNとの特別な時間</li>',
+    't5-perks':'<li>アルバムCD × 20枚</li><li>フォトカードフルセット</li><li>サインポラロイド</li><li>未公開フォトカード</li><li>個人映像メッセージQR</li><li>全曲解説音声ファイル</li><li>サインミニポスターA3</li><li>手書き個人手紙</li><li class="gold">1stソロアルバム UNFINISHED 未開封<br/>+ 2026年直筆サイン &amp; メッセージ</li><li class="dinner">小規模ディナーにご招待<br/>MADEWELLとの特別な時間</li>',
     'pay-label':'お支払い案内','pay-title':'クリック → すぐ決済',
     'pay-sub':'PayPalアカウントなしでカード決済OK。韓国・日本・海外のファンの方も同じ方法でどうぞ。',
     'ps1-title':'ティア選択後に決済',
@@ -558,10 +571,10 @@ const T = {
     'su-album-desc':'東京、あの未完成の感情たち。TOKYO TOWERから始まった物語の2ndソロアルバム。<br/>MAMAの前作であり、二つのアルバムがつながるユニバースの原点。',
     'su-btn':'購入する →','su-note':'残在庫限定 · ご購入後に配送案内をお送りします',
     'ms-title':'マイルストーンボーナス',
-    'ms1-label':'制作確定告知','ms1-perk':'公式ポスト',
-    'ms2-label':'デジタル壁紙パック','ms2-perk':'全員無料配布',
-    'ms3-label':'レコーディング密着映像','ms3-perk':'完売記念リリース',
-    'fl-studio':'スタジオ','fl-lesson':'レッスン','fl-home':'ホーム',
+    'ms1-num':'50枚','ms1-label':'制作確定告知','ms1-perk':'公式ポスト',
+    'ms2-num':'70枚','ms2-label':'デジタル壁紙パック','ms2-perk':'全員無料配布',
+    'ms3-num':'100枚','ms3-label':'レコーディング密着映像','ms3-perk':'完売記念リリース',
+    'fl-insta':'Instagram','fl-studio':'スタジオ','fl-lesson':'レッスン','fl-home':'ホーム',
     'modal-after-title':'決済後にご注文情報をお送りください',
     'modal-after-desc':'📱 Instagram DM: <strong style="color:rgba(95,200,215,.8)">@madewellmusic_official</strong><br/>📧 Email: <strong style="color:rgba(95,200,215,.8)">madewellofficial@gmail.com</strong>',
     'modal-info-list':'お名前 · 決済金額 · 配送先住所 · 国<br/><span style="color:rgba(95,200,215,.45)">送料は別途リンクでご請求します。</span>',
