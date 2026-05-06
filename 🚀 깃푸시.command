@@ -1,22 +1,18 @@
 #!/bin/bash
-cd "/Users/madewell/Documents/Claude/Projects/MADEWELL MUSIC 리브랜딩"
+
+# 스크립트 위치 기준으로 이동 (한글 경로 문제 방지)
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$SCRIPT_DIR"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "  MADEWELL MUSIC — Git Push"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "📁 경로: $SCRIPT_DIR"
+echo ""
 
 # lock 파일 제거
 rm -f .git/HEAD.lock .git/index.lock 2>/dev/null
-
-# 변경사항 임시 저장
-git stash 2>/dev/null
-
-# 원격 최신 가져오기
-git pull origin main --rebase 2>&1 | tail -3
-
-# 변경사항 복원
-git stash pop 2>/dev/null
 
 # 전체 add + commit + push
 git add -A
