@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080"/>
+<title>MAMA : THE ETERNAL LOVE — MADEWELL 2026 (세로)</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#050e12}
+
+.frame{
+  position:relative;
+  width:1080px;
+  height:1920px;
+  overflow:hidden;
+}
+
+/* 배경 그라디언트 */
+.bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% 35%, rgba(52,138,150,.2) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 40% at 20% 75%, rgba(30,90,100,.15) 0%, transparent 52%),
+    linear-gradient(180deg, #050e12 0%, #091d25 45%, #050e12 100%);
+}
+
+/* 인물 사진 — 세로 풀샷 */
+.photo{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background-image:url('images/artist_new.png');
+  background-size:cover;
+  background-position:center 8%;
+  opacity:.72;
+  filter:brightness(1.05) contrast(1.08) saturate(0.88);
+  /* 아래로 갈수록 페이드 */
+  -webkit-mask-image:linear-gradient(to bottom,
+    rgba(0,0,0,1)   0%,
+    rgba(0,0,0,.92) 45%,
+    rgba(0,0,0,.55) 68%,
+    rgba(0,0,0,0)   100%
+  );
+  mask-image:linear-gradient(to bottom,
+    rgba(0,0,0,1)   0%,
+    rgba(0,0,0,.92) 45%,
+    rgba(0,0,0,.55) 68%,
+    rgba(0,0,0,0)   100%
+  );
+}
+
+/* 좌측 사이드 그라디언트 — 글자 가독성 */
+.side-fade{
+  position:absolute;inset:0;z-index:2;
+  background:linear-gradient(to bottom,
+    rgba(5,14,18,0)   52%,
+    rgba(5,14,18,.75) 72%,
+    rgba(5,14,18,.97) 88%,
+    rgba(5,14,18,1)   100%
+  );
+}
+
+/* 텍스트 — 하단 배치 */
+.content{
+  position:absolute;
+  z-index:3;
+  bottom:160px;
+  left:72px;
+  right:72px;
+}
+
+.eyebrow{
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.38em;
+  color:rgba(95,200,215,.65);text-transform:uppercase;
+  margin-bottom:28px;
+  display:flex;align-items:center;gap:14px;
+}
+.eyebrow::after{content:'';width:36px;height:1px;background:rgba(95,200,215,.35)}
+
+.album-tag{
+  font-family:'Josefin Sans',sans-serif;font-weight:100;
+  font-size:13px;letter-spacing:.58em;
+  color:rgba(95,200,215,.45);text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+.title-main{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;
+  font-size:128px;line-height:.88;
+  color:rgba(255,255,255,.93);letter-spacing:-.02em;
+  margin-bottom:6px;
+}
+.title-sub{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;
+  font-size:52px;line-height:1.1;
+  color:rgba(95,200,215,.82);letter-spacing:.02em;
+  margin-bottom:48px;
+}
+
+/* 구분선 */
+.divider{
+  width:100%;height:1px;
+  background:linear-gradient(to right, rgba(95,200,215,.22), rgba(95,200,215,.06) 70%, transparent);
+  margin-bottom:32px;
+}
+
+.meta{
+  font-family:'Josefin Sans',sans-serif;font-weight:100;
+  font-size:11.5px;letter-spacing:.38em;
+  color:rgba(255,255,255,.22);text-transform:uppercase;line-height:2.2;
+}
+.meta strong{color:rgba(95,200,215,.5);font-weight:300}
+
+/* 워터마크 */
+.watermark{
+  position:absolute;z-index:3;
+  top:60px;right:64px;
+  font-family:'Josefin Sans',sans-serif;font-weight:100;
+  font-size:10px;letter-spacing:.48em;
+  color:rgba(255,255,255,.14);text-transform:uppercase;
+}
+
+/* 코너 장식 */
+.corner-tl{position:absolute;z-index:3;top:60px;left:64px;width:28px;height:28px;border-top:1px solid rgba(95,200,215,.22);border-left:1px solid rgba(95,200,215,.22)}
+.corner-br{position:absolute;z-index:3;bottom:60px;right:64px;width:28px;height:28px;border-bottom:1px solid rgba(95,200,215,.22);border-right:1px solid rgba(95,200,215,.22)}
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="bg"></div>
+  <div class="photo"></div>
+  <div class="side-fade"></div>
+
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+  <div class="watermark">MADEWELL MUSIC</div>
+
+  <div class="content">
+    <div class="eyebrow">MADEWELL · 3RD SOLO ALBUM · 2026</div>
+    <div class="album-tag">3RD SOLO ALBUM</div>
+    <div class="title-main">MAMA</div>
+    <div class="title-sub">THE ETERNAL LOVE</div>
+    <div class="divider"></div>
+    <div class="meta">
+      <strong>RELEASE</strong> 2026.06&nbsp;&nbsp;·&nbsp;&nbsp;MADEWELL MUSIC
+    </div>
+  </div>
+</div>
+</body>
+</html>

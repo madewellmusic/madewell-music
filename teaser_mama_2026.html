@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1920"/>
+<title>MAMA : THE ETERNAL LOVE — MADEWELL 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#050e12}
+
+/* ── HERO — artist.html 그대로 ── */
+.hero{position:relative;width:1920px;height:1080px;display:flex;align-items:center;overflow:hidden}
+
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 60% 40%, rgba(52,138,150,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 20% 70%, rgba(30,90,100,.14) 0%, transparent 55%),
+    linear-gradient(180deg, #050e12 0%, #0a1e24 40%, #050e12 100%);
+}
+
+/* 사진 — 불투명도 올리고 마스크 부드럽게 */
+.hero-img{
+  position:absolute;inset:0;z-index:1;
+  background-image:url('images/artist_new.png');
+  background-size:cover;
+  background-position:center 15%;
+  opacity:.68;
+  -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,.75) 50%, rgba(0,0,0,.1) 100%);
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,.75) 50%, rgba(0,0,0,.1) 100%);
+  filter:brightness(1.05) contrast(1.06) saturate(0.9);
+}
+
+.hero-content{
+  position:relative;z-index:2;
+  padding:120px 72px 100px;
+  max-width:900px;
+}
+
+.hero-eyebrow{
+  font-size:9px;font-weight:700;letter-spacing:.38em;
+  color:rgba(95,200,215,.7);text-transform:uppercase;
+  margin-bottom:32px;display:flex;align-items:center;gap:12px;
+  font-family:'Montserrat',sans-serif;
+}
+.hero-eyebrow::after{content:'';width:32px;height:1px;background:rgba(95,200,215,.4)}
+
+.hero-album-tag{
+  font-family:'Josefin Sans',sans-serif;font-weight:100;
+  font-size:clamp(9px,.85vw,11px);letter-spacing:.55em;
+  color:rgba(95,200,215,.55);text-transform:uppercase;margin-bottom:20px;
+}
+
+.hero-slogan{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  line-height:.92;color:#fff;letter-spacing:-.02em;
+  /* 버튼 없으므로 margin-bottom 없음 */
+}
+.hero-slogan .line-title{
+  display:block;font-size:clamp(11px,1.1vw,15px);font-style:normal;
+  font-family:'Josefin Sans',sans-serif;font-weight:100;letter-spacing:.48em;
+  color:rgba(255,255,255,.32);text-transform:uppercase;margin-bottom:14px;
+}
+.hero-slogan .line-main{
+  display:block;font-style:italic;
+  font-size:clamp(52px,8.5vw,120px);color:rgba(255,255,255,.92);
+}
+.hero-slogan .line-sub{
+  display:block;font-style:italic;
+  font-size:clamp(38px,5.5vw,78px);color:rgba(95,200,215,.82);margin-top:6px;
+}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">MADEWELL · 3RD SOLO ALBUM · 2026</div>
+    <h1 class="hero-slogan">
+      <span class="line-title">3RD SOLO ALBUM</span>
+      <span class="line-main">MAMA</span>
+      <span class="line-sub">THE ETERNAL LOVE</span>
+    </h1>
+  </div>
+</div>
+</body>
+</html>
