@@ -419,7 +419,7 @@ const PAYPAL_LINKS = [
   '',  /* 3장 My Mama — 링크 추가 필요 */
   '',  /* 5장 Eternal — 링크 추가 필요 */
   '',  /* 10장 VIP — 링크 추가 필요 */
-  '',  /* 20장 VVIP — 링크 추가 필요 */
+  'https://www.paypal.com/ncp/payment/VMV5VZ3UUASTW',  /* 20장 VVIP Forever Mama */
 ];
 
 const tierPrices = {
@@ -443,15 +443,18 @@ function openPayment(tier) {
   document.getElementById('modal-qty').textContent = tierQtys[currentLang][idx];
   document.getElementById('modal-price').textContent = tierPrices[currentLang][idx];
   const btn = document.getElementById('modal-paypal-btn');
+  const payBtnText = {ko:'PayPal로 바로 결제하기 →', en:'Pay with PayPal →', ja:'PayPalで決済する →'};
+  const payBtnLoading = {ko:'결제 링크 준비 중...', en:'Payment link coming soon...', ja:'決済リンク準備中...'};
   if (link) {
     btn.href = link;
     btn.style.opacity = '1';
     btn.style.pointerEvents = 'auto';
+    btn.textContent = payBtnText[currentLang] || payBtnText.en;
   } else {
     btn.href = '#';
     btn.style.opacity = '.4';
     btn.style.pointerEvents = 'none';
-    btn.textContent = '결제 링크 준비 중...';
+    btn.textContent = payBtnLoading[currentLang] || payBtnLoading.en;
   }
   document.getElementById('payment-modal').style.display = 'flex';
 }

@@ -37,8 +37,8 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 /* ── HERO ── */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 60% 40%, rgba(52,138,150,.18) 0%, transparent 60%),radial-gradient(ellipse 40% 50% at 20% 70%, rgba(30,90,100,.14) 0%, transparent 55%),linear-gradient(180deg, #050e12 0%, #0a1e24 40%, #050e12 100%)}
-/* 새 사진으로 교체: images/artist_new.jpg 추가 시 자동 적용 */
-.hero-img{position:absolute;inset:0;z-index:1;background-image:url('images/artist_new.jpg'),url('images/STILL UNFINIHSED 앨범자료/JK MAIN.png');background-size:cover;background-position:center 15%;opacity:.38;-webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.85) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,0) 100%);mask-image:linear-gradient(to bottom, rgba(0,0,0,.85) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,0) 100%)}
+/* artist_new.png 적용 */
+.hero-img{position:absolute;inset:0;z-index:1;background-image:url('images/artist_new.png');background-size:cover;background-position:center 15%;opacity:.42;-webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.9) 0%, rgba(0,0,0,.5) 55%, rgba(0,0,0,0) 100%);mask-image:linear-gradient(to bottom, rgba(0,0,0,.9) 0%, rgba(0,0,0,.5) 55%, rgba(0,0,0,0) 100%)}
 .hero-content{position:relative;z-index:2;padding:120px 72px 100px;max-width:900px}
 .hero-eyebrow{font-size:9px;font-weight:700;letter-spacing:.38em;color:rgba(95,200,215,.7);text-transform:uppercase;margin-bottom:32px;display:flex;align-items:center;gap:12px}
 .hero-eyebrow::after{content:'';width:32px;height:1px;background:rgba(95,200,215,.4)}
@@ -68,12 +68,12 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 /* 좌: 사진 2장 세로 스택 */
 .artist-photo-col{position:relative;overflow:hidden;display:flex;flex-direction:column}
 .artist-photo-top{flex:1.2;position:relative;overflow:hidden;min-height:280px}
-.artist-photo-top-img{width:100%;height:100%;background-image:url('images/artist_new.jpg'),url('images/STILL UNFINIHSED 앨범자료/JK MAIN.png');background-size:cover;background-position:center 12%;transition:transform .6s}
+.artist-photo-top-img{width:100%;height:100%;background-image:url('images/artist_new.png');background-size:cover;background-position:center 10%;opacity:.88;transition:transform .6s, opacity .4s;filter:brightness(0.9) contrast(1.04) saturate(0.88)}
 .artist-photo-bottom{flex:1;position:relative;overflow:hidden;min-height:200px;border-top:1px solid rgba(95,200,215,.08)}
-.artist-photo-bottom-img{width:100%;height:100%;background-image:url('images/STILL UNFINIHSED 앨범자료/JK SOFA.png');background-size:cover;background-position:center 30%;transition:transform .6s}
-.artist-photo-col:hover .artist-photo-top-img,
-.artist-photo-col:hover .artist-photo-bottom-img{transform:scale(1.03)}
-.artist-photo-col::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, transparent 55%, #050e12 100%);pointer-events:none;z-index:1}
+.artist-photo-bottom-img{width:100%;height:100%;background-image:url('images/artist_new.png');background-size:cover;background-position:center 72%;opacity:.62;transition:transform .6s, opacity .4s;filter:brightness(0.82) contrast(1.08) saturate(0.84)}
+.artist-photo-col:hover .artist-photo-top-img{transform:scale(1.03);opacity:.95}
+.artist-photo-col:hover .artist-photo-bottom-img{transform:scale(1.03);opacity:.72}
+.artist-photo-col::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, rgba(5,14,18,.05) 0%, transparent 32%, rgba(5,14,18,.92) 96%),linear-gradient(to bottom, transparent 68%, rgba(5,14,18,.25) 100%);pointer-events:none;z-index:1}
 @media(max-width:960px){.artist-photo-col::after{background:linear-gradient(to bottom, transparent 60%, #050e12 100%)}.artist-photo-col{min-height:380px}}
 
 /* 우: 바이오 */
@@ -310,6 +310,7 @@ const T = {
     'bio-role':'Music Producer · Artist · Engineer',
     'bio-tags':'<span class="bio-tag">Compose</span><span class="bio-tag">Arrange</span><span class="bio-tag">Lyricist</span><span class="bio-tag">Piano</span><span class="bio-tag">Guitar</span><span class="bio-tag">Bass</span><span class="bio-tag">Drums</span><span class="bio-tag">JLPT N1</span>',
     'stat1':'KOMCA Songs','stat2':'Oricon Solo','stat3':'Japan Lives','stat4':'Yrs Career',
+    'bio-timeline':'<div class="bio-tl-row"><div class="bio-tl-year">2007</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>Takeon</strong> — Main Vocalist, 3-member idol group debut</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2011</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>Entrain</strong> — Leader &amp; Vocalist, 5-member idol group debut</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2014</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>BIGFLO</strong> — Leader, Main Vocalist &amp; Producer, 6-member idol group debut</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2018</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>Studio J2K Co., Ltd.</strong> — Founded</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2020</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>MADEWELL MUSIC Co., Ltd.</strong> — Founded · CEO &amp; Head Producer</div><div class="bio-tl-sub">Studio Open · Yeoksam-dong, Gangnam-gu, Seoul</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2023</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>WE:A (formerly BIGFLO)</strong> — Formed · Leader · Main Vocalist</div><div class="bio-tl-sub">1st Single &amp; Japan Single「24/7」released</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2025</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>Still UNFINISHED</strong> — 2nd Japan Solo Full Album</div><div class="bio-tl-sub">Solo Concert · 100 copies sold out</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2026</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>MAMA : THE ETERNAL LOVE</strong> — 3rd Solo Album</div><div class="bio-tl-sub">Release: 2026.06</div></div></div>',
     'fl-insta':'Instagram','fl-studio':'Studio','fl-lesson':'Lesson','fl-home':'Home',
   },
   ja:{
@@ -321,6 +322,7 @@ const T = {
     'bio-role':'Music Producer · Artist · Engineer',
     'bio-tags':'<span class="bio-tag">作曲</span><span class="bio-tag">編曲</span><span class="bio-tag">作詞</span><span class="bio-tag">ピアノ</span><span class="bio-tag">ギター</span><span class="bio-tag">ベース</span><span class="bio-tag">ドラム</span><span class="bio-tag">JLPT N1</span>',
     'stat1':'KOMCA登録曲','stat2':'オリコン ソロ','stat3':'日本ライブ','stat4':'年のキャリア',
+    'bio-timeline':'<div class="bio-tl-row"><div class="bio-tl-year">2007</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>タカオン</strong> — 3人組アイドル メインボーカルデビュー</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2011</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>エントレイン</strong> — 5人組アイドル リーダー・ボーカルデビュー</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2014</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>BIGFLO</strong> — 6人組アイドル リーダー・メインボーカル・プロデューサーデビュー</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2018</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>スタジオJ2K株式会社</strong> — 設立</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2020</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>MADEWELL MUSIC株式会社</strong> — 法人設立・代表プロデューサー</div><div class="bio-tl-sub">スタジオオープン・ソウル 江南区 驛三洞</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2023</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>WE:A（元BIGFLO）</strong> — 結成・リーダー・メインボーカル</div><div class="bio-tl-sub">1stシングル &amp; Japanシングル「24/7」発売</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2025</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>Still UNFINISHED</strong> — 日本ソロ正規2集</div><div class="bio-tl-sub">ソロコンサート・100枚完売</div></div></div><div class="bio-tl-row"><div class="bio-tl-year">2026</div><div class="bio-tl-dot"></div><div><div class="bio-tl-text"><strong>MAMA : THE ETERNAL LOVE</strong> — 3rdソロアルバム</div><div class="bio-tl-sub">発売予定 2026.06</div></div></div>',
     'fl-insta':'Instagram','fl-studio':'スタジオ','fl-lesson':'レッスン','fl-home':'ホーム',
   }
 };
