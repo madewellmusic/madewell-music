@@ -160,14 +160,20 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
 .side.lesson{background:linear-gradient(145deg,rgba(10,8,24,.9) 0%,rgba(13,7,32,.84) 50%,rgba(7,7,10,.9) 100%)}
 .lesson-glow{position:absolute;top:-20%;right:-15%;width:80%;height:100%;background:radial-gradient(ellipse at 70% 40%,rgba(74,44,138,.45) 0%,transparent 60%);pointer-events:none}
 .lesson-glow2{position:absolute;bottom:-30%;left:-10%;width:60%;height:70%;background:radial-gradient(ellipse at 30% 80%,rgba(74,44,138,.22) 0%,transparent 55%);pointer-events:none}
+.side.artist{background:linear-gradient(145deg,rgba(6,16,20,.95) 0%,rgba(8,22,28,.88) 50%,rgba(5,14,18,.95) 100%)}
+.artist-glow{position:absolute;top:-20%;right:-15%;width:80%;height:100%;background:radial-gradient(ellipse at 70% 40%,rgba(52,138,150,.38) 0%,transparent 60%);pointer-events:none}
+.artist-glow2{position:absolute;bottom:-30%;left:-10%;width:60%;height:70%;background:radial-gradient(ellipse at 30% 80%,rgba(52,138,150,.18) 0%,transparent 55%);pointer-events:none}
 
-.divider{position:absolute;top:0;bottom:0;left:50%;width:1px;background:linear-gradient(to bottom,transparent 0%,rgba(201,169,60,.18) 30%,rgba(201,169,60,.32) 50%,rgba(201,169,60,.18) 70%,transparent 100%);z-index:5;pointer-events:none;transform:translateX(-50%) scaleY(0);transform-origin:50% 0%;transition:transform 1s cubic-bezier(.4,0,.2,1) .5s}
+.divider{position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent 0%,rgba(201,169,60,.18) 30%,rgba(201,169,60,.32) 50%,rgba(201,169,60,.18) 70%,transparent 100%);z-index:5;pointer-events:none;transform:translateX(-50%) scaleY(0);transform-origin:50% 0%;transition:transform 1s cubic-bezier(.4,0,.2,1) .5s}
+.divider-1{left:33.33%}
+.divider-2{left:66.66%}
 .split.show .divider{transform:translateX(-50%) scaleY(1)}
 @media(max-width:640px){.divider{display:none}}
 
 .side-content{position:relative;z-index:2;padding:40px 52px;text-align:left;max-width:480px;opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
 .split.show .studio .side-content{opacity:1;transform:translateY(0);transition-delay:.3s}
 .split.show .lesson  .side-content{opacity:1;transform:translateY(0);transition-delay:.45s}
+.split.show .artist  .side-content{opacity:1;transform:translateY(0);transition-delay:.6s}
 @media(max-width:900px){.side-content{padding:40px 32px}}
 @media(max-width:640px){.side-content{padding:48px 28px;text-align:center;max-width:100%}}
 
@@ -177,12 +183,15 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
 .studio .side-tag::after{background:rgba(201,169,60,.5)}
 .lesson .side-tag{color:rgba(160,130,255,.9)}
 .lesson .side-tag::after{background:rgba(160,130,255,.5)}
+.artist .side-tag{color:rgba(95,200,215,.9)}
+.artist .side-tag::after{background:rgba(95,200,215,.5)}
 @media(max-width:640px){.side-tag{justify-content:center}.side-tag::after{display:none}}
 
 .side-h{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,3.8vw,60px);line-height:1.05;color:#fff;letter-spacing:-.01em;margin-bottom:22px}
 .side-h em{font-style:italic}
 .studio .side-h em{color:rgba(201,169,60,.9)}
 .lesson .side-h em{color:rgba(160,130,255,.85)}
+.artist .side-h em{color:rgba(95,200,215,.85)}
 
 .side-desc{font-size:12.5px;color:rgba(255,255,255,.35);line-height:1.95;margin-bottom:36px;font-weight:300;letter-spacing:.02em}
 .side-cta{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:14px 30px;transition:all .28s}
@@ -190,14 +199,18 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
 .studio .side-cta:hover{background:rgba(201,169,60,1);box-shadow:0 8px 44px rgba(184,149,46,.6);transform:translateY(-2px)}
 .lesson .side-cta{color:#fff;background:rgba(74,44,138,.8);border:1px solid rgba(120,80,200,.4);box-shadow:0 4px 28px rgba(74,44,138,.35)}
 .lesson .side-cta:hover{background:rgba(90,55,160,.9);box-shadow:0 8px 44px rgba(74,44,138,.6);transform:translateY(-2px)}
+.artist .side-cta{color:#040e12;background:rgba(65,168,182,.9);box-shadow:0 4px 28px rgba(52,138,150,.45)}
+.artist .side-cta:hover{background:rgba(80,185,200,1);box-shadow:0 8px 44px rgba(52,138,150,.7);transform:translateY(-2px)}
 .side-cta-arrow{font-size:14px;transition:transform .2s}
 .side-cta:hover .side-cta-arrow{transform:translateX(5px)}
 
 .side-foot{position:absolute;bottom:32px;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:.12em;z-index:2;text-transform:uppercase;opacity:0;transition:opacity .8s ease}
 .split.show .studio .side-foot{opacity:1;transition-delay:.7s}
 .split.show .lesson  .side-foot{opacity:1;transition-delay:.85s}
+.split.show .artist  .side-foot{opacity:1;transition-delay:1s}
 .studio .side-foot{left:52px}
-.lesson .side-foot{right:52px;text-align:right}
+.lesson .side-foot{left:52px}
+.artist .side-foot{right:52px;text-align:right}
 @media(max-width:640px){.side-foot{position:relative;bottom:auto;left:auto!important;right:auto!important;text-align:center!important;padding:0 28px 32px;display:block}}
 
 .idx-lang{position:fixed;top:22px;right:28px;z-index:200;display:flex;gap:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:3px;opacity:0;transition:opacity .6s ease}
@@ -244,7 +257,8 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
 
 <!-- ══ SPLIT ══ -->
 <div class="split" id="split">
-  <div class="divider"></div>
+  <div class="divider divider-1"></div>
+  <div class="divider divider-2"></div>
   <div class="ghost-logo">
     <img src="images/MADEWELL_LOGO_thin.PNG" alt=""/>
   </div>
@@ -269,6 +283,17 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
       <span class="side-cta" id="lesson-cta">레슨 바로가기 <span class="side-cta-arrow">→</span></span>
     </div>
     <div class="side-foot">LESSON · COMPOSITION · PRODUCTION · 1:1</div>
+  </a>
+
+  <a class="side artist" href="artist.html">
+    <div class="artist-glow"></div><div class="artist-glow2"></div>
+    <div class="side-content">
+      <div class="side-tag">Artist</div>
+      <h2 class="side-h">Album<br/>Release<br/><em>JUNGKYUN.</em></h2>
+      <p class="side-desc" id="artist-desc">3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>엄마를 향한 9곡의 이야기<br/>선주문 5월 8일 오픈</p>
+      <span class="side-cta" id="artist-cta">아티스트 페이지 <span class="side-cta-arrow">→</span></span>
+    </div>
+    <div class="side-foot">ALBUM · RELEASE · PRE-ORDER · JUNGKYUN</div>
   </a>
 </div>
 
@@ -457,9 +482,30 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
 <!-- ══ i18n ══ -->
 <script>
 const IDX_T={
-  ko:{'studio-desc':'수많은 K-POP 아이돌·아티스트들이 사랑하는<br/>그 장비, 그 사운드, 그 손으로.<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>선정릉역 도보 40초 · KOMCA 등록 프로듀서','studio-cta-txt':'스튜디오 바로가기','lesson-desc':'현직 K-POP 프로듀서 1:1 레슨<br/>작곡 · 편곡 · 믹싱 · 프로듀싱<br/>강남 역삼동 스튜디오','lesson-cta-txt':'레슨 바로가기'},
-  en:{'studio-desc':'Where countless K-POP idols & artists\' music was born.<br/>Same gear. Same sound. Same hands.<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>40 sec from Seonjeongneung Stn. · KOMCA-registered producer','studio-cta-txt':'Enter Studio','lesson-desc':'1-on-1 lessons with an active K-POP producer<br/>Composition · Arrangement · Mixing · Producing<br/>Gangnam, Seoul Studio','lesson-cta-txt':'Explore Lessons'},
-  ja:{'studio-desc':'数々のK-POPアイドル・アーティストが愛した<br/>その機材、そのサウンド、その手で。<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>宣靖陵駅から徒歩40秒 · KOMCA登録プロデューサー','studio-cta-txt':'スタジオへ進む','lesson-desc':'現役K-POPプロデューサーによる1対1レッスン<br/>作曲 · 編曲 · ミックス · プロデュース<br/>ソウル江南スタジオ','lesson-cta-txt':'レッスンへ進む'}
+  ko:{
+    'studio-desc':'수많은 K-POP 아이돌·아티스트들이 사랑하는<br/>그 장비, 그 사운드, 그 손으로.<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>선정릉역 도보 40초 · KOMCA 등록 프로듀서',
+    'studio-cta-txt':'스튜디오 바로가기',
+    'lesson-desc':'현직 K-POP 프로듀서 1:1 레슨<br/>작곡 · 편곡 · 믹싱 · 프로듀싱<br/>강남 역삼동 스튜디오',
+    'lesson-cta-txt':'레슨 바로가기',
+    'artist-desc':'3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>엄마를 향한 9곡의 이야기<br/>선주문 5월 8일 오픈',
+    'artist-cta-txt':'아티스트 페이지'
+  },
+  en:{
+    'studio-desc':'Where countless K-POP idols & artists\' music was born.<br/>Same gear. Same sound. Same hands.<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>40 sec from Seonjeongneung Stn. · KOMCA-registered producer',
+    'studio-cta-txt':'Enter Studio',
+    'lesson-desc':'1-on-1 lessons with an active K-POP producer<br/>Composition · Arrangement · Mixing · Producing<br/>Gangnam, Seoul Studio',
+    'lesson-cta-txt':'Explore Lessons',
+    'artist-desc':'3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>9 songs for the one who gave me life<br/>Pre-order opens May 8th',
+    'artist-cta-txt':'Artist Page'
+  },
+  ja:{
+    'studio-desc':'数々のK-POPアイドル・アーティストが愛した<br/>その機材、そのサウンド、その手で。<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>宣靖陵駅から徒歩40秒 · KOMCA登録プロデューサー',
+    'studio-cta-txt':'スタジオへ進む',
+    'lesson-desc':'現役K-POPプロデューサーによる1対1レッスン<br/>作曲 · 編曲 · ミックス · プロデュース<br/>ソウル江南スタジオ',
+    'lesson-cta-txt':'レッスンへ進む',
+    'artist-desc':'3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>母への想いを込めた9曲<br/>先行予約 5月8日スタート',
+    'artist-cta-txt':'アーティストページ'
+  }
 };
 function idxLang(lang){
   try{localStorage.setItem('mw-lang',lang);}catch(e){}
@@ -469,6 +515,8 @@ function idxLang(lang){
   const sc=document.getElementById('studio-cta');if(sc)sc.innerHTML=t['studio-cta-txt']+' <span class="side-cta-arrow">→</span>';
   const ld=document.getElementById('lesson-desc');if(ld)ld.innerHTML=t['lesson-desc'];
   const lc=document.getElementById('lesson-cta');if(lc)lc.innerHTML=t['lesson-cta-txt']+' <span class="side-cta-arrow">→</span>';
+  const ad=document.getElementById('artist-desc');if(ad)ad.innerHTML=t['artist-desc'];
+  const ac=document.getElementById('artist-cta');if(ac)ac.innerHTML=t['artist-cta-txt']+' <span class="side-cta-arrow">→</span>';
 }
 (function(){
   let saved='ko';try{saved=localStorage.getItem('mw-lang')||'ko';}catch(e){}
