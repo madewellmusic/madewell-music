@@ -66,13 +66,9 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 @media(max-width:960px){.about-wrap{grid-template-columns:1fr}}
 
 /* 좌: 사진 2장 세로 스택 */
-.artist-photo-col{position:relative;overflow:hidden;display:flex;flex-direction:column}
-.artist-photo-top{flex:1.2;position:relative;overflow:hidden;min-height:280px}
-.artist-photo-top-img{width:100%;height:100%;background-image:url('images/artist_new.png');background-size:cover;background-position:center 10%;opacity:.88;transition:transform .6s, opacity .4s;filter:brightness(0.9) contrast(1.04) saturate(0.88)}
-.artist-photo-bottom{flex:1;position:relative;overflow:hidden;min-height:200px;border-top:1px solid rgba(95,200,215,.08)}
-.artist-photo-bottom-img{width:100%;height:100%;background-image:url('images/artist_new.png');background-size:cover;background-position:center 72%;opacity:.62;transition:transform .6s, opacity .4s;filter:brightness(0.82) contrast(1.08) saturate(0.84)}
-.artist-photo-col:hover .artist-photo-top-img{transform:scale(1.03);opacity:.95}
-.artist-photo-col:hover .artist-photo-bottom-img{transform:scale(1.03);opacity:.72}
+.artist-photo-col{position:relative;overflow:hidden}
+.artist-photo-single{width:100%;height:100%;background-image:url('images/artist_new.png');background-size:cover;background-position:center 15%;opacity:.88;transition:transform .6s, opacity .4s;filter:brightness(0.9) contrast(1.04) saturate(0.88)}
+.artist-photo-col:hover .artist-photo-single{transform:scale(1.03);opacity:.95}
 .artist-photo-col::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, rgba(5,14,18,.05) 0%, transparent 32%, rgba(5,14,18,.92) 96%),linear-gradient(to bottom, transparent 68%, rgba(5,14,18,.25) 100%);pointer-events:none;z-index:1}
 @media(max-width:960px){.artist-photo-col::after{background:linear-gradient(to bottom, transparent 60%, #050e12 100%)}.artist-photo-col{min-height:380px}}
 
@@ -163,8 +159,7 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
 <!-- ABOUT SECTION — 스튜디오 포맷 -->
 <div class="about-wrap">
   <div class="artist-photo-col">
-    <div class="artist-photo-top"><div class="artist-photo-top-img"></div></div>
-    <div class="artist-photo-bottom"><div class="artist-photo-bottom-img"></div></div>
+    <div class="artist-photo-single"></div>
   </div>
   <div class="artist-bio">
     <div class="bio-eyebrow">Producer · Artist</div>
@@ -243,7 +238,7 @@ body{background:#050e12;color:#fff;font-family:'Montserrat',sans-serif;overflow-
         <div class="bio-tl-dot"></div>
         <div>
           <div class="bio-tl-text"><strong>Still UNFINISHED</strong> — 일본 솔로 정규 2집</div>
-          <div class="bio-tl-sub">단독 콘서트 · 100장 완판</div>
+          <div class="bio-tl-sub">일본 단독 콘서트</div>
         </div>
       </div>
       <div class="bio-tl-row">
