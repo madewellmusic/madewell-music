@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<title>MAMA — Feed Teaser 1080×1080</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#111;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'Montserrat',sans-serif}
+
+#save-btn{
+  position:fixed;top:18px;right:18px;z-index:9999;
+  background:rgba(65,168,182,.95);color:#040e12;
+  font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:12px 22px;border:none;cursor:pointer;
+  box-shadow:0 4px 20px rgba(52,138,150,.5);transition:all .2s;
+}
+#save-btn:hover{background:#5bc8d8;transform:translateY(-1px)}
+#save-btn:disabled{opacity:.5;cursor:wait}
+
+#scale-wrap{position:relative;transform-origin:top center}
+
+#frame{
+  width:1080px;height:1080px;
+  position:relative;overflow:hidden;background:#050e12;
+}
+
+.bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 80% 70% at 62% 38%, rgba(52,138,150,.2) 0%, transparent 58%),
+    radial-gradient(ellipse 45% 55% at 15% 75%, rgba(30,90,100,.14) 0%, transparent 50%),
+    linear-gradient(160deg, #050e12 0%, #091d25 50%, #050e12 100%);
+}
+
+.photo{
+  position:absolute;inset:0;z-index:1;
+  background-image:url('images/artist_new.png');
+  background-size:cover;
+  background-position:center 12%;
+  opacity:.70;
+  filter:brightness(1.05) contrast(1.08) saturate(0.88);
+  -webkit-mask-image:
+    linear-gradient(to right,  rgba(0,0,0,.9) 0%, rgba(0,0,0,.5) 45%, rgba(0,0,0,0) 72%),
+    linear-gradient(to bottom, rgba(0,0,0,1)  0%, rgba(0,0,0,.7) 55%, rgba(0,0,0,0) 100%);
+  mask-image:
+    linear-gradient(to right,  rgba(0,0,0,.9) 0%, rgba(0,0,0,.5) 45%, rgba(0,0,0,0) 72%),
+    linear-gradient(to bottom, rgba(0,0,0,1)  0%, rgba(0,0,0,.7) 55%, rgba(0,0,0,0) 100%);
+  -webkit-mask-composite:destination-in;
+  mask-composite:intersect;
+}
+
+.fade{
+  position:absolute;inset:0;z-index:2;
+  background:linear-gradient(to bottom, transparent 40%, rgba(5,14,18,.65) 68%, rgba(5,14,18,.96) 90%, #050e12 100%);
+}
+
+/* 텍스트 — 우하단 */
+.content{
+  position:absolute;z-index:3;
+  bottom:88px;right:80px;
+  text-align:right;
+  max-width:620px;
+}
+
+.eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:.38em;
+  color:rgba(95,200,215,.62);text-transform:uppercase;
+  margin-bottom:20px;
+  display:flex;align-items:center;justify-content:flex-end;gap:12px;
+}
+.eyebrow::before{content:'';width:32px;height:1px;background:rgba(95,200,215,.32)}
+
+.album-tag{
+  font-family:'Josefin Sans',sans-serif;font-weight:100;
+  font-size:11px;letter-spacing:.55em;
+  color:rgba(95,200,215,.38);text-transform:uppercase;margin-bottom:12px;
+}
+
+.title-main{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;
+  font-size:118px;line-height:.86;
+  color:rgba(255,255,255,.93);letter-spacing:-.02em;margin-bottom:2px;
+}
+.title-sub{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;
+  font-size:42px;line-height:1.15;
+  color:rgba(95,200,215,.8);letter-spacing:.02em;margin-bottom:36px;
+}
+
+.divider{
+  width:100%;height:1px;
+  background:linear-gradient(to left,rgba(95,200,215,.22),rgba(95,200,215,.06) 60%,transparent);
+  margin-bottom:22px;
+}
+
+.meta{
+  font-family:'Josefin Sans',sans-serif;font-weight:100;
+  font-size:10.5px;letter-spacing:.38em;
+  color:rgba(255,255,255,.2);text-transform:uppercase;line-height:2;
+}
+.meta strong{color:rgba(95,200,215,.45);font-weight:300}
+
+.watermark{
+  position:absolute;z-index:3;top:52px;left:58px;
+  font-family:'Josefin Sans',sans-serif;font-weight:100;
+  font-size:10px;letter-spacing:.46em;
+  color:rgba(255,255,255,.13);text-transform:uppercase;
+}
+.corner-tl{position:absolute;z-index:3;top:52px;left:58px;margin-top:22px;width:24px;height:24px;border-top:1px solid rgba(95,200,215,.2);border-left:1px solid rgba(95,200,215,.2)}
+.corner-br{position:absolute;z-index:3;bottom:52px;right:58px;width:24px;height:24px;border-bottom:1px solid rgba(95,200,215,.2);border-right:1px solid rgba(95,200,215,.2)}
+</style>
+</head>
+<body>
+
+<button id="save-btn" onclick="saveImage()">📥 PNG 저장</button>
+
+<div id="scale-wrap">
+  <div id="frame">
+    <div class="bg"></div>
+    <div class="photo"></div>
+    <div class="fade"></div>
+    <div class="corner-tl"></div>
+    <div class="corner-br"></div>
+    <div class="watermark">MADEWELL MUSIC</div>
+    <div class="content">
+      <div class="eyebrow">MADEWELL · 3RD SOLO ALBUM · 2026</div>
+      <div class="album-tag">3RD SOLO ALBUM</div>
+      <div class="title-main">MAMA</div>
+      <div class="title-sub">THE ETERNAL LOVE</div>
+      <div class="divider"></div>
+      <div class="meta"><strong>RELEASE</strong> 2026.06 &nbsp;·&nbsp; MADEWELL MUSIC</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function scaleFrame() {
+  const wrap = document.getElementById('scale-wrap');
+  const W = 1080, H = 1080;
+  const vw = window.innerWidth, vh = window.innerHeight - 20;
+  const scale = Math.min(vw / W, vh / H);
+  wrap.style.transform = `scale(${scale})`;
+  wrap.style.transformOrigin = 'top center';
+  wrap.style.width = W + 'px';
+  wrap.style.height = H + 'px';
+  document.body.style.height = Math.ceil(H * scale + 20) + 'px';
+}
+scaleFrame();
+window.addEventListener('resize', scaleFrame);
+
+async function saveImage() {
+  const btn = document.getElementById('save-btn');
+  btn.disabled = true;
+  btn.textContent = '저장 중...';
+  try {
+    const canvas = await html2canvas(document.getElementById('frame'), {
+      width:1080, height:1080,
+      scale:1, useCORS:true,
+      logging:false,
+      backgroundColor:'#050e12'
+    });
+    const link = document.createElement('a');
+    link.download = 'MAMA_teaser_feed_1080x1080.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  } catch(e) { alert('저장 실패: ' + e.message); }
+  btn.disabled = false;
+  btn.textContent = '📥 PNG 저장';
+}
+</script>
+</body>
+</html>
