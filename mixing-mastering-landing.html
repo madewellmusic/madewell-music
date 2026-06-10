@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>MADEWELL MUSIC — Mixing · Mastering · Recording</title>
+<meta name="description" content="K-POP 아이돌 음악이 탄생한 강남 스튜디오. NEVE·SSL·BETTERMAKER 하드웨어 믹싱·마스터링. 마스터링 10만원부터, 온라인 의뢰 가능."/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="MADEWELL MUSIC"/>
+<meta property="og:title" content="믹싱·마스터링·레코딩 — MADEWELL MUSIC Studio"/>
+<meta property="og:description" content="아이돌 앨범에 쓰인 그 장비 그대로. NEVE·SSL·BETTERMAKER 하드웨어 체인, 마스터링 10만원부터. 선정릉역 도보 40초, 온라인 의뢰 OK."/>
+<meta property="og:image" content="https://www.madewellmusic.co.kr/images/og_cover.jpg"/>
+<meta property="og:url" content="https://www.madewellmusic.co.kr/mixing-mastering-landing.html"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -50,7 +58,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif
 
 /* ── HERO ── */
 #hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:flex-end;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('images/MAIN ROOM.jpg') center/cover no-repeat}
+.hero-bg{position:absolute;inset:0;background:url('images/web/MAIN ROOM.jpg') center/cover no-repeat}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,12,.98) 0%,rgba(10,10,12,.52) 45%,rgba(10,10,12,.12) 100%)}
 .hero-inner{position:relative;z-index:1;width:100%;padding-bottom:100px}
 .hero-pre{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
@@ -296,7 +304,7 @@ tr:last-child td.hl{border-bottom:2px solid var(--gold)}
 
 /* ── CTA ── */
 #cta{position:relative;padding:140px 0;text-align:center;overflow:hidden}
-.cta-bg{position:absolute;inset:0;background:url('images/MAIN ROON 2.jpg') center/cover no-repeat}
+.cta-bg{position:absolute;inset:0;background:url('images/web/MAIN ROON 2.jpg') center/cover no-repeat}
 .cta-bg::after{content:'';position:absolute;inset:0;background:rgba(10,10,12,.84)}
 .cta-inner{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 24px}
 .cta-h{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(42px,6vw,76px);line-height:1.05;color:#fff;margin-bottom:18px}
@@ -585,7 +593,7 @@ body.menu-open{overflow:hidden}
 <nav id="nav" class="light-nav">
   <div class="nav-inner container">
     <a href="#" class="nav-logo">
-      <img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL Music Studio" class="nav-logo-img" id="nav-logo-img"/>
+      <img src="images/web/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL Music Studio" class="nav-logo-img" id="nav-logo-img"/>
     </a>
     <ul class="nav-links" id="nav-links">
       <li><a href="#gear" data-i18n="nav-gear">장비</a></li>
@@ -678,7 +686,7 @@ body.menu-open{overflow:hidden}
     </div>
   </div>
   <div class="why-grid">
-    <div class="why-photo reveal"><img src="images/MIC.jpg" alt="Neumann U87"/></div>
+    <div class="why-photo reveal"><img src="images/web/MIC.jpg" alt="Neumann U87" loading="lazy"/></div>
     <div class="why-copy reveal2">
       <p class="why-body" data-i18n="why-body1">KOMCA 등록 100곡 이상. PRODUCE 101 JAPAN &lt;新世界&gt;, VIVIZ, (여자)아이들, 인피니트, 마마무 화사 — 동일한 하드웨어 체인으로 당신의 음악을 처리합니다.</p>
       <p class="why-body" style="margin-top:18px" data-i18n="why-body2">국내 최상급 마스터링 스튜디오와 동일한 아웃보드, 아이돌 프로듀서 직접 핸들링, 그리고 합리적인 가격.</p>
@@ -698,6 +706,109 @@ body.menu-open{overflow:hidden}
   </div>
 </section>
 
+<!-- LISTEN — BEFORE/AFTER A/B 플레이어 -->
+<style>
+#listen{background:var(--dark);padding:110px 0;border-top:1px solid var(--border);position:relative;overflow:hidden}
+#listen .listen-glow{position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:90%;height:120%;background:radial-gradient(ellipse at 50% 30%,rgba(184,149,46,.10) 0%,transparent 60%);pointer-events:none}
+.listen-head{text-align:center;position:relative;z-index:1}
+.listen-player{max-width:760px;margin:54px auto 0;background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid rgba(201,169,60,.22);border-radius:18px;padding:38px 40px 34px;position:relative;z-index:1;backdrop-filter:blur(6px)}
+@media(max-width:640px){.listen-player{padding:28px 20px 24px;margin-top:38px}}
+.ab-switch{display:flex;justify-content:center;gap:0;margin-bottom:30px}
+.ab-switch button{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:13px 34px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.4);cursor:pointer;transition:all .25s}
+.ab-switch button:first-child{border-radius:999px 0 0 999px;border-right:none}
+.ab-switch button:last-child{border-radius:0 999px 999px 0}
+.ab-switch button.on{background:var(--gold);border-color:var(--gold);color:#0A0A0C;box-shadow:0 4px 26px rgba(184,149,46,.4)}
+@media(max-width:640px){.ab-switch button{padding:12px 22px;font-size:10px}}
+.ab-wave{display:flex;align-items:flex-end;justify-content:center;gap:3px;height:64px;margin-bottom:26px}
+.ab-wave i{display:block;width:3px;border-radius:2px;background:linear-gradient(to top,rgba(201,169,60,.25),rgba(221,184,74,.85));height:8%;transition:height .09s linear}
+.ab-controls{display:flex;align-items:center;gap:18px}
+.ab-play{width:54px;height:54px;border-radius:50%;border:none;background:var(--gold);color:#0A0A0C;font-size:18px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(184,149,46,.35)}
+.ab-play:hover{transform:scale(1.06);box-shadow:0 6px 34px rgba(184,149,46,.55)}
+.ab-track{flex:1;height:5px;background:rgba(255,255,255,.1);border-radius:3px;cursor:pointer;position:relative}
+.ab-track-fill{position:absolute;left:0;top:0;bottom:0;width:0%;background:linear-gradient(to right,rgba(201,169,60,.6),var(--gold2));border-radius:3px}
+.ab-time{font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.06em;min-width:84px;text-align:right}
+.ab-note{text-align:center;font-size:12px;color:rgba(255,255,255,.35);margin-top:24px;line-height:1.8}
+.ab-state{display:inline-block;margin-left:6px;font-weight:700;letter-spacing:.14em;color:var(--gold2)}
+</style>
+<section id="listen" style="display:none">
+  <div class="listen-glow"></div>
+  <div class="container">
+    <div class="listen-head reveal">
+      <div class="tag" style="justify-content:center;margin-bottom:16px">Before / After</div>
+      <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,54px);color:#fff" data-i18n="listen-h">말보다,<br/><em style="font-style:italic;color:var(--gold)">귀로 확인하세요.</em></h2>
+      <p style="font-size:14px;color:rgba(255,255,255,.4);margin-top:18px;line-height:1.85" data-i18n="listen-sub">같은 곡의 믹싱·마스터링 전과 후.<br/>재생 중에 버튼을 눌러 실시간으로 비교해 보세요. 이어폰 추천.</p>
+    </div>
+    <div class="listen-player reveal2">
+      <div class="ab-switch">
+        <button id="ab-before" class="on" onclick="abSet('before')">Before</button>
+        <button id="ab-after" onclick="abSet('after')">After</button>
+      </div>
+      <div class="ab-wave" id="ab-wave"></div>
+      <div class="ab-controls">
+        <button class="ab-play" id="ab-play" aria-label="재생">▶</button>
+        <div class="ab-track" id="ab-track"><div class="ab-track-fill" id="ab-fill"></div></div>
+        <div class="ab-time" id="ab-time">0:00 / 0:00</div>
+      </div>
+      <div class="ab-note" data-i18n="listen-note">지금 듣고 있는 버전: <span class="ab-state" id="ab-state">BEFORE</span></div>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  const sec=document.getElementById('listen');
+  const aB=new Audio('audio/demo1_before.mp3');
+  const aA=new Audio('audio/demo1_after.mp3');
+  aB.preload='metadata';aA.preload='metadata';aA.muted=true;
+  let ready=0,failed=false;
+  function ok(){ready++;if(ready===2&&!failed)sec.style.display='block';}
+  function fail(){failed=true;}
+  aB.addEventListener('loadedmetadata',ok);aA.addEventListener('loadedmetadata',ok);
+  aB.addEventListener('error',fail);aA.addEventListener('error',fail);
+
+  const playBtn=document.getElementById('ab-play');
+  const fill=document.getElementById('ab-fill');
+  const track=document.getElementById('ab-track');
+  const timeEl=document.getElementById('ab-time');
+  const waveEl=document.getElementById('ab-wave');
+  const BARS=48;
+  for(let i=0;i<BARS;i++){waveEl.appendChild(document.createElement('i'));}
+  const bars=waveEl.querySelectorAll('i');
+
+  let playing=false,mode='before';
+  window.abSet=function(m){
+    mode=m;
+    aB.muted=(m!=='before');aA.muted=(m!=='after');
+    document.getElementById('ab-before').classList.toggle('on',m==='before');
+    document.getElementById('ab-after').classList.toggle('on',m==='after');
+    const st=document.getElementById('ab-state');
+    if(st)st.textContent=m.toUpperCase();
+  };
+  function fmt(s){if(!isFinite(s))s=0;const m=Math.floor(s/60),ss=Math.floor(s%60);return m+':'+String(ss).padStart(2,'0');}
+  playBtn.addEventListener('click',()=>{
+    if(playing){aB.pause();aA.pause();playBtn.textContent='▶';}
+    else{aA.currentTime=aB.currentTime;aB.play();aA.play();playBtn.textContent='❚❚';}
+    playing=!playing;
+  });
+  track.addEventListener('click',e=>{
+    const r=track.getBoundingClientRect();
+    const p=(e.clientX-r.left)/r.width;
+    aB.currentTime=p*aB.duration;aA.currentTime=aB.currentTime;
+  });
+  aB.addEventListener('ended',()=>{playing=false;playBtn.textContent='▶';aA.pause();});
+  let t=0;
+  (function loop(){
+    requestAnimationFrame(loop);
+    if(aB.duration){fill.style.width=(aB.currentTime/aB.duration*100)+'%';timeEl.textContent=fmt(aB.currentTime)+' / '+fmt(aB.duration);}
+    t+=.18;
+    bars.forEach((b,i)=>{
+      const base=playing?(Math.abs(Math.sin(t*.9+i*.55))*.62+Math.abs(Math.sin(t*1.7+i*.23))*.38):0.06;
+      const boost=(playing&&mode==='after')?1.25:1;
+      b.style.height=Math.min(100,Math.max(6,base*88*boost))+'%';
+    });
+  })();
+})();
+</script>
+
 <!-- GEAR — 탭 제거, 전체 장비 한눈에 -->
 <section id="gear">
   <div class="gold-glow-b"></div>
@@ -709,19 +820,19 @@ body.menu-open{overflow:hidden}
     <!-- 3-photo strip with GEAR photos -->
     <div class="gear-photo-strip reveal2">
       <div class="gear-ph">
-        <img src="images/GEAR 1_web.jpg" alt="Outboard Chain"/>
+        <img src="images/web/GEAR 1_web.jpg" alt="Outboard Chain" loading="lazy"/>
         <div class="gear-ph-cap">Outboard Chain</div>
       </div>
       <div class="gear-ph">
-        <img src="images/GEAR 2.png" alt="Studio Gear"/>
+        <img src="images/web/GEAR 2.jpg" alt="Studio Gear" loading="lazy"/>
         <div class="gear-ph-cap">Studio Gear</div>
       </div>
       <div class="gear-ph">
-        <img src="images/GEAR 4.png" alt="Monitor Speakers"/>
+        <img src="images/web/GEAR 4.jpg" alt="Monitor Speakers" loading="lazy"/>
         <div class="gear-ph-cap">Outboard & Monitors</div>
       </div>
       <div class="gear-ph">
-        <img src="images/GEAR 5.png" alt="Headphones"/>
+        <img src="images/web/GEAR 5.jpg" alt="Headphones" loading="lazy"/>
         <div class="gear-ph-cap">Reference Headphones</div>
       </div>
     </div>
@@ -807,18 +918,18 @@ body.menu-open{overflow:hidden}
     <h2 class="serif reveal2" style="font-weight:300;font-size:clamp(34px,4vw,54px)" data-i18n="gallery-h">공간이 퀄리티를<br/><em style="font-style:italic;color:var(--gold)">증명합니다.</em></h2>
   </div>
   <div class="gallery-slider" id="gallerySlider">
-    <div class="slide active"><div class="slide-bg" style="background-image:url('images/MAIN ROOM.jpg')"></div><img src="images/MAIN ROOM.jpg" alt="M Control Room"/><div class="slide-cap">M Control Room</div></div>
-    <div class="slide portrait"><div class="slide-bg" style="background-image:url('images/BOOTH 1.png')"></div><img src="images/BOOTH 1.png" alt="Recording Booth"/><div class="slide-cap">Recording Booth</div></div>
-    <div class="slide portrait"><div class="slide-bg" style="background-image:url('images/BOOTH 2.png')"></div><img src="images/BOOTH 2.png" alt="Recording Booth"/><div class="slide-cap">Recording Booth</div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('images/MAIN ROOM 3.png')"></div><img src="images/MAIN ROOM 3.png" alt="W Control Room"/><div class="slide-cap">W Control Room</div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('images/LOBBY MAIN.png')"></div><img src="images/LOBBY MAIN.png" alt="Lounge"/><div class="slide-cap">Lounge</div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('images/Editing Room.png')"></div><img src="images/Editing Room.png" alt="Editing Room"/><div class="slide-cap">Editing Room</div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('images/Composing Room.png')"></div><img src="images/Composing Room.png" alt="Composing Room"/><div class="slide-cap">Composing Room</div></div>
-    <div class="slide portrait"><div class="slide-bg" style="background-image:url('images/CORRIDOR.png')"></div><img src="images/CORRIDOR.png" alt="Corridor"/><div class="slide-cap">Corridor</div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('images/MAP.jpg')"></div><img src="images/MAP.jpg" alt="오시는 길"/><div class="slide-cap">오시는 길</div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('images/LOUNGE 2.jpg')"></div><img src="images/LOUNGE 2.jpg" alt="Lounge"/><div class="slide-cap">Lounge</div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('images/LOUNGE 3.png')"></div><img src="images/LOUNGE 3.png" alt="Lounge"/><div class="slide-cap">Lounge</div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('images/SERVICE.png')"></div><img src="images/SERVICE.png" alt="Service"/><div class="slide-cap">Service</div></div>
+    <div class="slide active"><div class="slide-bg" style="background-image:url('images/web/MAIN ROOM.jpg')"></div><img src="images/web/MAIN ROOM.jpg" alt="M Control Room" loading="lazy"/><div class="slide-cap">M Control Room</div></div>
+    <div class="slide portrait"><div class="slide-bg" style="background-image:url('images/web/BOOTH 1.jpg')"></div><img src="images/web/BOOTH 1.jpg" alt="Recording Booth" loading="lazy"/><div class="slide-cap">Recording Booth</div></div>
+    <div class="slide portrait"><div class="slide-bg" style="background-image:url('images/web/BOOTH 2.jpg')"></div><img src="images/web/BOOTH 2.jpg" alt="Recording Booth" loading="lazy"/><div class="slide-cap">Recording Booth</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/web/MAIN ROOM 3.jpg')"></div><img src="images/web/MAIN ROOM 3.jpg" alt="W Control Room" loading="lazy"/><div class="slide-cap">W Control Room</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/web/LOBBY MAIN.jpg')"></div><img src="images/web/LOBBY MAIN.jpg" alt="Lounge" loading="lazy"/><div class="slide-cap">Lounge</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/web/Editing Room.jpg')"></div><img src="images/web/Editing Room.jpg" alt="Editing Room" loading="lazy"/><div class="slide-cap">Editing Room</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/web/Composing Room.jpg')"></div><img src="images/web/Composing Room.jpg" alt="Composing Room" loading="lazy"/><div class="slide-cap">Composing Room</div></div>
+    <div class="slide portrait"><div class="slide-bg" style="background-image:url('images/web/CORRIDOR.jpg')"></div><img src="images/web/CORRIDOR.jpg" alt="Corridor" loading="lazy"/><div class="slide-cap">Corridor</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/web/MAP.jpg')"></div><img src="images/web/MAP.jpg" alt="오시는 길" loading="lazy"/><div class="slide-cap">오시는 길</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/web/LOUNGE 2.jpg')"></div><img src="images/web/LOUNGE 2.jpg" alt="Lounge" loading="lazy"/><div class="slide-cap">Lounge</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/web/LOUNGE 3.jpg')"></div><img src="images/web/LOUNGE 3.jpg" alt="Lounge" loading="lazy"/><div class="slide-cap">Lounge</div></div>
+    <div class="slide"><div class="slide-bg" style="background-image:url('images/web/SERVICE.jpg')"></div><img src="images/web/SERVICE.jpg" alt="Service" loading="lazy"/><div class="slide-cap">Service</div></div>
     <button class="slide-btn slide-prev" aria-label="이전">&#8592;</button>
     <button class="slide-btn slide-next" aria-label="다음">&#8594;</button>
     <div class="slide-dots" id="slideDots"></div>
@@ -980,6 +1091,128 @@ body.menu-open{overflow:hidden}
     </div>
   </div>
 </section>
+
+<!-- QUOTE — 견적 계산기 -->
+<style>
+#quote{background:var(--dark2);padding:110px 0;border-top:1px solid var(--border);position:relative;overflow:hidden}
+#quote .quote-glow{position:absolute;bottom:-40%;right:-10%;width:70%;height:100%;background:radial-gradient(ellipse at 70% 70%,rgba(184,149,46,.09) 0%,transparent 60%);pointer-events:none}
+.quote-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;margin-top:50px;position:relative;z-index:1}
+@media(max-width:880px){.quote-grid{grid-template-columns:1fr;gap:30px}}
+.q-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold2);margin:26px 0 12px}
+.q-label:first-child{margin-top:0}
+.q-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.q-opts{grid-template-columns:1fr}}
+.q-opt{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 18px;cursor:pointer;transition:all .22s;position:relative}
+.q-opt:hover{border-color:rgba(201,169,60,.4)}
+.q-opt.on{background:rgba(201,169,60,.1);border-color:var(--gold)}
+.q-opt .qo-nm{font-size:13.5px;font-weight:500;color:#fff;margin-bottom:4px}
+.q-opt .qo-pr{font-family:'Montserrat',sans-serif;font-size:11.5px;color:var(--gold2);letter-spacing:.04em}
+.q-stepper{display:inline-flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.14);border-radius:999px;overflow:hidden}
+.q-stepper button{width:46px;height:46px;background:rgba(255,255,255,.05);border:none;color:#fff;font-size:19px;cursor:pointer;transition:background .2s}
+.q-stepper button:hover{background:rgba(201,169,60,.25)}
+.q-stepper .q-count{width:74px;text-align:center;font-family:'Montserrat',sans-serif;font-size:17px;font-weight:600;color:#fff}
+.q-check{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 18px;cursor:pointer;transition:all .22s;margin-bottom:10px}
+.q-check:hover{border-color:rgba(201,169,60,.4)}
+.q-check.on{background:rgba(201,169,60,.1);border-color:var(--gold)}
+.q-check .qc-box{width:18px;height:18px;border:1.5px solid rgba(255,255,255,.35);border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#0A0A0C;transition:all .2s}
+.q-check.on .qc-box{background:var(--gold);border-color:var(--gold)}
+.q-check .qc-nm{font-size:13px;color:rgba(255,255,255,.75);flex:1}
+.q-check .qc-pr{font-family:'Montserrat',sans-serif;font-size:11.5px;color:var(--gold2)}
+.q-result{background:linear-gradient(165deg,rgba(201,169,60,.13),rgba(201,169,60,.04));border:1px solid rgba(201,169,60,.3);border-radius:18px;padding:34px 32px;align-self:start;position:sticky;top:90px}
+@media(max-width:880px){.q-result{position:static}}
+.q-result-lbl{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.q-total{font-family:'Montserrat',sans-serif;font-size:clamp(34px,4.6vw,46px);font-weight:700;color:var(--gold2);margin:10px 0 4px;letter-spacing:-.01em}
+.q-total sub{font-size:13px;font-weight:400;color:rgba(255,255,255,.4);margin-left:6px}
+.q-lines{margin:20px 0 6px;border-top:1px solid rgba(255,255,255,.1);padding-top:16px}
+.q-line{display:flex;justify-content:space-between;font-size:12.5px;color:rgba(255,255,255,.55);padding:5px 0}
+.q-line b{color:rgba(255,255,255,.8);font-weight:500}
+.q-note{font-size:11px;color:rgba(255,255,255,.32);line-height:1.75;margin:14px 0 22px}
+.q-cta{display:flex;width:100%;align-items:center;justify-content:center;gap:8px;background:#FEE500;color:#191919;border:none;border-radius:12px;padding:17px 0;font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s;text-decoration:none}
+.q-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(254,229,0,.25)}
+.q-copied{text-align:center;font-size:11.5px;color:var(--gold2);margin-top:12px;opacity:0;transition:opacity .4s}
+.q-copied.show{opacity:1}
+</style>
+<section id="quote">
+  <div class="quote-glow"></div>
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="tag" style="justify-content:center;margin-bottom:16px">Quote Calculator</div>
+      <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,54px);color:#fff" data-i18n="quote-h">내 견적,<br/><em style="font-style:italic;color:var(--gold)">10초면 나옵니다.</em></h2>
+      <p style="font-size:14px;color:rgba(255,255,255,.4);margin-top:18px;line-height:1.85" data-i18n="quote-sub">서비스와 곡 수만 고르세요. 버튼 한 번이면 견적이 복사된 채로 카톡이 열립니다.</p>
+    </div>
+    <div class="quote-grid reveal2">
+      <div>
+        <div class="q-label" data-i18n="q-svc">1 · 서비스 선택</div>
+        <div class="q-opts" id="q-opts">
+          <div class="q-opt" data-id="master" onclick="qSvc(this)"><div class="qo-nm">마스터링 단독</div><div class="qo-pr">₩100,000 / 곡</div></div>
+          <div class="q-opt on" data-id="single" onclick="qSvc(this)"><div class="qo-nm">싱글 믹스+마스터링</div><div class="qo-pr">₩250,000 / 곡</div></div>
+          <div class="q-opt" data-id="multi" onclick="qSvc(this)"><div class="qo-nm">멀티트랙 믹스+마스터링</div><div class="qo-pr">₩450,000 / 곡</div></div>
+          <div class="q-opt" data-id="rec" onclick="qSvc(this)"><div class="qo-nm">보컬 레코딩</div><div class="qo-pr">₩200,000 / 3.5h</div></div>
+        </div>
+        <div class="q-label" id="q-count-label" data-i18n="q-songs">2 · 곡 수</div>
+        <div class="q-stepper">
+          <button onclick="qStep(-1)" aria-label="감소">−</button>
+          <div class="q-count" id="q-count">1</div>
+          <button onclick="qStep(1)" aria-label="증가">+</button>
+        </div>
+        <div class="q-label" data-i18n="q-addon">3 · 추가 옵션</div>
+        <div class="q-check" id="qa-tune" onclick="qToggle(this)"><div class="qc-box">✓</div><div class="qc-nm">보컬 튜닝 (Melodyne · AutoTune)</div><div class="qc-pr">+₩50,000 / 곡</div></div>
+        <div class="q-check" id="qa-eng" onclick="qToggle(this)" style="display:none"><div class="qc-box">✓</div><div class="qc-nm">엔지니어 동반</div><div class="qc-pr">+₩60,000 / 세션</div></div>
+      </div>
+      <div class="q-result">
+        <div class="q-result-lbl" data-i18n="q-est">예상 견적</div>
+        <div class="q-total"><span id="q-total">₩250,000</span></div>
+        <div class="q-lines" id="q-lines"></div>
+        <div class="q-note" data-i18n="q-note">픽스 전 자유 수정 포함 · 트랙 수·파일 상태에 따라 최종 금액은 달라질 수 있습니다 · 정규·EP 등 다곡 작업은 별도 할인 문의</div>
+        <a class="q-cta" id="q-cta" href="http://pf.kakao.com/_axcYxlb/chat" target="_blank" onclick="qCopy()">💬 이 견적으로 카톡 문의 →</a>
+        <div class="q-copied" id="q-copied">견적 내용이 복사됐어요 — 채팅창에 붙여넣기만 하세요!</div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  const SVC={
+    master:{nm:'마스터링 단독',pr:100000,unit:'곡'},
+    single:{nm:'싱글 믹스+마스터링',pr:250000,unit:'곡'},
+    multi:{nm:'멀티트랙 믹스+마스터링',pr:450000,unit:'곡'},
+    rec:{nm:'보컬 레코딩 (3.5h)',pr:200000,unit:'세션'}
+  };
+  let svc='single',n=1,tune=false,eng=false;
+  const won=v=>'₩'+v.toLocaleString('ko-KR');
+  function render(){
+    const s=SVC[svc];
+    let total=s.pr*n;
+    const lines=[[`${s.nm} × ${n}${s.unit}`,won(s.pr*n)]];
+    if(tune){total+=50000*n;lines.push([`보컬 튜닝 × ${n}`,won(50000*n)]);}
+    if(eng&&svc==='rec'){total+=60000*n;lines.push([`엔지니어 동반 × ${n}`,won(60000*n)]);}
+    document.getElementById('q-total').textContent=won(total);
+    document.getElementById('q-lines').innerHTML=lines.map(l=>`<div class="q-line"><span>${l[0]}</span><b>${l[1]}</b></div>`).join('');
+    document.getElementById('q-count-label').textContent=svc==='rec'?'2 · 세션 수':'2 · 곡 수';
+    document.getElementById('qa-eng').style.display=svc==='rec'?'flex':'none';
+    window._qText=`[MADEWELL MUSIC 견적 문의]\n`+lines.map(l=>`· ${l[0]} — ${l[1]}`).join('\n')+`\n예상 합계: ${won(total)}\n\n작업 가능한 일정 문의드립니다!`;
+  }
+  window.qSvc=function(el){
+    document.querySelectorAll('#q-opts .q-opt').forEach(o=>o.classList.remove('on'));
+    el.classList.add('on');svc=el.dataset.id;
+    if(svc!=='rec'){eng=false;document.getElementById('qa-eng').classList.remove('on');}
+    render();
+  };
+  window.qStep=function(d){n=Math.min(12,Math.max(1,n+d));document.getElementById('q-count').textContent=n;render();};
+  window.qToggle=function(el){
+    el.classList.toggle('on');
+    if(el.id==='qa-tune')tune=el.classList.contains('on');
+    if(el.id==='qa-eng')eng=el.classList.contains('on');
+    render();
+  };
+  window.qCopy=function(){
+    try{navigator.clipboard.writeText(window._qText);}catch(e){}
+    const c=document.getElementById('q-copied');c.classList.add('show');
+    setTimeout(()=>c.classList.remove('show'),4000);
+  };
+  render();
+})();
+</script>
 
 <!-- RENTAL -->
 <section id="rental">
@@ -1148,9 +1381,9 @@ body.menu-open{overflow:hidden}
   </div>
   <div class="about-layout">
     <div class="about-photos reveal">
-      <div class="ap big"><img src="images/profile1.jpg" alt="MADEWELL"/></div>
-      <div class="ap"><img src="images/profile2.jpg" alt="MADEWELL"/></div>
-      <div class="ap bottom-right"><img src="images/profile6.jpg" alt="MADEWELL"/></div>
+      <div class="ap big"><img src="images/web/profile1.jpg" alt="MADEWELL" loading="lazy"/></div>
+      <div class="ap"><img src="images/web/profile2.jpg" alt="MADEWELL" loading="lazy"/></div>
+      <div class="ap bottom-right"><img src="images/web/profile6.jpg" alt="MADEWELL" loading="lazy"/></div>
     </div>
     <div class="about-copy reveal2">
       <div class="about-ident">
@@ -1377,7 +1610,7 @@ body.menu-open{overflow:hidden}
 <footer>
   <div class="foot-inner container">
     <div>
-      <div class="foot-logo"><img src="images/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL Music Studio"/></div>
+      <div class="foot-logo"><img src="images/web/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL Music Studio" loading="lazy"/></div>
       <div class="foot-meta" data-i18n="foot-meta">서울시 강남구 역삼동 682-15 4층 · 선정릉역 도보 40초<br/>madewellofficial@gmail.com · © 2026 (주)메이드웰뮤직</div>
     </div>
     <div class="foot-links">
@@ -1610,6 +1843,13 @@ const T={
     'foot-kakao':'카카오채널','foot-site':'공식사이트',
   },
   en:{
+    'listen-h':'Don\'t take our word.<br/><em style="font-style:italic;color:var(--gold)">Hear it yourself.</em>',
+    'listen-sub':'The same song, before and after mixing &amp; mastering.<br/>Toggle while playing for a real-time comparison. Headphones recommended.',
+    'listen-note':'Now playing: <span class="ab-state" id="ab-state">BEFORE</span>',
+    'quote-h':'Your quote,<br/><em style="font-style:italic;color:var(--gold)">in 10 seconds.</em>',
+    'quote-sub':'Pick a service and song count. One click copies your quote and opens the chat.',
+    'q-svc':'1 · Select Service','q-songs':'2 · Number of Songs','q-addon':'3 · Add-ons','q-est':'Estimated Quote',
+    'q-note':'Free revisions before final fix · Final price may vary by track count &amp; file condition · Ask about multi-song discounts for EPs/albums',
     'nav-gear':'Gear','nav-credits':'Credits','nav-services':'Services','nav-rental':'Rental',
     'nav-reserve':'Book','nav-about':'About','nav-contact':'문의하기','nav-contact-intl':'Contact',
     'mm-cta':'카카오톡 문의','mm-cta-intl':'Contact via Email',
@@ -1714,6 +1954,13 @@ const T={
     'foot-kakao':'KakaoTalk','foot-site':'Official Site',
   },
   ja:{
+    'listen-h':'言葉より、<br/><em style="font-style:italic;color:var(--gold)">耳で確かめてください。</em>',
+    'listen-sub':'同じ曲のミックス・マスタリング前と後。<br/>再生中に切り替えてリアルタイムで比較できます。イヤホン推奨。',
+    'listen-note':'再生中のバージョン: <span class="ab-state" id="ab-state">BEFORE</span>',
+    'quote-h':'お見積もり、<br/><em style="font-style:italic;color:var(--gold)">10秒で出ます。</em>',
+    'quote-sub':'サービスと曲数を選ぶだけ。ワンクリックで見積もりがコピーされ、チャットが開きます。',
+    'q-svc':'1 · サービス選択','q-songs':'2 · 曲数','q-addon':'3 · 追加オプション','q-est':'お見積もり',
+    'q-note':'フィックス前の修正無料 · トラック数・ファイル状態により最終金額は変動する場合があります · アルバム等の複数曲割引はご相談ください',
     'nav-gear':'機材','nav-credits':'実績','nav-services':'サービス','nav-rental':'レンタル',
     'nav-reserve':'予約','nav-about':'プロフィール','nav-contact':'문의하기','nav-contact-intl':'お問い合わせ',
     'mm-cta':'카카오톡 문의','mm-cta-intl':'メールでお問い合わせ',
@@ -2095,13 +2342,13 @@ document.querySelectorAll('.reveal,.reveal2').forEach(el=>ro.observe(el));
   });
 
   // ── Credits — .cred-head.reveal 은 IO 담당 ──
-  gsap.from('.credit-item', {
+  gsap.from('.cred-cell', {
     scrollTrigger:{ trigger:'#credits', start:'top 75%' },
-    opacity:0, y:30, stagger:0.08, duration:0.7, ease:'power2.out'
+    opacity:0, y:30, stagger:0.05, duration:0.7, ease:'power2.out'
   });
 
   // ── Services ──
-  gsap.from('.svc-item', {
+  gsap.from('.svc-card', {
     scrollTrigger:{ trigger:'#services', start:'top 80%' },
     opacity:0, y:40, stagger:0.12, duration:0.8, ease:'power3.out'
   });

@@ -2,8 +2,15 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MADEWELL MUSIC</title>
+<title>MADEWELL MUSIC | 강남 믹싱·마스터링·레코딩 스튜디오 & K-POP 프로듀서 레슨</title>
 <meta name="description" content="MADEWELL MUSIC — 강남 역삼동 프로 스튜디오. 믹싱·마스터링·레코딩·음악 레슨."/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="MADEWELL MUSIC"/>
+<meta property="og:title" content="MADEWELL MUSIC — 강남 프로 스튜디오 & K-POP 프로듀서"/>
+<meta property="og:description" content="수많은 K-POP 아이돌·아티스트들의 음악이 탄생한 곳. 믹싱·마스터링·레코딩·1:1 레슨. 선정릉역 도보 40초."/>
+<meta property="og:image" content="https://www.madewellmusic.co.kr/images/og_cover.jpg"/>
+<meta property="og:url" content="https://www.madewellmusic.co.kr/"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <meta name="naver-site-verification" content="a4195eeb17fd67f94d49178cdab804fa732ed739"/>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
@@ -102,9 +109,32 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
     transparent
   );
   margin-top:clamp(4px,.8vw,10px);
-  transition:width 1.8s cubic-bezier(.4,0,.2,1) 1.2s;
+  transition:width 1.2s cubic-bezier(.4,0,.2,1) .1s;
 }
 .sl-underline.on{width:clamp(200px,36vw,520px)}
+
+/* 이퀄라이저 바 */
+.sl-eq{display:flex;gap:4px;height:24px;align-items:flex-end;margin-top:14px;opacity:0;transition:opacity 1.2s ease}
+.sl-eq.on{opacity:1}
+.sl-eq i{display:block;width:2px;background:linear-gradient(to top,rgba(150,180,235,.18),rgba(210,228,255,.65));border-radius:1px;animation:eqb 1.05s ease-in-out infinite alternate}
+@keyframes eqb{from{height:18%}to{height:100%}}
+.sl-eq i:nth-child(3n){animation-duration:.78s;animation-delay:-.25s}
+.sl-eq i:nth-child(3n+1){animation-duration:1.22s;animation-delay:-.6s}
+.sl-eq i:nth-child(4n){animation-duration:.92s;animation-delay:-.42s}
+.sl-eq i:nth-child(5n){animation-duration:1.35s;animation-delay:-.15s}
+
+/* 스킵 버튼 */
+#intro-skip{
+  position:absolute;bottom:38px;left:50%;transform:translateX(-50%);
+  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(255,255,255,.42);background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.16);border-radius:999px;
+  padding:11px 26px 11px 30px;cursor:pointer;
+  opacity:0;transition:opacity .8s ease,color .25s,border-color .25s;
+}
+#intro-skip.on{opacity:1}
+#intro-skip:hover{color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.4)}
 
 /* ── Phase 2: 로고 ── */
 #intro-logo{
@@ -239,11 +269,14 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
       <span class="sl-word" id="sw3">Well</span>
     </div>
     <div class="sl-underline" id="sl-line"></div>
+    <div class="sl-eq" id="sl-eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
+
+  <button id="intro-skip" aria-label="인트로 건너뛰기">Skip →</button>
 
   <!-- Phase 2: 로고 (CORPORATION 없는 얇은 버전) -->
   <div id="intro-logo">
-    <img src="images/MADEWELL_LOGO_thin.PNG" alt="MADEWELL MUSIC"/>
+    <img src="images/web/MADEWELL_LOGO_thin.PNG" alt="MADEWELL MUSIC"/>
   </div>
 
 </div>
@@ -260,7 +293,7 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
   <div class="divider divider-1"></div>
   <div class="divider divider-2"></div>
   <div class="ghost-logo">
-    <img src="images/MADEWELL_LOGO_thin.PNG" alt=""/>
+    <img src="images/web/MADEWELL_LOGO_thin.PNG" alt=""/>
   </div>
 
   <a class="side studio" href="mixing-mastering-landing.html">
@@ -290,7 +323,7 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
     <div class="side-content">
       <div class="side-tag">Artist</div>
       <h2 class="side-h">Album<br/>Release<br/><em>MADEWELL.</em></h2>
-      <p class="side-desc" id="artist-desc">3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>엄마를 향한 9곡의 이야기<br/>선주문 5월 8일 오픈</p>
+      <p class="side-desc" id="artist-desc">3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>엄마를 향한 9곡의 이야기<br/>CD & 굿즈 판매 중</p>
       <span class="side-cta" id="artist-cta">아티스트 페이지 <span class="side-cta-arrow">→</span></span>
     </div>
     <div class="side-foot">ALBUM · RELEASE · PRE-ORDER · MADEWELL</div>
@@ -336,20 +369,24 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
   }
   overlay.addEventListener('click', dismiss);
 
-  /* 시퀀스 */
-  setTimeout(()=> sw1.classList.add('on'), 600);
-  setTimeout(()=> sw2.classList.add('on'), 1400);
-  setTimeout(()=> sw3.classList.add('on'), 2200);
+  /* 시퀀스 — 단축 버전 (총 4.3초) */
+  const slEq = document.getElementById('sl-eq');
+  const skipBtn = document.getElementById('intro-skip');
+  setTimeout(()=> sw1.classList.add('on'), 250);
+  setTimeout(()=> sw2.classList.add('on'), 750);
+  setTimeout(()=> sw3.classList.add('on'), 1250);
   setTimeout(()=>{
     sp1.classList.add('on');
     sp2.classList.add('on');
     slLine.classList.add('on');
-  }, 2400);
+    if(slEq) slEq.classList.add('on');
+  }, 1500);
+  setTimeout(()=>{ if(skipBtn) skipBtn.classList.add('on'); }, 800);
   setTimeout(()=>{
     slogan.classList.add('out');
-    setTimeout(()=> iLogo.classList.add('on'), 600);
-  }, 4600);
-  setTimeout(dismiss, 7800);
+    setTimeout(()=> iLogo.classList.add('on'), 500);
+  }, 2700);
+  setTimeout(dismiss, 4300);
 })();
 </script>
 
@@ -388,33 +425,27 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
     });
     scene.add(new THREE.Points(sGeo,sMat));
 
-    /* ── 궤도 링 3개 — 별들이 궤도 선 위를 하나씩 흘러감 ── */
-    const rings = [];
+    /* ── 사운드 웨이브 3줄 — 화면을 가로지르는 흐르는 파형 ── */
+    const waves = [];
     [
-      {r:4.2, c:0xCCDDFF, op:.18, N:80,  oSpd:.038, flatY:.17, waveA:.24, waveF:3, tiltX:.22, tiltZ:.14},
-      {r:6.8, c:0xDDEEFF, op:.20, N:110, oSpd:.026, flatY:.15, waveA:.20, waveF:4, tiltX:.16, tiltZ:.09},
-      {r:9.4, c:0xBBCCEE, op:.14, N:140, oSpd:.016, flatY:.13, waveA:.16, waveF:5, tiltX:.11, tiltZ:.06},
+      {c:0xCCDDFF, op:.22, N:160, size:.030, yOff:-1.4, amp:.34, spd:.55, freq:1.1, z:-1.2},
+      {c:0xDDEEFF, op:.16, N:140, size:.024, yOff:-1.9, amp:.26, spd:.40, freq:1.7, z:-2.0},
+      {c:0xAACCEE, op:.12, N:120, size:.020, yOff:-2.4, amp:.20, spd:.30, freq:2.3, z:-3.0},
     ].forEach((cfg,i)=>{
       const geo = new THREE.BufferGeometry();
       const pos = new Float32Array(cfg.N*3);
-      const th0 = [];
       for(let j=0;j<cfg.N;j++){
-        const theta = (j/cfg.N)*Math.PI*2;
-        th0.push(theta);
-        pos[j*3]   = Math.cos(theta)*cfg.r;
-        pos[j*3+1] = Math.sin(theta)*cfg.r*cfg.flatY + Math.sin(theta*cfg.waveF)*cfg.waveA;
-        pos[j*3+2] = Math.sin(theta)*cfg.r*cfg.tiltX;
+        pos[j*3]   = (j/cfg.N)*22-11;
+        pos[j*3+1] = cfg.yOff;
+        pos[j*3+2] = cfg.z;
       }
       geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
       const mat = new THREE.PointsMaterial({
-        color:cfg.c, size:.022, transparent:true, opacity:cfg.op,
+        color:cfg.c, size:cfg.size, transparent:true, opacity:cfg.op,
         blending:THREE.AdditiveBlending, depthWrite:false
       });
-      const pts = new THREE.Points(geo,mat);
-      pts.rotation.x = cfg.tiltX * 1.1;
-      pts.rotation.z = cfg.tiltZ + i*0.55;
-      scene.add(pts);
-      rings.push({geo, th0, cfg, N:cfg.N, oSpd:cfg.oSpd});
+      scene.add(new THREE.Points(geo,mat));
+      waves.push({geo, cfg, phase:i*Math.PI*.7});
     });
 
     /* ── 네뷸라 먼지 ── */
@@ -440,17 +471,18 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
       requestAnimationFrame(tick);
       t+=.013;
 
-      /* 각 별이 궤도를 따라 이동 */
-      rings.forEach(ring=>{
-        const pos = ring.geo.attributes.position.array;
-        const {cfg, N, oSpd, th0} = ring;
-        for(let j=0;j<N;j++){
-          const theta = th0[j] + t*oSpd;
-          pos[j*3]   = Math.cos(theta)*cfg.r;
-          pos[j*3+1] = Math.sin(theta)*cfg.r*cfg.flatY + Math.sin(theta*cfg.waveF)*cfg.waveA;
-          pos[j*3+2] = Math.sin(theta)*cfg.r*cfg.tiltX;
+      /* 사운드 웨이브 흐름 */
+      waves.forEach(w=>{
+        const pos = w.geo.attributes.position.array;
+        const {cfg, phase} = w;
+        for(let j=0;j<cfg.N;j++){
+          const x = pos[j*3];
+          pos[j*3+1] = cfg.yOff
+            + Math.sin(x*cfg.freq      + t*cfg.spd     + phase)*cfg.amp
+            + Math.sin(x*cfg.freq*2.3  + t*cfg.spd*1.4 + phase)*cfg.amp*.35
+            + Math.sin(x*cfg.freq*.45  + t*cfg.spd*.6)*cfg.amp*.55;
         }
-        ring.geo.attributes.position.needsUpdate = true;
+        w.geo.attributes.position.needsUpdate = true;
       });
 
       /* 네뷸라 드리프트 */
@@ -487,7 +519,7 @@ const IDX_T={
     'studio-cta-txt':'스튜디오 바로가기',
     'lesson-desc':'현직 K-POP 프로듀서 1:1 레슨<br/>작곡 · 편곡 · 믹싱 · 프로듀싱<br/>강남 역삼동 스튜디오',
     'lesson-cta-txt':'레슨 바로가기',
-    'artist-desc':'3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>엄마를 향한 9곡의 이야기<br/>선주문 5월 8일 오픈',
+    'artist-desc':'3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>엄마를 향한 9곡의 이야기<br/>CD & 굿즈 판매 중',
     'artist-cta-txt':'아티스트 페이지'
   },
   en:{
@@ -495,7 +527,7 @@ const IDX_T={
     'studio-cta-txt':'Enter Studio',
     'lesson-desc':'1-on-1 lessons with an active K-POP producer<br/>Composition · Arrangement · Mixing · Producing<br/>Gangnam, Seoul Studio',
     'lesson-cta-txt':'Explore Lessons',
-    'artist-desc':'3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>9 songs for the one who gave me life<br/>Pre-order opens May 8th',
+    'artist-desc':'3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>9 songs for the one who gave me life<br/>CD & merch available now',
     'artist-cta-txt':'Artist Page'
   },
   ja:{
@@ -503,7 +535,7 @@ const IDX_T={
     'studio-cta-txt':'スタジオへ進む',
     'lesson-desc':'現役K-POPプロデューサーによる1対1レッスン<br/>作曲 · 編曲 · ミックス · プロデュース<br/>ソウル江南スタジオ',
     'lesson-cta-txt':'レッスンへ進む',
-    'artist-desc':'3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>母への想いを込めた9曲<br/>先行予約 5月8日スタート',
+    'artist-desc':'3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>母への想いを込めた9曲<br/>CD & グッズ販売中',
     'artist-cta-txt':'アーティストページ'
   }
 };
