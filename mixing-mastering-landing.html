@@ -42,7 +42,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .nav-logo-img{height:52px;width:auto;filter:brightness(0) invert(1);transition:filter .3s}
 .nav-logo-img.dark{filter:brightness(0) invert(1)}
-.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links{display:flex;gap:26px;list-style:none}
 .nav-links a{font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:.12em;color:rgba(255,255,255,.7);text-decoration:none;text-transform:uppercase;transition:color .2s}
 .nav-links.dark a{color:rgba(240,240,244,.5)}
 .nav-links a:hover,.nav-links.dark a:hover{color:var(--gold)}
@@ -599,6 +599,8 @@ body.menu-open{overflow:hidden}
       <li><a href="#gear" data-i18n="nav-gear">장비</a></li>
       <li><a href="#credits" data-i18n="nav-credits">크레딧</a></li>
       <li><a href="#services" data-i18n="nav-services">서비스</a></li>
+      <li><a href="recording.html" data-i18n="nav-rec">녹음실</a></li>
+      <li><a href="demo.html" data-i18n="nav-demo" style="color:var(--gold2)">무료 진단</a></li>
       <li><a href="#rental" data-i18n="nav-rental">대관</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#reserve" data-i18n="nav-reserve">예약</a></li>
@@ -629,6 +631,8 @@ body.menu-open{overflow:hidden}
   <a href="#gear" onclick="closeMobileMenu()" data-i18n="nav-gear">장비</a>
   <a href="#credits" onclick="closeMobileMenu()" data-i18n="nav-credits">크레딧</a>
   <a href="#services" onclick="closeMobileMenu()" data-i18n="nav-services">서비스</a>
+  <a href="recording.html" data-i18n="nav-rec">녹음실</a>
+  <a href="demo.html" data-i18n="nav-demo" style="color:var(--gold2)">무료 진단</a>
   <a href="#rental" onclick="closeMobileMenu()" data-i18n="nav-rental">대관</a>
   <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
   <a href="#reserve" onclick="closeMobileMenu()" data-i18n="nav-reserve">예약</a>
@@ -1765,7 +1769,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 // ── LANGUAGE SYSTEM ──
 const T={
   ko:{
-    'nav-gear':'장비','nav-credits':'크레딧','nav-services':'서비스','nav-rental':'대관',
+    'nav-gear':'장비','nav-credits':'크레딧','nav-services':'서비스','nav-rental':'대관','nav-rec':'녹음실','nav-demo':'무료 진단',
     'nav-reserve':'예약','nav-about':'소개','nav-contact':'문의하기','nav-contact-intl':'문의하기',
     'mm-cta':'카카오톡 문의','mm-cta-intl':'카카오톡 문의',
     'hero-pre':'Seoul · Gangnam · Professional Studio',
@@ -1876,7 +1880,7 @@ const T={
     'quote-sub':'Pick a service and song count. One click copies your quote and opens the chat.',
     'q-svc':'1 · Select Service','q-songs':'2 · Number of Songs','q-addon':'3 · Add-ons','q-est':'Estimated Quote',
     'q-note':'Free revisions before final fix · Final price may vary by track count &amp; file condition · Ask about multi-song discounts for EPs/albums',
-    'nav-gear':'Gear','nav-credits':'Credits','nav-services':'Services','nav-rental':'Rental',
+    'nav-gear':'Gear','nav-credits':'Credits','nav-services':'Services','nav-rental':'Rental','nav-rec':'Recording','nav-demo':'Free Check',
     'nav-reserve':'Book','nav-about':'About','nav-contact':'문의하기','nav-contact-intl':'Contact',
     'mm-cta':'카카오톡 문의','mm-cta-intl':'Contact via Email',
     'hero-pre':'Seoul · Gangnam · Professional Studio',
@@ -1988,7 +1992,7 @@ const T={
     'quote-sub':'サービスと曲数を選ぶだけ。ワンクリックで見積もりがコピーされ、チャットが開きます。',
     'q-svc':'1 · サービス選択','q-songs':'2 · 曲数','q-addon':'3 · 追加オプション','q-est':'お見積もり',
     'q-note':'フィックス前の修正無料 · トラック数・ファイル状態により最終金額は変動する場合があります · アルバム等の複数曲割引はご相談ください',
-    'nav-gear':'機材','nav-credits':'実績','nav-services':'サービス','nav-rental':'レンタル',
+    'nav-gear':'機材','nav-credits':'実績','nav-services':'サービス','nav-rental':'レンタル','nav-rec':'レコーディング','nav-demo':'無料診断',
     'nav-reserve':'予約','nav-about':'プロフィール','nav-contact':'문의하기','nav-contact-intl':'お問い合わせ',
     'mm-cta':'카카오톡 문의','mm-cta-intl':'メールでお問い合わせ',
     'hero-pre':'Seoul · Gangnam · Professional Studio',

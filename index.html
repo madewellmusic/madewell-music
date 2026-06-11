@@ -249,15 +249,6 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
 .idx-lang button.on{background:rgba(201,169,60,.9);color:#000}
 .idx-lang button:hover:not(.on){color:rgba(255,255,255,.8)}
 @media(max-width:640px){.idx-lang{top:14px;right:14px}}
-/* 하단 입구 pills — 무료 진단 + 녹음실 */
-.idx-trial{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;display:flex;gap:10px;align-items:center;opacity:0;transition:opacity .6s ease .4s}
-.idx-trial.show{opacity:1}
-.idx-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(12,12,16,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(201,169,60,.45);border-radius:999px;padding:12px 24px;font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:500;color:#F0F0F4;text-decoration:none;transition:border-color .2s,box-shadow .2s;white-space:nowrap}
-.idx-pill:hover{border-color:rgba(221,184,74,.9);box-shadow:0 6px 28px rgba(201,169,60,.22)}
-.idx-pill b{color:#DDB84A;font-weight:700}
-.idx-pill.rec{border-color:rgba(255,255,255,.18);color:rgba(240,240,244,.85)}
-.idx-pill.rec:hover{border-color:rgba(255,255,255,.5);box-shadow:0 6px 24px rgba(255,255,255,.08)}
-@media(max-width:640px){.idx-trial{bottom:14px;flex-direction:column;gap:7px;width:calc(100% - 28px)}.idx-pill{font-size:12px;padding:11px 18px;justify-content:center;width:100%}}
 </style>
 </head>
 <body>
@@ -327,11 +318,6 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
     <div class="side-foot">LESSON · COMPOSITION · PRODUCTION · 1:1</div>
   </a>
 
-  <div class="idx-trial" id="idx-trial">
-    <a class="idx-pill" id="idx-pill-demo" href="demo.html">🎁 <span>내 곡 <b>무료 진단</b> 받기 — 30초면 충분합니다</span> →</a>
-    <a class="idx-pill rec" id="idx-pill-rec" href="recording.html">🎤 <span>보컬 녹음실 예약 — 엔지니어 포함 20만</span> →</a>
-  </div>
-
   <a class="side artist" href="artist.html">
     <div class="artist-glow"></div><div class="artist-glow2"></div>
     <div class="side-content">
@@ -364,7 +350,6 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
     overlay.style.display='none';
     split.classList.add('show');
     lang.classList.add('show');
-    document.getElementById('idx-trial').classList.add('show');
     return;
   }
   sessionStorage.setItem('mw-intro-v5','1');
@@ -379,7 +364,6 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
       overlay.classList.add('fade-out');
       split.classList.add('show');
       lang.classList.add('show');
-      document.getElementById('idx-trial').classList.add('show');
     }, 800);
     setTimeout(()=>{ overlay.style.display='none'; }, 2000);
   }
@@ -536,9 +520,7 @@ const IDX_T={
     'lesson-desc':'현직 K-POP 프로듀서 1:1 레슨<br/>작곡 · 편곡 · 믹싱 · 프로듀싱<br/>강남 역삼동 스튜디오',
     'lesson-cta-txt':'레슨 바로가기',
     'artist-desc':'3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>엄마를 향한 9곡의 이야기<br/>CD & 굿즈 판매 중',
-    'artist-cta-txt':'아티스트 페이지',
-    'trial-pill':'🎁 <span>내 곡 <b>무료 진단</b> 받기 — 30초면 충분합니다</span> →',
-    'rec-pill':'🎤 <span>보컬 녹음실 예약 — 엔지니어 포함 20만</span> →'
+    'artist-cta-txt':'아티스트 페이지'
   },
   en:{
     'studio-desc':'Where countless K-POP idols & artists\' music was born.<br/>Same gear. Same sound. Same hands.<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>40 sec from Seonjeongneung Stn. · KOMCA-registered producer',
@@ -546,9 +528,7 @@ const IDX_T={
     'lesson-desc':'1-on-1 lessons with an active K-POP producer<br/>Composition · Arrangement · Mixing · Producing<br/>Gangnam, Seoul Studio',
     'lesson-cta-txt':'Explore Lessons',
     'artist-desc':'3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>9 songs for the one who gave me life<br/>CD & merch available now',
-    'artist-cta-txt':'Artist Page',
-    'trial-pill':'🎁 <span>Get a <b>free demo check</b> — 30 seconds is enough</span> →',
-    'rec-pill':'🎤 <span>Book vocal recording — engineer included</span> →'
+    'artist-cta-txt':'Artist Page'
   },
   ja:{
     'studio-desc':'数々のK-POPアイドル・アーティストが愛した<br/>その機材、そのサウンド、その手で。<br/>NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/>宣靖陵駅から徒歩40秒 · KOMCA登録プロデューサー',
@@ -556,9 +536,7 @@ const IDX_T={
     'lesson-desc':'現役K-POPプロデューサーによる1対1レッスン<br/>作曲 · 編曲 · ミックス · プロデュース<br/>ソウル江南スタジオ',
     'lesson-cta-txt':'レッスンへ進む',
     'artist-desc':'3RD SOLO ALBUM<br/>MAMA : THE ETERNAL LOVE<br/>母への想いを込めた9曲<br/>CD & グッズ販売中',
-    'artist-cta-txt':'アーティストページ',
-    'trial-pill':'🎁 <span>楽曲を<b>無料診断</b> — 30秒でOK</span> →',
-    'rec-pill':'🎤 <span>ボーカルレコーディング予約 — エンジニア込み</span> →'
+    'artist-cta-txt':'アーティストページ'
   }
 };
 function idxLang(lang){
@@ -571,8 +549,6 @@ function idxLang(lang){
   const lc=document.getElementById('lesson-cta');if(lc)lc.innerHTML=t['lesson-cta-txt']+' <span class="side-cta-arrow">→</span>';
   const ad=document.getElementById('artist-desc');if(ad)ad.innerHTML=t['artist-desc'];
   const ac=document.getElementById('artist-cta');if(ac)ac.innerHTML=t['artist-cta-txt']+' <span class="side-cta-arrow">→</span>';
-  const tp=document.getElementById('idx-pill-demo');if(tp&&t['trial-pill'])tp.innerHTML=t['trial-pill'];
-  const rp=document.getElementById('idx-pill-rec');if(rp&&t['rec-pill'])rp.innerHTML=t['rec-pill'];
 }
 (function(){
   let saved='ko';try{saved=localStorage.getItem('mw-lang')||'ko';}catch(e){}
