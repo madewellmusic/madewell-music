@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MADEWELL 캐러셀 v7</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Pretendard',sans-serif; }
+  body { background:#111; display:flex; flex-direction:column; align-items:center; gap:40px; padding:40px 0; }
+  .slide { width:1080px; height:1080px; position:relative; overflow:hidden; background:#0a0a14; color:#fff; flex-shrink:0; }
+  .bg { position:absolute; inset:0; background-size:cover; background-position:center; }
+  .veil { position:absolute; inset:0; background:linear-gradient(180deg,rgba(8,8,18,.35),rgba(8,8,18,.58) 50%,rgba(8,8,18,.82)); }
+  .inner { position:absolute; inset:0; padding:96px 84px; display:flex; flex-direction:column; }
+  h1,h2,.sub,.kicker,.credit-bar,.big,.lead { text-shadow:0 2px 22px rgba(0,0,0,.8),0 1px 4px rgba(0,0,0,.9); }
+  .logo-img { position:absolute; top:50px; left:50%; transform:translateX(-50%); height:74px; opacity:.95;
+    filter:brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,.7)); }
+  .kicker { font-size:29px; font-weight:700; letter-spacing:6px; color:#aab0d0; margin-bottom:28px; }
+  .accent { color:#36e0e0; }
+  .corner { position:absolute; width:46px; height:46px; border:3px solid #36e0e0; opacity:.65; }
+  .c1{top:46px;left:46px;border-right:0;border-bottom:0}.c2{top:46px;right:46px;border-left:0;border-bottom:0}
+  .c3{bottom:46px;left:46px;border-right:0;border-top:0}.c4{bottom:46px;right:46px;border-left:0;border-top:0}
+  .page { position:absolute; bottom:50px; right:70px; font-size:26px; color:#888; letter-spacing:3px; }
+  h1 { font-size:88px; font-weight:800; line-height:1.2; letter-spacing:-2px; }
+  h2 { font-size:78px; font-weight:800; line-height:1.26; letter-spacing:-1.5px; }
+  .sub { font-size:40px; font-weight:500; line-height:1.55; color:#d2d5ea; }
+  .lead { font-size:46px; font-weight:700; line-height:1.45; }
+  .credit-bar { margin-top:auto; }
+  .credit-bar .row { font-size:40px; font-weight:800; line-height:1.55; }
+  .credit-bar .foot { font-size:30px; font-weight:600; color:#aab0d0; margin-top:22px; letter-spacing:1px; }
+  .big { font-size:118px; font-weight:900; }
+  .pill { display:inline-block; padding:14px 30px; border:2px solid rgba(255,255,255,.4); border-radius:40px; font-size:34px; font-weight:600; margin:0 14px 0 0; }
+  .badge { display:inline-block; padding:9px 24px; border:2px solid #5a5f8a; border-radius:8px; font-size:33px; font-weight:700; margin:7px 9px 7px 0; }
+  .tag { display:inline-block; background:#36e0e0; color:#06121a; padding:5px 20px; border-radius:6px; font-weight:800; }
+  .checklist .ci { display:flex; align-items:center; gap:22px; font-size:42px; font-weight:600; background:rgba(54,224,224,.07); border-left:5px solid #36e0e0; padding:26px 30px; margin-bottom:20px; border-radius:0 10px 10px 0; }
+  .quad { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:46px; }
+  .qcard { background:rgba(54,224,224,.07); border:2px solid rgba(54,224,224,.3); border-radius:14px; padding:30px 30px; }
+  .qcard .qt { font-size:26px; font-weight:800; letter-spacing:3px; color:#36e0e0; margin-bottom:14px; }
+  .qcard .qv { font-size:36px; font-weight:700; line-height:1.4; }
+  .work { display:flex; align-items:center; gap:22px; font-size:36px; font-weight:600; margin:12px 0; }
+  .work b { background:#3a3f6a; color:#cfe6ff; padding:5px 14px; border-radius:6px; font-size:28px; font-weight:800; min-width:84px; text-align:center; }
+  .price { font-size:140px; font-weight:900; color:#36e0e0; line-height:1; }
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .gcard { background:rgba(54,224,224,.09); border:2px solid rgba(54,224,224,.35); border-radius:14px; padding:30px 24px; }
+  .gcard .t { font-size:29px; color:#aab0d0; font-weight:700; margin-bottom:14px; letter-spacing:2px; }
+  .gcard .v { font-size:44px; font-weight:800; }
+  .gcard .v small { font-size:26px; font-weight:600; color:#aab; display:block; margin-top:8px; }
+  @media print { body{background:#fff;gap:0;padding:0} .slide{page-break-after:always} }
+</style>
+</head>
+<body>
+
+<!-- ===== 1. 훅 + 권위 ===== -->
+<section class="slide">
+  <div class="bg" style="background-image:url('carousel_images/STUDIO%20MAIN.jpg')"></div>
+  <div class="veil"></div>
+  <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+  <img class="logo-img" src="images/MADEWELL_LOGO_no_corp.PNG" alt="">
+  <div class="inner">
+    <div class="kicker" style="margin-top:64px">COMPOSITION · 1:1 작곡 레슨</div>
+    <h1>내 곡, 왜 아직<br><span class="accent">8마디</span>에서<br>멈춰있을까요?</h1>
+    <p class="lead" style="margin-top:34px">그 곡, <span class="accent">현역</span>이 뚫습니다.</p>
+    <div class="credit-bar">
+      <div class="row">PRODUCE 101 JAPAN '신세계' · VIVIZ</div>
+      <div class="row">(G)I-DLE 전소연 · 인피니트 장동우</div>
+      <div class="row">마마무 화사 · ME:I</div>
+      <div class="foot">KOMCA 100곡+ 등록 · 현역 프로듀서가 직접 봐드립니다</div>
+    </div>
+  </div>
+  <span class="page">1 / 6</span>
+</section>
+
+<!-- ===== 2. 진단 필요성 ===== -->
+<section class="slide">
+  <div class="bg" style="background-image:url('carousel_images/장비%202.png')"></div>
+  <div class="veil"></div>
+  <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+  <img class="logo-img" src="images/MADEWELL_LOGO_no_corp.PNG" alt="">
+  <div class="inner" style="justify-content:center">
+    <h2>그 곡, 버리지 마세요.<br>오늘 <span class="accent">다음 8마디</span>를<br>뚫습니다.</h2>
+    <p class="sub" style="margin-top:54px">
+      루프까지는 나오는데<br>거기서 늘 멈추셨다면,
+    </p>
+    <p class="sub" style="margin-top:40px; font-weight:800; color:#fff">
+      문제는 재능이 아니라<br>딱 하나, <span class="accent">작업 순서</span>입니다.
+    </p>
+  </div>
+  <span class="page">2 / 6</span>
+</section>
+
+<!-- ===== 3. 대상 ===== -->
+<section class="slide">
+  <div class="bg" style="background-image:url('images/CORRIDOR.png')"></div>
+  <div class="veil"></div>
+  <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+  <img class="logo-img" src="images/MADEWELL_LOGO_no_corp.PNG" alt="">
+  <div class="inner">
+    <div class="kicker" style="margin-top:60px">FOR YOU · 이런 분께</div>
+    <h2 style="font-size:64px; margin-bottom:46px">이런 분께 필요합니다</h2>
+    <div class="checklist">
+      <div class="ci">루프는 짜는데 완곡으로 확장이 안 되는 분</div>
+      <div class="ci">레퍼런스는 있는데 비슷하게 못 만드는 분</div>
+      <div class="ci">DAW는 켜지는데 시작점을 모르는 분</div>
+      <div class="ci">완성곡을 발매 수준까지 못 끌어올리는 분</div>
+    </div>
+    <p class="lead" style="margin-top:auto">문제는 재능이 아니라, <span class="accent">작업 구조</span>일 수 있습니다.</p>
+  </div>
+  <span class="page">3 / 6</span>
+</section>
+
+<!-- ===== 4. 방식 ===== -->
+<section class="slide">
+  <div class="bg" style="background-image:url('images/MAIN%20ROOM.jpg')"></div>
+  <div class="veil"></div>
+  <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+  <img class="logo-img" src="images/MADEWELL_LOGO_no_corp.PNG" alt="">
+  <div class="inner">
+    <div class="kicker" style="margin-top:60px">METHOD · 60분 1:1</div>
+    <h2 style="font-size:70px">60분 안에, <span class="accent">이게</span> 됩니다</h2>
+    <div class="quad">
+      <div class="qcard"><div class="qt">STRUCTURE</div><div class="qv">루프 → 완곡<br>막힌 지점 돌파</div></div>
+      <div class="qcard"><div class="qt">SOUND</div><div class="qv">데모 같던 소리<br>→ 완성 사운드</div></div>
+      <div class="qcard"><div class="qt">WORKFLOW</div><div class="qv">현역 제작 기준<br>현업 작법 그대로</div></div>
+      <div class="qcard"><div class="qt">NEXT STEP</div><div class="qv">당신 곡 전용<br>로드맵 제안</div></div>
+    </div>
+    <p class="lead" style="margin-top:auto; font-size:40px">말로 때우지 않습니다. <span class="accent">파일 열고, 듣고, 짚어드립니다.</span></p>
+  </div>
+  <span class="page">4 / 6</span>
+</section>
+
+<!-- ===== 5. 크레딧 ===== -->
+<section class="slide">
+  <div class="bg" style="background-image:url('carousel_images/아티스트%20소개용%20사진.png')"></div>
+  <div class="veil" style="background:linear-gradient(180deg,rgba(8,8,18,.5),rgba(8,8,18,.72) 50%,rgba(8,8,18,.9))"></div>
+  <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+  <img class="logo-img" src="images/MADEWELL_LOGO_no_corp.PNG" alt="">
+  <div class="inner">
+    <div class="kicker" style="margin-top:58px">INSTRUCTOR · MADEWELL</div>
+    <h2 style="font-size:60px">무대에 섰고, <span class="accent">아이돌 음악</span>을<br>만들었습니다.<br>지금은 당신의 음악을 봅니다.</h2>
+    <div style="margin-top:40px">
+      <span class="badge">VIVIZ</span><span class="badge">마마무 화사</span><span class="badge">(G)I-DLE 전소연</span>
+      <span class="badge">인피니트 장동우</span><span class="badge">PRODUCE 101 JAPAN '신세계'</span>
+      <span class="badge">ME:I</span><span class="badge">SNH48</span>
+    </div>
+    <div style="margin-top:34px">
+      <div class="work"><b>MBC</b> 방과후설렘 시즌2 '소년판타지'(FANTASY BOYS)</div>
+      <div class="work"><b>SBS</b> 글로벌 아이돌 오디션 B:My BOYZ</div>
+      <div class="work"><b>KBS</b> 드라마 '수상한 그녀' OST</div>
+    </div>
+    <div class="credit-bar" style="margin-top:34px">
+      <div class="row"><span class="tag">100곡+</span> KOMCA 등록 · 그 곡들을 만든 손이 직접</div>
+    </div>
+  </div>
+  <span class="page">5 / 6</span>
+</section>
+
+<!-- ===== 6. CTA ===== -->
+<section class="slide">
+  <div class="bg" style="background-image:url('carousel_images/LOBBY%20MAIN.png')"></div>
+  <div class="veil"></div>
+  <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+  <img class="logo-img" src="images/MADEWELL_LOGO_no_corp.PNG" alt="">
+  <div class="inner" style="justify-content:center; text-align:center; align-items:center">
+    <div class="kicker">CONTACT · 레슨 신청</div>
+    <h2>당신 곡, 오늘 다시 굴러갑니다</h2>
+    <div class="big accent" style="margin:28px 0">DM 주세요</div>
+    <p class="sub">자동응답 없이, 직접 확인하고 답장드립니다.</p>
+    <div class="grid3" style="width:100%; margin-top:64px">
+      <div class="gcard"><div class="t">60분 1:1</div><div class="v">5만원<small>정규 시 전액 차감</small></div></div>
+      <div class="gcard"><div class="t">정규 과정</div><div class="v">4회 · 30만원<small>작곡·미디·프로듀싱</small></div></div>
+      <div class="gcard"><div class="t">진행 방식</div><div class="v">전국 가능<small>역삼동 스튜디오</small></div></div>
+    </div>
+  </div>
+  <span class="page">6 / 6</span>
+</section>
+
+</body>
+</html>

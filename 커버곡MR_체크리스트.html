@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+  .card {
+    background: #0C0C0C;
+    border-radius: 20px;
+    padding: 52px 52px 56px;
+    width: 800px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .brand {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: #888780;
+    letter-spacing: 4px;
+    margin-bottom: 28px;
+  }
+  .title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #F1EFE8;
+    line-height: 1.4;
+    margin-bottom: 24px;
+  }
+  .divider {
+    width: 120px;
+    height: 1px;
+    background: #444441;
+    margin: 0 auto 32px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .item {
+    background: #1A1A1A;
+    border: 0.5px solid #2C2C2A;
+    border-radius: 12px;
+    padding: 22px 26px 20px;
+  }
+  .num {
+    font-size: 11px;
+    font-weight: 500;
+    color: #5F5E5A;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+  .label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #F1EFE8;
+    margin-bottom: 6px;
+  }
+  .desc {
+    font-size: 12px;
+    color: #888780;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="brand">MADEWELL MUSIC</div>
+  <div class="title">커버곡 MR 준비 전<br>체크하세요</div>
+  <div class="divider"></div>
+  <div class="grid">
+    <div class="item">
+      <div class="num">01</div>
+      <div class="label">MR 출처</div>
+      <div class="desc">유튜브 추출 · 공식 · 직접 제작</div>
+    </div>
+    <div class="item">
+      <div class="num">02</div>
+      <div class="label">음질</div>
+      <div class="desc">WAV / FLAC · 압축 MP3 여부</div>
+    </div>
+    <div class="item">
+      <div class="num">03</div>
+      <div class="label">곡 키</div>
+      <div class="desc">음역 맞게 조정 필요 여부 확인</div>
+    </div>
+    <div class="item">
+      <div class="num">04</div>
+      <div class="label">업로드 목적</div>
+      <div class="desc">연습용 · 유튜브 공개 · 포트폴리오</div>
+    </div>
+    <div class="item">
+      <div class="num">05</div>
+      <div class="label">수익화 여부</div>
+      <div class="desc">광고 수익 · 후원 계획 여부</div>
+    </div>
+    <div class="item">
+      <div class="num">06</div>
+      <div class="label">믹싱·마스터링 계획</div>
+      <div class="desc">녹음만 · 믹싱까지 · 마스터링까지</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
