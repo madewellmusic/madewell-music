@@ -43,7 +43,10 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif
 .nav-links a:hover{color:var(--gold)}
 .nav-btn{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dark);background:var(--gold);padding:10px 24px;transition:background .2s,transform .15s}
 .nav-btn:hover{background:var(--gold2);transform:translateY(-1px)}
-@media(max-width:900px){.nav-links{display:none}#nav{padding:14px 20px}.nav-logo-img{height:38px}.nav-btn{padding:9px 16px;font-size:9px}}
+.nav-left{display:flex;align-items:center;gap:16px}
+.nav-back{display:inline-flex;align-items:center;gap:6px;font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.08em;color:rgba(240,240,244,.72);text-transform:uppercase;border:1px solid rgba(255,255,255,.22);padding:7px 15px;border-radius:22px;transition:color .2s,border-color .2s;white-space:nowrap}
+.nav-back:hover{color:var(--gold);border-color:var(--gold)}
+@media(max-width:900px){.nav-links{display:none}#nav{padding:14px 20px}.nav-logo-img{height:38px}.nav-btn{padding:9px 16px;font-size:9px}.nav-left{gap:10px}.nav-back{font-size:9px;padding:6px 11px}}
 
 /* HERO */
 #hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden;padding:140px 0 90px}
@@ -175,7 +178,10 @@ footer{background:var(--dark2);padding:48px 0;border-top:1px solid var(--border)
 
 <nav id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="images/web/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL Music Studio" class="nav-logo-img"/></a>
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo"><img src="images/web/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL Music Studio" class="nav-logo-img"/></a>
+      <a href="mixing-mastering-landing.html" class="nav-back">← 메인으로</a>
+    </div>
     <ul class="nav-links">
       <li><a href="#package">패키지</a></li>
       <li><a href="#usecase">이런 분께</a></li>

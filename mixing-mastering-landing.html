@@ -60,13 +60,13 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif
 #hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:flex-end;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:url('images/web/MAIN ROOM.jpg') center/cover no-repeat}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,12,.98) 0%,rgba(10,10,12,.52) 45%,rgba(10,10,12,.12) 100%)}
-.hero-inner{position:relative;z-index:1;width:100%;padding-bottom:100px}
-.hero-pre{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hero-inner{position:relative;z-index:1;width:100%;padding-bottom:56px}
+.hero-pre{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:12px}
 .hero-pre::before{content:'';width:28px;height:1px;background:var(--gold)}
-h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,5vw,76px);line-height:.95;letter-spacing:-.01em;color:#fff}
+h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,min(5vw,8.2vh),74px);line-height:.98;letter-spacing:-.01em;color:#fff}
 h1 em{font-style:italic;color:var(--gold2)}
-.hero-divider{width:44px;height:1px;background:var(--gold);margin:30px 0}
-.hero-sub{font-size:clamp(16px,1.7vw,20px);color:rgba(255,255,255,.7);font-weight:300;line-height:1.85;max-width:520px;margin-bottom:44px}
+.hero-divider{width:44px;height:1px;background:var(--gold);margin:20px 0}
+.hero-sub{font-size:clamp(16px,1.7vw,20px);color:rgba(255,255,255,.7);font-weight:300;line-height:1.7;max-width:520px;margin-bottom:28px}
 .hero-sub b{color:#fff;font-weight:500}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
 .btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;text-decoration:none;transition:background .2s,transform .15s}
@@ -599,7 +599,7 @@ body.menu-open{overflow:hidden}
       <li><a href="#gear" data-i18n="nav-gear">장비</a></li>
       <li><a href="#credits" data-i18n="nav-credits">크레딧</a></li>
       <li><a href="#services" data-i18n="nav-services">서비스</a></li>
-      <li><a href="recording.html" data-i18n="nav-rec">녹음실</a></li>
+      <li><a href="recording.html" data-i18n="nav-rec">녹음실 렌트</a></li>
       <li><a href="demo.html" data-i18n="nav-demo" style="color:var(--gold2)">무료 진단</a></li>
       <li><a href="#rental" data-i18n="nav-rental">대관</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -631,7 +631,7 @@ body.menu-open{overflow:hidden}
   <a href="#gear" onclick="closeMobileMenu()" data-i18n="nav-gear">장비</a>
   <a href="#credits" onclick="closeMobileMenu()" data-i18n="nav-credits">크레딧</a>
   <a href="#services" onclick="closeMobileMenu()" data-i18n="nav-services">서비스</a>
-  <a href="recording.html" data-i18n="nav-rec">녹음실</a>
+  <a href="recording.html" data-i18n="nav-rec">녹음실 렌트</a>
   <a href="demo.html" data-i18n="nav-demo" style="color:var(--gold2)">무료 진단</a>
   <a href="#rental" onclick="closeMobileMenu()" data-i18n="nav-rental">대관</a>
   <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
@@ -1769,7 +1769,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 // ── LANGUAGE SYSTEM ──
 const T={
   ko:{
-    'nav-gear':'장비','nav-credits':'크레딧','nav-services':'서비스','nav-rental':'대관','nav-rec':'녹음실','nav-demo':'무료 진단',
+    'nav-gear':'장비','nav-credits':'크레딧','nav-services':'서비스','nav-rental':'대관','nav-rec':'녹음실 렌트','nav-demo':'무료 진단',
     'nav-reserve':'예약','nav-about':'소개','nav-contact':'문의하기','nav-contact-intl':'문의하기',
     'mm-cta':'카카오톡 문의','mm-cta-intl':'카카오톡 문의',
     'hero-pre':'Seoul · Gangnam · Professional Studio',
