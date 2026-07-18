@@ -249,6 +249,28 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
 .idx-lang button.on{background:rgba(201,169,60,.9);color:#000}
 .idx-lang button:hover:not(.on){color:rgba(255,255,255,.8)}
 @media(max-width:640px){.idx-lang{top:14px;right:14px}}
+
+/* ══ HOVER PHOTO + SPOTLIGHT v2 ══ */
+/* 호버 실사 페이드인 */
+.side-photo{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;
+  opacity:0;transform:scale(1.1);pointer-events:none;
+  filter:saturate(.55) contrast(1.03);
+  transition:opacity 1s ease,transform 1.6s cubic-bezier(.22,.1,.25,1)}
+.side:hover .side-photo{opacity:.42;transform:scale(1.03)}
+.side-photo::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,.08) 55%,rgba(0,0,0,.3))}
+@media(max-width:640px){.side-photo{opacity:.15;transform:none}}
+
+/* 호버 시 나머지 칸 딤 */
+.side{transition:flex .65s cubic-bezier(.4,0,.2,1),filter .7s ease}
+@media(hover:hover){
+  .split:hover .side:not(:hover){filter:brightness(.42) saturate(.7)}
+}
+
+/* 이탤릭 워드 글로우 */
+.side-h em{transition:filter .5s ease,text-shadow .5s ease}
+.side:hover .side-h em{filter:brightness(1.3);text-shadow:0 0 26px currentColor}
+
 </style>
 </head>
 <body>
@@ -297,7 +319,7 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
   </div>
 
   <a class="side studio" href="mixing-mastering-landing.html">
-    <div class="studio-glow"></div><div class="studio-glow2"></div>
+    <div class="side-photo" style="background-image:url('images/web/hover_studio.jpg')"></div><div class="studio-glow"></div><div class="studio-glow2"></div>
     <div class="side-content">
       <div class="side-tag">Studio</div>
       <h2 class="side-h">Mixing<br/>Mastering<br/><em>Recording.</em></h2>
@@ -308,7 +330,7 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
   </a>
 
   <a class="side lesson" href="lesson-landing.html">
-    <div class="lesson-glow"></div><div class="lesson-glow2"></div>
+    <div class="side-photo" style="background-image:url('images/web/hover_lesson.jpg')"></div><div class="lesson-glow"></div><div class="lesson-glow2"></div>
     <div class="side-content">
       <div class="side-tag">Lesson</div>
       <h2 class="side-h">Lesson<br/>Composition<br/><em>Production.</em></h2>
@@ -319,7 +341,7 @@ html,body{height:100%;background:#000;font-family:'Montserrat',sans-serif;overfl
   </a>
 
   <a class="side artist" href="artist.html">
-    <div class="artist-glow"></div><div class="artist-glow2"></div>
+    <div class="side-photo" style="background-image:url('images/web/hover_artist.jpg')"></div><div class="artist-glow"></div><div class="artist-glow2"></div>
     <div class="side-content">
       <div class="side-tag">Artist</div>
       <h2 class="side-h">Album<br/>Release<br/><em>MADEWELL.</em></h2>
