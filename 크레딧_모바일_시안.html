@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>크레딧 — 모바일 시안</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C9A93C;--gold2:#DDB84A;--bg:#0E0E12;--bg2:#141418;--ink:#F0F0F4;--body:rgba(240,240,244,.62);--muted:rgba(240,240,244,.35);--border:rgba(255,255,255,.07)}
+*{box-sizing:border-box}
+body{margin:0;background:#08080A;color:var(--ink);font-family:'Noto Sans KR',sans-serif;padding:30px;line-height:1.6}
+h1{font-size:18px;font-weight:500;margin:0 0 6px}
+.top{font-size:13px;color:var(--muted);margin:0 0 30px;line-height:1.75;max-width:900px}
+.row{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start}
+.col{width:330px}
+.col h2{font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--gold2);margin:0 0 4px;text-transform:uppercase}
+.col .h{font-size:12px;color:var(--muted);margin:0 0 12px;line-height:1.7;min-height:56px}
+.ph{width:330px;height:620px;overflow-y:auto;background:var(--bg);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:22px 0;scrollbar-width:thin}
+.ph::-webkit-scrollbar{width:4px}.ph::-webkit-scrollbar-thumb{background:rgba(201,169,60,.3);border-radius:2px}
+.inner{padding:0 20px}
+.tag{font-family:Montserrat,sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.26em;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.tag::after{content:'';width:24px;height:1px;background:var(--gold);opacity:.5}
+h3{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:30px;line-height:1.08;margin:12px 0 0}
+.note{font-family:Montserrat,sans-serif;font-size:8px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin:16px 0 14px;display:flex;align-items:center;gap:9px}
+.note::before{content:'';width:20px;height:1px;background:var(--gold);opacity:.6}
+.ftr{margin:22px 20px 0;padding:18px 16px;border:1px solid rgba(201,169,60,.2);background:rgba(201,169,60,.05);text-align:center}
+.ftr b{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--gold2);line-height:1;display:block}
+.ftr span{font-family:Montserrat,sans-serif;font-size:8px;letter-spacing:.2em;color:rgba(255,255,255,.4);text-transform:uppercase;display:block;margin-top:6px}
+
+/* A — 칩 */
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:Montserrat,sans-serif;font-size:10.5px;font-weight:500;letter-spacing:.02em;color:rgba(240,240,244,.82);
+  border:1px solid rgba(201,169,60,.26);background:rgba(201,169,60,.05);padding:7px 11px;border-radius:2px;white-space:nowrap}
+.chip.big{color:var(--gold2);border-color:rgba(201,169,60,.5);background:rgba(201,169,60,.11);font-weight:700}
+.chiplist{margin-top:18px;border-top:1px solid var(--border);padding-top:14px}
+.cl{display:flex;gap:9px;padding:7px 0;font-size:11px;line-height:1.5;border-bottom:1px solid rgba(255,255,255,.04)}
+.cl b{color:var(--gold);font-family:Montserrat,sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.03em;flex:0 0 40%;text-transform:uppercase}
+.cl span{color:rgba(240,240,244,.55);flex:1}
+.more{margin-top:14px;width:100%;background:transparent;border:1px solid rgba(201,169,60,.35);color:var(--gold2);
+  font-family:Montserrat,sans-serif;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:12px;cursor:pointer}
+
+/* B — 접기 */
+.cards{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border)}
+.card{background:var(--bg);padding:13px 16px}
+.card .a{font-family:Montserrat,sans-serif;font-weight:700;font-size:10px;color:var(--gold);letter-spacing:.04em;text-transform:uppercase;line-height:1.3}
+.card .t{font-size:11.5px;color:rgba(240,240,244,.68);font-weight:300;line-height:1.4;margin-top:4px}
+.hid{display:none}
+
+/* C — 2칸 컴팩트 */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.g2 .card{padding:11px 12px;min-height:64px;display:flex;flex-direction:column;justify-content:center}
+.g2 .a{font-size:9px;letter-spacing:.02em}
+.g2 .t{font-size:10.5px;margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+</style></head><body>
+<h1>크레딧 — 모바일 시안 3개</h1>
+<p class="top">현재는 21개가 세로 1칸으로 다 깔려서 1,550px 스크롤. 아래 폰 프레임 안에서 직접 스크롤해보고 골라줘. A안의 "곡명까지 보기"는 눌러야 열려.</p>
+
+<div class="row">
+
+<div class="col">
+  <h2>A — 이름 칩 + 접힌 상세</h2>
+  <p class="h">아티스트 이름만 칩으로 촘촘히. 21개가 6줄에 다 들어옴. 곡명은 버튼 눌러야 나옴. "이 사람들 다 했다"가 0.5초 만에 전달됨.</p>
+  <div class="ph"><div class="inner">
+    <div class="tag">Production Credits</div>
+    <h3>이 음악들을<br>만들었습니다</h3>
+    <div class="note">전 작품 Produced by MADEWELL</div>
+    <div class="chips">
+      <span class="chip big">PRODUCE 101 JAPAN</span><span class="chip big">비비지(VIVIZ)</span><span class="chip big">(여자)아이들 전소연</span>
+      <span class="chip big">인피니트 장동우</span><span class="chip big">마마무 화사</span><span class="chip">ME:I</span>
+      <span class="chip">소년판타지</span><span class="chip">B:MY BOYZ</span><span class="chip">루나 F(X)</span>
+      <span class="chip">팬픽</span><span class="chip">수상한 그녀 OST</span><span class="chip">싱어게인2</span>
+      <span class="chip">경서예지</span><span class="chip">원팩트</span><span class="chip">김채원</span>
+      <span class="chip">NC.A</span><span class="chip">SNH48</span><span class="chip">디바</span>
+      <span class="chip">이재훈</span><span class="chip">HORI7ON</span><span class="chip">WeNU</span>
+    </div>
+    <button class="more" onclick="var e=document.getElementById('dt');e.style.display=e.style.display==='block'?'none':'block';this.textContent=e.style.display==='block'?'접기 ↑':'곡명까지 보기 ↓'">곡명까지 보기 ↓</button>
+    <div class="chiplist hid" id="dt">
+      <div class="cl"><b>P101 JAPAN 신세계</b><span>BLACK ANGEL</span></div>
+      <div class="cl"><b>비비지(VIVIZ)</b><span>A Montage of ( ),</span></div>
+      <div class="cl"><b>ME:I</b><span>UPDATE ME</span></div>
+      <div class="cl"><b>전소연</b><span>아무너케 M2 Live</span></div>
+      <div class="cl"><b>장동우</b><span>Super Birthday · 인생</span></div>
+      <div class="cl"><b>화사 × Sense Mom</b><span>Two Side</span></div>
+      <div class="cl"><b>소년판타지</b><span>Fantasy · Shut Off · BATTLE FIELD</span></div>
+      <div class="cl"><b>B:MY BOYZ</b><span>Be my boyz 타이틀</span></div>
+    </div>
+  </div>
+  <div class="ftr"><b>100+</b><span>KOMCA Registered Works</span></div>
+  </div>
+</div>
+
+<div class="col">
+  <h2>B — 상위 8개 + 전체 펼치기</h2>
+  <p class="h">지금 카드 그대로 두되 처음엔 8개만. 스크롤 피로가 사라지고, 관심 있는 사람만 펼침. 변경 범위가 가장 작음.</p>
+  <div class="ph"><div class="inner">
+    <div class="tag">Production Credits</div>
+    <h3>이 음악들을<br>만들었습니다</h3>
+    <div class="note">전 작품 Produced by MADEWELL</div>
+    <div class="cards">
+      <div class="card"><div class="a">PRODUCE 101 JAPAN 新世界</div><div class="t">「BLACK ANGEL」</div></div>
+      <div class="card"><div class="a">비비지(VIVIZ)</div><div class="t">「A Montage of ( ),」 정규 1집</div></div>
+      <div class="card"><div class="a">ME:I</div><div class="t">「UPDATE ME」</div></div>
+      <div class="card"><div class="a">(여자)아이들 전소연</div><div class="t">「아무너케」 M2 Live</div></div>
+      <div class="card"><div class="a">인피니트 장동우</div><div class="t">「Super Birthday」「인생」</div></div>
+      <div class="card"><div class="a">마마무 화사 × Sense Mom</div><div class="t">「Two Side」</div></div>
+      <div class="card"><div class="a">MBC 소년판타지</div><div class="t">「Fantasy」「Shut Off」</div></div>
+      <div class="card"><div class="a">SBS B:MY BOYZ</div><div class="t">「Be my boyz」 타이틀곡</div></div>
+      <div class="card hid x"><div class="a">루나 F(X) × 울</div><div class="t">「이 밤이 지나면」</div></div>
+      <div class="card hid x"><div class="a">MBC M 팬픽</div><div class="t">「휘파람」</div></div>
+      <div class="card hid x"><div class="a">KBS 수상한 그녀</div><div class="t">OST 「The Way I Love」</div></div>
+    </div>
+    <button class="more" onclick="document.querySelectorAll('.x').forEach(function(e){e.style.display='block'});this.style.display='none'">나머지 13개 더 보기 ↓</button>
+  </div>
+  <div class="ftr"><b>100+</b><span>KOMCA Registered Works</span></div>
+  </div>
+</div>
+
+<div class="col">
+  <h2>C — 2칸 컴팩트</h2>
+  <p class="h">모바일에서도 2칸 유지하고 셀 높이를 64px로 압축. 21개가 11줄. 전부 보이지만 글자가 작고 긴 이름은 두 줄로 접힘.</p>
+  <div class="ph"><div class="inner">
+    <div class="tag">Production Credits</div>
+    <h3>이 음악들을<br>만들었습니다</h3>
+    <div class="note">전 작품 Produced by MADEWELL</div>
+    <div class="g2">
+      <div class="card"><div class="a">P101 JAPAN 新世界</div><div class="t">「BLACK ANGEL」</div></div>
+      <div class="card"><div class="a">비비지(VIVIZ)</div><div class="t">「A Montage of ( ),」</div></div>
+      <div class="card"><div class="a">ME:I</div><div class="t">「UPDATE ME」</div></div>
+      <div class="card"><div class="a">(여자)아이들 전소연</div><div class="t">「아무너케」 M2 Live</div></div>
+      <div class="card"><div class="a">인피니트 장동우</div><div class="t">「Super Birthday」「인생」</div></div>
+      <div class="card"><div class="a">마마무 화사</div><div class="t">「Two Side」</div></div>
+      <div class="card"><div class="a">MBC 소년판타지</div><div class="t">「Fantasy」「Shut Off」</div></div>
+      <div class="card"><div class="a">SBS B:MY BOYZ</div><div class="t">「Be my boyz」</div></div>
+      <div class="card"><div class="a">루나 F(X) × 울</div><div class="t">「이 밤이 지나면」</div></div>
+      <div class="card"><div class="a">MBC M 팬픽</div><div class="t">「휘파람」</div></div>
+      <div class="card"><div class="a">KBS 수상한 그녀</div><div class="t">OST 「The Way I Love」</div></div>
+      <div class="card"><div class="a">JTBC 싱어게인2</div><div class="t">NC.A 「빗물」</div></div>
+    </div>
+  </div>
+  <div class="ftr"><b>100+</b><span>KOMCA Registered Works</span></div>
+  </div>
+</div>
+
+</div>
+</body></html>

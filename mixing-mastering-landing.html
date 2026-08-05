@@ -212,6 +212,18 @@ h1 em{font-style:italic;color:var(--gold2)}
 @media(max-width:900px){.cred-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.cred-grid{grid-template-columns:1fr}}
 .cred-cell{background:var(--bg);padding:15px 18px;transition:background .25s;display:flex;flex-direction:column;justify-content:center;min-height:74px}
+.cred-more{display:none;width:100%;margin-top:14px;background:transparent;border:1px solid rgba(201,169,60,.35);
+  color:var(--gold2);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;padding:15px 12px;cursor:pointer;transition:all .25s}
+.cred-more:hover{background:rgba(201,169,60,.08);border-color:rgba(201,169,60,.6)}
+@media(max-width:560px){
+  .cred-cell{min-height:66px;padding:13px 16px}
+  .cred-rest{display:none}
+  .cred-grid.open .cred-rest{display:flex;animation:credIn .5s ease both}
+  .cred-more{display:block}
+  .cred-grid.open + .cred-more{display:none}
+}
+@keyframes credIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .cred-cell:hover{background:var(--bg2)}
 .cred-art{font-family:'Montserrat',sans-serif;font-weight:700;font-size:10.5px;color:var(--gold);letter-spacing:.04em;margin-bottom:5px;text-transform:uppercase;line-height:1.3}
 .cred-ttl{font-size:12px;color:rgba(240,240,244,.72);line-height:1.4;font-family:'Noto Sans KR',sans-serif;font-weight:300}
@@ -1046,26 +1058,27 @@ ear-ph{height:100%}}
     <div class="cred-grid reveal2">
       <div class="cred-cell"><div class="cred-art">PRODUCE 101 JAPAN &lt;新世界&gt;</div><div class="cred-ttl">「BLACK ANGEL」</div></div>
       <div class="cred-cell"><div class="cred-art">비비지(VIVIZ)</div><div class="cred-ttl">「A Montage of ( ),」— TOXIC 정규 1집</div></div>
-      <div class="cred-cell"><div class="cred-art">PRODUCE 101 JAPAN &lt;The Girls&gt;  ME:I</div><div class="cred-ttl">「UPDATE ME」</div></div>
+      <div class="cred-cell"><div class="cred-art" data-i18n="cred-mei">ME:I (PRODUCE 101 JAPAN 3 데뷔그룹)</div><div class="cred-ttl">「UPDATE ME」</div></div>
       <div class="cred-cell"><div class="cred-art" data-i18n="cred-gidle">(여자)아이들 전소연</div><div class="cred-ttl">「아무너케」 M2 Live</div></div>
       <div class="cred-cell"><div class="cred-art">인피니트 장동우</div><div class="cred-ttl">「Super Birthday」「인생(LIFE)」</div></div>
       <div class="cred-cell"><div class="cred-art" data-i18n="cred-hwasa">마마무 화사 × Sense Mom</div><div class="cred-ttl">「Two Side」</div></div>
-      <div class="cred-cell"><div class="cred-art" data-i18n="cred-fantasy">MBC 방과후설렘 시즌2 소년판타지</div><div class="cred-ttl">「Fantasy」「Shut Off」「BATTLE FIELD」</div></div>
+      <div class="cred-cell"><div class="cred-art" data-i18n="cred-fantasy">MBC 방과후 설렘 시즌2 소년판타지(FANTASY BOYS)</div><div class="cred-ttl">「Fantasy」「Shut Off」「BATTLE FIELD」</div></div>
       <div class="cred-cell"><div class="cred-art">SBS B:MY BOYZ</div><div class="cred-ttl">「Be my boyz」 타이틀곡</div></div>
-      <div class="cred-cell"><div class="cred-art">루나 F(X) × 울</div><div class="cred-ttl">「이 밤이 지나면」</div></div>
-      <div class="cred-cell"><div class="cred-art">MBC M 팬픽(FAN PICK)</div><div class="cred-ttl">「휘파람」</div></div>
-      <div class="cred-cell"><div class="cred-art">KBS 드라마 수상한 그녀</div><div class="cred-ttl">OST 「The Way I Love」</div></div>
-      <div class="cred-cell"><div class="cred-art">JTBC 싱어게인2</div><div class="cred-ttl">NC.A (앤씨아) — 「빗물」</div></div>
-      <div class="cred-cell"><div class="cred-art">경서 (경서예지)</div><div class="cred-ttl">「좋은 날엔 네가 있어」</div></div>
-      <div class="cred-cell"><div class="cred-art" data-i18n="cred-onepact">원팩트</div><div class="cred-ttl">1st Album 「G.O.A.T / 100 / WILD」</div></div>
-      <div class="cred-cell"><div class="cred-art">김채원 (에이프릴)</div><div class="cred-ttl">「Tomorrow」「雨が急に降っている」</div></div>
-      <div class="cred-cell"><div class="cred-art">NC.A (앤씨아)</div><div class="cred-ttl">「널 위한 멜로디」「My Little」</div></div>
-      <div class="cred-cell"><div class="cred-art">SNH48</div><div class="cred-ttl">「Call Me Louder」</div></div>
-      <div class="cred-cell"><div class="cred-art">디바 (DIVA)</div><div class="cred-ttl">「왜불러」「그래」「Joy」「Up&amp;Down」「딱이야」— 타임캡슐 수퍼콘서트</div></div>
-      <div class="cred-cell"><div class="cred-art" data-i18n="cred-jaehoon">이재훈 (쿨)</div><div class="cred-ttl">콘서트 편곡</div></div>
-      <div class="cred-cell"><div class="cred-art">HORI7ON</div><div class="cred-ttl">1st Mini Album 「SIXTEEN,」</div></div>
-      <div class="cred-cell"><div class="cred-art">WeNU</div><div class="cred-ttl">1st · 2nd · 3rd Mini Album</div></div>
+      <div class="cred-cell cred-rest"><div class="cred-art">루나 F(X) × 울</div><div class="cred-ttl">「이 밤이 지나면」</div></div>
+      <div class="cred-cell cred-rest"><div class="cred-art">MBC M 팬픽(FAN PICK)</div><div class="cred-ttl">「휘파람」</div></div>
+      <div class="cred-cell cred-rest"><div class="cred-art">KBS 드라마 수상한 그녀</div><div class="cred-ttl">OST 「The Way I Love」</div></div>
+      <div class="cred-cell cred-rest"><div class="cred-art">JTBC 싱어게인2</div><div class="cred-ttl">NC.A (앤씨아) — 「빗물」</div></div>
+      <div class="cred-cell cred-rest"><div class="cred-art">경서 (경서예지)</div><div class="cred-ttl">「좋은 날엔 네가 있어」</div></div>
+      <div class="cred-cell cred-rest"><div class="cred-art" data-i18n="cred-onepact">원팩트</div><div class="cred-ttl">1st Album 「G.O.A.T / 100 / WILD」</div></div>
+      <div class="cred-cell cred-rest"><div class="cred-art">김채원 (에이프릴)</div><div class="cred-ttl">「Tomorrow」「雨が急に降っている」</div></div>
+      <div class="cred-cell cred-rest"><div class="cred-art">NC.A (앤씨아)</div><div class="cred-ttl">「널 위한 멜로디」「My Little」</div></div>
+      <div class="cred-cell cred-rest"><div class="cred-art">SNH48</div><div class="cred-ttl">「Call Me Louder」</div></div>
+      <div class="cred-cell cred-rest"><div class="cred-art">디바 (DIVA)</div><div class="cred-ttl">「왜불러」「그래」「Joy」「Up&amp;Down」「딱이야」— 타임캡슐 수퍼콘서트</div></div>
+      <div class="cred-cell cred-rest"><div class="cred-art" data-i18n="cred-jaehoon">이재훈 (쿨)</div><div class="cred-ttl">콘서트 편곡</div></div>
+      <div class="cred-cell cred-rest"><div class="cred-art">HORI7ON</div><div class="cred-ttl">1st Mini Album 「SIXTEEN,」</div></div>
+      <div class="cred-cell cred-rest"><div class="cred-art">WeNU</div><div class="cred-ttl">1st · 2nd · 3rd Mini Album</div></div>
     </div>
+    <button class="cred-more" id="credMore" onclick="expandCredits(this)" data-i18n="cred-more">나머지 13개 더 보기 ↓</button>
     <div class="cred-komca reveal">
       <div>
         <div class="ck-left">
@@ -1679,6 +1692,12 @@ function closeMobileMenu(){
 // Close menu on ESC key
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileMenu()});
 
+// Credits — 모바일 더보기
+function expandCredits(btn){
+  document.querySelector('.cred-grid').classList.add('open');
+  btn.style.display='none';
+}
+
 // FAQ accordion
 function toggleFaq(btn){
   const item=btn.closest('.faq-item');
@@ -1784,8 +1803,9 @@ const T={
     'why-q1':'아이돌 앨범에 실제로 사용된 그 장비 그대로. 방구석에서 만든 음악도 스트리밍 차트에 올라갈 퀄리티로.',
     'why-q2':'픽스 전까지 수정은 자유롭게. 납득될 때까지 함께 갑니다.',
     'why-q3':'메이저 앨범과 같은 장비, 같은 사람이<br/>처음부터 끝까지. 어디서도 살 수 없는 조합입니다.',
-    'cred-note':'전 작품 Produced by MADEWELL',
+    'cred-note':'전 작품 Produced by MADEWELL','cred-more':'나머지 13개 더 보기 ↓',
     'cred-sub':'국내 주요 아이돌, 드라마 OST, 일본 진출 앨범까지.<br/>같은 장비와 손으로 당신의 음악을 만듭니다.',
+    'cred-mei':'ME:I (PRODUCE 101 JAPAN 3 데뷔그룹)',
     'cred-gidle':'(여자)아이들 전소연',
     'cmp-h1':'일반 마스터링 스튜디오','cmp-h2':'프리미엄 스튜디오 평균',
     'cmp-r2':'수정 무료 횟수','cmp-r2v1':'1~2회','cmp-r2v2':'유료','cmp-r2v3':'5회 무료',
@@ -1806,7 +1826,7 @@ const T={
     'sk-1':'작곡','sk-2':'편곡','sk-3':'작사','sk-4':'JLPT 1급',
     'bk-note-txt':'<strong>예약금(50%) 선입금</strong>으로 일정을 확정합니다. 잔금은 작업 완료 후 파일 전달 전 결제하시면 됩니다.<br/>계좌번호 및 카카오페이 링크는 예약 확정 후 채팅으로 개별 안내드립니다. 계좌 정보는 공개하지 않습니다.',
     'ck-text':'그리고 아직 여기 적히지 않은<br/><em>수백 개의 이야기들.</em><br/>당신의 음악도 그 중 하나가 됩니다.',
-    'cred-hwasa':'마마무 화사 × Sense Mom','cred-fantasy':'MBC 방과후설렘 시즌2 소년판타지','cred-onepact':'원팩트','cred-jaehoon':'이재훈 (쿨)','cred-lapilus':'라필루스','cred-lapilus-role':'Produced by MADEWELL',
+    'cred-hwasa':'마마무 화사 × Sense Mom','cred-fantasy':'MBC 방과후 설렘 시즌2 소년판타지(FANTASY BOYS)','cred-onepact':'원팩트','cred-jaehoon':'이재훈 (쿨)','cred-lapilus':'라필루스','cred-lapilus-role':'Produced by MADEWELL',
     'faq-q1':'가격이 어떻게 되나요?','faq-q2':'수정은 몇 번까지 가능한가요?','faq-q3':'어떤 포맷으로 납품되나요?','faq-q4':'어떤 장비를 사용하나요?','faq-q5':'주차 가능한가요?',
     'faq-q6':'음악이 처음인 초보자도 맡길 수 있나요?','faq-q7':'작업 기간이 얼마나 걸리나요?','faq-q8':'레코딩도 믹싱·마스터링과 함께 의뢰할 수 있나요?','faq-q9':'방문 없이 온라인으로만 의뢰해도 되나요?','faq-q10':'일본어로도 소통이 가능한가요?',
     'faq-a1':'서비스별 요금과 실시간 견적 계산기는 <a href="price.html" style="color:var(--gold2);border-bottom:1px solid var(--border2)">가격 안내 페이지</a>에 정리해 두었습니다. 앨범 전체·대형 편성·방송·광고 작업은 트랙 수 확인 후 맞춤 견적을 드립니다.',
@@ -1906,8 +1926,9 @@ const T={
     'why-q1':'The exact gear used on actual idol albums. Even bedroom productions get lifted to streaming-chart quality.',
     'why-q2':'Revisions stay open until the mix is locked. We keep going until it feels right to you.',
     'why-q3':'The same gear as major-label albums, the same<br/>hands from start to finish. A combination you can\'t buy.',
-    'cred-note':'All works produced by MADEWELL',
+    'cred-note':'All works produced by MADEWELL','cred-more':'Show 13 more ↓',
     'cred-sub':'Major K-POP idols, drama OSTs, Japanese releases.<br/>Your music, made with the same gear and hands.',
+    'cred-mei':'ME:I (PRODUCE 101 JAPAN 3 debut group)',
     'cred-gidle':'(G)I-DLE Jeon Soyeon',
     'cmp-h1':'Standard Mastering Studio','cmp-h2':'Premium Studio Average',
     'cmp-r2':'Free Revisions','cmp-r2v1':'1–2 times','cmp-r2v2':'Paid','cmp-r2v3':'5 times free',
@@ -2028,8 +2049,9 @@ const T={
     'why-q1':'アイドルアルバムに実際に使用されたその機材そのままに。自宅で作った音楽もストリーミングチャートに上がれるクオリティへ。',
     'why-q2':'フィックス前までの修正は自由に。納得いくまで一緒に進めます。',
     'why-q3':'メジャーアルバムと同じ機材、同じ人が<br/>最初から最後まで。どこにも買えない組み合わせです。',
-    'cred-note':'全作品 Produced by MADEWELL',
+    'cred-note':'全作品 Produced by MADEWELL','cred-more':'残り13件を見る ↓',
     'cred-sub':'主要K-POPアイドル、ドラマOST、日本進出アルバムまで。<br/>同じ機材と手であなたの音楽を作ります。',
+    'cred-mei':'ME:I（PRODUCE 101 JAPAN 3 デビューグループ）',
     'cred-gidle':'(G)I-DLE 田小娟',
     'cmp-h1':'一般マスタリングスタジオ','cmp-h2':'プレミアムスタジオ平均',
     'cmp-r2':'無料修正回数','cmp-r2v1':'1〜2回','cmp-r2v2':'有料','cmp-r2v3':'5回無料',
