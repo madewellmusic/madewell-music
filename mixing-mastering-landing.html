@@ -450,6 +450,14 @@ html[lang="en"] .mobile-menu a::after{display:none}
   color:#F6ECC9!important;padding:17px 20px!important;margin-top:12px;
   box-shadow:0 8px 28px rgba(184,149,46,.26),inset 0 1px 0 rgba(255,238,190,.32)}
 .mobile-menu-cta::before,.mobile-menu-cta::after{content:none!important}
+body.menu-open #nav{z-index:210;background:transparent!important;box-shadow:none!important;border-bottom-color:transparent!important}
+body.menu-open .nav-logo-img{filter:brightness(0) invert(1)!important;opacity:.9}
+.mm-home{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:14px;
+  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(240,240,244,.4)!important;text-decoration:none;padding:14px 10px!important;
+  border-bottom:none!important;transition:color .25s}
+.mm-home::before,.mm-home::after{content:none!important}
+.mm-home:active{color:var(--gold2)!important}
 @media(prefers-reduced-motion:reduce){.mobile-menu a{opacity:1;transform:none;transition-delay:0s!important}.nav-hamburger::after{animation:none}}
 
 /* ── HERO MOBILE ── */
@@ -696,7 +704,7 @@ ear-ph{height:100%}}
 <!-- NAV -->
 <nav id="nav" class="light-nav">
   <div class="nav-inner container">
-    <a href="#" class="nav-logo">
+    <a href="index.html" class="nav-logo" aria-label="MADEWELL MUSIC 메인으로">
       <img src="images/web/MADEWELL MUSIC_LOGO_cropped.PNG" alt="MADEWELL Music Studio" class="nav-logo-img" id="nav-logo-img"/>
     </a>
     <ul class="nav-links" id="nav-links">
@@ -747,6 +755,7 @@ ear-ph{height:100%}}
   <a href="http://pf.kakao.com/_axcYxlb/chat" target="_blank" class="mobile-menu-cta ko-only" id="mm-cta-ko" onclick="closeMobileMenu()" data-i18n="mm-cta">카카오톡 문의</a>
   <a href="https://mail.google.com/mail/?view=cm&to=madewellofficial%40gmail.com&su=Mixing%20%26%20Mastering%20Inquiry%20-%20MADEWELL%20MUSIC" target="_blank" class="mobile-menu-cta intl-only" id="mm-cta-intl" onclick="closeMobileMenu()" data-i18n="mm-cta-intl">Contact via Email</a>
   <div class="mobile-menu-divider"></div>
+  <a href="index.html" class="mm-home" data-i18n="mm-home">← MADEWELL MUSIC 메인</a>
   <div class="lang-toggle-mobile">
     <button class="lang-btn on" onclick="setLang('ko')">KO</button>
     <button class="lang-btn" onclick="setLang('en')">EN</button>
@@ -1745,6 +1754,8 @@ function closeMobileMenu(){
 }
 // Close menu on ESC key
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileMenu()});
+// 메뉴 여백을 탭하면 닫기
+mobileMenu.addEventListener('click',function(e){ if(e.target===mobileMenu)closeMobileMenu(); });
 
 // Credits — 모바일 더보기
 function expandCredits(btn){
@@ -1789,7 +1800,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 // ── LANGUAGE SYSTEM ──
 const T={
   ko:{
-    'nav-price':'가격','nav-faq':'자주 묻는 질문','nav-studio':'스튜디오','dock-price':'가격','dock-cta':'카카오톡으로 문의하기','dock-cta-intl':'카카오톡으로 문의하기',
+    'nav-price':'가격','nav-faq':'자주 묻는 질문','mm-home':'← MADEWELL MUSIC 메인','nav-studio':'스튜디오','dock-price':'가격','dock-cta':'카카오톡으로 문의하기','dock-cta-intl':'카카오톡으로 문의하기',
     'phil-h':'좋은 소리는 취향이 아니라,<br/><em style="font-style:italic;color:var(--gold2)">기준</em>입니다.',
     'phil-p1':'MADEWELL MUSIC은 <b>“어떻게 들리게 할까”보다 “무엇을 지킬까”</b>를 먼저 정합니다. 가수의 숨소리, 연주자의 손끝, 곡을 처음 떠올린 순간의 감정 — 장비와 기술은 그것을 부풀리기 위해서가 아니라, 잃지 않기 위해 존재합니다.',
     'phil-p2':'그래서 한 곡은 한 사람이 끝까지 책임집니다. 레코딩부터 믹싱, 마스터링까지 <b>손이 바뀌지 않습니다.</b> K-POP 현장에서 검증된 판단 기준을, 작업의 규모와 상관없이 똑같이 적용합니다.',
@@ -1911,7 +1922,7 @@ const T={
     'quote-sub':'Pick a service and song count. One click copies your quote and opens the chat.',
     'q-svc':'1 · Select Service','q-songs':'2 · Number of Songs','q-addon':'3 · Add-ons','q-est':'Estimated Quote',
     'q-note':'Free revisions before final fix · Final price may vary by track count &amp; file condition · Ask about multi-song discounts for EPs/albums',
-    'nav-price':'Pricing','nav-faq':'FAQ','nav-studio':'Studio','dock-price':'Pricing','dock-cta':'Contact via Email','dock-cta-intl':'Contact via Email',
+    'nav-price':'Pricing','nav-faq':'FAQ','mm-home':'← MADEWELL MUSIC Home','nav-studio':'Studio','dock-price':'Pricing','dock-cta':'Contact via Email','dock-cta-intl':'Contact via Email',
     'phil-h':'Great sound isn\'t a taste.<br/>It\'s a <em style="font-style:italic;color:var(--gold2)">standard</em>.',
     'phil-p1':'At MADEWELL MUSIC we decide <b>what to protect before we decide how it should sound.</b> A singer\'s breath, a player\'s fingertips, the feeling behind the very first sketch — our gear exists not to inflate any of it, but to keep it from being lost.',
     'phil-p2':'That is why one song is carried by one person from start to finish. From recording through mixing to mastering, <b>the hands never change.</b> The standards proven on K-POP releases apply the same way, whatever the scale of the project.',
@@ -2034,7 +2045,7 @@ const T={
     'quote-sub':'サービスと曲数を選ぶだけ。ワンクリックで見積もりがコピーされ、チャットが開きます。',
     'q-svc':'1 · サービス選択','q-songs':'2 · 曲数','q-addon':'3 · 追加オプション','q-est':'お見積もり',
     'q-note':'フィックス前の修正無料 · トラック数・ファイル状態により最終金額は変動する場合があります · アルバム等の複数曲割引はご相談ください',
-    'nav-price':'料金','nav-faq':'よくある質問','nav-studio':'スタジオ','dock-price':'料金','dock-cta':'メールでお問い合わせ','dock-cta-intl':'メールでお問い合わせ',
+    'nav-price':'料金','nav-faq':'よくある質問','mm-home':'← MADEWELL MUSIC ホーム','nav-studio':'スタジオ','dock-price':'料金','dock-cta':'メールでお問い合わせ','dock-cta-intl':'メールでお問い合わせ',
     'phil-h':'良い音は好みではなく、<br/><em style="font-style:italic;color:var(--gold2)">基準</em>です。',
     'phil-p1':'MADEWELL MUSICは<b>「どう聴かせるか」より「何を守るか」</b>を先に決めます。歌い手の息づかい、演奏者の指先、曲を思いついた最初の瞬間の感情——機材と技術は、それを膨らませるためではなく、失わないために存在します。',
     'phil-p2':'だから一曲を一人が最後まで担当します。レコーディングからミックス、マスタリングまで<b>手が変わりません。</b>K-POPの現場で証明された判断基準を、規模に関わらず同じように適用します。',
