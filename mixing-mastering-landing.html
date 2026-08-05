@@ -85,7 +85,7 @@ h1 em{font-style:italic;color:var(--gold2)}
 .strip-item:last-child{border-right:none}
 .si-val{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;color:var(--gold2);line-height:1}
 .si-lbl{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.18em;color:rgba(255,255,255,.38);text-transform:uppercase;margin-top:5px}
-@media(max-width:600px){.strip-inner{flex-wrap:wrap}.strip-item{min-width:50%}}
+@media(max-width:600px){.strip-inner{flex-wrap:nowrap}.strip-item{min-width:0;padding:20px 10px}.si-val{font-size:clamp(24px,7vw,34px)}.si-lbl{font-size:9px;letter-spacing:.04em;word-break:keep-all}}
 
 /* ── WHY ── */
 #why{background:var(--bg);padding:120px 0 0}
@@ -383,7 +383,7 @@ body.menu-open{overflow:hidden}
   }
   .gear-photo-strip::-webkit-scrollbar{display:none}
   .gear-ph{
-    flex:0 0 80%;height:auto;aspect-ratio:16/10;
+    flex:0 0 74%;height:auto;aspect-ratio:1/1;
     scroll-snap-align:center;border:1px solid var(--border);
   }
   .gear-ph img{filter:contrast(1.1) brightness(.92) saturate(.88)}
@@ -395,7 +395,7 @@ body.menu-open{overflow:hidden}
   }
 }
 @supports not (aspect-ratio:16/10){
-  @media(max-width:700px){.gear-ph{height:56vw}}
+  @media(max-width:700px){.gear-ph{height:74vw}}
 }
 .gear-swipe-hint{display:none}
 
@@ -748,9 +748,8 @@ body.menu-open{overflow:hidden}
   <div class="noise-layer"></div>
   <div class="strip-inner container" style="padding:0">
     <div class="strip-item"><div class="si-val" data-i18n="strip-v1">100+</div><div class="si-lbl" data-i18n="strip-l1">KOMCA 등록 작품</div></div>
-    <div class="strip-item"><div class="si-val" data-i18n="strip-v2">20+</div><div class="si-lbl" data-i18n="strip-l2">아티스트 &amp; 그룹 크레딧</div></div>
-    <div class="strip-item"><div class="si-val" data-i18n="strip-v3">1위</div><div class="si-lbl" data-i18n="strip-l3">오리콘 차트 · 크레딧 앨범</div></div>
-    <div class="strip-item"><div class="si-val" data-i18n="strip-v4">40초</div><div class="si-lbl" data-i18n="strip-l4">선정릉역 도보</div></div>
+    <div class="strip-item"><div class="si-val" data-i18n="strip-v2">19년</div><div class="si-lbl" data-i18n="strip-l2">현역 프로듀서 경력</div></div>
+    <div class="strip-item"><div class="si-val" data-i18n="strip-v3">40초</div><div class="si-lbl" data-i18n="strip-l3">선정릉역 도보</div></div>
   </div>
 </div>
 
@@ -1740,9 +1739,8 @@ const T={
     'hero-sub':'NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/><b>K-POP 현장의 기준을, 당신의 곡에 그대로.</b>',
     'hero-cta-ko':'카카오톡으로 문의','hero-cta-intl':'카카오톡으로 문의','hero-cta-2':'스튜디오 둘러보기',
     'strip-v1':'100+','strip-l1':'KOMCA 등록 작품',
-    'strip-v2':'20+','strip-l2':'아티스트 &amp; 그룹 크레딧',
-    'strip-v3':'1위','strip-l3':'오리콘 차트 · 크레딧 앨범',
-    'strip-v4':'40초','strip-l4':'선정릉역 도보',
+    'strip-v2':'19년','strip-l2':'현역 프로듀서 경력',
+    'strip-v3':'40초','strip-l3':'선정릉역 도보',
     'why-h':'그 장비, 그 사운드,<br/><em style="font-style:italic;color:var(--gold2)">그 손 그대로.</em>',
     'gallery-h':'공간이 퀄리티를<br/><em style="font-style:italic;color:var(--gold)">증명합니다.</em>',
     'loc-h':'선정릉역 도보 <em>40초.</em><br/>서울 강남 교통 요충지.',
@@ -1861,9 +1859,8 @@ const T={
     'hero-sub':'NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/><b>The standards of a K-POP session, applied to your track.</b>',
     'hero-cta-ko':'KakaoTalk Inquiry','hero-cta-intl':'Contact via Email','hero-cta-2':'Explore the Studio',
     'strip-v1':'100+','strip-l1':'KOMCA Registered Works',
-    'strip-v2':'20+','strip-l2':'Artist &amp; Group Credits',
-    'strip-v3':'No.1','strip-l3':'Oricon Chart · Credited Album',
-    'strip-v4':'40 sec','strip-l4':'Walk from Seonjeongneung',
+    'strip-v2':'19 yrs','strip-l2':'Active Producer Career',
+    'strip-v3':'40 sec','strip-l3':'Walk from Seonjeongneung Stn.',
     'why-h':'That gear, that sound,<br/><em style="font-style:italic;color:var(--gold2)">those same hands.</em>',
     'gallery-h':'The space speaks<br/><em style="font-style:italic;color:var(--gold)">for itself.</em>',
     'loc-h':'40 seconds<br/><em>from Seonjeongneung Station.</em>',
@@ -1983,9 +1980,8 @@ const T={
     'hero-sub':'NEVE · SSL · BETTERMAKER · BAREFOOT MM27<br/><b>K-POP現場の基準を、あなたの曲にそのまま。</b>',
     'hero-cta-ko':'KakaoTalk お問い合わせ','hero-cta-intl':'メールでお問い合わせ','hero-cta-2':'スタジオを見る',
     'strip-v1':'100+','strip-l1':'KOMCA登録作品',
-    'strip-v2':'20+','strip-l2':'アーティスト＆グループ実績',
-    'strip-v3':'1位','strip-l3':'オリコンチャート · 参加アルバム',
-    'strip-v4':'40秒','strip-l4':'宣靖陵駅から徒歩',
+    'strip-v2':'19年','strip-l2':'現役プロデューサー歴',
+    'strip-v3':'40秒','strip-l3':'宣靖陵駅から徒歩',
     'why-h':'あの機材、あのサウンド、<br/><em style="font-style:italic;color:var(--gold2)">あの手のまま。</em>',
     'gallery-h':'空間がクオリティを<br/><em style="font-style:italic;color:var(--gold)">証明します。</em>',
     'loc-h':'宣靖陵駅から<br/><em>徒歩40秒。</em>',
