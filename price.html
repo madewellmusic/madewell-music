@@ -621,9 +621,10 @@ body.menu-open .nav-logo-img{filter:brightness(0) invert(1)!important;opacity:.9
 .lang-toggle-mobile .lang-btn.on{background:var(--gold);color:#000;border-color:var(--gold)}
 
 /* ── MOBILE LANG FLOATING BAR ── */
-.lang-float{display:none;position:fixed;top:14px;right:14px;z-index:500;gap:1px;background:rgba(10,10,12,.92);border:1px solid rgba(255,255,255,.12);padding:3px}
+.lang-float{display:none;position:fixed;top:20px;left:14px;z-index:201;gap:1px;background:rgba(10,10,12,.92);border:1px solid rgba(255,255,255,.12);padding:3px}
 .lang-float .lang-btn{font-size:8px;padding:4px 7px;letter-spacing:.07em}
 @media(max-width:900px){.lang-float{display:flex}}
+body.menu-open .lang-float{display:none!important}
 
 /* ── LANG VISIBILITY ── */
 .ko-only{display:inline-flex}

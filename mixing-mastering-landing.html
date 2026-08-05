@@ -138,7 +138,8 @@ h1 em{font-style:italic;color:var(--gold2)}
 
 /* ── GEAR ── */
 #gear{background:var(--bg2);padding:100px 0 120px;border-top:1px solid var(--border)}
-.gear-hero{position:relative;margin:44px 0 60px;overflow:hidden;aspect-ratio:16/9;border:1px solid rgba(201,169,60,.14)}
+.gear-hero{position:relative;margin:44px 0 60px;overflow:hidden;aspect-ratio:16/9;border:1px solid rgba(201,169,60,.14);clip-path:none!important}
+.gear-hero img{opacity:1!important}
 .gear-hero img{width:100%;height:100%;object-fit:cover;display:block;
   filter:contrast(1.12) brightness(.9) saturate(.85);transition:transform 1.2s cubic-bezier(.2,.7,.3,1),filter .6s ease}
 .gear-hero:hover img{transform:scale(1.035);filter:contrast(1.06) brightness(1) saturate(.98)}
@@ -672,9 +673,10 @@ ear-ph{height:100%}}
 .lang-toggle-mobile .lang-btn.on{background:var(--gold);color:#000;border-color:var(--gold)}
 
 /* ── MOBILE LANG FLOATING BAR ── */
-.lang-float{display:none;position:fixed;top:14px;right:14px;z-index:500;gap:1px;background:rgba(10,10,12,.92);border:1px solid rgba(255,255,255,.12);padding:3px}
+.lang-float{display:none;position:fixed;top:20px;left:14px;z-index:201;gap:1px;background:rgba(10,10,12,.92);border:1px solid rgba(255,255,255,.12);padding:3px}
 .lang-float .lang-btn{font-size:8px;padding:4px 7px;letter-spacing:.07em}
 @media(max-width:900px){.lang-float{display:flex}}
+body.menu-open .lang-float{display:none!important}
 
 /* ── LANG VISIBILITY ── */
 .ko-only{display:inline-flex}
@@ -2433,10 +2435,7 @@ document.querySelectorAll('.reveal,.reveal2').forEach(el=>ro.observe(el));
   // ── Why section — .reveal/.reveal2 IntersectionObserver가 담당, GSAP 충돌 제거 ──
 
   // ── Gear section ──
-  gsap.from('.gear-hero', {
-    scrollTrigger:{ trigger:'.gear-hero', start:'top 88%' },
-    opacity:0, scale:0.985, duration:1.1, ease:'power2.out'
-  });
+  /* .gear-hero 는 .reveal2 가 담당 — 중복 애니메이션 제거 */
 
   // ── Credits — .cred-head.reveal 은 IO 담당 ──
   gsap.from('.cred-cell', {
@@ -2531,7 +2530,7 @@ document.querySelectorAll('.reveal,.reveal2').forEach(el=>ro.observe(el));
 })();
 (function(){
   var targets=[];
-  document.querySelectorAll('.gear-hero').forEach(function(el,i){
+  document.querySelectorAll('.gear-ph').forEach(function(el,i){
     el.classList.add('mask-reveal');el.style.transitionDelay=(i*110)+'ms';targets.push(el);
   });
   var io=new IntersectionObserver(function(es){es.forEach(function(e){
