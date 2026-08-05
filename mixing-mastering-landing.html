@@ -89,11 +89,11 @@ h1 em{font-style:italic;color:var(--gold2)}
 
 /* ── WHY — 풀블리드 배경 + 패럴랙스 + 스포트라이트 ── */
 #why{background:var(--bg);padding:0;position:relative;display:flex;align-items:flex-end;
-  min-height:min(94vh,880px);overflow:hidden;isolation:isolate}
-.why-bg{position:absolute;top:-10%;left:0;right:0;bottom:-10%;z-index:0;overflow:hidden}
-.why-bg img{width:100%;height:100%;object-fit:cover;object-position:center 42%;
-  filter:contrast(1.2) brightness(.42) saturate(.5) sepia(.2);
-  transform:scale(1.06);will-change:transform;transition:filter .8s ease}
+  min-height:min(56.3vw,830px);overflow:hidden;isolation:isolate}
+.why-bg{position:absolute;top:-3.5%;left:0;right:0;bottom:-3.5%;z-index:0;overflow:hidden}
+.why-bg img{width:100%;height:100%;object-fit:cover;object-position:center center;
+  filter:contrast(1.18) brightness(.44) saturate(.52) sepia(.18);
+  will-change:transform;transition:filter .8s ease}
 .why-bg::after{content:'';position:absolute;inset:0;pointer-events:none;background:
   linear-gradient(to right,rgba(14,14,18,.95) 0%,rgba(14,14,18,.7) 44%,rgba(14,14,18,.24) 100%),
   linear-gradient(to top,rgba(14,14,18,.98) 0%,rgba(14,14,18,.5) 28%,transparent 58%),
@@ -138,11 +138,16 @@ h1 em{font-style:italic;color:var(--gold2)}
 
 /* ── GEAR ── */
 #gear{background:var(--bg2);padding:100px 0 120px;border-top:1px solid var(--border)}
-.gear-photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;height:260px;margin:44px 0 56px}
-.gear-ph{overflow:hidden;position:relative}
-.gear-ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease,filter .4s ease;filter:contrast(1.14) brightness(0.86) saturate(0.82)}
-.gear-ph:hover img{transform:scale(1.03);filter:contrast(1.08) brightness(0.96) saturate(1.0)}
-.gear-ph-cap{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:10px 16px;background:linear-gradient(transparent,rgba(10,10,12,.5));font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.2em;color:rgba(255,255,255,.65);text-transform:uppercase}
+.gear-hero{position:relative;margin:44px 0 60px;overflow:hidden;aspect-ratio:16/9;border:1px solid rgba(201,169,60,.14)}
+.gear-hero img{width:100%;height:100%;object-fit:cover;display:block;
+  filter:contrast(1.12) brightness(.9) saturate(.85);transition:transform 1.2s cubic-bezier(.2,.7,.3,1),filter .6s ease}
+.gear-hero:hover img{transform:scale(1.035);filter:contrast(1.06) brightness(1) saturate(.98)}
+.gear-hero::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(10,10,12,.72) 0%,rgba(10,10,12,.12) 34%,transparent 62%)}
+.gear-hero-cap{position:absolute;left:26px;bottom:22px;z-index:2;display:flex;align-items:center;gap:13px}
+.gear-hero-cap i{display:block;width:32px;height:1px;background:var(--gold)}
+.gear-hero-cap span{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.22em;color:rgba(255,255,255,.72);text-transform:uppercase}
+@media(max-width:600px){.gear-hero{margin:30px 0 40px}.gear-hero-cap{left:16px;bottom:14px}.gear-hero-cap span{font-size:8px;letter-spacing:.16em}.gear-hero-cap i{width:20px}}
 /* All-in-one gear grid */
 .gear-all{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border)}
 .ga-group{background:var(--bg);padding:24px 26px}
@@ -155,7 +160,7 @@ h1 em{font-style:italic;color:var(--gold2)}
 .sw-list{display:flex;flex-wrap:wrap;gap:7px;padding-top:2px}
 .sw-chip{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.06em;color:var(--body);background:var(--bg2);border:1px solid var(--border);padding:6px 14px;transition:border-color .2s}
 .sw-chip:hover{border-color:var(--border2)}
-@media(max-width:860px){.gear-all{grid-template-columns:1fr 1fr}.ga-group.wide{grid-column:auto}.gear-photo-strip{height:auto}.gear-ph{aspect-ratio:1/1}}
+@media(max-width:860px){.gear-all{grid-template-columns:1fr 1fr}.ga-group.wide{grid-column:auto}}
 @media(max-width:600px){.gear-all{grid-template-columns:1fr}.ga-group.wide,.ga-group.full{grid-column:auto}}
 
 /* ── GALLERY SLIDER ── */
@@ -201,13 +206,15 @@ h1 em{font-style:italic;color:var(--gold2)}
 /* ── CREDITS ── */
 #credits{background:var(--bg2);border-top:1px solid var(--border);padding:120px 0}
 .cred-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:64px;flex-wrap:wrap}
-.cred-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border)}
-@media(max-width:600px){.cred-grid{grid-template-columns:1fr 1fr}}
-.cred-cell{background:var(--bg);padding:22px 24px;transition:background .2s}
+.cred-note{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:11px}
+.cred-note::before{content:'';width:26px;height:1px;background:var(--gold);opacity:.6}
+.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+@media(max-width:900px){.cred-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cred-grid{grid-template-columns:1fr}}
+.cred-cell{background:var(--bg);padding:15px 18px;transition:background .25s;display:flex;flex-direction:column;justify-content:center;min-height:74px}
 .cred-cell:hover{background:var(--bg2)}
-.cred-art{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--gold);letter-spacing:.05em;margin-bottom:7px;text-transform:uppercase;line-height:1.3}
-.cred-ttl{font-size:12.5px;color:var(--ink);line-height:1.45;margin-bottom:5px;font-family:'Noto Sans KR',sans-serif;font-weight:400}
-.cred-role{font-size:9.5px;color:var(--muted);letter-spacing:.08em;font-family:'Montserrat',sans-serif;text-transform:uppercase}
+.cred-art{font-family:'Montserrat',sans-serif;font-weight:700;font-size:10.5px;color:var(--gold);letter-spacing:.04em;margin-bottom:5px;text-transform:uppercase;line-height:1.3}
+.cred-ttl{font-size:12px;color:rgba(240,240,244,.72);line-height:1.4;font-family:'Noto Sans KR',sans-serif;font-weight:300}
 .cred-komca{background:var(--dark);padding:44px 56px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-top:1px}
 .ck-left{display:flex;align-items:baseline;gap:6px}
 .ck-num{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:80px;color:var(--gold2);line-height:1}
@@ -407,14 +414,7 @@ body.menu-open{overflow:hidden}
   .loc-inner{gap:32px}
 }
 
-/* ── GEAR STRIP MOBILE — PC와 동일한 4칸 정사각 띠 유지 ── */
-@media(max-width:700px){
-  .gear-photo-strip{grid-template-columns:repeat(4,1fr);gap:2px;height:auto;margin:30px 0 44px}
-  .gear-ph{aspect-ratio:1/1;height:auto}
-  .gear-ph-cap{display:none}
-}
-@supports not (aspect-ratio:1/1){
-  @media(max-width:700px){.gear-photo-strip{height:23vw}.gear-ph{height:100%}}
+ear-ph{height:100%}}
 }
 
 /* ── LOCATION MOBILE ── */
@@ -904,24 +904,9 @@ body.menu-open{overflow:hidden}
       <div class="tag" style="margin-bottom:16px">Main Studio 'M Studio'</div>
       <h2 class="serif" style="font-weight:300;font-size:clamp(34px,4vw,52px);line-height:1.05">Gear<br/>List</h2>
     </div>
-    <!-- 3-photo strip with GEAR photos -->
-    <div class="gear-photo-strip reveal2">
-      <div class="gear-ph">
-        <img src="images/web/GEAR 1_web.jpg" alt="Outboard Chain" loading="lazy"/>
-        <div class="gear-ph-cap">Outboard Chain</div>
-      </div>
-      <div class="gear-ph">
-        <img src="images/web/GEAR 2.jpg" alt="Studio Gear" loading="lazy"/>
-        <div class="gear-ph-cap">Studio Gear</div>
-      </div>
-      <div class="gear-ph">
-        <img src="images/web/GEAR 4.jpg" alt="Monitor Speakers" loading="lazy"/>
-        <div class="gear-ph-cap">Outboard & Monitors</div>
-      </div>
-      <div class="gear-ph">
-        <img src="images/web/GEAR 5.jpg" alt="Headphones" loading="lazy"/>
-        <div class="gear-ph-cap">Reference Headphones</div>
-      </div>
+    <div class="gear-hero reveal2">
+      <img src="images/web/GEAR_MAIN.jpg" alt="MADEWELL MUSIC Outboard Rack — NEVE · SSL · BETTERMAKER · TUBE TECH"/>
+      <div class="gear-hero-cap"><i></i><span>Outboard Rack · M Control Room</span></div>
     </div>
     <!-- All gear, always visible -->
     <div class="gear-all reveal2">
@@ -1057,28 +1042,29 @@ body.menu-open{overflow:hidden}
       </div>
       <p style="font-size:14px;color:var(--body);line-height:1.85;max-width:360px" data-i18n="cred-sub">국내 주요 아이돌, 드라마 OST, 일본 진출 앨범까지.<br/>같은 장비와 손으로 당신의 음악을 만듭니다.</p>
     </div>
+    <div class="cred-note reveal" data-i18n="cred-note">전 작품 Produced by MADEWELL</div>
     <div class="cred-grid reveal2">
-      <div class="cred-cell"><div class="cred-art">PRODUCE 101 JAPAN &lt;新世界&gt;</div><div class="cred-ttl">「BLACK ANGEL」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">비비지(VIVIZ) (비비지(VIVIZ))</div><div class="cred-ttl">「A Montage of ( ),」— TOXIC 정규 1집</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">PRODUCE 101 JAPAN &lt;The Girls&gt;  ME:I</div><div class="cred-ttl">「UPDATE ME」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art" data-i18n="cred-gidle">(여자)아이들 전소연</div><div class="cred-ttl">「아무너케」 M2 Live</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">인피니트 장동우</div><div class="cred-ttl">「Super Birthday」「인생(LIFE)」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art" data-i18n="cred-hwasa">마마무 화사 × Sense Mom</div><div class="cred-ttl">「Two Side」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art" data-i18n="cred-fantasy">MBC 방과후설렘 시즌2 소년판타지</div><div class="cred-ttl">「Fantasy」「Shut Off」「BATTLE FIELD」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">SBS B:MY BOYZ</div><div class="cred-ttl">「Be my boyz」 타이틀곡</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">루나 F(X) × 울</div><div class="cred-ttl">「이 밤이 지나면」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">MBC M 팬픽(FAN PICK)</div><div class="cred-ttl">「휘파람」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">KBS 드라마 수상한 그녀</div><div class="cred-ttl">OST 「The Way I Love」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">JTBC 싱어게인2</div><div class="cred-ttl">NC.A (앤씨아) — 「빗물」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">경서 (경서예지)</div><div class="cred-ttl">「좋은 날엔 네가 있어」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art" data-i18n="cred-onepact">원팩트</div><div class="cred-ttl">1st Album 「G.O.A.T / 100 / WILD」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">김채원 (에이프릴)</div><div class="cred-ttl">「Tomorrow」「雨が急に降っている」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">NC.A (앤씨아)</div><div class="cred-ttl">「널 위한 멜로디」「My Little」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">SNH48</div><div class="cred-ttl">「Call Me Louder」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">디바 (DIVA)</div><div class="cred-ttl">「왜불러」「그래」「Joy」「Up&amp;Down」「딱이야」— 타임캡슐 수퍼콘서트</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art" data-i18n="cred-jaehoon">이재훈 (쿨)</div><div class="cred-ttl">콘서트 편곡</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">HORI7ON</div><div class="cred-ttl">1st Mini Album 「SIXTEEN,」</div><div class="cred-role">Produced by MADEWELL</div></div>
-      <div class="cred-cell"><div class="cred-art">WeNU</div><div class="cred-ttl">1st · 2nd · 3rd Mini Album</div><div class="cred-role">Produced by MADEWELL</div></div>
+      <div class="cred-cell"><div class="cred-art">PRODUCE 101 JAPAN &lt;新世界&gt;</div><div class="cred-ttl">「BLACK ANGEL」</div></div>
+      <div class="cred-cell"><div class="cred-art">비비지(VIVIZ)</div><div class="cred-ttl">「A Montage of ( ),」— TOXIC 정규 1집</div></div>
+      <div class="cred-cell"><div class="cred-art">PRODUCE 101 JAPAN &lt;The Girls&gt;  ME:I</div><div class="cred-ttl">「UPDATE ME」</div></div>
+      <div class="cred-cell"><div class="cred-art" data-i18n="cred-gidle">(여자)아이들 전소연</div><div class="cred-ttl">「아무너케」 M2 Live</div></div>
+      <div class="cred-cell"><div class="cred-art">인피니트 장동우</div><div class="cred-ttl">「Super Birthday」「인생(LIFE)」</div></div>
+      <div class="cred-cell"><div class="cred-art" data-i18n="cred-hwasa">마마무 화사 × Sense Mom</div><div class="cred-ttl">「Two Side」</div></div>
+      <div class="cred-cell"><div class="cred-art" data-i18n="cred-fantasy">MBC 방과후설렘 시즌2 소년판타지</div><div class="cred-ttl">「Fantasy」「Shut Off」「BATTLE FIELD」</div></div>
+      <div class="cred-cell"><div class="cred-art">SBS B:MY BOYZ</div><div class="cred-ttl">「Be my boyz」 타이틀곡</div></div>
+      <div class="cred-cell"><div class="cred-art">루나 F(X) × 울</div><div class="cred-ttl">「이 밤이 지나면」</div></div>
+      <div class="cred-cell"><div class="cred-art">MBC M 팬픽(FAN PICK)</div><div class="cred-ttl">「휘파람」</div></div>
+      <div class="cred-cell"><div class="cred-art">KBS 드라마 수상한 그녀</div><div class="cred-ttl">OST 「The Way I Love」</div></div>
+      <div class="cred-cell"><div class="cred-art">JTBC 싱어게인2</div><div class="cred-ttl">NC.A (앤씨아) — 「빗물」</div></div>
+      <div class="cred-cell"><div class="cred-art">경서 (경서예지)</div><div class="cred-ttl">「좋은 날엔 네가 있어」</div></div>
+      <div class="cred-cell"><div class="cred-art" data-i18n="cred-onepact">원팩트</div><div class="cred-ttl">1st Album 「G.O.A.T / 100 / WILD」</div></div>
+      <div class="cred-cell"><div class="cred-art">김채원 (에이프릴)</div><div class="cred-ttl">「Tomorrow」「雨が急に降っている」</div></div>
+      <div class="cred-cell"><div class="cred-art">NC.A (앤씨아)</div><div class="cred-ttl">「널 위한 멜로디」「My Little」</div></div>
+      <div class="cred-cell"><div class="cred-art">SNH48</div><div class="cred-ttl">「Call Me Louder」</div></div>
+      <div class="cred-cell"><div class="cred-art">디바 (DIVA)</div><div class="cred-ttl">「왜불러」「그래」「Joy」「Up&amp;Down」「딱이야」— 타임캡슐 수퍼콘서트</div></div>
+      <div class="cred-cell"><div class="cred-art" data-i18n="cred-jaehoon">이재훈 (쿨)</div><div class="cred-ttl">콘서트 편곡</div></div>
+      <div class="cred-cell"><div class="cred-art">HORI7ON</div><div class="cred-ttl">1st Mini Album 「SIXTEEN,」</div></div>
+      <div class="cred-cell"><div class="cred-art">WeNU</div><div class="cred-ttl">1st · 2nd · 3rd Mini Album</div></div>
     </div>
     <div class="cred-komca reveal">
       <div>
@@ -1798,6 +1784,7 @@ const T={
     'why-q1':'아이돌 앨범에 실제로 사용된 그 장비 그대로. 방구석에서 만든 음악도 스트리밍 차트에 올라갈 퀄리티로.',
     'why-q2':'픽스 전까지 수정은 자유롭게. 납득될 때까지 함께 갑니다.',
     'why-q3':'메이저 앨범과 같은 장비, 같은 사람이<br/>처음부터 끝까지. 어디서도 살 수 없는 조합입니다.',
+    'cred-note':'전 작품 Produced by MADEWELL',
     'cred-sub':'국내 주요 아이돌, 드라마 OST, 일본 진출 앨범까지.<br/>같은 장비와 손으로 당신의 음악을 만듭니다.',
     'cred-gidle':'(여자)아이들 전소연',
     'cmp-h1':'일반 마스터링 스튜디오','cmp-h2':'프리미엄 스튜디오 평균',
@@ -1919,6 +1906,7 @@ const T={
     'why-q1':'The exact gear used on actual idol albums. Even bedroom productions get lifted to streaming-chart quality.',
     'why-q2':'Revisions stay open until the mix is locked. We keep going until it feels right to you.',
     'why-q3':'The same gear as major-label albums, the same<br/>hands from start to finish. A combination you can\'t buy.',
+    'cred-note':'All works produced by MADEWELL',
     'cred-sub':'Major K-POP idols, drama OSTs, Japanese releases.<br/>Your music, made with the same gear and hands.',
     'cred-gidle':'(G)I-DLE Jeon Soyeon',
     'cmp-h1':'Standard Mastering Studio','cmp-h2':'Premium Studio Average',
@@ -2040,6 +2028,7 @@ const T={
     'why-q1':'アイドルアルバムに実際に使用されたその機材そのままに。自宅で作った音楽もストリーミングチャートに上がれるクオリティへ。',
     'why-q2':'フィックス前までの修正は自由に。納得いくまで一緒に進めます。',
     'why-q3':'メジャーアルバムと同じ機材、同じ人が<br/>最初から最後まで。どこにも買えない組み合わせです。',
+    'cred-note':'全作品 Produced by MADEWELL',
     'cred-sub':'主要K-POPアイドル、ドラマOST、日本進出アルバムまで。<br/>同じ機材と手であなたの音楽を作ります。',
     'cred-gidle':'(G)I-DLE 田小娟',
     'cmp-h1':'一般マスタリングスタジオ','cmp-h2':'プレミアムスタジオ平均',
@@ -2356,9 +2345,9 @@ document.querySelectorAll('.reveal,.reveal2').forEach(el=>ro.observe(el));
   // ── Why section — .reveal/.reveal2 IntersectionObserver가 담당, GSAP 충돌 제거 ──
 
   // ── Gear section ──
-  gsap.from('.gear-ph', {
-    scrollTrigger:{ trigger:'.gear-photo-strip', start:'top 85%' },
-    opacity:0, scale:0.9, stagger:0.1, duration:0.8, ease:'power2.out'
+  gsap.from('.gear-hero', {
+    scrollTrigger:{ trigger:'.gear-hero', start:'top 88%' },
+    opacity:0, scale:0.985, duration:1.1, ease:'power2.out'
   });
 
   // ── Credits — .cred-head.reveal 은 IO 담당 ──
@@ -2454,7 +2443,7 @@ document.querySelectorAll('.reveal,.reveal2').forEach(el=>ro.observe(el));
 })();
 (function(){
   var targets=[];
-  document.querySelectorAll('.gear-ph').forEach(function(el,i){
+  document.querySelectorAll('.gear-hero').forEach(function(el,i){
     el.classList.add('mask-reveal');el.style.transitionDelay=(i*110)+'ms';targets.push(el);
   });
   var io=new IntersectionObserver(function(es){es.forEach(function(e){
@@ -2570,8 +2559,8 @@ document.querySelectorAll('.reveal,.reveal2').forEach(el=>ro.observe(el));
     if(r.bottom>-200 && r.top<vh+200){
       var p=(vh-r.top)/(vh+r.height);
       p=Math.max(0,Math.min(1,p));
-      var shift=(p-0.5)*70;
-      var zoom=1.06+p*0.07;
+      var shift=(p-0.5)*34;
+      var zoom=1+p*0.03;
       img.style.transform='translate3d(0,'+shift.toFixed(1)+'px,0) scale('+zoom.toFixed(3)+')';
     }
     ticking=false;
