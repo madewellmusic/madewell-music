@@ -328,22 +328,70 @@ footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,.05);paddin
 .foot-links a:hover svg{opacity:1}
 
 /* ── MOBILE HAMBURGER & MENU ── */
-.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:202;flex-shrink:0}
-.nav-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:1px;transition:transform .3s,opacity .3s,background .3s}
-#nav.dark-nav .nav-hamburger span{background:var(--ink)}
-.nav-hamburger.open span{background:#fff!important}
-.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-hamburger.open span:nth-child(2){opacity:0}
-.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-hamburger{display:none;flex-direction:column;align-items:flex-end;justify-content:center;gap:4.5px;
+  width:46px;height:46px;padding:0;border-radius:50%;cursor:pointer;z-index:202;flex-shrink:0;position:relative;
+  border:1px solid rgba(221,184,74,.5);
+  background:linear-gradient(165deg,rgba(221,184,74,.2),rgba(184,149,46,.05));
+  backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);
+  box-shadow:0 6px 22px rgba(184,149,46,.26),inset 0 1px 0 rgba(255,238,190,.3);
+  transition:transform .3s,box-shadow .3s,border-color .3s}
+.nav-hamburger::after{content:'';position:absolute;inset:-1px;border-radius:50%;
+  border:1px solid rgba(221,184,74,.7);opacity:0;pointer-events:none;animation:hbPulse 2.6s ease-out 1.2s 3}
+@keyframes hbPulse{0%{transform:scale(1);opacity:.85}70%,100%{transform:scale(1.45);opacity:0}}
+.nav-hamburger span{display:block;height:1.5px;background:var(--gold2);border-radius:1px;
+  transition:transform .34s cubic-bezier(.2,.7,.3,1),opacity .24s,width .34s}
+.nav-hamburger span:nth-child(1){width:17px}
+.nav-hamburger span:nth-child(2){width:11px}
+.nav-hamburger span:nth-child(3){width:17px}
+.nav-hamburger:active{transform:scale(.94)}
+.nav-hamburger.open{border-color:rgba(221,184,74,.75);box-shadow:0 8px 30px rgba(184,149,46,.4)}
+.nav-hamburger.open::after{animation:none}
+.nav-hamburger.open span{width:18px}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;width:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 @media(max-width:900px){.nav-hamburger{display:flex}}
 
-.mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,12,.97);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:40px 24px}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:200;counter-reset:mm;
+  background:radial-gradient(ellipse 90% 60% at 78% 8%,rgba(184,149,46,.12) 0%,transparent 58%),rgba(8,8,10,.985);
+  backdrop-filter:blur(22px) saturate(1.2);-webkit-backdrop-filter:blur(22px) saturate(1.2);
+  flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;
+  padding:92px 26px calc(34px + env(safe-area-inset-bottom));
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y}
 .mobile-menu.open{display:flex}
 body.menu-open{overflow:hidden}
-.mobile-menu a{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:38px;color:rgba(255,255,255,.7);text-decoration:none;letter-spacing:.02em;padding:12px 0;transition:color .2s;text-align:center;width:100%}
-.mobile-menu a:hover{color:var(--gold2)}
-.mobile-menu-divider{width:40px;height:1px;background:rgba(255,255,255,.1);margin:8px 0}
-.mobile-menu-cta{font-family:'Montserrat',sans-serif!important;font-size:12px!important;font-weight:700!important;letter-spacing:.16em!important;text-transform:uppercase;background:var(--gold)!important;color:#fff!important;padding:16px 48px!important;margin-top:8px;font-size:12px}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(20px,5.4vw,26px);color:rgba(255,255,255,.84);text-decoration:none;letter-spacing:.01em;
+  padding:15px 2px;width:100%;display:flex;align-items:baseline;gap:16px;
+  border-bottom:1px solid rgba(255,255,255,.055);
+  opacity:0;transform:translateY(16px);
+  transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1),color .25s,padding-left .3s}
+.mobile-menu a::before{counter-increment:mm;content:counter(mm,decimal-leading-zero);
+  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.14em;
+  color:var(--gold);opacity:.5;flex:0 0 24px;transition:opacity .25s}
+.mobile-menu.open a{opacity:1;transform:none}
+.mobile-menu.open a:nth-of-type(1){transition-delay:.06s}
+.mobile-menu.open a:nth-of-type(2){transition-delay:.11s}
+.mobile-menu.open a:nth-of-type(3){transition-delay:.16s}
+.mobile-menu.open a:nth-of-type(4){transition-delay:.21s}
+.mobile-menu.open a:nth-of-type(5){transition-delay:.26s}
+.mobile-menu.open a:nth-of-type(6){transition-delay:.31s}
+.mobile-menu.open a:nth-of-type(7){transition-delay:.36s}
+.mobile-menu.open a:nth-of-type(8){transition-delay:.41s}
+.mobile-menu.open a:nth-of-type(9){transition-delay:.46s}
+.mobile-menu.open a:nth-of-type(10){transition-delay:.51s}
+.mobile-menu.open a:nth-of-type(n+11){transition-delay:.56s}
+.mobile-menu a:active{color:var(--gold2);padding-left:8px}
+.mobile-menu a:active::before{opacity:1}
+.mobile-menu-divider{width:100%;height:1px;background:linear-gradient(to right,rgba(201,169,60,.3),transparent);margin:22px 0 4px;flex-shrink:0}
+.mobile-menu-cta{font-family:'Montserrat',sans-serif!important;font-size:11.5px!important;font-weight:700!important;
+  letter-spacing:.14em!important;text-transform:uppercase;justify-content:center!important;align-items:center!important;
+  border:1px solid rgba(221,184,74,.55)!important;border-bottom:1px solid rgba(221,184,74,.55)!important;
+  background:linear-gradient(165deg,rgba(221,184,74,.4),rgba(184,149,46,.16))!important;
+  color:#F6ECC9!important;padding:17px 20px!important;margin-top:12px;
+  box-shadow:0 8px 28px rgba(184,149,46,.26),inset 0 1px 0 rgba(255,238,190,.32)}
+.mobile-menu-cta::before{content:none!important}
+@media(prefers-reduced-motion:reduce){.mobile-menu a{opacity:1;transform:none;transition-delay:0s!important}.nav-hamburger::after{animation:none}}
 
 /* ── HERO MOBILE ── */
 @media(max-width:600px){
@@ -555,7 +603,7 @@ body.menu-open{overflow:hidden}
 .lang-btn.on{background:var(--gold);color:#000}
 .lang-btn:hover:not(.on){color:rgba(255,255,255,.8)}
 @media(max-width:900px){.lang-toggle{display:none}}
-.lang-toggle-mobile{display:flex;align-items:center;gap:4px;margin-top:12px}
+.lang-toggle-mobile{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:16px;flex-shrink:0}
 .lang-toggle-mobile .lang-btn{font-size:11px;padding:8px 16px;border:1px solid rgba(255,255,255,.15)}
 .lang-toggle-mobile .lang-btn.on{background:var(--gold);color:#000;border-color:var(--gold)}
 
@@ -1210,6 +1258,7 @@ function toggleMobileMenu(){
   hamburger.classList.toggle('open');
   mobileMenu.classList.toggle('open');
   document.body.classList.toggle('menu-open');
+  if(mobileMenu.classList.contains('open'))mobileMenu.scrollTop=0;
 }
 function closeMobileMenu(){
   hamburger.classList.remove('open');
@@ -1256,7 +1305,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 // ── LANGUAGE SYSTEM ──
 const T={
   ko:{
-    'nav-price':'가격','nav-studio':'스튜디오',
+    'nav-price':'가격','nav-studio':'스튜디오','dock-studio':'스튜디오','dock-cta':'카카오톡으로 문의하기','dock-cta-intl':'카카오톡으로 문의하기',
     'ph-h':'투명한 가격,<br/><em style="font-style:italic;color:var(--gold2)">숨은 비용 없이.</em>',
     'ph-p':'아래 금액이 전부입니다. 픽스 전까지 수정은 자유롭게 진행되며, 추가 요금은 발생하지 않습니다.<br/>앨범 전체·대형 편성·방송·광고 작업은 트랙 수 확인 후 맞춤 견적을 드립니다.',
     'nav-gear':'장비','nav-credits':'크레딧','nav-services':'서비스','nav-rental':'대관','nav-rec':'녹음실 렌트','nav-demo':'무료 진단',
@@ -1370,7 +1419,7 @@ const T={
     'quote-sub':'Pick a service and song count. One click copies your quote and opens the chat.',
     'q-svc':'1 · Select Service','q-songs':'2 · Number of Songs','q-addon':'3 · Add-ons','q-est':'Estimated Quote',
     'q-note':'Free revisions before final fix · Final price may vary by track count &amp; file condition · Ask about multi-song discounts for EPs/albums',
-    'nav-price':'Pricing','nav-studio':'Studio',
+    'nav-price':'Pricing','nav-studio':'Studio','dock-studio':'Studio','dock-cta':'Contact via Email','dock-cta-intl':'Contact via Email',
     'ph-h':'Transparent pricing,<br/><em style="font-style:italic;color:var(--gold2)">no hidden costs.</em>',
     'ph-p':'What you see below is the full amount. Revisions stay open until the mix is locked, at no extra charge.<br/>Full albums, large ensembles, broadcast and advertising work receive a custom quote after a track count review.',
     'nav-gear':'Gear','nav-credits':'Credits','nav-services':'Services','nav-rental':'Rental','nav-rec':'Recording','nav-demo':'Free Check',
@@ -1485,7 +1534,7 @@ const T={
     'quote-sub':'サービスと曲数を選ぶだけ。ワンクリックで見積もりがコピーされ、チャットが開きます。',
     'q-svc':'1 · サービス選択','q-songs':'2 · 曲数','q-addon':'3 · 追加オプション','q-est':'お見積もり',
     'q-note':'フィックス前の修正無料 · トラック数・ファイル状態により最終金額は変動する場合があります · アルバム等の複数曲割引はご相談ください',
-    'nav-price':'料金','nav-studio':'スタジオ',
+    'nav-price':'料金','nav-studio':'スタジオ','dock-studio':'スタジオ','dock-cta':'メールでお問い合わせ','dock-cta-intl':'メールでお問い合わせ',
     'ph-h':'透明な料金、<br/><em style="font-style:italic;color:var(--gold2)">隠れた費用なし。</em>',
     'ph-p':'下記の金額がすべてです。フィックス前まで修正は自由に行え、追加料金は発生しません。<br/>アルバム全体・大規模編成・放送・広告のお仕事はトラック数確認後にお見積もりします。',
     'nav-gear':'機材','nav-credits':'実績','nav-services':'サービス','nav-rental':'レンタル','nav-rec':'レコーディング','nav-demo':'無料診断',
@@ -1626,6 +1675,7 @@ function setLang(lang){
   }
   document.querySelectorAll('.ko-only').forEach(el=>displayFor(el,isKo));
   document.querySelectorAll('.intl-only').forEach(el=>displayFor(el,!isKo));
+  try{window.dispatchEvent(new Event('madewell:lang'));}catch(e){}
   // save preference
   try{localStorage.setItem('mw-lang',lang);}catch(e){}
 }
@@ -2143,5 +2193,112 @@ document.querySelectorAll('.reveal,.reveal2').forEach(el=>ro.observe(el));
   border:1px solid rgba(201,169,60,.28)!important;border-radius:999px;
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 </style>
+<!-- ══ 모바일 마감 연출: 진행바 · 글자 리빌 · 하단 문의바 ══ -->
+<style>
+/* 1. 상단 스크롤 진행 골드 라인 */
+#scroll-prog{position:fixed;top:0;left:0;height:1.5px;width:0;z-index:300;pointer-events:none;
+  background:linear-gradient(to right,rgba(184,149,46,.5),var(--gold2) 60%,#F0DFA0);
+  box-shadow:0 0 12px rgba(221,184,74,.5);transition:width .08s linear,opacity .4s}
+#scroll-prog.idle{opacity:0}
+
+/* 2. 헤드라인 글자 단위 리빌 */
+.ch{display:inline-block;opacity:0;transform:translateY(.5em) rotate(2deg);
+  transition:opacity .62s cubic-bezier(.2,.7,.3,1),transform .62s cubic-bezier(.2,.7,.3,1);will-change:transform,opacity}
+.split.in .ch{opacity:1;transform:none}
+
+/* 3. 하단 고정 문의 바 (모바일) */
+#dock{position:fixed;left:0;right:0;bottom:0;z-index:190;display:none;align-items:center;gap:10px;
+  padding:11px 16px calc(11px + env(safe-area-inset-bottom));
+  background:linear-gradient(to top,rgba(8,8,10,.98),rgba(10,10,12,.9));
+  border-top:1px solid rgba(201,169,60,.24);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  transform:translateY(110%);transition:transform .45s cubic-bezier(.2,.7,.3,1)}
+#dock.up{transform:none}
+#dock .dk-price{flex:0 0 auto;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);text-decoration:none;
+  padding:13px 14px;border:1px solid rgba(201,169,60,.3)}
+#dock .dk-go{flex:1;justify-content:center;align-items:center;text-align:center;
+  font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:14px 10px;
+  background:linear-gradient(165deg,rgba(221,184,74,.42),rgba(184,149,46,.2));
+  border:1px solid rgba(221,184,74,.55);color:#F6ECC9;
+  box-shadow:0 6px 24px rgba(184,149,46,.28),inset 0 1px 0 rgba(255,238,190,.35)}
+#dock .dk-go:active{transform:scale(.985)}
+@media(max-width:900px){#dock{display:flex}body.dock-on{padding-bottom:66px}}
+body.menu-open #dock{transform:translateY(110%)}
+@media(prefers-reduced-motion:reduce){.ch{opacity:1;transform:none}#scroll-prog{transition:none}}
+</style>
+
+<div id="scroll-prog"></div>
+<div id="dock">
+  <a href="mixing-mastering-landing.html" class="dk-price" data-i18n="dock-studio">스튜디오</a>
+  <a href="http://pf.kakao.com/_axcYxlb/chat" target="_blank" class="dk-go ko-only" data-i18n="dock-cta">카카오톡으로 문의하기</a>
+  <a href="https://mail.google.com/mail/?view=cm&to=madewellofficial%40gmail.com&su=Mixing%20%26%20Mastering%20Inquiry%20-%20MADEWELL%20MUSIC" target="_blank" class="dk-go intl-only" data-i18n="dock-cta-intl">Contact via Email</a>
+</div>
+
+<script>
+(function(){
+  /* ── 1. 스크롤 진행 라인 ── */
+  var bar=document.getElementById('scroll-prog'),t=null,tick=false;
+  function prog(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?Math.min(100,(window.scrollY/h)*100):0)+'%';
+    bar.classList.remove('idle');
+    clearTimeout(t); t=setTimeout(function(){bar.classList.add('idle');},1600);
+    tick=false;
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(prog);}},{passive:true});
+  prog();
+
+  /* ── 2. 헤드라인 글자 단위 리빌 ── */
+  function splitNode(node){
+    Array.prototype.slice.call(node.childNodes).forEach(function(n){
+      if(n.nodeType===3){
+        var f=document.createDocumentFragment(), txt=n.nodeValue;
+        for(var i=0;i<txt.length;i++){
+          var c=txt[i];
+          if(c===' '){f.appendChild(document.createTextNode(' '));continue;}
+          var sp=document.createElement('span');
+          sp.className='ch'; sp.textContent=c;
+          f.appendChild(sp);
+        }
+        node.replaceChild(f,n);
+      }else if(n.nodeType===1 && n.tagName!=='BR'){ splitNode(n); }
+    });
+  }
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.3});
+
+  function applySplit(){
+    document.querySelectorAll('h1,h2').forEach(function(h){
+      if(!h.classList.contains('serif'))return;
+      if(h.closest('#hero'))return;
+      h.classList.remove('in'); h.classList.add('split');
+      splitNode(h);
+      var chs=h.querySelectorAll('.ch');
+      chs.forEach(function(c,i){c.style.transitionDelay=Math.min(i*22,620)+'ms';});
+      var r=h.getBoundingClientRect();
+      if(r.top<window.innerHeight*0.7 && r.bottom>0){h.classList.add('in');}
+      else{io.observe(h);}
+    });
+  }
+  applySplit();
+  window.addEventListener('madewell:lang',applySplit);
+
+  /* ── 3. 하단 문의 바 ── */
+  var dock=document.getElementById('dock'), hero=document.getElementById('hero'),
+      end=document.getElementById('reserve'), dtick=false;
+  function dockFn(){
+    var pastHero=hero?hero.getBoundingClientRect().bottom<60:window.scrollY>400;
+    var atEnd=end?end.getBoundingClientRect().top<window.innerHeight*0.92:false;
+    var show=pastHero&&!atEnd;
+    dock.classList.toggle('up',show);
+    document.body.classList.toggle('dock-on',show);
+    dtick=false;
+  }
+  window.addEventListener('scroll',function(){if(!dtick){dtick=true;requestAnimationFrame(dockFn);}},{passive:true});
+  window.addEventListener('resize',dockFn); dockFn();
+})();
+</script>
+
 </body>
 </html>
