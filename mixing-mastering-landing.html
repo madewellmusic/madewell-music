@@ -1735,7 +1735,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 // ── LANGUAGE SYSTEM ──
 const T={
   ko:{
-    'nav-price':'가격','nav-studio':'스튜디오',
+    'nav-price':'가격','nav-studio':'스튜디오','dock-price':'가격','dock-cta':'카카오톡으로 문의하기','dock-cta-intl':'카카오톡으로 문의하기',
     'phil-h':'좋은 소리는 취향이 아니라,<br/><em style="font-style:italic;color:var(--gold2)">기준</em>입니다.',
     'phil-p1':'MADEWELL MUSIC은 <b>“어떻게 들리게 할까”보다 “무엇을 지킬까”</b>를 먼저 정합니다. 가수의 숨소리, 연주자의 손끝, 곡을 처음 떠올린 순간의 감정 — 장비와 기술은 그것을 부풀리기 위해서가 아니라, 잃지 않기 위해 존재합니다.',
     'phil-p2':'그래서 한 곡은 한 사람이 끝까지 책임집니다. 레코딩부터 믹싱, 마스터링까지 <b>손이 바뀌지 않습니다.</b> K-POP 현장에서 검증된 판단 기준을, 작업의 규모와 상관없이 똑같이 적용합니다.',
@@ -1857,7 +1857,7 @@ const T={
     'quote-sub':'Pick a service and song count. One click copies your quote and opens the chat.',
     'q-svc':'1 · Select Service','q-songs':'2 · Number of Songs','q-addon':'3 · Add-ons','q-est':'Estimated Quote',
     'q-note':'Free revisions before final fix · Final price may vary by track count &amp; file condition · Ask about multi-song discounts for EPs/albums',
-    'nav-price':'Pricing','nav-studio':'Studio',
+    'nav-price':'Pricing','nav-studio':'Studio','dock-price':'Pricing','dock-cta':'Contact via Email','dock-cta-intl':'Contact via Email',
     'phil-h':'Great sound isn\'t a taste.<br/>It\'s a <em style="font-style:italic;color:var(--gold2)">standard</em>.',
     'phil-p1':'At MADEWELL MUSIC we decide <b>what to protect before we decide how it should sound.</b> A singer\'s breath, a player\'s fingertips, the feeling behind the very first sketch — our gear exists not to inflate any of it, but to keep it from being lost.',
     'phil-p2':'That is why one song is carried by one person from start to finish. From recording through mixing to mastering, <b>the hands never change.</b> The standards proven on K-POP releases apply the same way, whatever the scale of the project.',
@@ -1980,7 +1980,7 @@ const T={
     'quote-sub':'サービスと曲数を選ぶだけ。ワンクリックで見積もりがコピーされ、チャットが開きます。',
     'q-svc':'1 · サービス選択','q-songs':'2 · 曲数','q-addon':'3 · 追加オプション','q-est':'お見積もり',
     'q-note':'フィックス前の修正無料 · トラック数・ファイル状態により最終金額は変動する場合があります · アルバム等の複数曲割引はご相談ください',
-    'nav-price':'料金','nav-studio':'スタジオ',
+    'nav-price':'料金','nav-studio':'スタジオ','dock-price':'料金','dock-cta':'メールでお問い合わせ','dock-cta-intl':'メールでお問い合わせ',
     'phil-h':'良い音は好みではなく、<br/><em style="font-style:italic;color:var(--gold2)">基準</em>です。',
     'phil-p1':'MADEWELL MUSICは<b>「どう聴かせるか」より「何を守るか」</b>を先に決めます。歌い手の息づかい、演奏者の指先、曲を思いついた最初の瞬間の感情——機材と技術は、それを膨らませるためではなく、失わないために存在します。',
     'phil-p2':'だから一曲を一人が最後まで担当します。レコーディングからミックス、マスタリングまで<b>手が変わりません。</b>K-POPの現場で証明された判断基準を、規模に関わらず同じように適用します。',
@@ -2129,6 +2129,7 @@ function setLang(lang){
   }
   document.querySelectorAll('.ko-only').forEach(el=>displayFor(el,isKo));
   document.querySelectorAll('.intl-only').forEach(el=>displayFor(el,!isKo));
+  try{window.dispatchEvent(new Event('madewell:lang'));}catch(e){}
   // save preference
   try{localStorage.setItem('mw-lang',lang);}catch(e){}
 }
@@ -2630,8 +2631,6 @@ document.querySelectorAll('.reveal,.reveal2').forEach(el=>ro.observe(el));
     });
   });
 })();
-
-})();
 </script>
 
 <!-- ══ STRIP POLISH ══ -->
@@ -2674,5 +2673,112 @@ document.querySelectorAll('.reveal,.reveal2').forEach(el=>ro.observe(el));
   border:1px solid rgba(201,169,60,.28)!important;border-radius:999px;
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 </style>
+<!-- ══ 모바일 마감 연출: 진행바 · 글자 리빌 · 하단 문의바 ══ -->
+<style>
+/* 1. 상단 스크롤 진행 골드 라인 */
+#scroll-prog{position:fixed;top:0;left:0;height:1.5px;width:0;z-index:300;pointer-events:none;
+  background:linear-gradient(to right,rgba(184,149,46,.5),var(--gold2) 60%,#F0DFA0);
+  box-shadow:0 0 12px rgba(221,184,74,.5);transition:width .08s linear,opacity .4s}
+#scroll-prog.idle{opacity:0}
+
+/* 2. 헤드라인 글자 단위 리빌 */
+.ch{display:inline-block;opacity:0;transform:translateY(.5em) rotate(2deg);
+  transition:opacity .62s cubic-bezier(.2,.7,.3,1),transform .62s cubic-bezier(.2,.7,.3,1);will-change:transform,opacity}
+.split.in .ch{opacity:1;transform:none}
+
+/* 3. 하단 고정 문의 바 (모바일) */
+#dock{position:fixed;left:0;right:0;bottom:0;z-index:190;display:none;align-items:center;gap:10px;
+  padding:11px 16px calc(11px + env(safe-area-inset-bottom));
+  background:linear-gradient(to top,rgba(8,8,10,.98),rgba(10,10,12,.9));
+  border-top:1px solid rgba(201,169,60,.24);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  transform:translateY(110%);transition:transform .45s cubic-bezier(.2,.7,.3,1)}
+#dock.up{transform:none}
+#dock .dk-price{flex:0 0 auto;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);text-decoration:none;
+  padding:13px 14px;border:1px solid rgba(201,169,60,.3)}
+#dock .dk-go{flex:1;justify-content:center;align-items:center;text-align:center;
+  font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:14px 10px;
+  background:linear-gradient(165deg,rgba(221,184,74,.42),rgba(184,149,46,.2));
+  border:1px solid rgba(221,184,74,.55);color:#F6ECC9;
+  box-shadow:0 6px 24px rgba(184,149,46,.28),inset 0 1px 0 rgba(255,238,190,.35)}
+#dock .dk-go:active{transform:scale(.985)}
+@media(max-width:900px){#dock{display:flex}body.dock-on{padding-bottom:66px}}
+body.menu-open #dock{transform:translateY(110%)}
+@media(prefers-reduced-motion:reduce){.ch{opacity:1;transform:none}#scroll-prog{transition:none}}
+</style>
+
+<div id="scroll-prog"></div>
+<div id="dock">
+  <a href="price.html" class="dk-price" data-i18n="dock-price">가격</a>
+  <a href="http://pf.kakao.com/_axcYxlb/chat" target="_blank" class="dk-go ko-only" data-i18n="dock-cta">카카오톡으로 문의하기</a>
+  <a href="https://mail.google.com/mail/?view=cm&to=madewellofficial%40gmail.com&su=Mixing%20%26%20Mastering%20Inquiry%20-%20MADEWELL%20MUSIC" target="_blank" class="dk-go intl-only" data-i18n="dock-cta-intl">Contact via Email</a>
+</div>
+
+<script>
+(function(){
+  /* ── 1. 스크롤 진행 라인 ── */
+  var bar=document.getElementById('scroll-prog'),t=null,tick=false;
+  function prog(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?Math.min(100,(window.scrollY/h)*100):0)+'%';
+    bar.classList.remove('idle');
+    clearTimeout(t); t=setTimeout(function(){bar.classList.add('idle');},1600);
+    tick=false;
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(prog);}},{passive:true});
+  prog();
+
+  /* ── 2. 헤드라인 글자 단위 리빌 ── */
+  function splitNode(node){
+    Array.prototype.slice.call(node.childNodes).forEach(function(n){
+      if(n.nodeType===3){
+        var f=document.createDocumentFragment(), txt=n.nodeValue;
+        for(var i=0;i<txt.length;i++){
+          var c=txt[i];
+          if(c===' '){f.appendChild(document.createTextNode(' '));continue;}
+          var sp=document.createElement('span');
+          sp.className='ch'; sp.textContent=c;
+          f.appendChild(sp);
+        }
+        node.replaceChild(f,n);
+      }else if(n.nodeType===1 && n.tagName!=='BR'){ splitNode(n); }
+    });
+  }
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.3});
+
+  function applySplit(){
+    document.querySelectorAll('h1,h2').forEach(function(h){
+      if(!h.classList.contains('serif'))return;
+      if(h.closest('#hero'))return;
+      h.classList.remove('in'); h.classList.add('split');
+      splitNode(h);
+      var chs=h.querySelectorAll('.ch');
+      chs.forEach(function(c,i){c.style.transitionDelay=Math.min(i*22,620)+'ms';});
+      var r=h.getBoundingClientRect();
+      if(r.top<window.innerHeight*0.7 && r.bottom>0){h.classList.add('in');}
+      else{io.observe(h);}
+    });
+  }
+  applySplit();
+  window.addEventListener('madewell:lang',applySplit);
+
+  /* ── 3. 하단 문의 바 ── */
+  var dock=document.getElementById('dock'), hero=document.getElementById('hero'),
+      end=document.getElementById('reserve'), dtick=false;
+  function dockFn(){
+    var pastHero=hero?hero.getBoundingClientRect().bottom<60:window.scrollY>400;
+    var atEnd=end?end.getBoundingClientRect().top<window.innerHeight*0.92:false;
+    var show=pastHero&&!atEnd;
+    dock.classList.toggle('up',show);
+    document.body.classList.toggle('dock-on',show);
+    dtick=false;
+  }
+  window.addEventListener('scroll',function(){if(!dtick){dtick=true;requestAnimationFrame(dockFn);}},{passive:true});
+  window.addEventListener('resize',dockFn); dockFn();
+})();
+</script>
+
 </body>
 </html>
