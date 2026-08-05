@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>메뉴 버튼 시안</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C9A93C;--gold2:#DDB84A}
+*{box-sizing:border-box}
+body{margin:0;background:#08080A;color:#F0F0F4;font-family:'Noto Sans KR',sans-serif;padding:34px;line-height:1.6}
+h1{font-size:18px;font-weight:500;margin:0 0 6px}
+.top{font-size:13px;color:rgba(240,240,244,.4);margin:0 0 30px;line-height:1.75;max-width:880px}
+.row{display:flex;gap:22px;flex-wrap:wrap}
+.col{width:340px}
+.col h2{font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--gold2);margin:0 0 4px;text-transform:uppercase}
+.col .h{font-size:12px;color:rgba(240,240,244,.38);margin:0 0 12px;line-height:1.7;min-height:60px}
+/* 폰 상단바 재현 */
+.bar{width:340px;height:150px;border:1px solid rgba(255,255,255,.09);border-radius:16px;overflow:hidden;position:relative;
+  background:linear-gradient(160deg,#1a1a20,#0b0b0e)}
+.nav{position:absolute;top:0;left:0;right:0;padding:14px 16px;display:grid;grid-template-columns:52px 1fr auto;align-items:center}
+.lg{grid-column:2;justify-self:center;font-family:Montserrat,sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;color:#fff;opacity:.92}
+.lang{position:absolute;top:20px;left:14px;display:flex;gap:1px;background:rgba(10,10,12,.92);border:1px solid rgba(255,255,255,.12);padding:3px}
+.lang b{font-family:Montserrat,sans-serif;font-size:8px;font-weight:500;padding:4px 7px;color:rgba(255,255,255,.45)}
+.lang b.on{background:var(--gold);color:#000}
+.gold{border:1px solid rgba(221,184,74,.5);background:linear-gradient(165deg,rgba(221,184,74,.2),rgba(184,149,46,.05));
+  box-shadow:0 6px 22px rgba(184,149,46,.26),inset 0 1px 0 rgba(255,238,190,.3)}
+.ln{display:block;height:1.5px;background:var(--gold2);border-radius:1px}
+
+/* A — 원형 + 아래 라벨 */
+.a-wrap{grid-column:3;justify-self:end;display:flex;flex-direction:column;align-items:center;gap:5px}
+.a-btn{width:44px;height:44px;border-radius:50%;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:4.5px;padding-right:13px}
+.a-btn .ln:nth-child(1){width:16px}.a-btn .ln:nth-child(2){width:10px}.a-btn .ln:nth-child(3){width:16px}
+.a-lb{font-family:Montserrat,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:.2em;color:rgba(221,184,74,.8)}
+
+/* B — pill + MENU */
+.b-btn{grid-column:3;justify-self:end;height:40px;border-radius:999px;display:flex;align-items:center;gap:9px;padding:0 16px 0 13px}
+.b-ic{display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+.b-ic .ln:nth-child(1){width:14px}.b-ic .ln:nth-child(2){width:9px}.b-ic .ln:nth-child(3){width:14px}
+.b-tx{font-family:Montserrat,sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.18em;color:#F6ECC9}
+
+/* C — 표준 햄버거 + 라벨 */
+.c-btn{grid-column:3;justify-self:end;height:42px;border-radius:8px;display:flex;align-items:center;gap:10px;padding:0 14px}
+.c-ic{display:flex;flex-direction:column;gap:4.5px}
+.c-ic .ln{width:16px}
+.c-tx{font-family:Montserrat,sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.18em;color:#F6ECC9}
+.note{font-size:11.5px;color:rgba(240,240,244,.32);margin-top:10px;line-height:1.7}
+</style></head><body>
+<h1>메뉴 버튼 — 시안 3개</h1>
+<p class="top">왼쪽 위는 새로 옮긴 언어 버튼이야. 오른쪽 버튼이 메뉴고. 현행은 원형에 아무 글자도 없어.</p>
+<div class="row">
+
+<div class="col">
+  <h2>A — 원형 유지 + 아래 라벨</h2>
+  <p class="h">지금 원형 디자인 그대로 두고 밑에 MENU만 작게. 변경이 가장 작고 골드 원형의 인상도 유지됨.</p>
+  <div class="bar"><div class="lang"><b class="on">KO</b><b>EN</b><b>JP</b></div>
+    <div class="nav"><div class="lg">MADEWELL</div>
+      <div class="a-wrap"><div class="a-btn gold"><i class="ln"></i><i class="ln"></i><i class="ln"></i></div><span class="a-lb">MENU</span></div>
+    </div>
+  </div>
+  <p class="note">라벨이 7.5px라 작음. 상단바 높이가 살짝 늘어남.</p>
+</div>
+
+<div class="col">
+  <h2>B — 알약형 + MENU <span style="color:#fff;font-weight:400">(추천)</span></h2>
+  <p class="h">아이콘과 글자를 한 버튼에. 폭이 넓어져서 누를 곳이 명확해지고, 골드 글래스 질감은 그대로 살아있음.</p>
+  <div class="bar"><div class="lang"><b class="on">KO</b><b>EN</b><b>JP</b></div>
+    <div class="nav"><div class="lg">MADEWELL</div>
+      <div class="b-btn gold"><div class="b-ic"><i class="ln"></i><i class="ln"></i><i class="ln"></i></div><span class="b-tx">MENU</span></div>
+    </div>
+  </div>
+  <p class="note">열면 아이콘이 ✕로 돌고 글자가 CLOSE로 바뀜.</p>
+</div>
+
+<div class="col">
+  <h2>C — 사각 + 표준 햄버거</h2>
+  <p class="h">선 3개를 같은 길이로 되돌리고 모서리도 각지게. 가장 익숙한 형태지만 원형 골드의 특별함은 사라짐.</p>
+  <div class="bar"><div class="lang"><b class="on">KO</b><b>EN</b><b>JP</b></div>
+    <div class="nav"><div class="lg">MADEWELL</div>
+      <div class="c-btn gold"><div class="c-ic"><i class="ln"></i><i class="ln"></i><i class="ln"></i></div><span class="c-tx">MENU</span></div>
+    </div>
+  </div>
+  <p class="note">인지는 제일 빠름. 다만 흔한 모양.</p>
+</div>
+
+</div>
+</body></html>

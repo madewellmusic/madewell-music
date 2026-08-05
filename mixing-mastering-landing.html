@@ -53,7 +53,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif
   #nav.light-nav,#nav.dark-nav{padding:14px 20px}
   .nav-inner{display:grid;grid-template-columns:44px 1fr 44px;align-items:center}
   .nav-logo{grid-column:2;justify-self:center}
-  .nav-hamburger{grid-column:3;justify-self:end}
+  .nav-hamburger{grid-column:3;justify-self:end;margin-top:-7px}
 }
 
 /* ── HERO ── */
@@ -390,9 +390,12 @@ footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,.05);paddin
   backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);
   box-shadow:0 6px 22px rgba(184,149,46,.26),inset 0 1px 0 rgba(255,238,190,.3);
   transition:transform .3s,box-shadow .3s,border-color .3s}
-.nav-hamburger::after{content:'';position:absolute;inset:-1px;border-radius:50%;
+.nav-hamburger::before{content:'';position:absolute;inset:-1px;border-radius:50%;
   border:1px solid rgba(221,184,74,.7);opacity:0;pointer-events:none;animation:hbPulse 2.6s ease-out 1.2s 3}
 @keyframes hbPulse{0%{transform:scale(1);opacity:.85}70%,100%{transform:scale(1.45);opacity:0}}
+.nav-hamburger::after{content:'MENU';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  margin-top:5px;font-family:'Montserrat',sans-serif;font-size:7.5px;font-weight:700;letter-spacing:.2em;
+  color:rgba(221,184,74,.82);pointer-events:none;white-space:nowrap;transition:color .25s}
 .nav-hamburger span{display:block;height:1.5px;background:var(--gold2);border-radius:1px;
   transition:transform .34s cubic-bezier(.2,.7,.3,1),opacity .24s,width .34s}
 .nav-hamburger span:nth-child(1){width:17px}
@@ -400,7 +403,9 @@ footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,.05);paddin
 .nav-hamburger span:nth-child(3){width:17px}
 .nav-hamburger:active{transform:scale(.94)}
 .nav-hamburger.open{border-color:rgba(221,184,74,.75);box-shadow:0 8px 30px rgba(184,149,46,.4)}
-.nav-hamburger.open::after{animation:none}
+.nav-hamburger::before{animation:hbPulse 2.6s ease-out 1.2s 3}
+.nav-hamburger.open::before{animation:none;opacity:0}
+.nav-hamburger.open::after{content:'CLOSE';color:rgba(246,236,201,.95)}
 .nav-hamburger.open span{width:18px}
 .nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .nav-hamburger.open span:nth-child(2){opacity:0;width:0}
