@@ -356,19 +356,23 @@ footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,.05);paddin
   background:radial-gradient(ellipse 90% 60% at 78% 8%,rgba(184,149,46,.12) 0%,transparent 58%),rgba(8,8,10,.985);
   backdrop-filter:blur(22px) saturate(1.2);-webkit-backdrop-filter:blur(22px) saturate(1.2);
   flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;
-  padding:92px 26px calc(34px + env(safe-area-inset-bottom));
+  padding:84px 26px calc(32px + env(safe-area-inset-bottom));
   overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y}
 .mobile-menu.open{display:flex}
 body.menu-open{overflow:hidden}
-.mobile-menu a{font-family:'Cormorant Garamond',serif;font-weight:300;
-  font-size:clamp(20px,5.4vw,26px);color:rgba(255,255,255,.84);text-decoration:none;letter-spacing:.01em;
-  padding:15px 2px;width:100%;display:flex;align-items:baseline;gap:16px;
-  border-bottom:1px solid rgba(255,255,255,.055);
+.mobile-menu a{font-family:'Noto Sans KR',sans-serif;font-weight:300;
+  font-size:clamp(15px,4.1vw,17px);color:rgba(255,255,255,.9);text-decoration:none;letter-spacing:.14em;
+  padding:13px 2px;width:100%;display:flex;align-items:center;gap:14px;
+  border-bottom:1px solid rgba(255,255,255,.05);
   opacity:0;transform:translateY(16px);
   transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1),color .25s,padding-left .3s}
 .mobile-menu a::before{counter-increment:mm;content:counter(mm,decimal-leading-zero);
-  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.14em;
-  color:var(--gold);opacity:.5;flex:0 0 24px;transition:opacity .25s}
+  font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:600;letter-spacing:.12em;
+  color:var(--gold);opacity:.45;flex:0 0 20px;transition:opacity .25s}
+.mobile-menu a::after{content:attr(data-en);margin-left:auto;
+  font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(240,240,244,.28);transition:color .25s;white-space:nowrap}
+html[lang="en"] .mobile-menu a::after{display:none}
 .mobile-menu.open a{opacity:1;transform:none}
 .mobile-menu.open a:nth-of-type(1){transition-delay:.06s}
 .mobile-menu.open a:nth-of-type(2){transition-delay:.11s}
@@ -383,6 +387,7 @@ body.menu-open{overflow:hidden}
 .mobile-menu.open a:nth-of-type(n+11){transition-delay:.56s}
 .mobile-menu a:active{color:var(--gold2);padding-left:8px}
 .mobile-menu a:active::before{opacity:1}
+.mobile-menu a:active::after{color:var(--gold2)}
 .mobile-menu-divider{width:100%;height:1px;background:linear-gradient(to right,rgba(201,169,60,.3),transparent);margin:22px 0 4px;flex-shrink:0}
 .mobile-menu-cta{font-family:'Montserrat',sans-serif!important;font-size:11.5px!important;font-weight:700!important;
   letter-spacing:.14em!important;text-transform:uppercase;justify-content:center!important;align-items:center!important;
@@ -390,7 +395,7 @@ body.menu-open{overflow:hidden}
   background:linear-gradient(165deg,rgba(221,184,74,.4),rgba(184,149,46,.16))!important;
   color:#F6ECC9!important;padding:17px 20px!important;margin-top:12px;
   box-shadow:0 8px 28px rgba(184,149,46,.26),inset 0 1px 0 rgba(255,238,190,.32)}
-.mobile-menu-cta::before{content:none!important}
+.mobile-menu-cta::before,.mobile-menu-cta::after{content:none!important}
 @media(prefers-reduced-motion:reduce){.mobile-menu a{opacity:1;transform:none;transition-delay:0s!important}.nav-hamburger::after{animation:none}}
 
 /* ── HERO MOBILE ── */
@@ -677,16 +682,16 @@ body.menu-open{overflow:hidden}
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="mixing-mastering-landing.html#gear" onclick="closeMobileMenu()" data-i18n="nav-gear">장비</a>
-  <a href="mixing-mastering-landing.html#credits" onclick="closeMobileMenu()" data-i18n="nav-credits">크레딧</a>
-  <a href="mixing-mastering-landing.html" data-i18n="nav-studio">스튜디오</a>
-  <a href="#services" onclick="closeMobileMenu()" data-i18n="nav-services">서비스</a>
-  <a href="recording.html" data-i18n="nav-rec">녹음실 렌트</a>
-  <a href="demo.html" data-i18n="nav-demo" style="color:var(--gold2)">무료 진단</a>
-  <a href="#rental" onclick="closeMobileMenu()" data-i18n="nav-rental">대관</a>
-  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-  <a href="#reserve" onclick="closeMobileMenu()" data-i18n="nav-reserve">예약</a>
-  <a href="mixing-mastering-landing.html#about" onclick="closeMobileMenu()" data-i18n="nav-about">소개</a>
+  <a href="mixing-mastering-landing.html#gear" onclick="closeMobileMenu()" data-i18n="nav-gear" data-en="Gear">장비</a>
+  <a href="mixing-mastering-landing.html#credits" onclick="closeMobileMenu()" data-i18n="nav-credits" data-en="Credits">크레딧</a>
+  <a href="mixing-mastering-landing.html" data-i18n="nav-studio" data-en="Studio">스튜디오</a>
+  <a href="#services" onclick="closeMobileMenu()" data-i18n="nav-services" data-en="Services">서비스</a>
+  <a href="recording.html" data-i18n="nav-rec" data-en="Recording">녹음실 렌트</a>
+  <a href="demo.html" data-i18n="nav-demo" style="color:var(--gold2)" data-en="Free Check">무료 진단</a>
+  <a href="#rental" onclick="closeMobileMenu()" data-i18n="nav-rental" data-en="Rental">대관</a>
+  <a href="#faq" onclick="closeMobileMenu()" data-i18n="nav-faq" data-en="FAQ">자주 묻는 질문</a>
+  <a href="#reserve" onclick="closeMobileMenu()" data-i18n="nav-reserve" data-en="Reserve">예약</a>
+  <a href="mixing-mastering-landing.html#about" onclick="closeMobileMenu()" data-i18n="nav-about" data-en="About">소개</a>
   <div class="mobile-menu-divider"></div>
   <a href="http://pf.kakao.com/_axcYxlb/chat" target="_blank" class="mobile-menu-cta ko-only" id="mm-cta-ko" onclick="closeMobileMenu()" data-i18n="mm-cta">카카오톡 문의</a>
   <a href="https://mail.google.com/mail/?view=cm&to=madewellofficial%40gmail.com&su=Mixing%20%26%20Mastering%20Inquiry%20-%20MADEWELL%20MUSIC" target="_blank" class="mobile-menu-cta intl-only" id="mm-cta-intl" onclick="closeMobileMenu()" data-i18n="mm-cta-intl">Contact via Email</a>
@@ -1305,7 +1310,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 // ── LANGUAGE SYSTEM ──
 const T={
   ko:{
-    'nav-price':'가격','nav-studio':'스튜디오','dock-studio':'스튜디오','dock-cta':'카카오톡으로 문의하기','dock-cta-intl':'카카오톡으로 문의하기',
+    'nav-price':'가격','nav-faq':'자주 묻는 질문','nav-studio':'스튜디오','dock-studio':'스튜디오','dock-cta':'카카오톡으로 문의하기','dock-cta-intl':'카카오톡으로 문의하기',
     'ph-h':'투명한 가격,<br/><em style="font-style:italic;color:var(--gold2)">숨은 비용 없이.</em>',
     'ph-p':'아래 금액이 전부입니다. 픽스 전까지 수정은 자유롭게 진행되며, 추가 요금은 발생하지 않습니다.<br/>앨범 전체·대형 편성·방송·광고 작업은 트랙 수 확인 후 맞춤 견적을 드립니다.',
     'nav-gear':'장비','nav-credits':'크레딧','nav-services':'서비스','nav-rental':'대관','nav-rec':'녹음실 렌트','nav-demo':'무료 진단',
@@ -1419,7 +1424,7 @@ const T={
     'quote-sub':'Pick a service and song count. One click copies your quote and opens the chat.',
     'q-svc':'1 · Select Service','q-songs':'2 · Number of Songs','q-addon':'3 · Add-ons','q-est':'Estimated Quote',
     'q-note':'Free revisions before final fix · Final price may vary by track count &amp; file condition · Ask about multi-song discounts for EPs/albums',
-    'nav-price':'Pricing','nav-studio':'Studio','dock-studio':'Studio','dock-cta':'Contact via Email','dock-cta-intl':'Contact via Email',
+    'nav-price':'Pricing','nav-faq':'FAQ','nav-studio':'Studio','dock-studio':'Studio','dock-cta':'Contact via Email','dock-cta-intl':'Contact via Email',
     'ph-h':'Transparent pricing,<br/><em style="font-style:italic;color:var(--gold2)">no hidden costs.</em>',
     'ph-p':'What you see below is the full amount. Revisions stay open until the mix is locked, at no extra charge.<br/>Full albums, large ensembles, broadcast and advertising work receive a custom quote after a track count review.',
     'nav-gear':'Gear','nav-credits':'Credits','nav-services':'Services','nav-rental':'Rental','nav-rec':'Recording','nav-demo':'Free Check',
@@ -1534,7 +1539,7 @@ const T={
     'quote-sub':'サービスと曲数を選ぶだけ。ワンクリックで見積もりがコピーされ、チャットが開きます。',
     'q-svc':'1 · サービス選択','q-songs':'2 · 曲数','q-addon':'3 · 追加オプション','q-est':'お見積もり',
     'q-note':'フィックス前の修正無料 · トラック数・ファイル状態により最終金額は変動する場合があります · アルバム等の複数曲割引はご相談ください',
-    'nav-price':'料金','nav-studio':'スタジオ','dock-studio':'スタジオ','dock-cta':'メールでお問い合わせ','dock-cta-intl':'メールでお問い合わせ',
+    'nav-price':'料金','nav-faq':'よくある質問','nav-studio':'スタジオ','dock-studio':'スタジオ','dock-cta':'メールでお問い合わせ','dock-cta-intl':'メールでお問い合わせ',
     'ph-h':'透明な料金、<br/><em style="font-style:italic;color:var(--gold2)">隠れた費用なし。</em>',
     'ph-p':'下記の金額がすべてです。フィックス前まで修正は自由に行え、追加料金は発生しません。<br/>アルバム全体・大規模編成・放送・広告のお仕事はトラック数確認後にお見積もりします。',
     'nav-gear':'機材','nav-credits':'実績','nav-services':'サービス','nav-rental':'レンタル','nav-rec':'レコーディング','nav-demo':'無料診断',

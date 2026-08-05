@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>모바일 메뉴 — 폰트 시안</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+KR:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C9A93C;--gold2:#DDB84A;--ink:#F0F0F4}
+*{box-sizing:border-box}
+body{margin:0;background:#08080A;color:var(--ink);font-family:'Noto Sans KR',sans-serif;padding:30px;line-height:1.6}
+h1{font-size:18px;font-weight:500;margin:0 0 6px}
+.top{font-size:13px;color:rgba(240,240,244,.4);margin:0 0 28px;line-height:1.75;max-width:900px}
+.row{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start}
+.col{width:330px}
+.col h2{font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--gold2);margin:0 0 4px;text-transform:uppercase}
+.col .h{font-size:12px;color:rgba(240,240,244,.38);margin:0 0 12px;line-height:1.7;min-height:52px}
+.ph{width:330px;height:700px;overflow-y:auto;border:1px solid rgba(255,255,255,.09);border-radius:18px;
+  background:radial-gradient(ellipse 90% 60% at 78% 8%,rgba(184,149,46,.12) 0%,transparent 58%),rgba(8,8,10,.99);
+  padding:74px 24px 34px;scrollbar-width:thin}
+.ph::-webkit-scrollbar{width:4px}.ph::-webkit-scrollbar-thumb{background:rgba(201,169,60,.3);border-radius:2px}
+.hb{position:sticky;top:-60px;float:right;width:44px;height:44px;border-radius:50%;margin:-58px -6px 0 0;
+  border:1px solid rgba(221,184,74,.5);background:linear-gradient(165deg,rgba(221,184,74,.2),rgba(184,149,46,.05));
+  display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:4.5px;padding-right:13px;
+  box-shadow:0 6px 22px rgba(184,149,46,.26),inset 0 1px 0 rgba(255,238,190,.3)}
+.hb i{display:block;height:1.5px;background:var(--gold2);border-radius:1px}
+.hb i:nth-child(1){width:17px}.hb i:nth-child(2){width:11px}.hb i:nth-child(3){width:17px}
+.dv{width:100%;height:1px;background:linear-gradient(to right,rgba(201,169,60,.3),transparent);margin:22px 0 4px}
+.cta{display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-size:11.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(221,184,74,.55);
+  background:linear-gradient(165deg,rgba(221,184,74,.4),rgba(184,149,46,.16));color:#F6ECC9;padding:17px 20px;margin-top:12px;
+  box-shadow:0 8px 28px rgba(184,149,46,.26),inset 0 1px 0 rgba(255,238,190,.32)}
+.lang{display:flex;justify-content:center;gap:5px;margin-top:16px}
+.lang b{font-family:Montserrat,sans-serif;font-size:11px;font-weight:500;padding:8px 16px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5)}
+.lang b.on{background:var(--gold);color:#000;border-color:var(--gold)}
+
+/* 현행 */
+.m0 a{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:24px;color:rgba(255,255,255,.84);
+  text-decoration:none;padding:15px 2px;width:100%;display:flex;align-items:baseline;gap:16px;
+  border-bottom:1px solid rgba(255,255,255,.055)}
+.m0 a::before{counter-increment:m0;content:counter(m0,decimal-leading-zero);font-family:Montserrat,sans-serif;
+  font-size:9px;font-weight:700;letter-spacing:.14em;color:var(--gold);opacity:.5;flex:0 0 24px}
+.m0{counter-reset:m0}
+
+/* A — 한/영 병기 1열 */
+.mA{counter-reset:mA}
+.mA a{display:flex;align-items:center;gap:14px;text-decoration:none;padding:13px 2px;
+  border-bottom:1px solid rgba(255,255,255,.05)}
+.mA a::before{counter-increment:mA;content:counter(mA,decimal-leading-zero);font-family:Montserrat,sans-serif;
+  font-size:8.5px;font-weight:600;letter-spacing:.12em;color:var(--gold);opacity:.45;flex:0 0 20px}
+.mA .k{font-family:'Noto Sans KR',sans-serif;font-weight:300;font-size:16px;letter-spacing:.14em;
+  color:rgba(255,255,255,.9);flex:1}
+.mA .e{font-family:Montserrat,sans-serif;font-weight:600;font-size:8.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(240,240,244,.28)}
+
+/* B — 2열 그리드 */
+.mB{counter-reset:mB;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.055)}
+.mB a{background:#08080A;text-decoration:none;padding:17px 14px;display:block}
+.mB a::before{counter-increment:mB;content:counter(mB,decimal-leading-zero);font-family:Montserrat,sans-serif;
+  font-size:8px;font-weight:600;letter-spacing:.12em;color:var(--gold);opacity:.5;display:block;margin-bottom:7px}
+.mB .k{font-family:'Noto Sans KR',sans-serif;font-weight:300;font-size:15px;letter-spacing:.1em;color:rgba(255,255,255,.9);display:block}
+.mB .e{font-family:Montserrat,sans-serif;font-weight:600;font-size:7.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(240,240,244,.26);display:block;margin-top:5px}
+
+/* C — 위계 분리 */
+.mC .lead a{display:flex;align-items:baseline;gap:13px;text-decoration:none;padding:14px 2px;
+  border-bottom:1px solid rgba(201,169,60,.16)}
+.mC .lead .k{font-family:'Noto Sans KR',sans-serif;font-weight:300;font-size:20px;letter-spacing:.12em;color:#fff;flex:1}
+.mC .lead .e{font-family:Montserrat,sans-serif;font-weight:600;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.75}
+.mC .sub{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+.mC .sub a{text-decoration:none;font-family:'Noto Sans KR',sans-serif;font-weight:300;font-size:12px;letter-spacing:.08em;
+  color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.12);padding:9px 13px}
+.mC .lbl{font-family:Montserrat,sans-serif;font-size:8px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+  color:rgba(240,240,244,.25);margin:26px 0 2px}
+</style></head><body>
+<h1>모바일 메뉴 — 폰트 시안 3개</h1>
+<p class="top">Cormorant Garamond는 한글 글리프가 없어서 지금 한글 메뉴는 세리프가 아니라 Noto Sans KR로 떨어지고 있어. 그래서 크기만 크고 우아함이 안 붙는 거야. 세 시안 모두 한글은 <b style="color:#DDB84A;font-weight:400">얇은 산세리프 + 넓은 자간</b>으로 가고, 세리프 대신 <b style="color:#DDB84A;font-weight:400">영문 라벨</b>로 격을 만들었어.</p>
+
+<div class="row">
+
+<div class="col">
+  <h2>현행 (참고)</h2>
+  <p class="h">Cormorant 24px. 한글엔 세리프가 안 먹어서 그냥 큰 고딕. 10개 = 640px.</p>
+  <div class="ph"><div class="hb"><i></i><i></i><i></i></div>
+    <div class="m0">
+      <a>장비</a><a>크레딧</a><a>서비스</a><a>가격</a><a>녹음실 렌트</a>
+      <a>무료 진단</a><a>대관</a><a>FAQ</a><a>예약</a><a>소개</a>
+    </div>
+    <div class="dv"></div><div class="cta">카카오톡 문의</div>
+    <div class="lang"><b class="on">KO</b><b>EN</b><b>JP</b></div>
+  </div>
+</div>
+
+<div class="col">
+  <h2>A — 한/영 병기 1열 <span style="color:#fff;font-weight:400">(추천)</span></h2>
+  <p class="h">한글 16px 얇게 + 자간 0.14em, 오른쪽에 영문 라벨 8.5px. 좌우로 정보가 퍼져서 세로가 짧아지고 목차처럼 읽힘. 10개 = 460px.</p>
+  <div class="ph"><div class="hb"><i></i><i></i><i></i></div>
+    <div class="mA">
+      <a><span class="k">장비</span><span class="e">Gear</span></a>
+      <a><span class="k">크레딧</span><span class="e">Credits</span></a>
+      <a><span class="k">서비스</span><span class="e">Services</span></a>
+      <a><span class="k">가격</span><span class="e">Pricing</span></a>
+      <a><span class="k">녹음실 렌트</span><span class="e">Recording</span></a>
+      <a><span class="k">무료 진단</span><span class="e">Free Check</span></a>
+      <a><span class="k">대관</span><span class="e">Rental</span></a>
+      <a><span class="k">자주 묻는 질문</span><span class="e">FAQ</span></a>
+      <a><span class="k">예약</span><span class="e">Reserve</span></a>
+      <a><span class="k">소개</span><span class="e">About</span></a>
+    </div>
+    <div class="dv"></div><div class="cta">카카오톡 문의</div>
+    <div class="lang"><b class="on">KO</b><b>EN</b><b>JP</b></div>
+  </div>
+</div>
+
+<div class="col">
+  <h2>B — 2열 그리드</h2>
+  <p class="h">10개를 2열 5행으로. 세로가 절반 이하로 줄고 한 화면에 다 들어옴. 다만 항목이 타일처럼 보여서 메뉴보다 카드에 가까움. 10개 = 300px.</p>
+  <div class="ph"><div class="hb"><i></i><i></i><i></i></div>
+    <div class="mB">
+      <a><span class="k">장비</span><span class="e">Gear</span></a>
+      <a><span class="k">크레딧</span><span class="e">Credits</span></a>
+      <a><span class="k">서비스</span><span class="e">Services</span></a>
+      <a><span class="k">가격</span><span class="e">Pricing</span></a>
+      <a><span class="k">녹음실</span><span class="e">Recording</span></a>
+      <a><span class="k">무료 진단</span><span class="e">Free Check</span></a>
+      <a><span class="k">대관</span><span class="e">Rental</span></a>
+      <a><span class="k">FAQ</span><span class="e">FAQ</span></a>
+      <a><span class="k">예약</span><span class="e">Reserve</span></a>
+      <a><span class="k">소개</span><span class="e">About</span></a>
+    </div>
+    <div class="dv"></div><div class="cta">카카오톡 문의</div>
+    <div class="lang"><b class="on">KO</b><b>EN</b><b>JP</b></div>
+  </div>
+</div>
+
+<div class="col">
+  <h2>C — 위계 분리</h2>
+  <p class="h">돈이 되는 4개만 크게, 나머지는 작은 칩. 거래처 시선을 가격·녹음실·예약으로 몰아줌. 전환 관점에선 이게 제일 셈.</p>
+  <div class="ph"><div class="hb"><i></i><i></i><i></i></div>
+    <div class="mC">
+      <div class="lead">
+        <a><span class="k">가격 안내</span><span class="e">Pricing</span></a>
+        <a><span class="k">녹음실 렌트</span><span class="e">Recording</span></a>
+        <a><span class="k">무료 진단</span><span class="e">Free Check</span></a>
+        <a><span class="k">예약 문의</span><span class="e">Reserve</span></a>
+      </div>
+      <div class="lbl">More</div>
+      <div class="sub">
+        <a>장비</a><a>크레딧</a><a>서비스</a><a>대관</a><a>FAQ</a><a>소개</a>
+      </div>
+    </div>
+    <div class="dv"></div><div class="cta">카카오톡 문의</div>
+    <div class="lang"><b class="on">KO</b><b>EN</b><b>JP</b></div>
+  </div>
+</div>
+
+</div>
+</body></html>
