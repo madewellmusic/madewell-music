@@ -120,7 +120,7 @@ h1 em{font-style:italic;color:var(--gold2)}
 .sw-list{display:flex;flex-wrap:wrap;gap:7px;padding-top:2px}
 .sw-chip{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.06em;color:var(--body);background:var(--bg2);border:1px solid var(--border);padding:6px 14px;transition:border-color .2s}
 .sw-chip:hover{border-color:var(--border2)}
-@media(max-width:860px){.gear-all{grid-template-columns:1fr 1fr}.ga-group.wide{grid-column:auto}.gear-photo-strip{grid-template-columns:1fr 1fr;height:200px}}
+@media(max-width:860px){.gear-all{grid-template-columns:1fr 1fr}.ga-group.wide{grid-column:auto}.gear-photo-strip{height:auto}.gear-ph{aspect-ratio:1/1}}
 @media(max-width:600px){.gear-all{grid-template-columns:1fr}.ga-group.wide,.ga-group.full{grid-column:auto}}
 
 /* ── GALLERY SLIDER ── */
@@ -372,32 +372,15 @@ body.menu-open{overflow:hidden}
   .loc-inner{gap:32px}
 }
 
-/* ── GEAR STRIP MOBILE — PC와 같은 가로 비율 스와이프 카러셀 ── */
+/* ── GEAR STRIP MOBILE — PC와 동일한 4칸 정사각 띠 유지 ── */
 @media(max-width:700px){
-  .gear-photo-strip{
-    display:flex;height:auto;gap:10px;
-    overflow-x:auto;overflow-y:hidden;
-    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
-    margin:30px -20px 8px;padding:0 20px 12px;
-    scrollbar-width:none;-ms-overflow-style:none;
-  }
-  .gear-photo-strip::-webkit-scrollbar{display:none}
-  .gear-ph{
-    flex:0 0 74%;height:auto;aspect-ratio:1/1;
-    scroll-snap-align:center;border:1px solid var(--border);
-  }
-  .gear-ph img{filter:contrast(1.1) brightness(.92) saturate(.88)}
-  .gear-ph-cap{font-size:8px;padding:9px 13px;letter-spacing:.18em}
-  .gear-swipe-hint{
-    display:block;text-align:center;font-family:'Montserrat',sans-serif;
-    font-size:9px;letter-spacing:.2em;color:var(--muted);
-    text-transform:uppercase;margin:0 0 34px;
-  }
+  .gear-photo-strip{grid-template-columns:repeat(4,1fr);gap:2px;height:auto;margin:30px 0 44px}
+  .gear-ph{aspect-ratio:1/1;height:auto}
+  .gear-ph-cap{display:none}
 }
-@supports not (aspect-ratio:16/10){
-  @media(max-width:700px){.gear-ph{height:74vw}}
+@supports not (aspect-ratio:1/1){
+  @media(max-width:700px){.gear-photo-strip{height:23vw}.gear-ph{height:100%}}
 }
-.gear-swipe-hint{display:none}
 
 /* ── LOCATION MOBILE ── */
 @media(max-width:480px){
@@ -913,7 +896,6 @@ body.menu-open{overflow:hidden}
         <div class="gear-ph-cap">Reference Headphones</div>
       </div>
     </div>
-    <div class="gear-swipe-hint" data-i18n="gear-swipe">← 옆으로 밀어서 보기 →</div>
     <!-- All gear, always visible -->
     <div class="gear-all reveal2">
       <!-- Row 1 -->
@@ -1721,7 +1703,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 // ── LANGUAGE SYSTEM ──
 const T={
   ko:{
-    'nav-price':'가격','nav-studio':'스튜디오','gear-swipe':'← 옆으로 밀어서 보기 →',
+    'nav-price':'가격','nav-studio':'스튜디오',
     'phil-h':'좋은 소리는 취향이 아니라,<br/><em style="font-style:italic;color:var(--gold2)">기준</em>입니다.',
     'phil-p1':'MADEWELL MUSIC은 <b>“어떻게 들리게 할까”보다 “무엇을 지킬까”</b>를 먼저 정합니다. 가수의 숨소리, 연주자의 손끝, 곡을 처음 떠올린 순간의 감정 — 장비와 기술은 그것을 부풀리기 위해서가 아니라, 잃지 않기 위해 존재합니다.',
     'phil-p2':'그래서 한 곡은 한 사람이 끝까지 책임집니다. 레코딩부터 믹싱, 마스터링까지 <b>손이 바뀌지 않습니다.</b> K-POP 현장에서 검증된 판단 기준을, 작업의 규모와 상관없이 똑같이 적용합니다.',
@@ -1841,7 +1823,7 @@ const T={
     'quote-sub':'Pick a service and song count. One click copies your quote and opens the chat.',
     'q-svc':'1 · Select Service','q-songs':'2 · Number of Songs','q-addon':'3 · Add-ons','q-est':'Estimated Quote',
     'q-note':'Free revisions before final fix · Final price may vary by track count &amp; file condition · Ask about multi-song discounts for EPs/albums',
-    'nav-price':'Pricing','nav-studio':'Studio','gear-swipe':'← Swipe to browse →',
+    'nav-price':'Pricing','nav-studio':'Studio',
     'phil-h':'Great sound isn\'t a taste.<br/>It\'s a <em style="font-style:italic;color:var(--gold2)">standard</em>.',
     'phil-p1':'At MADEWELL MUSIC we decide <b>what to protect before we decide how it should sound.</b> A singer\'s breath, a player\'s fingertips, the feeling behind the very first sketch — our gear exists not to inflate any of it, but to keep it from being lost.',
     'phil-p2':'That is why one song is carried by one person from start to finish. From recording through mixing to mastering, <b>the hands never change.</b> The standards proven on K-POP releases apply the same way, whatever the scale of the project.',
@@ -1962,7 +1944,7 @@ const T={
     'quote-sub':'サービスと曲数を選ぶだけ。ワンクリックで見積もりがコピーされ、チャットが開きます。',
     'q-svc':'1 · サービス選択','q-songs':'2 · 曲数','q-addon':'3 · 追加オプション','q-est':'お見積もり',
     'q-note':'フィックス前の修正無料 · トラック数・ファイル状態により最終金額は変動する場合があります · アルバム等の複数曲割引はご相談ください',
-    'nav-price':'料金','nav-studio':'スタジオ','gear-swipe':'← スワイプしてご覧ください →',
+    'nav-price':'料金','nav-studio':'スタジオ',
     'phil-h':'良い音は好みではなく、<br/><em style="font-style:italic;color:var(--gold2)">基準</em>です。',
     'phil-p1':'MADEWELL MUSICは<b>「どう聴かせるか」より「何を守るか」</b>を先に決めます。歌い手の息づかい、演奏者の指先、曲を思いついた最初の瞬間の感情——機材と技術は、それを膨らませるためではなく、失わないために存在します。',
     'phil-p2':'だから一曲を一人が最後まで担当します。レコーディングからミックス、マスタリングまで<b>手が変わりません。</b>K-POPの現場で証明された判断基準を、規模に関わらず同じように適用します。',
