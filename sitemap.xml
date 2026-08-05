@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://www.madewellmusic.co.kr/</loc>
-  </url>
-
-  <url>
-    <loc>https://www.madewellmusic.co.kr/mixing-mastering-landing.html</loc>
-  </url>
+  <url><loc>https://www.madewellmusic.co.kr/</loc></url>
+  <url><loc>https://www.madewellmusic.co.kr/mixing-mastering-landing.html</loc></url>
+  <url><loc>https://www.madewellmusic.co.kr/price.html</loc></url>
+  <url><loc>https://www.madewellmusic.co.kr/recording.html</loc></url>
+  <url><loc>https://www.madewellmusic.co.kr/demo.html</loc></url>
+  <url><loc>https://www.madewellmusic.co.kr/lesson-landing.html</loc></url>
+  <url><loc>https://www.madewellmusic.co.kr/artist.html</loc></url>
 
 </urlset>
